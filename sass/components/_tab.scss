@@ -1,0 +1,22 @@
+.tab ul {
+    display: flex;
+    border-bottom: 1px solid $dark-grey;
+    padding-bottom: 2px;
+
+    li {
+        margin-right: 20px;
+
+        a {
+            background-color: $light-milktea;
+            border-radius: 10px 10px 0px 0px;
+            line-height: 40px;
+            width: 120px;
+            height: 40px;
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            color: $black;
+        }
+    }
+
+}
