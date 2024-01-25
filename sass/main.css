@@ -131,4 +131,18 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+.title {
+  display: flex;
+}
+.title h1 {
+  font-size: 32px;
+}
+.title h1::before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  display: block;
+  background-image: url(../img/logo_title.svg);
 }/*# sourceMappingURL=main.css.map */

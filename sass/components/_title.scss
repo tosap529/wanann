@@ -1,0 +1,14 @@
+.title{
+    display: flex;
+    h1{
+        font-size: $h1;
+    }
+    h1::before{
+        content:'';
+        width: 100px;
+        height: 100px;
+        display: block;
+        // background-color: yellow;
+        background-image: url(../img/logo_title.svg);
+    }
+}
