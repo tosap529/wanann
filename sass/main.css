@@ -131,4 +131,17 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+.btn {
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #B69B85;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #9B7B6C;
 }/*# sourceMappingURL=main.css.map */

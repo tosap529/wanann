@@ -1,0 +1,14 @@
+.btn{
+
+    display:block;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: $dark-milktea;
+    color: $white;
+    border: none;
+    cursor: pointer;
+    &:hover{
+        background-color: $brown;
+    }
+
+}
