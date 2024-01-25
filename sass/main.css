@@ -133,16 +133,15 @@ table {
   border-spacing: 0;
 }
 
-.title {
-  display: flex;
-}
-.title h1 {
-  font-size: 32px;
-}
-.title h1::before {
-  content: "";
-  width: 100px;
-  height: 100px;
+.btn {
   display: block;
-  background-image: url(../img/logo_title.svg);
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #B69B85;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #9B7B6C;
 }/*# sourceMappingURL=main.css.map */
