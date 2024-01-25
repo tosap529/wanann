@@ -1,8 +1,9 @@
+// base
 @import "vendors/_reset.scss";
 @import "base/_color.scss";
 @import "base/_font.scss";
 @import "base/_var.scss";
-
+// components
 @import "components/_banner.scss";
 @import "components/_btn.scss";
 @import "components/_btt.scss";
@@ -11,13 +12,11 @@
 @import "components/_circle.scss";
 @import "components/_tab.scss";
 @import "components/_title.scss";
-
-
+// layout
 @import "layout/_footer.scss";
 @import "layout/_header.scss";
 @import "layout/_login.scss";
 @import "layout/_nav.scss";
 @import "layout/_sidebar.scss";
-
-
+// utils
 @import "utils/_mixins.scss";
