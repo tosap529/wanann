@@ -2,17 +2,63 @@ main.css.map
 main.css
 
 # 頁面的css和map要丟這裡！
+# 黛琳
+pages/welcome.css
+pages/welcome.css.map
+pages/index.css
+pages/index.css.map
+pages/game.css
+pages/game.css.map
 
 # 志勤
 pages/act.css
 pages/act.css.map
-pages/articles.css.
+pages/articles.css
 pages/articles.css.map
-pages/article1.css
-pages/article1.css.map
+pages/article.css
+pages/article.css.map
+pages/service.css
+pages/service.css.map
+pages/case.css
+pages/case.css.map
+pages/planA.css
+pages/planA.css.map
+pages/reserve1.css
+pages/reserve1.css.map
+pages/reserve2.css
+pages/reserve2.css.map
+pages/reserve3.css
+pages/reserve3.css.map
+
 # 芯柔
 pages/forget.css
 pages/forget.css.map
-pages/index.css
-pages/index.css.map
+pages/about.css
+pages/about.css.map
+pages/member.css
+pages/member.css.map
+
+# 水焜
+pages/mall.css
+pages/mall.css.map
+pages/mItem.css
+pages/mItem.css.map
+pages/mPay1.css
+pages/mPay1.css.map
+pages/mPay2.css
+pages/mPay2.css.map
+pages/mPay3.css
+pages/mPay3.css.map
+pages/sPay1.css
+pages/sPay1.css.map
+pages/sPay2.css
+pages/sPay2.css.map
+pages/sPay3.css
+pages/sPay3.css.map
+
+#立銘
+pages/contact.css
+pages/contact.css.map
+pages/bMember.css
+pages/bMember.css.map
 
