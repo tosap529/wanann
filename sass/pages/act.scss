@@ -1,13 +1,14 @@
-@import "../main.scss";
+@import "../main.css";
 
-.wrapper{
-    .section1{
-        button{
+.wrapper {
+    .section1 {
+        button {
             background-color: $black;
         }
     }
-    .section2{
-        h1{
+
+    .section2 {
+        h1 {
             font-size: 20px;
         }
     }
@@ -17,5 +18,3 @@
 // body{
 //     display: none;
 // }
-
-
