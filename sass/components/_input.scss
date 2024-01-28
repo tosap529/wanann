@@ -1,0 +1,13 @@
+input {
+    background-color: $light-milktea;
+    border: none;
+    border-radius: 8px;
+    box-sizing: border-box;
+    height: 40px;
+    font-size: $p;
+    padding-left: 10px;
+
+    &:focus {
+        outline: 2px solid $brown;
+    }
+}

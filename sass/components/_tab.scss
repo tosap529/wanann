@@ -1,3 +1,4 @@
+// class="tab"
 .tab ul {
     display: flex;
     border-bottom: 1px solid $dark-grey;
@@ -19,4 +20,10 @@
         }
     }
 
+}
+
+// active狀態的tab加上此class
+.tab_on {
+    background-color: $dark-milktea;
+    color: $white;
 }

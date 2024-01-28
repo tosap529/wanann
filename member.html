@@ -4,13 +4,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a7a16df63a.js" crossorigin="anonymous"></script>
     <title>浣安 | 會員中心</title>
     <link rel="stylesheet" href="./sass/main.css">
     <link rel="stylesheet" href="./sass/pages/member.css">
 </head>
 
 <body>
+    <div class="wrapper">
+        <section class="sidebar">
+            <div>
+                <input type="file" class="profileMini">
+                <h2>thd104</h2>
+            </div>
+            <ul>
+                <!-- userData -->
+                <li class="active"><a href="#">個人資料</a></li>
+                <!-- sOrder -->
+                <li><a href="#">服務訂單</a></li>
+                <!-- mOrder -->
+                <li><a href="#">商城訂單</a></li>
+                <!-- logOut -->
+                <li><a href="#">登出</a></li>
+            </ul>
+        </section>
+        <!-- 個人資料分頁(預設) -->
+        <section class="main userData pageNow">
+            <div>
+                <input type="file" class="profile">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+            <div>
+                <h2>帳號</h2>
+                <input type="text" disabled>
+            </div>
+            <div>
+                <h2>修改密碼</h2>
+                <input type="password" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div>
+                <h2>姓名</h2>
+                <input type="text" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div>
+                <h2>手機號碼</h2>
+                <input type="tel" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div>
+                <h2>電子信箱</h2>
+                <input type="email" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div class="sAddress">
+                <h2>服務地址</h2>
+                <select name="county" id="" disabled>
+                    <option value="">縣市</option>
+                    <option value="newTaipei">新北市</option>
+                    <option value="taipei">台北市</option>
+                    <option value="taoyuan">桃園市</option>
+                </select>
+                <select name="dNewTaipei" id="" disabled>
+                    <option value="">區</option>
+                    <option value="">三峽區</option>
+                    <option value="">三重區</option>
+                    <option value="">中和區</option>
+                    <option value="">五股區</option>
+                    <option value="">板橋區</option>
+                    <option value="">新店區</option>
+                    <option value="">永和區</option>
+                    <option value="">汐止區</option>
+                    <option value="">新莊區</option>
+                    <option value="">淡水區</option>
+                    <option value="">深坑區</option>
+                    <option value="">蘆洲區</option>
+                    <option value="">林口區</option>
+                    <option value="">泰山區</option>
+                    <option value="">土城區</option>
 
+                </select>
+                <select name="dTaipei" id="" disabled>
+                    <option value="">區</option>
+                    <option value="">中正區</option>
+                    <option value="">大同區</option>
+                    <option value="">中山區</option>
+                    <option value="">松山區</option>
+                    <option value="">大安區</option>
+                    <option value="">萬華區</option>
+                    <option value="">信義區</option>
+                    <option value="">士林區</option>
+                    <option value="">北投區</option>
+                    <option value="">內湖區</option>
+                    <option value="">南港區</option>
+                    <option value="">文山區</option>
+
+                </select>
+                <select name="dTaoyuan" id="" disabled>
+                    <option value="">區</option>
+                    <option value="">桃園區</option>
+                    <option value="">八德區</option>
+                    <option value="">龜山區</option>
+                </select>
+                <input type="text" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div class="mAddress">
+                <h2>收件地址</h2>
+                <input type="text" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+        </section>
+
+
+        <!-- 服務訂單分頁 -->
+        <section class="main sOrder"></section>
+        <!-- 商城訂單分頁 -->
+        <section class="main mOrder"></section>
+
+    </div>
+
+
+
+    <script>
+        let userData_el = document.querySelector(".sidebar li:nth-child(1)");
+        let sOrder_el = document.querySelector(".sidebar li:nth-child(2)");
+        let mOrder_el = document.querySelector(".sidebar li:nth-child(3)");
+        let userData_page = document.querySelector(".userData");
+        let sOrder_page = document.querySelector(".sOrder");
+        let mOrder_page = document.querySelector(".mOrder");
+
+        userData_el.addEventListener("click", function () {
+            this.classList.add("active");
+            sOrder_el.classList.remove("active");
+            mOrder_el.classList.remove("active");
+
+            userData_page.classList.add("pageNow");
+            sOrder_page.classList.remove("pageNow");
+            mOrder_page.classList.remove("pageNow");
+
+        })
+        sOrder_el.addEventListener("click", function () {
+            this.classList.add("active");
+            userData_el.classList.remove("active");
+            mOrder_el.classList.remove("active");
+
+            sOrder_page.classList.add("pageNow");
+            userData_page.classList.remove("pageNow");
+            mOrder_page.classList.remove("pageNow");
+        })
+        mOrder_el.addEventListener("click", function () {
+            this.classList.add("active");
+            sOrder_el.classList.remove("active");
+            userData_el.classList.remove("active");
+
+            mOrder_page.classList.add("pageNow");
+            userData_page.classList.remove("pageNow");
+            sOrder_page.classList.remove("pageNow");
+        })
+    </script>
 </body>
 
 </html>
