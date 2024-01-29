@@ -1,0 +1,474 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  display: block;
+}
+
+.btn {
+  display: block;
+  font-family: "Inter";
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #B69B85;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #9B7B6C;
+}
+
+.fa-angle-up {
+  display: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 1;
+  position: fixed;
+  bottom: 5%;
+  right: 12px;
+  background-color: #B69B85;
+  color: #ffffff;
+}
+.fa-angle-up:hover {
+  background-color: #9B7B6C;
+}
+
+.tab ul {
+  display: flex;
+  border-bottom: 1px solid #6C6C6C;
+  padding-bottom: 2px;
+}
+.tab ul li {
+  margin-right: 20px;
+}
+.tab ul li a {
+  background-color: #ECE7E1;
+  border-radius: 10px 10px 0px 0px;
+  line-height: 40px;
+  width: 120px;
+  height: 40px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #000000;
+}
+
+.title h1 {
+  display: flex;
+  font-size: 32px;
+}
+.title h1::before {
+  content: "";
+  display: block;
+  width: 45px;
+  height: 32.44px;
+  background-image: url(../img/logo_title.svg);
+  margin-right: 8px;
+}
+
+.robot .robot_layout {
+  display: none;
+  position: fixed;
+  bottom: 15%;
+  right: 40px;
+  width: 250px;
+  height: 200px;
+  background-color: #ffffff;
+  border: 1px solid #B69B85;
+  border-radius: 13px;
+}
+.robot .robot_layout .robot_layout_top {
+  width: 100%;
+  height: 30px;
+  border-radius: 10px 10px 0 0;
+  background-color: #B69B85;
+  display: flex;
+  justify-content: center;
+}
+.robot .robot_layout .robot_layout_top img {
+  width: 22px;
+  vertical-align: middle;
+}
+.robot .robot_layout .robot_layout_top h4 {
+  color: #ffffff;
+  font-size: 16px;
+  align-self: center;
+  padding-left: 4px;
+}
+.robot .robot_layout .robot_layout_bottom {
+  margin: 0 auto;
+  width: 92%;
+  border-top: 1px solid #B69B85;
+  margin-top: 140px;
+  padding-top: 4px;
+}
+.robot .robot_layout .robot_layout_bottom input {
+  padding-left: 0;
+  width: 198px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
+.robot .robot_layout .robot_layout_bottom button {
+  color: #B69B85;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.robot .robot_layout .robot_layout_bottom button:hover {
+  color: #9B7B6C;
+}
+.robot .robot_logo {
+  position: fixed;
+  bottom: 4%;
+  right: 40px;
+  cursor: pointer;
+}
+
+.visible {
+  display: block !important;
+}
+
+footer {
+  height: 250px;
+  background-color: #ECE7E1;
+}
+footer ul {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
+footer ul h4 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #9B7B6C;
+  margin-bottom: 12px;
+}
+footer ul p {
+  padding: 4px 0;
+}
+footer ul .footer_customer_service {
+  padding-top: 44px;
+  margin-left: 80px;
+  margin-right: 40px;
+}
+footer ul .footer_area {
+  padding-top: 44px;
+  margin: 0 40px;
+}
+footer ul .footer_area .btn {
+  margin-top: 12px;
+  font-size: 16px;
+}
+footer ul .footer_area .btn img {
+  display: inline;
+  width: 20px;
+  padding-right: 4px;
+  vertical-align: sub;
+}
+footer ul .footer_logo {
+  padding-top: 36px;
+  margin: 0 20px;
+}
+footer ul .footer_logo img {
+  width: 110px;
+}
+footer ul .footer_contact {
+  padding-top: 44px;
+  margin-left: 40px;
+  margin-right: 10px;
+}
+footer ul .footer_social_media {
+  padding-top: 44px;
+}
+footer ul .footer_social_media a {
+  padding: 8px;
+  color: #9B7B6C;
+  font-size: 30px;
+}
+footer ul .footer_social_media a:hover {
+  color: #B69B85;
+}
+footer .footer_rights_reserved {
+  margin: 0 auto;
+  margin-top: 40px;
+}
+footer .footer_rights_reserved p {
+  text-align: center;
+  font-size: 12px;
+  padding: 4px 0;
+}
+
+header {
+  width: 100vw;
+  height: 300px;
+  background-image: url();
+  background-size: cover;
+  transition: height 0.7s ease;
+  position: relative;
+}
+header .header_text {
+  position: absolute;
+  left: 45px;
+  bottom: 28px;
+}
+header .header_text h1 {
+  font-size: 32px;
+  font-family: "Inter";
+  font-weight: bold;
+  text-shadow: 0px 0px 5px #ffffff;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+header nav .fa {
+  display: none;
+}
+header nav .nav_left {
+  display: flex;
+  margin-left: 45px;
+}
+header nav .nav_left img {
+  width: 150px;
+}
+header nav .nav_left h4 {
+  margin-left: 28px;
+  align-self: center;
+  font-family: "Inter";
+  font-weight: bold;
+}
+header nav .nav_right {
+  display: flex;
+}
+header nav .nav_right ul {
+  display: flex;
+}
+header nav .nav_right ul li {
+  position: relative;
+  line-height: 35px;
+  padding: 0 15px;
+  align-self: center;
+}
+header nav .nav_right ul li:hover ol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header nav .nav_right ul li a {
+  text-decoration: none;
+  color: #000000;
+  font-family: "Inter";
+  font-weight: bold;
+  display: block;
+  text-shadow: 0px 0px 5px #ffffff;
+}
+header nav .nav_right ul li a:hover {
+  color: #9B7B6C;
+  text-shadow: 0px 0px 3px #ffffff;
+}
+header nav .nav_right ul li ol {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+}
+header nav .nav_right ul li ol li {
+  width: 100%;
+  text-align: center;
+}
+header nav .nav_right ul li ol li a {
+  display: block;
+  padding: 0 10px;
+  color: #ffffff;
+  background-color: #B69B85;
+  line-height: 35px;
+  border-bottom: 1px solid #ffffff;
+  font-weight: normal;
+  text-shadow: none;
+}
+header nav .nav_right ul li ol li a:hover {
+  color: #ffffff;
+  background-color: #9B7B6C;
+  text-shadow: none;
+}
+header nav .nav_right ul li ol li .nav_last_a {
+  border-radius: 0 0 10px 10px;
+  border-bottom: none;
+}
+header nav .nav_right .nav_user {
+  align-self: center;
+  margin-left: 20px;
+  margin-right: 45px;
+}
+header nav .nav_right .nav_user i {
+  padding: 10px;
+  color: #000000;
+  text-shadow: 0px 0px 5px #ffffff;
+}
+header nav .nav_right .nav_user i:hover {
+  color: #9B7B6C;
+  text-shadow: 0px 0px 3px #ffffff;
+}
+
+header.fixed {
+  height: 90px;
+  background-image: url(/img/nav_bgi.png);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 80px auto;
+}
+
+.wrapper .section1 button {
+  background-color: #000000;
+}
+.wrapper .section2 h1 {
+  font-size: 20px;
+}/*# sourceMappingURL=act.css.map */
