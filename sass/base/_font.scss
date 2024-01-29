@@ -1,3 +1,8 @@
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap';
+$fontFamily: 'Inter', 'Noto Sans TC';
+$bold: bold;
+
 $h1 : 32px;
 $h2 : 20px;
 $h3 : 18px;
@@ -5,7 +10,7 @@ $h4 : 16px;
 $p : 14px;
 
 body {
-    font-family: 'Inter';
+    font-family: $fontFamily;
 }
 
 h1 {
@@ -27,6 +32,3 @@ h4 {
 p {
     font-size: 14px;
 }
-
-$fontFamily: 'Inter';
-$bold: bold;

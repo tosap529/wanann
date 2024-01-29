@@ -17,7 +17,7 @@
     position: relative;
 
     .login,
-    .bgcImg,
+    .bgc_img,
     .create {
         box-sizing: border-box;
         width: 500px;
@@ -80,7 +80,7 @@
         display: flex;
         justify-content: space-around;
 
-        .horizontalLine {
+        .horizontal_line {
             width: 40%;
             height: 8px;
             border-bottom: 1px solid $grey ;
@@ -101,7 +101,7 @@
 }
 
 // 會左右滑動，並更改內容的帶背景圖區塊
-.bgcImg {
+.bgc_img {
     z-index: 1;
     background-image: url(../../img/login/login_main.jpg);
     background-size: cover;
