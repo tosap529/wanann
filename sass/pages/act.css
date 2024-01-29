@@ -291,6 +291,8 @@ input:focus {
   font-size: 14px;
   border: none;
   outline: none;
+  background-color: transparent;
+  height: 20px;
 }
 .robot .robot_layout .robot_layout_bottom button {
   color: #B69B85;

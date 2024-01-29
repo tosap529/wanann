@@ -1,0 +1,199 @@
+  /* Custom CSS for the page */
+
+
+  .bMember_sidebar {
+      background-color: #ECE7E1;
+      color: black;
+      height: 100%;
+      width: 20%;
+      font-size: 18px;
+      text-align: center;
+      padding-top: 40px;
+  }
+
+  /* .bMember_sidebar  ul li {
+ 
+    
+} */
+
+  .bMember_sidebar ul {
+      margin-left: 20px;
+  }
+
+  .bMember_sidebar .bMember_nav-item {
+      padding-bottom: 20px;
+
+      text-align: left;
+  }
+
+  .bMember_sidebar .nav-link {
+      font-size: 16px;
+  }
+
+  .bMember_sidebar .bMember_nav-item .icon h3 {
+      font-size: 18px;
+  }
+
+  .bMember_sidebar .bMember_nav-item a {
+      color: black;
+      font-size: 16px;
+      padding-left: 44px;
+  }
+
+  .bMember_nav-item .icon {
+      display: flex;
+      align-items: center;
+  }
+
+  .bMember_nav-item img {
+
+      width: 32px;
+      height: 32px;
+      margin: 5px;
+      margin-bottom: 10px;
+  }
+
+
+  .bMember_nav-item button {
+      width: 100%;
+
+  }
+
+  .bMember_main-content {
+      background-color: #fff;
+      padding: 20px;
+      /* height: 100vh; */
+      width: 80%;
+      text-align: center;
+      /* border: 1px solid blue; */
+      position: relative;
+  }
+
+  .bMember_data-table {
+      margin-top: 20px;
+      text-align: left;
+      width: 100%;
+      margin-left: 50px;
+  }
+
+  .bMember_main-content .tab {
+      font-size: 18px;
+      text-align: center;
+      color: white;
+      margin-top: 100px;
+      border: none;
+      background-color: #B69B85;
+      width: 160px;
+      height: 45px;
+      border-top-right-radius: 8px;
+      margin-bottom: 10px;
+
+  }
+
+  .bMember_btn_input {
+      position: relative;
+      width: 78%;
+  }
+
+  .bMember_search-container {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+
+      margin-bottom: 10px;
+  }
+
+  .bMember_search-input {
+
+      padding: 8px 30px 8px 10px;
+      border: 1px solid #ccc;
+
+      width: 200px;
+      box-sizing: border-box;
+  }
+
+  .bMember_search-container .search-icon {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #666;
+      cursor: pointer;
+  }
+
+
+  .bMember_table {
+      width: 100%;
+  }
+
+  .bMember_data-table th {
+      font-size: 18px;
+      height: 36px;
+      text-align: center;
+      background-color: #9B7B6C;
+      border: 1px solid #B69B85;
+      color: white;
+  }
+
+  .bMember_data-table td {
+      height: 36px;
+      text-align: center;
+      border: 1px solid #B69B85;
+  }
+
+  .bMember_data-table td:last-child {
+      border-left: 1px solid #ddd;
+      border: none;
+      text-align: left;
+  }
+
+  .bMember_data-table .edit-btn {
+      padding: 5px 10px;
+      margin: 5px;
+      border: none;
+      border-radius: 8px;
+      background-color: #B69B85;
+      color: white;
+      text-decoration: none;
+  }
+
+  .bMember_logo {
+      position: absolute;
+      right: 20px;
+      top: 10px;
+      padding: 20px;
+  }
+
+  .bMember_pagination {
+      text-align: center;
+      margin-top: 20px;
+      position: absolute;
+      bottom: 30px;
+      right: 50%;
+  }
+
+  .bMember_pagination a {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 0 3px;
+      text-decoration: none;
+      color: #333;
+      /* border: 1px solid #ccc; */
+      border-radius: 3px;
+  }
+
+  .pagination .pagination-separator {
+      margin: 0 5px;
+  }
+
+  .bMember_pagination a:hover {
+      background-color: #f0f0f0;
+  }
+
+  .bMember_pagination a.active {
+      background-color: #007bff;
+      color: #fff;
+      border-color: #007bff;
+  }
