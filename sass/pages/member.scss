@@ -1,1 +1,197 @@
 @import "../main.scss";
+
+.wrapper {
+    outline: 3px solid purple;
+    margin: 80px auto;
+    width: 1200px;
+
+    display: flex;
+}
+
+
+// -----------------萬年不動側邊欄------------------
+.sidebar {
+    flex-basis: 330px;
+
+    div {
+        display: flex;
+        margin-bottom: 40px;
+
+        input {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            position: relative;
+
+            &::before {
+                content: '';
+                background-image: url(../../img/member/member_icon_profileMini.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: absolute;
+                left: 0;
+                width: 70px;
+                height: 70px;
+
+            }
+        }
+
+        h2 {
+            align-self: center;
+            margin-left: 16px;
+        }
+    }
+
+    @for $i from 1 through 4 {
+        li:nth-child(#{$i}) a::before {
+            content: '';
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            left: -30px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-image: url(../../img/member/member_icon_sidebar#{$i}.png);
+        }
+    }
+
+    li {
+        margin-bottom: 20px;
+        width: fit-content;
+        padding: 5px 5px 5px 0;
+
+        a {
+            text-decoration: none;
+            color: $black;
+            margin-left: 40px;
+            padding-left: 10px;
+            position: relative;
+            font-size: $h2;
+            display: inline-block;
+            line-height: 30px;
+        }
+
+    }
+
+
+}
+
+// 個人資料分頁(預設)
+.main {
+    display: none;
+
+    i {
+        font-size: 25px;
+        color: $dark-milktea;
+        margin-left: 10px;
+    }
+
+    h2 {
+        width: 150px;
+        line-height: 40px;
+    }
+
+    input {
+        width: 250px;
+    }
+
+    div:first-child {
+        margin-left: 150px;
+        margin-bottom: 45px;
+        display: flex;
+
+
+        input {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            position: relative;
+
+            &::before {
+                content: '';
+                background-image: url(../../img/member/member_icon_profile.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                position: absolute;
+                left: 0;
+                width: 150px;
+                height: 150px;
+
+            }
+        }
+
+        i {
+            align-self: flex-end;
+        }
+
+    }
+
+    @for $i from 2 through 6 {
+        div:nth-child(#{$i}) {
+            // background-color: aqua;
+
+            input {
+                background-color: transparent;
+                border-radius: 0;
+                border-bottom: 1px solid $grey;
+            }
+        }
+    }
+
+
+    .sAddress {
+        input {
+            width: 200px;
+        }
+
+        select {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+
+            background: url(../../img/member/selectArrow.svg) no-repeat right center;
+            background-position-x: 90%;
+            width: 90px;
+            padding: 10px;
+            border: 0;
+            border-radius: 8px;
+            background-color: $light-milktea ;
+            font-size: $h4;
+            margin-right: 15px;
+
+            &:focus {
+                outline: 2px solid $brown;
+            }
+        }
+    }
+
+    .mAddress {
+        input {
+            width: 400px;
+        }
+    }
+
+    :first-child~div {
+        display: flex;
+        margin-bottom: 30px;
+    }
+}
+
+// 服務訂單分頁
+.sOrder {}
+
+// 商城訂單分頁
+.mOrder {}
+
+// ---------------切換分頁用------------------
+
+// 表示當前頁面的側邊欄樣式
+.active {
+    background-color: $light-milktea;
+    border-radius: 8px;
+}
+
+// 當前頁面展開
+.pageNow {
+    display: block;
+}

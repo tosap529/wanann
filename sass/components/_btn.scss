@@ -1,6 +1,6 @@
-.btn{
+.btn {
 
-    display:block;
+    display: block;
     font-family: $fontFamily;
     font-size: $h2;
     padding: 10px;
@@ -9,7 +9,8 @@
     color: $white;
     border: none;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
         background-color: $brown;
     }
 

@@ -4,6 +4,29 @@ $h3 : 18px;
 $h4 : 16px;
 $p : 14px;
 
-$bold:bold;
+body {
+    font-family: 'Inter';
+}
 
-$fontFamily:'Inter';
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+h3 {
+    font-size: 18px;
+}
+
+h4 {
+    font-size: 16px;
+}
+
+p {
+    font-size: 14px;
+}
+
+$fontFamily: 'Inter';
+$bold: bold;
