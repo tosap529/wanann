@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a7a16df63a.js" crossorigin="anonymous"></script>
+    <title>浣安 | 會員中心</title>
+    <link rel="stylesheet" href="./sass/main.css">
+    <link rel="stylesheet" href="./sass/pages/member.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav_left">
+                <a href="index.html"><img src="img/logo_long.svg" alt="logo"></a>
+                <h4>最安心的居家清潔服務</h4>
+            </div>
+            <div class="nav_right">
+                <i class="fa fa-bars" area-hidden="true"></i>
+                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">最新消息</a>
+                        <ol>
+                            <li><a href="#">優惠活動</a></li>
+                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                        </ol>
+                    </li>
+
+                    <li><a href="#">我們的服務</a>
+                        <ol>
+                            <li><a href="#">服務介紹</a></li>
+                            <li><a href="#">案例分享</a></li>
+                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">商城</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+                <div class="nav_user">
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header_text">
+            <!-- 請換成你的頁面名稱 -->
+            <h1>會員中心</h1>
+            <h1>Member</h1>
+        </div>
+    </header>
+    <div class="wrapper">
+        <section class="sidebar">
+            <div>
+                <input type="file" class="profileMini">
+                <h2>thd104</h2>
+            </div>
+            <ul>
+                <!-- userData -->
+                <li class="active"><a href="#">個人資料</a></li>
+                <!-- sOrder -->
+                <li><a href="#">服務訂單</a></li>
+                <!-- mOrder -->
+                <li><a href="#">商城訂單</a></li>
+                <!-- logOut -->
+                <li><a href="#">登出</a></li>
+            </ul>
+        </section>
+        <!-- 個人資料分頁(預設) -->
+        <section class="main userData pageNow">
+            <div>
+                <input type="file" class="profile">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+            <div>
+                <h2>帳號</h2>
+                <input type="text" disabled>
+            </div>
+            <div>
+                <h2>修改密碼</h2>
+                <input type="password" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div>
+                <h2>姓名</h2>
+                <input type="text" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div>
+                <h2>手機號碼</h2>
+                <input type="tel" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div>
+                <h2>電子信箱</h2>
+                <input type="email" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div class="sAddress">
+                <h2>服務地址</h2>
+                <select name="county" id="" disabled>
+                    <option value="">縣市</option>
+                    <option value="newTaipei">新北市</option>
+                    <option value="taipei">台北市</option>
+                    <option value="taoyuan">桃園市</option>
+                </select>
+                <select name="dNewTaipei" id="" disabled>
+                    <option value="">區</option>
+                    <option value="">三峽區</option>
+                    <option value="">三重區</option>
+                    <option value="">中和區</option>
+                    <option value="">五股區</option>
+                    <option value="">板橋區</option>
+                    <option value="">新店區</option>
+                    <option value="">永和區</option>
+                    <option value="">汐止區</option>
+                    <option value="">新莊區</option>
+                    <option value="">淡水區</option>
+                    <option value="">深坑區</option>
+                    <option value="">蘆洲區</option>
+                    <option value="">林口區</option>
+                    <option value="">泰山區</option>
+                    <option value="">土城區</option>
+
+                </select>
+                <select name="dTaipei" id="" disabled>
+                    <option value="">區</option>
+                    <option value="">中正區</option>
+                    <option value="">大同區</option>
+                    <option value="">中山區</option>
+                    <option value="">松山區</option>
+                    <option value="">大安區</option>
+                    <option value="">萬華區</option>
+                    <option value="">信義區</option>
+                    <option value="">士林區</option>
+                    <option value="">北投區</option>
+                    <option value="">內湖區</option>
+                    <option value="">南港區</option>
+                    <option value="">文山區</option>
+
+                </select>
+                <select name="dTaoyuan" id="" disabled>
+                    <option value="">區</option>
+                    <option value="">桃園區</option>
+                    <option value="">八德區</option>
+                    <option value="">龜山區</option>
+                </select>
+                <input type="text" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+            <div class="mAddress">
+                <h2>收件地址</h2>
+                <input type="text" disabled>
+                <i class="fa-solid fa-pen-to-square"></i>
+                <i class="fa-solid fa-floppy-disk"></i>
+            </div>
+        </section>
+
+
+        <!-- 服務訂單分頁 -->
+        <section class="main sOrder"></section>
+        <!-- 商城訂單分頁 -->
+        <section class="main mOrder"></section>
+
+    </div>
+    <footer>
+
+        <ul>
+            <li class="footer_customer_service">
+                <h4>客服時間</h4>
+                <p>週一至週五</p>
+                <p>09:00 – 12:00 / 13:00 – 17:30</p>
+            </li>
+            <li class="footer_area">
+                <h4>服務地區</h4>
+                <p>台北/新北/桃園</p>
+                <button class="btn"><img src="/img/footer_calendar.svg" alt="calendar_icon">立即預約</button>
+            </li>
+            <li class="footer_logo">
+                <a href="index.html"><img src="/img/logo_square.svg" alt="logo"></a>
+            </li>
+            <li class="footer_contact">
+                <h4>聯絡資訊</h4>
+                <p>電話 : 02-12345678</p>
+                <p>Email: wa@rmail.com</p>
+                <p>地址：台北市中山區南京東路三段219號4樓、5樓</p>
+            </li>
+            <li class="footer_social_media">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-line"></i></a>
+            </li>
+        </ul>
+
+        <div class="footer_rights_reserved">
+            <p>Copyright © 2024 浣安 – THD104-G1 All Rights Reserved</p>
+            <p>本網站為緯育TibaMe【第89期】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</p>
+        </div>
+
+    </footer>
+    <!-- 回到頁首 -->
+    <i class="fa fa-angle-up" aria-hidden="true" onclick="scrollToTop()"></i>
+
+    <script>
+        let userData_el = document.querySelector(".sidebar li:nth-child(1)");
+        let sOrder_el = document.querySelector(".sidebar li:nth-child(2)");
+        let mOrder_el = document.querySelector(".sidebar li:nth-child(3)");
+        let userData_page = document.querySelector(".userData");
+        let sOrder_page = document.querySelector(".sOrder");
+        let mOrder_page = document.querySelector(".mOrder");
+
+        userData_el.addEventListener("click", function () {
+            this.classList.add("active");
+            sOrder_el.classList.remove("active");
+            mOrder_el.classList.remove("active");
+
+            userData_page.classList.add("pageNow");
+            sOrder_page.classList.remove("pageNow");
+            mOrder_page.classList.remove("pageNow");
+
+        })
+        sOrder_el.addEventListener("click", function () {
+            this.classList.add("active");
+            userData_el.classList.remove("active");
+            mOrder_el.classList.remove("active");
+
+            sOrder_page.classList.add("pageNow");
+            userData_page.classList.remove("pageNow");
+            mOrder_page.classList.remove("pageNow");
+        })
+        mOrder_el.addEventListener("click", function () {
+            this.classList.add("active");
+            sOrder_el.classList.remove("active");
+            userData_el.classList.remove("active");
+
+            mOrder_page.classList.add("pageNow");
+            userData_page.classList.remove("pageNow");
+            sOrder_page.classList.remove("pageNow");
+        })
+    </script>
+    <script>
+        // header滑動變化
+        document.addEventListener('DOMContentLoaded', function () {
+            let header = document.querySelector('header');
+            let scrollTopButton = document.querySelector('.fa-angle-up');
+            let header_text = document.querySelector('.header_text');
+            let wrapper = document.querySelector('.wrapper');
+
+
+            window.addEventListener('scroll', function () {
+                let scrollDistance = window.scrollY || document.documentElement.scrollTop;
+
+                if (scrollDistance > 50) {
+                    header.classList.add('fixed');
+                    scrollTopButton.style.display = 'block';
+                    header_text.style.display = 'none';
+                    wrapper.style.marginTop = '300px';
+
+                } else {
+                    console.log("213e2");
+                    header.classList.remove('fixed');
+                    scrollTopButton.style.display = 'none';
+                    header_text.style.display = 'block';
+                    wrapper.style.marginTop = '80px';
+                }
+            });
+        });
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+        }
+    </script>
+</body>
+
+</html>
