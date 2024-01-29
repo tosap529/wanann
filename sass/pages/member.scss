@@ -1,5 +1,7 @@
 @import "../main.scss";
 
+@include banner('../../img/member/member_banner.jpg');
+
 .wrapper {
     outline: 3px solid purple;
     margin: 80px auto;

@@ -2,6 +2,8 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap';
 html,
 body,
 div,
@@ -134,7 +136,7 @@ table {
 }
 
 body {
-  font-family: "Inter";
+  font-family: "Inter", "Noto Sans TC";
 }
 
 h1 {
@@ -163,7 +165,7 @@ img {
 
 .btn {
   display: block;
-  font-family: "Inter";
+  font-family: "Inter", "Noto Sans TC";
   font-size: 20px;
   padding: 10px;
   border-radius: 8px;
@@ -289,6 +291,8 @@ input:focus {
   font-size: 14px;
   border: none;
   outline: none;
+  background-color: transparent;
+  height: 20px;
 }
 .robot .robot_layout .robot_layout_bottom button {
   color: #B69B85;
@@ -396,7 +400,7 @@ header .header_text {
 }
 header .header_text h1 {
   font-size: 32px;
-  font-family: "Inter";
+  font-family: "Inter", "Noto Sans TC";
   font-weight: bold;
   text-shadow: 0px 0px 5px #ffffff;
 }
@@ -418,7 +422,7 @@ header nav .nav_left img {
 header nav .nav_left h4 {
   margin-left: 28px;
   align-self: center;
-  font-family: "Inter";
+  font-family: "Inter", "Noto Sans TC";
   font-weight: bold;
 }
 header nav .nav_right {
@@ -441,7 +445,7 @@ header nav .nav_right ul li:hover ol {
 header nav .nav_right ul li a {
   text-decoration: none;
   color: #000000;
-  font-family: "Inter";
+  font-family: "Inter", "Noto Sans TC";
   font-weight: bold;
   display: block;
   text-shadow: 0px 0px 5px #ffffff;
@@ -512,7 +516,7 @@ header nav .nav_right .nav_user i:hover {
   position: relative;
 }
 .login_box .login,
-.login_box .bgcImg,
+.login_box .bgc_img,
 .login_box .create {
   box-sizing: border-box;
   width: 500px;
@@ -565,7 +569,7 @@ header nav .nav_right .nav_user i:hover {
   display: flex;
   justify-content: space-around;
 }
-.login div:nth-child(4) .horizontalLine {
+.login div:nth-child(4) .horizontal_line {
   width: 40%;
   height: 8px;
   border-bottom: 1px solid #A9A9A9;
@@ -581,7 +585,7 @@ header nav .nav_right .nav_user i:hover {
   color: #9B7B6C;
 }
 
-.bgcImg {
+.bgc_img {
   z-index: 1;
   background-image: url(../../img/login/login_main.jpg);
   background-size: cover;
@@ -589,16 +593,16 @@ header nav .nav_right .nav_user i:hover {
   border-radius: 0 10px 10px 0;
   transition: 1s;
 }
-.bgcImg img {
+.bgc_img img {
   margin: 0 auto;
   width: 100px;
 }
-.bgcImg h1,
-.bgcImg h2 {
+.bgc_img h1,
+.bgc_img h2 {
   text-align: center;
   margin-top: 30px;
 }
-.bgcImg .btn {
+.bgc_img .btn {
   margin: 0 auto;
   width: 150px;
   margin-top: 60px;
