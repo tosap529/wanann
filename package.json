@@ -1,12 +1,27 @@
 {
-  "name": "wanann",
+  "name": "thd104_g1",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "安裝環境": "npm i",
+    "開發": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tosap529/wanann.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tosap529/wanann/issues"
+  },
+  "homepage": "https://github.com/tosap529/wanann#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.70.0"
+  }
 }
