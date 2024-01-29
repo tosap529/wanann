@@ -1,0 +1,20 @@
+.fa-angle-up {
+    display: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 1;
+    position: fixed;
+    bottom: 5%;
+    right: 12px;
+    background-color: $dark-milktea;
+    color: $white;
+
+    &:hover{
+        background-color: $brown;
+    }
+}
