@@ -2,6 +2,8 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+@import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap';
 html,
 body,
 div,
@@ -133,13 +135,37 @@ table {
   border-spacing: 0;
 }
 
+body {
+  font-family: "Inter", "Noto Sans TC";
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+p {
+  font-size: 14px;
+}
+
 img {
   display: block;
 }
 
 .btn {
   display: block;
-  font-family: "Inter";
+  font-family: "Inter", "Noto Sans TC";
   font-size: 20px;
   padding: 10px;
   border-radius: 8px;
@@ -172,6 +198,19 @@ img {
   background-color: #9B7B6C;
 }
 
+input {
+  background-color: #ECE7E1;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  height: 40px;
+  font-size: 14px;
+  padding-left: 10px;
+}
+input:focus {
+  outline: 2px solid #9B7B6C;
+}
+
 .tab ul {
   display: flex;
   border-bottom: 1px solid #6C6C6C;
@@ -190,6 +229,11 @@ img {
   display: block;
   text-decoration: none;
   color: #000000;
+}
+
+.tab_on {
+  background-color: #B69B85;
+  color: #ffffff;
 }
 
 .title h1 {
@@ -247,6 +291,8 @@ img {
   font-size: 14px;
   border: none;
   outline: none;
+  background-color: transparent;
+  height: 20px;
 }
 .robot .robot_layout .robot_layout_bottom button {
   color: #B69B85;
@@ -354,7 +400,7 @@ header .header_text {
 }
 header .header_text h1 {
   font-size: 32px;
-  font-family: "Inter";
+  font-family: "Inter", "Noto Sans TC";
   font-weight: bold;
   text-shadow: 0px 0px 5px #ffffff;
 }
@@ -376,7 +422,7 @@ header nav .nav_left img {
 header nav .nav_left h4 {
   margin-left: 28px;
   align-self: center;
-  font-family: "Inter";
+  font-family: "Inter", "Noto Sans TC";
   font-weight: bold;
 }
 header nav .nav_right {
@@ -399,7 +445,7 @@ header nav .nav_right ul li:hover ol {
 header nav .nav_right ul li a {
   text-decoration: none;
   color: #000000;
-  font-family: "Inter";
+  font-family: "Inter", "Noto Sans TC";
   font-weight: bold;
   display: block;
   text-shadow: 0px 0px 5px #ffffff;
@@ -450,6 +496,150 @@ header nav .nav_right .nav_user i {
 header nav .nav_right .nav_user i:hover {
   color: #9B7B6C;
   text-shadow: 0px 0px 3px #ffffff;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #A9A9A9;
+}
+
+.login_box {
+  border-radius: 10px;
+  margin: 0 auto;
+  margin-top: 80px;
+  width: 1000px;
+  height: 600px;
+  position: relative;
+}
+.login_box .login,
+.login_box .bgc_img,
+.login_box .create {
+  box-sizing: border-box;
+  width: 500px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+}
+.login_box .title {
+  margin-bottom: 30px;
+}
+.login_box label {
+  font-size: 20px;
+}
+.login_box input {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: fill;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.login_box .btn {
+  font-size: 20px;
+}
+
+.login {
+  background-color: #ffffff;
+  padding: 60px 70px 70px;
+  border-radius: 10px 0 0 10px;
+}
+.login form a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 14px;
+  display: block;
+  text-align: right;
+}
+.login form div {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.login form div .btn {
+  width: 150px;
+  height: auto;
+  margin: 0;
+}
+.login div:nth-child(4) {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+.login div:nth-child(4) .horizontal_line {
+  width: 40%;
+  height: 8px;
+  border-bottom: 1px solid #A9A9A9;
+}
+.login > .btn {
+  width: 300px;
+  background-color: #ECE7E1;
+  color: #9B7B6C;
+  margin: 0 auto;
+}
+.login > .btn:hover {
+  background-color: #ECE7E1;
+  color: #9B7B6C;
+}
+
+.bgc_img {
+  z-index: 1;
+  background-image: url(../../img/login/login_main.jpg);
+  background-size: cover;
+  padding: 80px 100px 180px 100px;
+  border-radius: 0 10px 10px 0;
+  transition: 1s;
+}
+.bgc_img img {
+  margin: 0 auto;
+  width: 100px;
+}
+.bgc_img h1,
+.bgc_img h2 {
+  text-align: center;
+  margin-top: 30px;
+}
+.bgc_img .btn {
+  margin: 0 auto;
+  width: 150px;
+  margin-top: 60px;
+}
+
+.create {
+  left: 500px;
+  background-color: #ffffff;
+  padding: 60px 75px 0px;
+  border-radius: 0 10px 10px 0;
+}
+.create form {
+  margin-bottom: 20px;
+}
+.create form label {
+  position: relative;
+}
+.create form label img {
+  position: absolute;
+  width: 25px;
+  right: 5%;
+  top: 65%;
+  cursor: pointer;
+}
+.create form .btn {
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.left {
+  left: 0px;
+}
+
+.right {
+  left: 500px;
 }
 
 header.fixed {

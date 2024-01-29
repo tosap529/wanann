@@ -1,0 +1,6 @@
+// $banner_url為banner路徑，請務必加引號
+@mixin banner($banner_url) {
+    header {
+        background-image: url($banner_url);
+    }
+}
