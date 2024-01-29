@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- 這不是正式頁面！！！！！！！！！！！！！！！！ -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./sass/main.css">
+</head>
+
+<body>
+    <div class="lightbox">
+        <div class="login_box">
+            <section class="login">
+                <img src="" alt="">
+                <div class="title">
+                    <h1>登入</h1>
+                </div>
+                <form>
+                    <label for="account">帳號<br><input type="text" id="account"></label>
+                    <br>
+                    <label for="pwd">密碼<br><input type="text" id="pwd"></label>
+                    <br>
+                    <a href="#">忘記密碼？</a>
+                    <div>
+                        <!-- <input type="submit" value="註冊" class="btn"> -->
+                        <input type="submit" value="登入" class="btn">
+                    </div>
+                </form>
+                <div>
+                    <div class="horizontalLine"></div>
+                    <h2>或</h2>
+                    <div class="horizontalLine"></div>
+                </div>
+                <button class="btn">
+                    <img src="" alt="">
+                    Google登入
+                </button>
+            </section>
+            <section class="bgcImg right">
+                <img src="" alt="">
+                <h1>還不是會員嗎？</h1>
+                <h2>創建帳號預約方便安心的服務吧！</h2>
+                <button class="btn" id="changeLoginBox">註冊</button>
+            </section>
+            <section class="create">
+                <img src="" alt="">
+                <div class="title">
+                    <h1>會員註冊</h1>
+                </div>
+                <form>
+                    <label for="createAccount">*帳號<br><input type="text" id="createAccount"></label>
+                    <br>
+                    <label for="pwdNew">*密碼<br>
+                        <input type="password" id="pwdNew">
+                        <img class="eye" src="./img/login/login_icon_eye.png" alt="">
+                    </label>
+                    <br>
+                    <label for="pwdConfirm">*確認密碼<br>
+                        <input type="password" id="pwdConfirm">
+                        <img class="eye" src="./img/login/login_icon_eye.png" alt="">
+                    </label>
+                    <br>
+                    <label for="createEmail">*電子信箱<br><input type="email" id="createEmail"></label>
+                    <input type="submit" value="加入會員" class="btn">
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        let goCreate = document.getElementById("changeLoginBox");
+        let bgcImg = document.querySelector(".bgcImg");
+
+        goCreate.addEventListener("click", function () {
+            if (bgcImg.classList.contains("right")) {
+                bgcImg.classList.remove("right");
+                bgcImg.classList.add("left");
+                bgcImg.style.borderRadius = "10px 0 0 10px"
+                goCreate.innerText = "登入";
+                goCreate.previousElementSibling.previousElementSibling.innerText = "歡迎回來";
+                goCreate.previousElementSibling.innerText = "登入預約方便安心的服務吧！";
+
+            } else {
+                bgcImg.classList.remove("left");
+                bgcImg.classList.add("right");
+                bgcImg.style.borderRadius = "0 10px 10px 0"
+                goCreate.innerText = "註冊";
+                goCreate.previousElementSibling.previousElementSibling.innerText = "還不是會員嗎？";
+                goCreate.previousElementSibling.innerText = "創建帳號預約方便安心的服務吧！";
+            }
+        })
+
+
+    </script>
+    <script>
+        let eye = document.querySelectorAll(".eye");
+        eye.forEach(function (item, i) {
+
+            item.addEventListener("click", function () {
+                // console.log(this.previousElementSibling);
+                let inputType = this.previousElementSibling;
+                if (inputType.getAttribute("type") == "password") {
+                    inputType.setAttribute("type", "text");
+
+                } else {
+                    inputType.setAttribute("type", "password");
+                }
+            })
+
+        })
+    </script>
+
+</body>
+
+</html>

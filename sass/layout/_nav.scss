@@ -1,0 +1,9 @@
+header.fixed {
+    height: 90px;
+    background-image: url(/img/nav_bgi.png); //通用不用換圖
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+
+}

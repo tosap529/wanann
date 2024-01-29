@@ -1,14 +1,16 @@
-.btn{
+.btn {
 
-    display:block;
+    display: block;
     font-family: $fontFamily;
+    font-size: $h2;
     padding: 10px;
     border-radius: 8px;
     background-color: $dark-milktea;
     color: $white;
     border: none;
     cursor: pointer;
-    &:hover{
+
+    &:hover {
         background-color: $brown;
     }
 

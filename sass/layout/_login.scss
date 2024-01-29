@@ -1,0 +1,172 @@
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $grey;
+}
+
+.login_box {
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 80px;
+
+    width: 1000px;
+    height: 600px;
+    position: relative;
+
+    .login,
+    .bgcImg,
+    .create {
+        box-sizing: border-box;
+        width: 500px;
+        height: 600px;
+        position: absolute;
+        top: 0;
+    }
+
+
+    .title {
+        margin-bottom: 30px;
+    }
+
+    label {
+        font-size: $h2;
+    }
+
+    input {
+        width: fill;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        font-size: $h2;
+    }
+}
+
+// 登入表單
+.login {
+    background-color: $white;
+    padding: 60px 70px 70px;
+    border-radius: 10px 0 0 10px;
+
+    form {
+        a {
+            text-decoration: none;
+            color: $black;
+            font-size: $p;
+            display: block;
+            text-align: right;
+        }
+
+        div {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            .btn {
+                width: 150px;
+                height: auto;
+                margin: 0;
+            }
+        }
+    }
+
+    div:nth-child(4) {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-around;
+
+        .horizontalLine {
+            width: 40%;
+            height: 8px;
+            border-bottom: 1px solid $grey ;
+        }
+    }
+
+    >.btn {
+        width: 300px;
+        background-color: $light-milktea;
+        color: $brown;
+        margin: 0 auto;
+
+        &:hover {
+            background-color: $light-milktea;
+            color: $brown;
+        }
+    }
+}
+
+// 會左右滑動，並更改內容的帶背景圖區塊
+.bgcImg {
+    z-index: 1;
+    background-image: url(../../img/login/login_main.jpg);
+    background-size: cover;
+    padding: 80px 100px 180px 100px;
+    border-radius: 0 10px 10px 0;
+
+    transition: 1s;
+
+    img {
+        margin: 0 auto;
+        width: 100px;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .btn {
+        margin: 0 auto;
+        width: 150px;
+        margin-top: 60px;
+    }
+
+}
+
+// 註冊表單
+.create {
+
+    left: 500px;
+    background-color: $white;
+
+    padding: 60px 75px 0px;
+    border-radius: 0 10px 10px 0;
+
+    form {
+        margin-bottom: 20px;
+
+        label {
+            position: relative;
+
+            img {
+                position: absolute;
+                width: 25px;
+                right: 5%;
+                top: 65%;
+                cursor: pointer;
+            }
+        }
+
+        .btn {
+            width: 300px;
+            height: auto;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    }
+
+}
+
+.left {
+    left: 00px;
+}
+
+.right {
+    left: 500px;
+}
