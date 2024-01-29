@@ -6,7 +6,7 @@ main.css
 # 志勤
 pages/act.css
 pages/act.css.map
-pages/articles.css.
+pages/articles.css
 pages/articles.css.map
 pages/article1.css
 pages/article1.css.map
@@ -16,3 +16,8 @@ pages/forget.css.map
 pages/index.css
 pages/index.css.map
 
+# 大哥
+pages/contact.css
+pages/contact.css.map
+pages/bMember.css
+pages/bMember.css.map
