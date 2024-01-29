@@ -660,6 +660,9 @@ header.fixed {
   margin-bottom: 76px;
   display: flex;
 }
+.articles_top .left {
+  margin-right: 54px;
+}
 .articles_top img {
   width: 642px;
 }
@@ -667,6 +670,34 @@ header.fixed {
 .articles_buttom {
   display: flex;
 }
+.articles_buttom aside {
+  border-right: 2px black solid;
+  width: 189px;
+}
+.articles_buttom aside h2 {
+  margin-bottom: 20px;
+}
+.articles_buttom aside ul {
+  list-style-type: disc;
+  padding-left: 10px;
+}
+.articles_buttom aside li {
+  padding-bottom: 10px;
+}
+.articles_buttom aside a {
+  display: block;
+  text-decoration: none;
+}
 .articles_buttom .articles_old {
   margin-left: 109px;
+}
+.articles_buttom .articles_old section {
+  display: flex;
+}
+.articles_buttom .articles_old section img {
+  width: 425px;
+}
+.articles_buttom .articles_old section article {
+  width: 425px;
+  margin-left: 52px;
 }/*# sourceMappingURL=articles.css.map */

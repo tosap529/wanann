@@ -5,7 +5,7 @@
     margin-bottom: 76px;
     display: flex;
       .left{
-
+        margin-right: 54px;
       }
       img{
         width: 642px;
@@ -15,12 +15,34 @@
 .articles_buttom{
     display: flex;
       aside{
-        
+        border-right: 2px black solid;
+        width: 189px;
+          h2{
+          margin-bottom: 20px;
+          }
+          ul{
+            list-style-type: disc;
+            padding-left: 10px;
+          }
+          li{
+            padding-bottom: 10px;
+          }
+          a{
+            display: block;
+            text-decoration: none;
+          }
       }
       .articles_old{
         margin-left: 109px;
-          article{
-            
-          }
+          section{
+            display: flex;
+              img{
+                width: 425px;
+              }
+              article{
+                width: 425px;
+                margin-left: 52px;
+              }
+          }        
       }
 }
