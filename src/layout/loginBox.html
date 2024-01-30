@@ -1,0 +1,60 @@
+<!-- 請與loginBox.js檔案合用 -->
+<!-- 燈箱建議位置：body標籤結束前，並早於script標籤 -->
+<div class="lightbox">
+    <div class="login_box">
+        <section class="login">
+            <img src="" alt="">
+            <div class="title">
+                <h1>登入</h1>
+            </div>
+            <form>
+                <label for="account">帳號<br><input type="text" id="account"></label>
+                <br>
+                <label for="pwd">密碼<br><input type="text" id="pwd"></label>
+                <br>
+                <a href="#">忘記密碼？</a>
+                <div>
+                    <!-- <input type="submit" value="註冊" class="btn"> -->
+                    <input type="submit" value="登入" class="btn">
+                </div>
+            </form>
+            <div>
+                <div class="horizontal_line"></div>
+                <h2>或</h2>
+                <div class="horizontal_line"></div>
+            </div>
+            <button class="btn">
+                <img src="" alt="">
+                Google登入
+            </button>
+        </section>
+        <section class="bgc_img right">
+            <img src="" alt="">
+            <h1>還不是會員嗎？</h1>
+            <h2>創建帳號預約方便安心的服務吧！</h2>
+            <button class="btn" id="changeLoginBox">註冊</button>
+        </section>
+        <section class="create">
+            <img src="" alt="">
+            <div class="title">
+                <h1>會員註冊</h1>
+            </div>
+            <form>
+                <label for="createAccount">*帳號<br><input type="text" id="createAccount"></label>
+                <br>
+                <label for="pwdNew">*密碼<br>
+                    <input type="password" id="pwdNew">
+                    <img class="eye" src="./img/login/login_icon_eye.png" alt="">
+                </label>
+                <br>
+                <label for="pwdConfirm">*確認密碼<br>
+                    <input type="password" id="pwdConfirm">
+                    <img class="eye" src="./img/login/login_icon_eye.png" alt="">
+                </label>
+                <br>
+                <label for="createEmail">*電子信箱<br><input type="email" id="createEmail"></label>
+                <input type="submit" value="加入會員" class="btn">
+            </form>
+        </section>
+    </div>
+</div>
