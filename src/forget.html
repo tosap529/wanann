@@ -5,17 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>浣安 | 重設密碼</title>
-    <link rel="stylesheet" href="./sass/main.css">
-    <link rel="stylesheet" href="./sass/pages/forget.css">
+    <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
-    <div class="wrapper">
-        <section>
+    <div class="wrapper forget">
+        <section class="forget_pwd">
             <div class="title">
                 <h1>重設密碼</h1>
             </div>
-            <form action="">
+            <form class="forget_form" action="">
                 <label for="reEmail">請輸入電子信箱<br>
                     <div>
                         <input type="email" id="reEmail">
@@ -29,6 +28,7 @@
             </form>
         </section>
     </div>
+    @@include('./layout/footer.html')
 </body>
 
 </html>
