@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <header>
+    <header class="member_banner">
         <nav>
             <div class="nav_left">
                 <a href="index.html"><img src="img/logo_long.svg" alt="logo"></a>
@@ -51,15 +51,35 @@
             <h1>Member</h1>
         </div>
     </header>
-    <div class="wrapper">
-        <section class="sidebar">
+
+    <!-- 請與pageDefault.js合用 -->
+
+<!-- 機器人 -->
+<div class="robot">
+    <div class="robot_layout">
+        <div class="robot_layout_top">
+            <img src="/img/logo_title.svg" alt="logo">
+            <h4>浣安小助手</h4>
+        </div>
+        <div class="robot_layout_bottom">
+            <input type="text" placeholder="請輸入關鍵字...">
+            <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <img class="robot_logo" src="/img/robot.svg" alt="robot">
+</div>
+
+<!-- 回到頁首 -->
+<i class="fa fa-angle-up" aria-hidden="true" onclick="scrollToTop()"></i>
+    <div class="member wrapper">
+        <section class="member_sidebar">
             <div>
-                <input type="file" class="profileMini">
+                <input type="file" id="profileMini">
                 <h2>thd104</h2>
             </div>
             <ul>
                 <!-- userData -->
-                <li class="active"><a href="#">個人資料</a></li>
+                <li class="member_sidebar_active"><a href="#">個人資料</a></li>
                 <!-- sOrder -->
                 <li><a href="#">服務訂單</a></li>
                 <!-- mOrder -->
@@ -69,9 +89,9 @@
             </ul>
         </section>
         <!-- 個人資料分頁(預設) -->
-        <section class="main userData pageNow">
+        <section class="member_main userData member_pageNow">
             <div>
-                <input type="file" class="profile">
+                <input type="file" id="profile">
                 <i class="fa-solid fa-pen-to-square"></i>
             </div>
             <div>
@@ -165,120 +185,94 @@
 
 
         <!-- 服務訂單分頁 -->
-        <section class="main sOrder"></section>
+        <section class="member_main sOrder"></section>
         <!-- 商城訂單分頁 -->
-        <section class="main mOrder"></section>
+        <section class="member_main mOrder"></section>
 
     </div>
     <footer>
+    <ul>
+        <li class="footer_customer_service">
+            <h4>客服時間</h4>
+            <p>週一至週五</p>
+            <p>09:00 – 12:00 / 13:00 – 17:30</p>
+        </li>
+        <li class="footer_area">
+            <h4>服務地區</h4>
+            <p>台北/新北/桃園</p>
+            <button class="btn"><img src="/img/footer_calendar.svg" alt="calendar_icon">立即預約</button>
+        </li>
+        <li class="footer_logo">
+            <a href="index.html"><img src="/img/logo_square.svg" alt="logo"></a>
+        </li>
+        <li class="footer_contact">
+            <h4>聯絡資訊</h4>
+            <p>電話 : 02-12345678</p>
+            <p>Email: wa@rmail.com</p>
+            <p>地址：台北市中山區南京東路三段219號4樓、5樓</p>
+        </li>
+        <li class="footer_social_media">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-line"></i></a>
+        </li>
+    </ul>
 
-        <ul>
-            <li class="footer_customer_service">
-                <h4>客服時間</h4>
-                <p>週一至週五</p>
-                <p>09:00 – 12:00 / 13:00 – 17:30</p>
-            </li>
-            <li class="footer_area">
-                <h4>服務地區</h4>
-                <p>台北/新北/桃園</p>
-                <button class="btn"><img src="/img/footer_calendar.svg" alt="calendar_icon">立即預約</button>
-            </li>
-            <li class="footer_logo">
-                <a href="index.html"><img src="/img/logo_square.svg" alt="logo"></a>
-            </li>
-            <li class="footer_contact">
-                <h4>聯絡資訊</h4>
-                <p>電話 : 02-12345678</p>
-                <p>Email: wa@rmail.com</p>
-                <p>地址：台北市中山區南京東路三段219號4樓、5樓</p>
-            </li>
-            <li class="footer_social_media">
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#"><i class="fa-brands fa-line"></i></a>
-            </li>
-        </ul>
+    <div class="footer_rights_reserved">
+        <p>Copyright © 2024 浣安 – THD104-G1 All Rights Reserved</p>
+        <p>本網站為緯育TibaMe【第89期】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</p>
+    </div>
 
-        <div class="footer_rights_reserved">
-            <p>Copyright © 2024 浣安 – THD104-G1 All Rights Reserved</p>
-            <p>本網站為緯育TibaMe【第89期】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</p>
-        </div>
-
-    </footer>
-    <!-- 回到頁首 -->
-    <i class="fa fa-angle-up" aria-hidden="true" onclick="scrollToTop()"></i>
+</footer>
 
     <script>
-        let userData_el = document.querySelector(".sidebar li:nth-child(1)");
-        let sOrder_el = document.querySelector(".sidebar li:nth-child(2)");
-        let mOrder_el = document.querySelector(".sidebar li:nth-child(3)");
+        let userData_el = document.querySelector(".member_sidebar li:nth-child(1)");
+        let sOrder_el = document.querySelector(".member_sidebar li:nth-child(2)");
+        let mOrder_el = document.querySelector(".member_sidebar li:nth-child(3)");
         let userData_page = document.querySelector(".userData");
         let sOrder_page = document.querySelector(".sOrder");
         let mOrder_page = document.querySelector(".mOrder");
 
-        userData_el.addEventListener("click", function () {
-            this.classList.add("active");
-            sOrder_el.classList.remove("active");
-            mOrder_el.classList.remove("active");
+        userData_el.addEventListener("click", function (e) {
+            e.preventDefault();
+            this.classList.add("member_sidebar_active");
+            sOrder_el.classList.remove("member_sidebar_active");
+            mOrder_el.classList.remove("member_sidebar_active");
 
-            userData_page.classList.add("pageNow");
-            sOrder_page.classList.remove("pageNow");
-            mOrder_page.classList.remove("pageNow");
+            userData_page.classList.add("member_pageNow");
+            sOrder_page.classList.remove("member_pageNow");
+            mOrder_page.classList.remove("member_pageNow");
 
         })
-        sOrder_el.addEventListener("click", function () {
-            this.classList.add("active");
-            userData_el.classList.remove("active");
-            mOrder_el.classList.remove("active");
+        sOrder_el.addEventListener("click", function (e) {
+            e.preventDefault();
+            this.classList.add("member_sidebar_active");
+            userData_el.classList.remove("member_sidebar_active");
+            mOrder_el.classList.remove("member_sidebar_active");
 
-            sOrder_page.classList.add("pageNow");
-            userData_page.classList.remove("pageNow");
-            mOrder_page.classList.remove("pageNow");
+            sOrder_page.classList.add("member_pageNow");
+            userData_page.classList.remove("member_pageNow");
+            mOrder_page.classList.remove("member_pageNow");
         })
-        mOrder_el.addEventListener("click", function () {
-            this.classList.add("active");
-            sOrder_el.classList.remove("active");
-            userData_el.classList.remove("active");
+        mOrder_el.addEventListener("click", function (e) {
+            e.preventDefault();
+            this.classList.add("member_sidebar_active");
+            sOrder_el.classList.remove("member_sidebar_active");
+            userData_el.classList.remove("member_sidebar_active");
 
-            mOrder_page.classList.add("pageNow");
-            userData_page.classList.remove("pageNow");
-            sOrder_page.classList.remove("pageNow");
+            mOrder_page.classList.add("member_pageNow");
+            userData_page.classList.remove("member_pageNow");
+            sOrder_page.classList.remove("member_pageNow");
         })
     </script>
-    <script>
-        // header滑動變化
-        document.addEventListener('DOMContentLoaded', function () {
-            let header = document.querySelector('header');
-            let scrollTopButton = document.querySelector('.fa-angle-up');
-            let header_text = document.querySelector('.header_text');
-            let wrapper = document.querySelector('.wrapper');
-
-
-            window.addEventListener('scroll', function () {
-                let scrollDistance = window.scrollY || document.documentElement.scrollTop;
-
-                if (scrollDistance > 50) {
-                    header.classList.add('fixed');
-                    scrollTopButton.style.display = 'block';
-                    header_text.style.display = 'none';
-                    wrapper.style.marginTop = '300px';
-
-                } else {
-                    console.log("213e2");
-                    header.classList.remove('fixed');
-                    scrollTopButton.style.display = 'none';
-                    header_text.style.display = 'block';
-                    wrapper.style.marginTop = '80px';
-                }
-            });
-        });
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-
-        }
-    </script>
+    <script src="../js/pageDefault.js"></script>
+    <!-- <script>
+        let bannerTitleCh = document.querySelector('.header_text h1:first-child');
+        let bannerTitleEng = document.querySelector('.header_text h1:last-child');
+        let banner = document.querySelector('header');
+        bannerTitleCh.innerText = '會員中心';
+        bannerTitleEng.innerText = 'Member';
+        banner.style.backgroundImage = "url('../img/member/member_banner.jpg')";
+    </script> -->
 </body>
 
 </html>

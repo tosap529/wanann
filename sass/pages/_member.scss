@@ -1,16 +1,15 @@
-@include banner('../../img/member/member_banner.jpg');
+.member_banner {
+    background-image: url(../../img/member/member_banner.jpg);
+}
 
-.wrapper {
+.member {
     outline: 3px solid purple;
-    margin: 80px auto;
-    width: 1200px;
 
     display: flex;
 }
 
-
 // -----------------萬年不動側邊欄------------------
-.sidebar {
+.member_sidebar {
     flex-basis: 330px;
 
     div {
@@ -77,7 +76,7 @@
 }
 
 // 個人資料分頁(預設)
-.main {
+.member_main {
     display: none;
 
     i {
@@ -186,12 +185,12 @@
 // ---------------切換分頁用------------------
 
 // 表示當前頁面的側邊欄樣式
-.active {
+.member_sidebar_active {
     background-color: $light-milktea;
     border-radius: 8px;
 }
 
 // 當前頁面展開
-.pageNow {
+.member_pageNow {
     display: block;
 }

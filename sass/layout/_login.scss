@@ -1,4 +1,4 @@
-.lightbox {
+.lightbox_login {
     position: fixed;
     top: 0;
     left: 0;
@@ -52,7 +52,7 @@
     padding: 60px 70px 70px;
     border-radius: 10px 0 0 10px;
 
-    form {
+    .login_form {
         a {
             text-decoration: none;
             color: $black;
@@ -101,7 +101,7 @@
 }
 
 // 會左右滑動，並更改內容的帶背景圖區塊
-.bgc_img {
+.login_bgc_img {
     z-index: 1;
     background-image: url(../../img/login/login_main.jpg);
     background-size: cover;
@@ -138,7 +138,7 @@
     padding: 60px 75px 0px;
     border-radius: 0 10px 10px 0;
 
-    form {
+    .create_form {
         margin-bottom: 20px;
 
         label {
@@ -163,10 +163,10 @@
 
 }
 
-.left {
+.login_box_left {
     left: 00px;
 }
 
-.right {
+.login_box_right {
     left: 500px;
 }
