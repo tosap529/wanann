@@ -1,9 +1,8 @@
-.wrapper {
+.forget {
     outline: 3px solid orange;
-    margin: 80px 0;
 }
 
-section {
+.forget_pwd {
     outline: 3px solid blue;
     box-sizing: border-box;
     width: 500px;
@@ -15,7 +14,7 @@ section {
     }
 }
 
-form {
+.forget_form {
     label {
         font-size: $h2;
     }
