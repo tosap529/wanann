@@ -1,0 +1,24 @@
+.circle{
+    width: 590px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .circle_step{
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        background-color: $light-milktea;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        > h1{
+            font-size: $h2;
+        }
+    }
+}
+
+.circle .circle_on{
+    background-color: $dark-milktea;
+    color: $white;
+}

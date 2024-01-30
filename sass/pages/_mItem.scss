@@ -1,0 +1,129 @@
+@import "../main.scss";
+
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+
+div.wrapper{
+    max-width: 100%;
+
+    // border: 1px solid blue;
+}
+
+section{
+    margin-left: 10%;
+}
+
+div.mitem_main{
+    display: flex;
+    gap: 60px;
+
+    margin-bottom: 100px;
+}
+
+
+
+div.mitem_photo{
+    display: flex;
+    justify-content: space-between;
+
+    width: 565px;
+    max-width: 100%;
+    height: 420px;
+    
+    ul.mitem_photo_small{
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+  
+        img{
+            width: 120px;
+            max-width: 100%;
+        }
+    }
+
+    div.mitem_photo_big{
+        img{
+            width: 420px;
+            max-width: 100%;
+        }
+
+    }
+}
+
+div.mitem_product{
+
+    width: 350px;
+    max-width: 100%;
+
+    h1{
+        font-weight: bold;
+        margin-bottom: 24px;
+    }
+    h2{
+        font-weight: bold;
+        margin-left: 5px;
+        margin-bottom: 31px;
+    }
+    p{
+        margin-bottom: 12px;
+    }
+    i{
+        color: $warning;
+        font-size: 16px;
+        margin-right: 12px;
+    }
+    h3{
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    div.mitem_design{
+        width: 100px;
+        max-width: 100%;
+        height: 30px;
+        background-color: $medium-milktea;
+
+        color: $white;
+
+        border-radius: 8px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-bottom: 16px;
+    }
+
+    div.cal{
+        margin-bottom: 41px;
+    }
+
+    div.mitem_btn{
+        display: flex; 
+        gap: 25px;
+
+        i{
+            color: $white;
+        }
+        .btn{
+            width: 150px;
+            max-width: 100%;
+        }
+    }
+}
+
+div.tab{
+    width: 975px;
+    max-width: 100%;
+    margin-bottom: 25px;
+}
+
+ol.mitem_text{
+    margin-left: 25px;
+    list-style-type: decimal;
+    li{
+        margin-bottom: 10px;
+    }
+
+}

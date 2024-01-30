@@ -1,0 +1,264 @@
+@import "../main.scss";
+
+*,*:before,*:after{
+    box-sizing: border-box;
+}
+
+div.wrapper{
+    max-width: 100%;
+    // border: 1px solid blue;
+}
+
+div.circle{
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+div.title{
+    margin-bottom: 30px;
+}
+
+div.mPay1_item{
+    width: 1085px;
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 3px dashed $grey;
+    padding-bottom: 28px;
+
+    margin-bottom: 24px;
+
+    // border: 1px solid green;
+
+    > img{
+        width: 120px;
+    }
+
+    div.mPay1_itemName{
+        margin-left: 2%;
+        margin-right: 13.1%;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        // border: 1px solid blue;
+    }
+
+    > div.cal{
+        width: 130px;
+        max-width: 100%;
+
+        margin-right: 42.3%;
+
+    }
+
+    div.mPay1_items_price{
+        height: 120px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+
+        // border: 1px solid red;
+
+        > i{
+            color: $dark-milktea;
+            cursor: pointer;
+
+            &:hover{
+                color: $brown;
+            }
+        }
+    }
+}
+
+// 款式(經典款)
+div.mPay1_design{
+    width: 100px;
+    max-width: 100%;
+    height: 30px;
+    background-color: $medium-milktea;
+
+    color: $white;
+
+    border-radius: 8px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 16px;
+}
+
+div.mPay1_coupon{
+    display: flex;
+    justify-content: space-between;
+
+    height: 40px;
+
+    padding: 0 4.58%;
+    margin-bottom: 28px;
+
+    // border: 1px solid red;
+
+    div.mPay1_coupon_number{
+        display: flex;
+        align-items: center;
+
+        width: 546px;
+        max-width: 100%;
+
+        > h3{
+            background-color: $light-milktea;
+            margin-right: 9.1%;
+
+            height: 32px;
+            width: 94px;
+            max-width: 100%;
+
+            line-height: 32px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        > input{
+            width: 186px;
+            max-width: 100%;
+
+            margin-right: 9.1%;
+        }
+
+        > .btn{
+            width: 66px;
+            height: 30px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: $h4;
+
+            margin-right: 3.6%;
+        }
+
+        > p.mPay1_coupon_success{
+            color: green;
+        }
+
+        // 兌換失敗的樣式
+        >p.mPay1_coupon_fail{
+            color: $warning;
+        }
+    }
+
+    div.mPay1_coupon_discount{
+        width: 214px;
+        max-width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+}
+
+div.mPay1_shipping{
+    display: flex;
+    justify-content: space-between;
+
+    height: 40px;
+
+    padding: 0 4.58%;
+    margin-bottom: 28px;
+
+    div.mPay1_shipping_methods{
+        display: flex;
+        align-items: center;
+
+        width: 546px;
+        max-width: 100%;
+
+        & :first-child{
+            background-color: $light-milktea;
+            margin-right: 9.1%;
+
+            height: 32px;
+            width: 94px;
+            max-width: 100%;
+
+            line-height: 32px;
+            text-align: center;
+            border-radius: 8px;
+        }
+    }
+
+    div.mPay1_shipping_fee{
+        width: 214px;
+        max-width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+}
+
+div.mPay1_payment{
+    display: flex;
+    align-items: center;
+
+    height: 40px;
+
+    padding: 0 4.58%;
+    margin-bottom: 28px;
+
+
+    & :first-child{
+        background-color: $light-milktea;
+        margin-right: 4.4%;
+
+        height: 32px;
+        width: 94px;
+        max-width: 100%;
+
+        line-height: 32px;
+        text-align: center;
+        border-radius: 8px;
+
+    }
+}
+
+div.mPay1_total{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    padding: 0 4.58%;
+
+    margin-bottom: 75px;
+
+    & :first-child{
+        margin-right: 4.4%;
+
+        height: 32px;
+        width: 94px;
+        max-width: 100%;
+
+        line-height: 32px;
+        text-align: center;
+        border-radius: 8px;
+    }
+}
+
+.mPay1_nextpage{
+    margin: 0 auto;
+}
+
+
