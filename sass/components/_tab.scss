@@ -1,15 +1,15 @@
 // class="tab"
 .tab ul {
     display: flex;
-    border-bottom: 1px solid $dark-grey;
-    padding-bottom: 2px;
+    border-bottom: 1px solid $grey;
+    padding-bottom: 5px;
 
     li {
         margin-right: 20px;
+        background-color: $light-milktea;
+        border-radius: 10px 10px 0px 0px;
 
         a {
-            background-color: $light-milktea;
-            border-radius: 10px 10px 0px 0px;
             line-height: 40px;
             width: 120px;
             height: 40px;
@@ -18,12 +18,19 @@
             text-decoration: none;
             color: $black;
         }
+
+
     }
 
-}
+    // active狀態的tab加上此class
 
-// active狀態的tab加上此class
-.tab_on {
-    background-color: $dark-milktea;
-    color: $white;
+    li.tab_on {
+        background-color: $dark-milktea;
+
+        a {
+            color: $white;
+
+        }
+    }
+
 }
