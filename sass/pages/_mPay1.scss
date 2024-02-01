@@ -1,20 +1,14 @@
-@import "../main.scss";
-
-*,*:before,*:after{
-    box-sizing: border-box;
+header.mPay1__banner{
+    background-image: url(../../img/mall/mall_banner.jpg);
 }
 
-div.wrapper{
-    max-width: 100%;
-    // border: 1px solid blue;
-}
 
-div.circle{
+div.mPay1_circle{
     margin: 0 auto;
     margin-bottom: 60px;
 }
 
-div.title{
+div.mPay1_title{
     margin-bottom: 30px;
 }
 
@@ -38,7 +32,7 @@ div.mPay1_item{
         width: 120px;
     }
 
-    div.mPay1_itemName{
+    div.mPay1_item_name{
         margin-left: 2%;
         margin-right: 13.1%;
 
@@ -58,7 +52,7 @@ div.mPay1_item{
 
     }
 
-    div.mPay1_items_price{
+    div.mPay1_item_price{
         height: 120px;
 
         display: flex;
@@ -128,14 +122,14 @@ div.mPay1_coupon{
             border-radius: 8px;
         }
 
-        > input{
+        > .mPay1_coupon_input{
             width: 186px;
             max-width: 100%;
 
             margin-right: 9.1%;
         }
 
-        > .btn{
+        > .mPay1_btn{
             width: 66px;
             height: 30px;
 
@@ -146,6 +140,7 @@ div.mPay1_coupon{
             font-size: $h4;
 
             margin-right: 3.6%;
+
         }
 
         > p.mPay1_coupon_success{
@@ -246,14 +241,7 @@ div.mPay1_total{
 
     & :first-child{
         margin-right: 4.4%;
-
-        height: 32px;
-        width: 94px;
-        max-width: 100%;
-
-        line-height: 32px;
         text-align: center;
-        border-radius: 8px;
     }
 }
 
