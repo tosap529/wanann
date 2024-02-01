@@ -1,24 +1,18 @@
-@import "../main.scss";
-
-*,*:before,*:after{
-    box-sizing: border-box;
+header.mPay1__banner {
+    background-image: url(../../img/mall/mall_banner.jpg);
 }
 
-div.wrapper{
-    max-width: 100%;
-    // border: 1px solid blue;
-}
 
-div.circle{
+div.mPay1_circle {
     margin: 0 auto;
     margin-bottom: 60px;
 }
 
-div.title{
+div.mPay1_title {
     margin-bottom: 30px;
 }
 
-div.mPay1_item{
+div.mPay1_item {
     width: 1085px;
     max-width: 100%;
 
@@ -34,11 +28,11 @@ div.mPay1_item{
 
     // border: 1px solid green;
 
-    > img{
+    >img {
         width: 120px;
     }
 
-    div.mPay1_itemName{
+    div.mPay1_item_name {
         margin-left: 2%;
         margin-right: 13.1%;
 
@@ -50,7 +44,7 @@ div.mPay1_item{
         // border: 1px solid blue;
     }
 
-    > div.cal{
+    >div.cal {
         width: 130px;
         max-width: 100%;
 
@@ -58,7 +52,7 @@ div.mPay1_item{
 
     }
 
-    div.mPay1_items_price{
+    div.mPay1_item_price {
         height: 120px;
 
         display: flex;
@@ -68,11 +62,11 @@ div.mPay1_item{
 
         // border: 1px solid red;
 
-        > i{
+        >i {
             color: $dark-milktea;
             cursor: pointer;
 
-            &:hover{
+            &:hover {
                 color: $brown;
             }
         }
@@ -80,7 +74,7 @@ div.mPay1_item{
 }
 
 // 款式(經典款)
-div.mPay1_design{
+div.mPay1_design {
     width: 100px;
     max-width: 100%;
     height: 30px;
@@ -97,7 +91,7 @@ div.mPay1_design{
     margin-bottom: 16px;
 }
 
-div.mPay1_coupon{
+div.mPay1_coupon {
     display: flex;
     justify-content: space-between;
 
@@ -108,14 +102,14 @@ div.mPay1_coupon{
 
     // border: 1px solid red;
 
-    div.mPay1_coupon_number{
+    div.mPay1_coupon_number {
         display: flex;
         align-items: center;
 
         width: 546px;
         max-width: 100%;
 
-        > h3{
+        >h3 {
             background-color: $light-milktea;
             margin-right: 9.1%;
 
@@ -128,14 +122,14 @@ div.mPay1_coupon{
             border-radius: 8px;
         }
 
-        > input{
+        >.mPay1_coupon_input {
             width: 186px;
             max-width: 100%;
 
             margin-right: 9.1%;
         }
 
-        > .btn{
+        >.mPay1_btn {
             width: 66px;
             height: 30px;
 
@@ -146,19 +140,20 @@ div.mPay1_coupon{
             font-size: $h4;
 
             margin-right: 3.6%;
+
         }
 
-        > p.mPay1_coupon_success{
+        >p.mPay1_coupon_success {
             color: green;
         }
 
         // 兌換失敗的樣式
-        >p.mPay1_coupon_fail{
+        >p.mPay1_coupon_fail {
             color: $warning;
         }
     }
 
-    div.mPay1_coupon_discount{
+    div.mPay1_coupon_discount {
         width: 214px;
         max-width: 100%;
 
@@ -169,7 +164,7 @@ div.mPay1_coupon{
     }
 }
 
-div.mPay1_shipping{
+div.mPay1_shipping {
     display: flex;
     justify-content: space-between;
 
@@ -178,14 +173,14 @@ div.mPay1_shipping{
     padding: 0 4.58%;
     margin-bottom: 28px;
 
-    div.mPay1_shipping_methods{
+    div.mPay1_shipping_methods {
         display: flex;
         align-items: center;
 
         width: 546px;
         max-width: 100%;
 
-        & :first-child{
+        & :first-child {
             background-color: $light-milktea;
             margin-right: 9.1%;
 
@@ -199,7 +194,7 @@ div.mPay1_shipping{
         }
     }
 
-    div.mPay1_shipping_fee{
+    div.mPay1_shipping_fee {
         width: 214px;
         max-width: 100%;
 
@@ -210,7 +205,7 @@ div.mPay1_shipping{
     }
 }
 
-div.mPay1_payment{
+div.mPay1_payment {
     display: flex;
     align-items: center;
 
@@ -220,7 +215,7 @@ div.mPay1_payment{
     margin-bottom: 28px;
 
 
-    & :first-child{
+    & :first-child {
         background-color: $light-milktea;
         margin-right: 4.4%;
 
@@ -235,7 +230,7 @@ div.mPay1_payment{
     }
 }
 
-div.mPay1_total{
+div.mPay1_total {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -244,21 +239,12 @@ div.mPay1_total{
 
     margin-bottom: 75px;
 
-    & :first-child{
+    & :first-child {
         margin-right: 4.4%;
-
-        height: 32px;
-        width: 94px;
-        max-width: 100%;
-
-        line-height: 32px;
         text-align: center;
-        border-radius: 8px;
     }
 }
 
-.mPay1_nextpage{
+.mPay1_nextpage {
     margin: 0 auto;
 }
-
-

@@ -1,20 +1,20 @@
-@import "../main.scss";
-
-*,*:before,*:after{
-    box-sizing: border-box;
+header.mitem_banner {
+    background-image: url(../../img/mall/mall_banner.jpg);
 }
 
-div.wrapper{
+
+
+div.mitem_wrapper {
     max-width: 100%;
 
     // border: 1px solid blue;
 }
 
-section{
+.mitem_sec {
     margin-left: 10%;
 }
 
-div.mitem_main{
+div.mitem_main {
     display: flex;
     gap: 60px;
 
@@ -23,27 +23,27 @@ div.mitem_main{
 
 
 
-div.mitem_photo{
+div.mitem_photo {
     display: flex;
     justify-content: space-between;
 
     width: 565px;
     max-width: 100%;
     height: 420px;
-    
-    ul.mitem_photo_small{
+
+    ul.mitem_photo_small {
         display: flex;
         flex-direction: column;
         gap: 28px;
-  
-        img{
+
+        img {
             width: 120px;
             max-width: 100%;
         }
     }
 
-    div.mitem_photo_big{
-        img{
+    div.mitem_photo_big {
+        img {
             width: 420px;
             max-width: 100%;
         }
@@ -51,34 +51,40 @@ div.mitem_photo{
     }
 }
 
-div.mitem_product{
+div.mitem_product {
 
     width: 350px;
     max-width: 100%;
 
-    h1{
+    >h1 {
         font-weight: bold;
         margin-bottom: 24px;
+
+        // font-size: 100px;
     }
-    h2{
+
+    >h2 {
         font-weight: bold;
         margin-left: 5px;
         margin-bottom: 31px;
     }
-    p{
+
+    >p {
         margin-bottom: 12px;
     }
-    i{
+
+    i.mitem_pin {
         color: $warning;
         font-size: 16px;
         margin-right: 12px;
     }
-    h3{
+
+    >h3 {
         font-weight: bold;
         margin-bottom: 10px;
     }
 
-    div.mitem_design{
+    div.mitem_design {
         width: 100px;
         max-width: 100%;
         height: 30px;
@@ -95,34 +101,36 @@ div.mitem_product{
         margin-bottom: 16px;
     }
 
-    div.cal{
+    div.cal {
         margin-bottom: 41px;
     }
 
-    div.mitem_btn{
-        display: flex; 
+    div.mitem_btn {
+        display: flex;
         gap: 25px;
 
-        i{
+        i.mitem_add_to_cart {
             color: $white;
         }
-        .btn{
+
+        .mitem_btn {
             width: 150px;
             max-width: 100%;
         }
     }
 }
 
-div.tab{
+div.mitem_tab {
     width: 975px;
     max-width: 100%;
     margin-bottom: 25px;
 }
 
-ol.mitem_text{
+ol.mitem_text {
     margin-left: 25px;
     list-style-type: decimal;
-    li{
+
+    li {
         margin-bottom: 10px;
     }
 

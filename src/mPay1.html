@@ -5,11 +5,175 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>浣安 | 商品結帳－訂單確認</title>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
+    <header class="mPay1__banner">
+        <nav>
+            <div class="nav_left">
+                <a href="index.html"><img src="./../img/logo_long.svg" alt="logo"></a>
+                <h4>最安心的居家清潔服務</h4>
+            </div>
+            <div class="nav_right">
+                <i class="fa fa-bars" area-hidden="true"></i>
+                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">最新消息</a>
+                        <ol>
+                            <li><a href="#">優惠活動</a></li>
+                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                        </ol>
+                    </li>
+    
+                    <li><a href="#">我們的服務</a>
+                        <ol>
+                            <li><a href="#">服務介紹</a></li>
+                            <li><a href="#">案例分享</a></li>
+                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">商城</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+                <div class="nav_user">
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </nav>
+    
+        <div class="header_text">
+            <!-- 請換成你的頁面名稱 -->
+            <h1>商城</h1>
+            <h1>Mall</h1>
+        </div>
+    </header>
 
+    <!--  -->
+    <div class="wrapper mPay1_wrapper">
+        <section class="mPay1">
+
+            <div class="mPay1_circle circle">
+                <div class="circle_step circle_on">
+                    <h1>1</h1>
+                    <h1>訂單確認</h1>
+                </div>
+                <div class="circle_step">
+                    <h1>2</h1>
+                    <h1>訂單填寫</h1>
+                </div>
+                <div class="circle_step">
+                    <h1>3</h1>
+                    <h1>訂單成立</h1>
+                </div>
+            </div>
+
+            <div class="title mPay1_title">
+                <h1>商城產品</h1>
+            </div>
+
+            <div class="mPay1_items">
+
+                <div class="mPay1_item">
+
+                    <img src="./../img/mall/mall_product1_1.jpg">
+                    <div class="mPay1_item_name">
+                        <h2>浣安手工香皂</h2>
+                        <div class="mPay1_design">
+                            <h4>經典款</h4>
+                        </div>
+                    </div>
+
+                    <div class="cal">
+                        <i class="fa-solid fa-minus cal_btn"></i>
+                        <div class="cal_count">1</div>
+                        <i class="fa-solid fa-plus cal_btn"></i>
+                    </div>
+
+                    <div class="mPay1_item_price">
+                        <h2>NTD200</h2>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+
+                </div>
+
+                <div class="mPay1_item">
+
+                    <img src="./../img/mall/mall_product1_1.jpg">
+                    <div class="mPay1_item_name">
+                        <h2>浣安手工香皂</h2>
+                        <div class="mPay1_design">
+                            <h4>經典款</h4>
+                        </div>
+                    </div>
+
+                    <div class="cal">
+                        <i class="fa-solid fa-minus cal_btn"></i>
+                        <div class="cal_count">1</div>
+                        <i class="fa-solid fa-plus cal_btn"></i>
+                    </div>
+
+                    <div class="mPay1_item_price">
+                        <h2>NTD200</h2>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+
+                </div>
+
+            </div>
+
+            
+
+            <div class="mPay1_coupon">
+                <div class="mPay1_coupon_number">
+                    <h3>優惠代碼</h3>
+                    <input class="mPay1_coupon_input" type="text" placeholder="請輸入優惠代碼">
+                    <button class="btn mPay1_btn">兌換</button>
+                    <p class="mPay1_coupon_success">兌換成功</p>
+                </div>
+                <div class="mPay1_coupon_discount">
+                    <h2>優惠代碼</h2>
+                    <h2>NTD -60</h2>
+                </div>
+            </div>
+
+            <div class="mPay1_shipping">
+                <div class="mPay1_shipping_methods">
+                    <h3>寄送方式</h3>
+                    <h3>宅配到府</h3>
+                </div>
+
+                <div class="mPay1_shipping_fee">
+                    <h2>運費</h2>
+                    <h2>NTD 60</h2>
+                </div>
+            </div>
+
+            
+            <div class="mPay1_payment">
+                <h3>付款方式</h3>
+                <h3>信用卡</h3>
+            </div>
+            
+
+            <div class="mPay1_total">
+                    <h2>總金額</h2>
+                    <h1>NTD400</h1>
+            </div>
+
+            <button class="btn mPay1_nextpage">下一步</button>
+
+        </section>
+        
+    </div>
+
+    @@include('./layout/footer.html')
 </body>
 
 </html>

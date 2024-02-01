@@ -1,27 +1,17 @@
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
+header.mall_banner {
+    background-image: url(../../img/mall/mall_banner.jpg);
 }
 
-header {
-    width: 1440px;
-    height: 100px;
 
-    border: 1px solid green;
-    margin: 0 auto;
-}
-
-.wrapper {
+.mall_wrapper {
     width: 1200px;
     max-width: 100%;
     margin: 80px auto;
 
-    // border: 1px solid red;
 }
 
 // --------------  導覽分頁  ---------------
-nav {
+nav.mall_nav {
     // margin-bottom: 50px;
     width: 1100px;
     max-width: 100%;
@@ -33,125 +23,159 @@ nav {
     padding-bottom: 2px;
 
     // display: flex;
+    // justify-content: space-between;
 
-    div.tab {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
+    <<<<<<< HEAD div.tab {
+        ======= // border: 1PX solid blue;
 
-    a {
-        font-size: $h4;
-    }
-
-    ul.nav_products,
-    ul.search {
-        border: none;
-    }
-
-    ul.search {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        width: 190px;
-        padding: 0;
-
-        li {
-            margin: 0;
+        div.mall_tab {
+            >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        i {
-            color: $brown;
-            font-size: 25px;
-        }
-
-        input {
-            width: 140px;
-            max-width: 100%;
-            height: 30px;
-        }
-    }
-}
-
-main.mall {
-    margin: 0 auto;
-    width: 1010px;
-    max-width: 100%;
-
-    // border: 1px solid purple;
-}
-
-ul.mall_products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: start;
-    gap: 50px 70px;
-
-    li {
-        width: 200px;
-        height: 340px;
-        // border: 1px solid blue;
-
-        // margin-right: 70px;
-
-        img {
-            width: 200px;
-            display: block;
-            margin-bottom: 25px;
-        }
-
-        h1 {
-            font-size: $h2;
-            margin: 0 0 15px 10px;
-        }
-
-        p {
-            font-size: $h4;
-            margin: 0 0 10px 10px;
-        }
-
-        .add_to_cart {
-            font-size: $h2;
-            width: 200px;
-            height: 46px;
-            color: $white;
-            background-color: $dark-milktea;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-    }
-}
-
-
-div.paginator {
-
-    margin-top: 50px;
-
-    ul {
-
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-
-        font-size: $h3;
-        color: $dark-milktea;
-
-        li {
-            cursor: pointer;
-
-            &:hover {
-                color: $black;
+        <<<<<<< HEAD a {
+            =======>a {
+                >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe font-size: $h4;
             }
-        }
 
-        i {
-            color: $black;
-            // cursor: pointer;
-        }
-    }
-}
+            ul.nav_products,
+            <<<<<<< HEAD ul.search {
+                border: none;
+            }
+
+            ul.search {
+                =======ul.mall_search {
+                    border: none;
+                }
+
+                ul.mall_search {
+                    >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe display: flex;
+                    align-items: center;
+                    padding: 0;
+
+                    <<<<<<< HEAD li {
+                        =======>li {
+                            >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe margin: 0;
+
+                            i.mall_search_icon {
+                                color: $brown;
+                                font-size: 25px;
+                                margin-right: 0.5rem;
+                            }
+
+                            >input {
+                                width: 140px;
+                                max-width: 100%;
+                                height: 30px;
+                            }
+
+                        }
+
+                        <<<<<<< HEAD i {
+                            color: $brown;
+                            font-size: 25px;
+                        }
+
+                        input {
+                            width: 140px;
+                            max-width: 100%;
+                            height: 30px;
+                        }
+
+                        =======>>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe
+                    }
+                }
+
+                main.mall {
+                    margin: 0 auto;
+                    width: 1010px;
+                    max-width: 100%;
+
+                }
+
+                ul.mall_products {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: start;
+                    gap: 50px 70px;
+
+                    <<<<<<< HEAD li {
+                        =======>li {
+                            >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe width: 200px;
+                            height: 340px;
+
+                            <<<<<<< HEAD // margin-right: 70px;
+
+                            img {
+                                =======>img {
+                                    >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe width: 200px;
+                                    display: block;
+                                    margin-bottom: 25px;
+                                }
+
+                                <<<<<<< HEAD h1 {
+                                    =======>h1 {
+                                        >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe font-size: $h2;
+                                        margin: 0 0 15px 10px;
+                                    }
+
+                                    <<<<<<< HEAD p {
+                                        =======>p {
+                                            >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe font-size: $h4;
+                                            margin: 0 0 10px 10px;
+                                        }
+
+                                        <<<<<<< HEAD .add_to_cart {
+                                            =======.mall_add_to_cart {
+                                                >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe font-size: $h2;
+                                                width: 200px;
+                                                height: 46px;
+                                                color: $white;
+                                                background-color: $dark-milktea;
+                                                border: none;
+                                                border-radius: 10px;
+                                                cursor: pointer;
+                                            }
+                                        }
+                                    }
+
+
+                                    <<<<<<< HEAD div.paginator {
+
+                                        margin-top: 50px;
+
+                                        ul {
+                                            =======div.mall_paginator {
+
+                                                margin-top: 50px;
+
+                                                >ul {
+                                                    >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe display: flex;
+                                                    justify-content: center;
+                                                    gap: 20px;
+
+                                                    font-size: $h3;
+                                                    color: $dark-milktea;
+
+                                                    <<<<<<< HEAD li {
+                                                        =======>li {
+                                                            >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe cursor: pointer;
+
+                                                            &:hover {
+                                                                color: $black;
+                                                            }
+                                                        }
+
+                                                        <<<<<<< HEAD i {
+                                                            =======>i {
+                                                                >>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe color: $black;
+
+                                                            }
+                                                        }
+
+                                                        <<<<<<< HEAD
+                                                    }
 
 
 
@@ -159,10 +183,11 @@ div.paginator {
 
 
 
-footer {
-    width: 1440px;
-    height: 100px;
+                                                    footer {
+                                                        width: 1440px;
+                                                        height: 100px;
 
-    border: 1px solid green;
-    margin: 0 auto;
-}
+                                                        border: 1px solid green;
+                                                        margin: 0 auto;
+                                                        =======>>>>>>>bb0f614446f8ae8523c99e179d941b905c848cbe
+                                                    }

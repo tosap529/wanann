@@ -76,8 +76,7 @@
 }
 
 // 個人資料分頁(預設)
-.member_main {
-    display: none;
+.userData {
 
     i {
         font-size: 25px;
@@ -176,11 +175,168 @@
     }
 }
 
+// 訂單分頁共通
+.tab ul {
+    width: 900px;
+    margin-bottom: 45px;
+}
+
+.sOrder_data,
+.mOrder_data {
+    border: 1px solid $grey;
+    border-radius: 10px;
+    padding: 30px 50px;
+
+    @for $i from 2 through 5 {
+        >div:nth-child(#{$i}) {
+            margin-top: 40px;
+        }
+    }
+
+    @for $i from 1 through 3 {
+        >div:nth-child(#{$i}) {
+            // background-color: aqua;
+            display: flex;
+
+            h2 {
+                line-height: 30px;
+            }
+
+            input {
+                height: 30px;
+                margin-left: 70px;
+                width: 250px;
+                background-color: transparent;
+                border-radius: 0;
+                border-bottom: 1px solid $grey;
+            }
+        }
+    }
+
+    >div:nth-child(4) {
+        display: flex;
+        flex-direction: column;
+    }
+
+    >div:last-child {
+        background-color: aquamarine;
+        display: flex;
+        justify-content: space-between;
+
+        button {
+            font-size: $h3;
+            width: 120px;
+            height: 40px;
+            line-height: 20px;
+        }
+
+        p {
+            line-height: 40px;
+            margin-left: 40px;
+            margin-right: auto;
+        }
+
+        div {
+            display: flex;
+            line-height: 40px;
+
+            h2:last-child {
+                margin-left: 60px;
+            }
+        }
+    }
+
+    article {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 30px;
+        border-bottom: 3px dashed $black;
+
+        img {
+            width: 120px;
+            margin-right: 40px;
+            margin-bottom: 20px;
+        }
+    }
+}
+
 // 服務訂單分頁
-.sOrder {}
+.sOrder_data {
+    display: flex;
+    flex-direction: column;
+
+    >div:nth-child(4) div {
+        display: flex;
+        margin-top: 45px;
+
+        h2 {
+            margin-right: 20px;
+        }
+
+        h2:first-child {
+            align-self: center;
+        }
+
+        h2:nth-child(2),
+        h2:last-child {
+            background-color: $light-milktea;
+            border-radius: 8px;
+            width: fit-content;
+            padding: 5px 10px;
+        }
+    }
+
+    article {
+        h2 {
+            align-self: center;
+            margin-bottom: 30px;
+        }
+
+        h2:nth-child(2) {
+            margin-right: auto;
+        }
+
+        h2:nth-child(3) {
+            text-align: right;
+        }
+    }
+}
 
 // 商城訂單分頁
-.mOrder {}
+.mOrder_data {
+    // display: flex;
+    // flex-direction: column;
+
+
+    article {
+
+        div {
+            margin-right: auto;
+            margin-top: 20px;
+
+
+            h4 {
+                background-color: $medium-milktea;
+                border-radius: 8px;
+                width: fit-content;
+                padding: 5px 20px;
+                margin-top: 20px;
+            }
+        }
+
+        >h2,
+        h3 {
+            align-self: center;
+            margin-bottom: 30px;
+        }
+
+        div~h2 {
+            margin-left: 300px;
+        }
+    }
+
+
+}
 
 // ---------------切換分頁用------------------
 
