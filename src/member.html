@@ -71,7 +71,7 @@
             </ul>
         </section>
         <!-- 個人資料分頁(預設) -->
-        <section class="member_main userData member_pageNow">
+        <!-- <section class="member_main userData member_pageNow">
             <div>
                 <input type="file" id="profile">
                 <i class="fa-solid fa-pen-to-square"></i>
@@ -163,13 +163,113 @@
                 <i class="fa-solid fa-pen-to-square"></i>
                 <i class="fa-solid fa-floppy-disk"></i>
             </div>
-        </section>
+        </section> -->
 
 
         <!-- 服務訂單分頁 -->
-        <section class="member_main sOrder"></section>
+        <section class="member_main sOrder">
+            <div class="tab">
+                <ul>
+                    <li class="tab_on"><a href="#">未完成訂單</a></li>
+                    <li><a href="#">已完成訂單</a></li>
+                </ul>
+            </div>
+            <!-- 服務_未完成訂單分頁 -->
+            <div class="sOrder_data">
+                <div>
+                    <h2>訂單編號</h2>
+                    <input type="text" disabled>
+                </div>
+                <div>
+                    <h2>訂購日期</h2>
+                    <input type="text" disabled>
+                </div>
+                <div>
+                    <h2>訂單狀態</h2>
+                    <input type="text" disabled>
+                </div>
+                <div>
+                    <h2>訂單內容</h2>
+                    <div>
+                        <h2>服務日期</h2>
+                        <h2>2024/03/21</h2>
+                        <h2>下午</h2>
+                    </div>
+                    <article>
+                        <img src="../img/member/member_sOrder_product1.png" alt="">
+                        <h2>浣安全室清潔</h2>
+                        <h2>NTD4,000</h2>
+                    </article>
+                    <article>
+                        <img src="../img/member/member_sOrder_product2.png" alt="">
+                        <h2>冷氣機清理</h2>
+                        <h2>NTD500</h2>
+                    </article>
+                    <article>
+                        <img src="../img/member/member_sOrder_product3.png" alt="">
+                        <h2>毛孩服務</h2>
+                        <h2>人工估價<br>(由施作人員現場收費)</h2>
+                    </article>
+                </div>
+                <div>
+                    <button class="btn">取消訂單</button>
+                    <p>*距預定服務日七天內無法取消</p>
+                    <div>
+                        <h2>總金額</h2>
+                        <h2>NTD4,400</h2>
+                    </div>
+                </div>
+            </div>
+            <!-- 服務_已完成訂單分頁 -->
+            <div class="sOrder_data">
+                <div>
+                    <h2>訂單編號</h2>
+                    <input type="text" disabled>
+                </div>
+                <div>
+                    <h2>訂購日期</h2>
+                    <input type="text" disabled>
+                </div>
+                <div>
+                    <h2>訂單狀態</h2>
+                    <input type="text" disabled>
+                </div>
+                <div>
+                    <h2>訂單內容</h2>
+                    <div>
+                        <h2>服務日期</h2>
+                        <h2>2024/03/21</h2>
+                        <h2>下午</h2>
+                    </div>
+                    <article>
+                        <img src="../img/member/member_sOrder_product1.png" alt="">
+                        <h2>浣安全室清潔</h2>
+                        <h2>NTD4,000</h2>
+                    </article>
+                    <article>
+                        <img src="../img/member/member_sOrder_product2.png" alt="">
+                        <h2>冷氣機清理</h2>
+                        <h2>NTD500</h2>
+                    </article>
+                    <article>
+                        <img src="../img/member/member_sOrder_product3.png" alt="">
+                        <h2>毛孩服務</h2>
+                        <h2>人工估價<br>(由施作人員現場收費)</h2>
+                    </article>
+                </div>
+                <div>
+                    <button class="btn">評價訂單</button>
+                    <div>
+                        <h2>總金額</h2>
+                        <h2>NTD4,400</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- 商城訂單分頁 -->
-        <section class="member_main mOrder"></section>
+        <!-- <section class="member_main mOrder">
+            備份在雲端
+        </section> -->
 
     </div>
     @@include('./layout/footer.html')
@@ -215,14 +315,7 @@
         })
     </script>
     <script src="../js/pageDefault.js"></script>
-    <!-- <script>
-        let bannerTitleCh = document.querySelector('.header_text h1:first-child');
-        let bannerTitleEng = document.querySelector('.header_text h1:last-child');
-        let banner = document.querySelector('header');
-        bannerTitleCh.innerText = '會員中心';
-        bannerTitleEng.innerText = 'Member';
-        banner.style.backgroundImage = "url('../img/member/member_banner.jpg')";
-    </script> -->
+
 </body>
 
 </html>
