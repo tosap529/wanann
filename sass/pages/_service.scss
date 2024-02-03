@@ -54,23 +54,30 @@
       height: 520px;
       border-radius: 10px;
       background-color: $light-milktea;
-      padding: 20px 70px 20px 40px;
+      padding: 20px 70px 0 40px;
       margin-bottom: 40px;
        h2{
         align-self: center;
         font-weight: bold;
-        flex-basis: 120px;
+        flex-basis: 200px;
        }
     }
 }
 
+.right_icon1 ul li:nth-child(2) > img{
+  margin-top: 28px;
+}
+
+.right_icon1 ul li:nth-child(2) > h3{
+  margin-top: 35px;
+}
 
 .right_icon1{
   display: flex;
     ul{
       display: flex;
       flex-wrap: wrap;
-      margin-left: 90px;
+      margin-left: 85px;
         li{
           border: 4px solid $dark-milktea;
           flex-basis: 150px;
@@ -87,7 +94,7 @@
             }
             p{
               padding: 5px;
-              text-align: center;
+              text-align: left;
             }
         }
     }
@@ -98,8 +105,8 @@
     ul{
       display: flex;
       flex-wrap: wrap;
-      margin-left: 68px;
       flex-basis: 600px;
+      margin-left: 48px;
       //height: 230px;
         li{
           border: 4px solid $dark-milktea;
@@ -117,9 +124,85 @@
             }
             p{
               padding: 5px;
-              text-align: center;
+              text-align: left;
             }
         }
     }
 }
 
+.service_compare{
+  margin: 0 auto;
+  width: 900px;
+    thead{
+      background-color: $light-milktea;
+      border-bottom: 1px solid $grey;
+      text-align: center;
+      height: 80px;
+      position: relative;
+      &:before{
+        content:"";
+        background-image: url(/img/service/king.svg);
+        position: absolute;
+        background-repeat: no-repeat;
+        height: 100px;
+        width: 60px;
+        top: -50%;
+        left: 56%
+      }
+        td{
+          width: 300px;
+          font-size: $h2;
+          line-height: 80px; 
+          border-right: 1px solid $grey;
+          &:last-child{
+            border-right: 0px;
+          }
+            img{
+              margin: -26px auto;
+            }
+        }
+    }
+    tbody{
+      tr{
+        border-bottom: 1px solid $grey;
+        text-align: center;
+        height: 80px;
+        line-height: 80px;
+        &:last-child{
+          border-bottom: 0px;
+        }
+      }
+      td{
+        border-right: 1px solid $grey;
+        &:last-child{
+          border-right: 0px;
+        }
+      }
+    }
+}
+
+.service_map{
+  margin: 0 auto;
+  width: 1000px;
+  display: flex;
+    img{
+      display: block;
+      width: 100%;
+      height: 400px;
+      padding-top: 20px;
+      border-radius: 10px;
+      border: 4px solid $dark-milktea ;
+    }
+    .area{
+      margin-left: 36px;
+        h2{
+          margin-bottom: 30px;
+        }
+        h4{
+          margin-bottom: 50px;
+          line-height: 1.6;
+          border-bottom: 1px solid $grey;
+          padding-bottom: 10px;
+        }
+    }
+}
