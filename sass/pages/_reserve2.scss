@@ -1,0 +1,145 @@
+.reserve_two{
+    display: flex;
+    margin: 0 auto;
+    width: 1010px;
+    margin-bottom: 45px;
+      div{
+        border-radius: 50%;
+        background-color: $light-milktea;
+        width: 50px;
+        height: 50px;  
+          h2{
+            text-align: center;
+            line-height: 50px;
+            font-size: $h1;
+          }
+        }
+      h1{
+        line-height: 50px;
+        padding-left: 16px;
+        position: relative;
+        &:before{
+            content: "";
+            position: absolute;
+            width: 944px;
+            height: 10px;
+            background-color: $light-milktea;
+            top: 100%;
+            left: 15px;
+        }
+    }  
+}
+
+
+.reserve_add{
+    margin: 41px auto;
+    margin: 0 auto;
+    width: 1010px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+      .left{
+        width: 490px;
+        background-color: $light-milktea;
+        border-radius: 10px;
+        padding: 18px 20px 30px 20px;
+        margin-right: 10px;
+          .top{
+            background-color: $white;
+            width: 454px;
+            height: 90px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-radius: 10px;
+              h2{
+                padding-top: 20px;
+                margin-bottom: 10px;
+              }
+              p{
+                margin-bottom: 20px;
+              }
+          }
+          .check{
+            padding: 0px 77px;
+            margin-bottom: 40px;
+            display: flex;
+            justify-content: space-between;
+              p{
+                align-self: center;
+              }
+          }
+          .check input{ 
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 15px;
+          }
+          .check label{
+            font-size: $h3;
+            vertical-align: middle;
+          }
+    
+      }
+      .right{
+        width: 490px;
+        background-color: $light-milktea;
+        border-radius: 10px;
+        padding: 18px 20px 50px 20px;
+        margin-left: 10px;
+          .reserve_top{
+            background-color: $white;
+            width: 454px;
+            height: 90px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-radius: 10px;
+              h2{
+                padding-top: 20px;
+                margin-bottom: 10px;
+              }
+              p{
+                margin-bottom: 20px;
+              }
+          }
+          .check{
+            padding: 0px 77px;
+            margin-bottom: 30px;
+            //justify-content: space-between;
+              p{
+                padding-left: 45px;
+                padding-top: 10px;
+              }
+          }
+          .check input{ 
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 15px;
+          }
+          .check label{
+            font-size: $h3;
+            vertical-align: middle;
+          }
+      }
+}
+
+
+
+
+
+
+
+
+
+.next{
+    display: block;
+    text-decoration: none;
+    width: 116px;
+    height: 42px;
+    margin: 0 auto;
+    line-height: 42px;
+    text-align: center;
+    padding: 0;
+    font-size: $h3;
+}
