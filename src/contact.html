@@ -4,12 +4,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>浣安 | 關於我們</title>
+
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
+    <header class="contact__banner">
+        <nav>
+            <div class="nav_left">
+                <a href="index.html"><img src="./../img/logo_long.svg" alt="logo"></a>
+                <h4>最安心的居家清潔服務</h4>
+            </div>
+            <div class="nav_right">
+                <i class="fa fa-bars" area-hidden="true"></i>
+                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">最新消息</a>
+                        <ol>
+                            <li><a href="#">優惠活動</a></li>
+                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                        </ol>
+                    </li>
 
-</body>
+                    <li><a href="#">我們的服務</a>
+                        <ol>
+                            <li><a href="#">服務介紹</a></li>
+                            <li><a href="#">案例分享</a></li>
+                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">商城</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+                <div class="nav_user">
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header_text">
+            <!-- 請換成你的頁面名稱 -->
+            <h1>關於我們</h1>
+            <h1>Contact Us</h1>
+        </div>
+    </header>
+    <div class="wrapper contact_wrapper">
+        <h1>客服資訊</h1>
+
+        <div class="contact_container">
+            <div class="left">
+                <ul class="contact_social">
+                    <li>
+                        <img src="../../img/contact/contact_phone.png" alt="">
+                        <div class="contact_phone">
+                            <p>電話：02-12345678</p>
+                            <p>受理時間：週一至週五</p>
+                            <p>9：00-12：00 / 13：00-17：30</p>
+                        </div>
+                    </li>
+                    <li>
+                        <img src="../img/contact/contact_line.png" alt="">
+                        <p>Line：@@wanann</p>
+                    </li>
+                    <li>
+                        <img src="../img/contact/contact_e-mail.png" alt="">
+                        <p>E-mail：wa@rmall.com</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="right">
+                <ul class="contact_social">
+                    <li>
+                        <img src="../img/contact/contact_map.png" alt="">
+                        <p>地址：台北市中山區南京東路三段219號4樓、5樓</p>
+                    </li>
+                    <li>
+                        <img src="../img/contact/contact_fb.png" alt="">
+                        <p>FB：搜尋「浣安」</p>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+    <body>
+        <div class="contact_form">
+            <h1>聯絡表單</h1>
+            <p>有相關問題可填寫以下表單，浣安將於3個工作天內回覆，若您一直未收到回覆，歡迎來電詢問，謝謝！</p>
+            <form action="#" method="post">
+                <div class="contact_input">
+                    <label for="name">您的姓名:</label>
+                    <input type="text" id="name" name="name" placeholder="您的姓名">
+                </div>
+                <div class="contact_input">
+                    <label for="phone">手機號碼:</label>
+                    <input type="tel" id="phone" name="phone" placeholder="手機號碼">
+                </div>
+
+                <div class="contact_input">
+                    <label for="email">電子信箱:</label>
+                    <input type="email" id="email" name="email" placeholder="電子信箱">
+                </div>
+
+                <div class="contact_input">
+                    <label for="message">問題描述:</label>
+                    <textarea id="message" name="message" placeholder="問題描述"></textarea>
+                </div>
+                <button type="submit" class="btn">送出</button>
+
+            </form>
+        </div>
+
+        @@include('./layout/footer.html')
+    </body>
 
 </html>
