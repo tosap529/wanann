@@ -5,11 +5,181 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>浣安 | 預約服務</title>
+    <script src="https://kit.fontawesome.com/a7a16df63a.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
+    <header class="reserve3_banner">
+        <nav>
+            <div class="nav_left">
+                <a href="index.html"><img src="img/logo_long.svg" alt="logo"></a>
+                <h4>最安心的居家清潔服務</h4>
+            </div>
+            <div class="nav_right">
+                <i class="fa fa-bars" area-hidden="true"></i>
+                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">最新消息</a>
+                        <ol>
+                            <li><a href="#">優惠活動</a></li>
+                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                        </ol>
+                    </li>
 
+                    <li><a href="#">我們的服務</a>
+                        <ol>
+                            <li><a href="#">服務介紹</a></li>
+                            <li><a href="#">案例分享</a></li>
+                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">商城</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+                <div class="nav_user">
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header_text">
+            <!-- 請換成你的頁面名稱 -->
+            <h1>預約服務</h1>
+            <h1>Schedule Your Cleaning</h1>
+        </div>
+    </header>
+    @@include('./layout/btn&robot.html')
+    <div class="wrapper reserve3">
+        <section class="subtitle">
+            <h1>3</h1>
+            <h1>選擇預約日期&時段</h1>
+        </section>
+        <section>
+            <div class="calendar">
+                <section class="calendar_nav">
+                    <h4>2024</h4>
+                    <div class="month">
+                        <i class="fa-solid fa-angle-left" id="minusMonth"></i>
+                        <h2>3月</h2>
+                        <i class="fa-solid fa-angle-right" id="addMonth"></i>
+                    </div>
+                    <ul class="day">
+                        <li>日</li>
+                        <li>一</li>
+                        <li>二</li>
+                        <li>三</li>
+                        <li>四</li>
+                        <li>五</li>
+                        <li>六</li>
+                    </ul>
+                </section>
+                <section class="week">
+                    <!-- <article class="single_day">
+                        <h2>1</h2>
+                        <div class="star">
+                            <img src="../img/reserve3/reserve3_star_on.svg" alt="">
+                            <img src="../img/reserve3/reserve3_star_on.svg" alt="">
+                            <img src="../img/reserve3/reserve3_star_on.svg" alt="">
+                        </div>
+                    </article> -->
+
+                </section>
+            </div>
+            <div class="time_choice">
+                <div>
+                    <h2>選擇日期及時段</h2>
+                    <p>找找看有沒有你需要的</p>
+                </div>
+                <h2>預約日期：3月21日</h2>
+                <h2>預約時段：下午</h2>
+                <div>
+                    <h2>上午時段 (09:00開始)</h2>
+                    <h2>下午時段 (12:00開始)</h2>
+                    <h2>晚間時段 (17:00開始)</h2>
+                </div>
+            </div>
+        </section>
+        <p>僅接受3日後的預約，具體施作時間交由浣安與您聯繫進一步討論</p>
+        <a href="#" class="btn">前往結帳</a>
+    </div>
+
+    @@include('./layout/footer.html')
+    <script src="../js/pageDefault.js"></script>
+    <script>
+        madeCalendar();
+        function madeCalendar() {
+            // let day_now = new Date().getDate();
+            // let month_now = new Date().getMonth() + 1;
+            // console.log(day_now);
+            // console.log(month_now);
+
+            let month_olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            // let month_normal = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            // 平年先不做
+            let year = document.querySelector(".calendar_nav h4").innerText;
+            let month = parseInt(document.querySelector(".month h2").innerText) - 1;
+            let totalDay = month_olympic[month];
+            let testDate = new Date(year, month, 1);
+            let firstDay = testDate.getDay();
+            // console.log(testDate.getDay());
+            if (firstDay == 0) {
+                for (let i = 1; i <= totalDay; i++) {
+                    let singleDay = `<article class="single_day">
+                                <h2>${i}</h2>
+                                <div class="star">
+                                    <img src="../img/reserve3/reserve3_star_on.svg" alt="">
+                                    <img src="../img/reserve3/reserve3_star_on.svg" alt="">
+                                    <img src="../img/reserve3/reserve3_star_on.svg" alt="">
+                                </div>
+                            </article>`;
+                    document.querySelector('.week').insertAdjacentHTML("beforeend", singleDay);
+                }
+            } else {
+                for (let i = 1; i < totalDay + firstDay; i++) {
+                    if (i < firstDay) {
+                        let singleDay = `<article class="single_day">
+                        </article>`;
+                        document.querySelector('.week').insertAdjacentHTML("beforeend", singleDay);
+                    } else {
+                        let singleDay = `<article class="single_day">
+                                <h2>${i - firstDay + 1}</h2>
+                                <div class="star">
+                                    <img src="../img/reserve3/reserve3_star_on.svg" alt="">
+                                    <img src="../img/reserve3/reserve3_star_on.svg" alt="">
+                                    <img src="../img/reserve3/reserve3_star_on.svg" alt="">
+                                </div>
+                            </article>`;
+                        document.querySelector('.week').insertAdjacentHTML("beforeend", singleDay);
+
+                    }
+                }
+            }
+
+        }
+        let month_el = parseInt(document.querySelector(".month h2").innerText);
+        let minusMonth = document.getElementById("minusMonth");
+        let addMonth = document.getElementById("addMonth");
+        minusMonth.addEventListener("click", function () {
+            if (month_el > 1) {
+                month_el--;
+                document.querySelector(".month h2").innerText = month_el + "月"
+                document.querySelector('.week').innerHTML = '';
+                madeCalendar();
+            }
+        });
+        addMonth.addEventListener("click", function () {
+            if (month_el < 12) {
+                month_el++;
+                document.querySelector(".month h2").innerText = month_el + "月"
+                document.querySelector('.week').innerHTML = '';
+                madeCalendar();
+            }
+        });
+
+    </script>
 </body>
 
 </html>
