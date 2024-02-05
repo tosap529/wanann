@@ -1,0 +1,319 @@
+a {
+    text-decoration: none;
+}
+
+.index_header{
+    height: 100vh;
+    background-image: url(/img/index/index_banner.jpg);
+
+    .header_center {
+        position: absolute;
+        left: 45%;
+        top: 40%;
+
+        img {
+            width: 100px;
+            margin-bottom: 40px;
+        }
+
+        h4 {
+            text-align: center;
+            margin-top: 16px;
+            letter-spacing: 1px;
+            color: $white;
+            animation: blink 3s infinite;
+            cursor: pointer;
+        }
+
+        @keyframes blink {
+            0% {
+                text-shadow: 0 0 4px $black;
+            }
+
+            50% {
+                text-shadow: 0 0 8px $brown;
+            }
+
+            100% {
+                text-shadow: 0 0 4px $black;
+            }
+        }
+
+    }
+}
+
+section {
+    margin-bottom: 72px;
+}
+
+.index_first {
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: $dark-milktea;
+    width: 700px;
+    padding: 40px;
+    margin-bottom: 64px;
+    transition: background-color .6s ease;
+
+    &:hover {
+        background-color: $brown;
+    }
+
+    h2 {
+        text-align: center;
+        color: $white;
+        line-height: 1.6;
+    }
+}
+
+.index_rolling {
+    padding: 50px 0;
+    width: 100%;
+
+    .view {
+        overflow: hidden;
+        width: 100%;
+    }
+
+    .pic-container {
+        display: flex;
+        animation: marquee 20s infinite linear;
+
+        .pic {
+            flex-basis: 20%;
+            flex-shrink: 0;
+        }
+    }
+
+    img {
+        width: 100%;
+        vertical-align: middle;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-(20% * 5));
+    }
+}
+
+.index_intr {
+    display: flex;
+    justify-content: center;
+
+    .index_intr_left {
+        position: relative;
+        margin-right: 60px;
+        width: 380px;
+
+        img {
+            width: 178px;
+        }
+
+        h2 {
+            position: absolute;
+            top: 70px;
+            left: 25%;
+        }
+    }
+
+    .index_intr_right {
+        margin-left: 60px;
+
+        h3 {
+            width: 520px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .index_intr_right_btn {
+            display: flex;
+            justify-content: center;
+
+            .btn {
+                margin: 0 40px;
+
+                a {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.index_feature {
+
+    ul {
+        display: flex;
+
+        li {
+            margin: 0 40px;
+            flex-grow: 1;
+
+            h2 {
+                text-align: center;
+                margin-bottom: 12px;
+                color: $brown;
+                font-weight: bold;
+            }
+
+            h2::before {
+                content: '';
+                display: inline-block;
+                width: 35px;
+                height: 35px;
+                background-image: url(/img/index/index_heart.svg);
+                background-repeat: no-repeat;
+                margin-right: -20px;
+                vertical-align: text-bottom;
+            }
+
+            img {
+                width: 180px;
+                margin: 0 auto;
+            }
+
+            h4 {
+                text-align: center;
+                margin: 12px 0;
+            }
+
+            .index_feature_p {
+                margin: 0 auto;
+                width: 130px;
+
+                p::before {
+                    content: '';
+                    display: inline-block;
+                    width: 20px;
+                    height: 20px;
+                    background-image: url(/img/index/index_check.svg);
+                    background-repeat: no-repeat;
+                    margin-right: 4px;
+                    vertical-align: middle;
+                }
+
+                p {
+                    line-height: 1.6;
+                }
+            }
+        }
+    }
+}
+
+.index_process {
+    ul {
+        display: flex;
+
+        li {
+            margin: 0 40px;
+            flex-grow: 1;
+
+            h3 {
+                text-align: center;
+                margin-bottom: 12px;
+                color: $brown;
+                font-weight: bold;
+            }
+
+            .index_process_2h3 {
+                color: $black;
+                font-weight: normal;
+            }
+
+            img {
+                width: 180px;
+                margin: 0 auto;
+            }
+
+            h4 {
+                text-align: center;
+                margin-top: 8px;
+            }
+
+        }
+    }
+}
+
+.index_qa {
+    ul {
+        li {
+            height: 100px;
+            padding-left: 54px;
+            border-radius: 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $light-milktea;
+            }
+
+            h2 {
+                line-height: 100px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            h2::after {
+                content: '';
+                display: block;
+                width: 40px;
+                height: 40px;
+                background-image: url(/img/index/index_down.svg);
+                margin-right: 54px;
+            }
+        }
+    }
+}
+
+
+
+.index_game {
+    height: 300px;
+    background-image: url(/img/index/index_game.jpg);
+    background-size: cover;
+    position: relative;
+    border-radius: 10px;
+
+    .index_game_content {
+        position: absolute;
+        top: 30%;
+        left: 392px;
+
+        h1 {
+
+            margin-bottom: 32px;
+            animation: sparkle 2.5s infinite;
+        }
+
+        @keyframes sparkle {
+            0% {
+                text-shadow: 0 0 2px $white;
+            }
+
+            50% {
+                text-shadow: 0 0 8px $white;
+            }
+
+            100% {
+                text-shadow: 0 0 2px $white;
+            }
+        }
+
+        .btn {
+            margin: 0 auto;
+            font-size: $h2;
+
+            a {
+                color: $white;
+            }
+        }
+    }
+
+
+}

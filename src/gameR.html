@@ -48,50 +48,34 @@
 <body>
     <div class="wrapper">
         <section>
-            <div class="game_contect">
-                <div class="game_text">
-                    <h2>不同人格，對於居住環境的清潔有不同的要求和習慣</h2>
-                    <h2>測驗看看你是哪種森林動物，找出你的清潔人格吧！</h2>
-                    <button class="btn">開始測驗</button>
+            <div class="gameR_contect">
+                <div class="gameR_text">
+                    <h3>你的清潔人格是....</h3>
+                    <img src="/img/game/gameR_bear.png" alt="bear">
+                    <h2>熊型清潔人格</h2>
+                    <p>你是個比較隨興的人，對於居住環境的整潔比較沒有要求，即使環境不太整潔也可以接受，除非已經影響到生活機能或是有時間、有清理的心情才會去做。
+                        平時的你看上去有些慵懶，遇到問題可能偏向以「船到橋頭自然直」的態度去面對。</p>
+                    <p class="btn_p">人格魅力</p>
+                    <p>你的生活狀態可能不會一直保持得很好，但因為不會給自己太大壓力，心理狀態通常較為健康，和你相處會很舒服、自在。</p>
+                    <p class="btn_p">建議</p>
+                    <p>有時還是要多注意一下自身和周遭環境的整潔，多花一點心思去維護，可能會過得更舒適喔！</p>
+                    <p class="btn_p">適合你的清潔法寶</p>
+
+                    <div class="gameR_recomm">
+                        <a href="#" title="輕巧型吸塵器"><img src="/img/game/gameR_bear_recomm1.jpg" alt="recomm"></a>
+                        <a href="#" title="智能潔淨掃地機器人"><img src="/img/game/gameR_bear_recomm2.jpg" alt="recomm"></a>
+                    </div>
+                    <div class="gameR_share">
+                        <button class="btn">分享給朋友</button>
+                        <button class="btn">再測一次</button>
+                    </div>
                 </div>
             </div>
 
         </section>
     </div>
 
-    <footer>
-    <ul>
-        <li class="footer_customer_service">
-            <h4>客服時間</h4>
-            <p>週一至週五</p>
-            <p>09:00 – 12:00 / 13:00 – 17:30</p>
-        </li>
-        <li class="footer_area">
-            <h4>服務地區</h4>
-            <p>台北/新北/桃園</p>
-            <button class="btn"><img src="/img/footer_calendar.svg" alt="calendar_icon">立即預約</button>
-        </li>
-        <li class="footer_logo">
-            <a href="index.html"><img src="/img/logo_square.svg" alt="logo"></a>
-        </li>
-        <li class="footer_contact">
-            <h4>聯絡資訊</h4>
-            <p>電話 : 02-12345678</p>
-            <p>Email: wa@rmail.com</p>
-            <p>地址：台北市中山區南京東路三段219號4樓、5樓</p>
-        </li>
-        <li class="footer_social_media">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-line"></i></a>
-        </li>
-    </ul>
-
-    <div class="footer_rights_reserved">
-        <p>Copyright © 2024 浣安 – THD104-G1 All Rights Reserved</p>
-        <p>本網站為緯育TibaMe【第89期】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</p>
-    </div>
-
-</footer>
+    @@include('./layout/footer.html')
 
 </body>
 

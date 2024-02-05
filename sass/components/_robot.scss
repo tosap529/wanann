@@ -9,6 +9,7 @@
         background-color: $white;
         border: 1px solid $dark-milktea;
         border-radius: 13px;
+        z-index: 70;
 
         .robot_layout_top {
             width: 100%;
@@ -30,12 +31,14 @@
                 padding-left: 4px;
             }
         }
+
         .robot_layout_bottom {
             margin: 0 auto;
             width: 92%;
             border-top: 1px solid $dark-milktea;
             margin-top: 140px;
             padding-top: 4px;
+
             input {
                 padding-left: 0;
                 width: 198px;
@@ -45,12 +48,14 @@
                 background-color: transparent;
                 height: 20px;
             }
-            button{
+
+            button {
                 color: $dark-milktea;
                 border: none;
                 background-color: transparent;
                 cursor: pointer;
-                &:hover{
+
+                &:hover {
                     color: $brown;
                 }
             }
@@ -63,6 +68,7 @@
         bottom: 4%;
         right: 40px;
         cursor: pointer;
+        z-index: 70;
     }
 
 }
