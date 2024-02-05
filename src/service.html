@@ -4,13 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a7a16df63a.js" crossorigin="anonymous"></script>
     <title>浣安 | 服務介紹</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
 
+    <header class="service_banner">
+        <nav>
+            <div class="nav_left">
+                <a href="index.html"><img src="img/logo_long.svg" alt="logo"></a>
+                <h4>最安心的居家清潔服務</h4>
+            </div>
+            <div class="nav_right">
+                <i class="fa fa-bars" area-hidden="true"></i>
+                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">最新消息</a>
+                        <ol>
+                            <li><a href="#">優惠活動</a></li>
+                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                        </ol>
+                    </li>
+
+                    <li><a href="#">我們的服務</a>
+                        <ol>
+                            <li><a href="#">服務介紹</a></li>
+                            <li><a href="#">案例分享</a></li>
+                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">商城</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+                <div class="nav_user">
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header_text">
+            <!-- 請換成你的頁面名稱 -->
+            <h1>服務介紹</h1>
+            <h1>Our Service</h1>
+        </div>
+    </header>
+
+    @@include('./layout/btn&robot.html')
+
+
     <div class="wrapper service">
+
+        <div class="title">
+            <h1>方案介紹</h1>
+        </div>
 
         <section class="service_plan">
             
@@ -30,7 +80,7 @@
                     <a href="" class="btn">直接預約</a>
                 </div>             
             </article>
-
+            <p class="new">適用對象：下班就是要回家放鬆！不想打掃><，想在庸碌生活中稍作休息的你</p>
         </section>
         
         <section class="service_plan">
@@ -76,6 +126,10 @@
         </section>
 
         <section class="service_icon">
+
+            <div class="title">
+                <h1>追加服務</h1>
+            </div>
 
             <article>
                 <h2>延伸服務</h2>
@@ -164,6 +218,10 @@
 
         <section>
 
+            <div class="title">
+                <h1>我們的特色</h1>
+            </div>
+
             <table class="service_compare">
                 <thead>
                     <tr>
@@ -204,11 +262,16 @@
 
             </table>
 
+           
 
         </section>
 
-        <section class="service_map">
+        <div class="title">
+            <h1>服務地區</h1>
+        </div>
 
+        <section class="service_map">
+            
             <img src="/img/service/service_map.jpg" alt="">
             
             <article class="area">
@@ -229,6 +292,7 @@
         </section>
 
     </div>
+    @@include('./layout/footer.html')
 
 </body>
 

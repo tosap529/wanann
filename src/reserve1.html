@@ -4,11 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a7a16df63a.js" crossorigin="anonymous"></script>
     <title>浣安 | 預約服務</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
+
+    <header class="reserve1_banner">
+        <nav>
+            <div class="nav_left">
+                <a href="index.html"><img src="img/logo_long.svg" alt="logo"></a>
+                <h4>最安心的居家清潔服務</h4>
+            </div>
+            <div class="nav_right">
+                <i class="fa fa-bars" area-hidden="true"></i>
+                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">最新消息</a>
+                        <ol>
+                            <li><a href="#">優惠活動</a></li>
+                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                        </ol>
+                    </li>
+
+                    <li><a href="#">我們的服務</a>
+                        <ol>
+                            <li><a href="#">服務介紹</a></li>
+                            <li><a href="#">案例分享</a></li>
+                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">商城</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+                <div class="nav_user">
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header_text">
+            <!-- 請換成你的頁面名稱 -->
+            <h1>預約服務</h1>
+            <h1>Schedule Your Cleaning</h1>
+        </div>
+    </header>
+
+    @@include('./layout/btn&robot.html')
     <div class="wrapper">
 
     
@@ -65,6 +110,7 @@
     <section class="next_btn"><a href="reserve2.html" class="btn next">下一步</a></section>
 
     </div>
+    @@include('./layout/footer.html')
 </body>
     <script>
         let dropdown_el1 = document.querySelector(".dropdown1");
@@ -82,6 +128,9 @@
                 dropdown_container_el2.classList.remove('-on');
                 dropdown_container_el3.classList.remove('-on');
             };
+            dropdown_el1.classList.add('color');
+            dropdown_el2.classList.remove('color');
+            dropdown_el3.classList.remove('color');
 
 
         })
@@ -92,6 +141,11 @@
                 dropdown_container_el1.classList.remove('-on');
                 dropdown_container_el3.classList.remove('-on');
             };
+            dropdown_el2.classList.add('color');
+            dropdown_el1.classList.remove('color');
+            dropdown_el3.classList.remove('color');
+                
+        
         })
         dropdown_el3.addEventListener('click', function(){
             
@@ -100,6 +154,9 @@
                 dropdown_container_el1.classList.remove('-on');
                 dropdown_container_el2.classList.remove('-on');
             };
+            dropdown_el3.classList.add('color');
+            dropdown_el1.classList.remove('color');
+            dropdown_el2.classList.remove('color');
         })
 
     </script>

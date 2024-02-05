@@ -1,3 +1,8 @@
+.case_banner {
+  background-image: url(../../img/case/case_banner.jpg);
+}
+
+
 .case_one{
     display: flex;
     width: 1120px;
@@ -181,7 +186,7 @@
               height: 90px;
               border-radius: 10px;
                 h3{
-                  padding: 36px 15px;
+                  padding: 35px 15px;
                 }
             }
             .down_right{
@@ -200,4 +205,194 @@
     }
     
   
+}
+
+// -----------------------RWD--------------------------
+
+@media screen and (max-width:430px){
+
+  .case_one{
+    width: 345px;
+    height: 395px;
+    margin: 0 auto 24px;
+    background-color: $light-milktea;
+    border-radius: 10px;
+    padding: 20px;
+      article{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+          div{
+            display: flex;
+            span{
+              display: block;
+              align-self: end;
+              flex-grow: 1;
+              text-align: center;
+            }
+            .living{
+  
+              color: $brown;
+              font-size: $h3;
+              font-weight: bold;
+            }
+          }
+          .tag{
+            display: flex;
+            margin: 20px 27px;
+            justify-content: space-between;
+            font-size: $p;
+            
+          }
+          img{
+            width: 100px;
+            border-radius: 50%;
+          }
+          .content{
+            margin: 0 23px;
+            width: 300px;
+            height: 190px;
+            overflow: hidden;
+              h3{
+                display: none;
+              }
+              p{
+                line-height: 1.4;
+              }
+          }
+          .next_btn{
+            display: block;
+            margin-top: 20px;
+          }
+      }
+      .right{
+        display: none;  
+      } 
+  }
+
+  .case_two{
+    width: 345px;
+    height: 395px;
+    margin: 0 auto 24px;
+    background-color: $light-milktea;
+    border-radius: 10px;
+    padding: 20px;
+      article{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+          div{
+            display: flex;
+              span{
+              display: block;
+              align-self: end;
+              text-align: center;
+              flex-grow: 1;
+            }
+            .living{
+             
+              color: $brown;
+              font-size: $h3;
+              font-weight: bold;
+            }
+          }
+          .tag{
+            display: flex;
+            margin: 20px 27px;
+            justify-content: space-around;
+            font-size: $p;
+            
+          }
+          img{
+            width: 100px;
+            border-radius: 50%;
+          }
+          .content{
+            margin: 0 23px;
+            width: 300px;
+            height: 190px;
+            overflow: hidden;
+              h3{
+                display: none;
+              }
+              p{
+                line-height: 1.4;
+              }
+          }
+          .next_btn{
+            display: block;
+            margin-top: 20px;
+          }
+      }
+      .right{
+        display: none;  
+      } 
+  }
+
+  .case_three{
+    width: 345px;
+    height: 300px;
+    margin: 0 auto 24px;
+    background-color: $light-milktea;
+    border-radius: 10px;
+    padding: 20px;
+      article{
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+
+          div{
+            display: flex;
+            span{
+              display: block;
+              align-self: end;
+              text-align: right;
+              flex-grow: 1;
+              text-align: center;
+            }
+            .living{
+          
+              color: $brown;
+              font-size: $h3;
+              font-weight: bold;
+            }
+          }
+          .tag{
+            display: flex;
+            margin: 20px 27px;
+            justify-content: space-between;
+            
+          }
+          img{
+            width: 100px;
+            border-radius: 50%;
+          }
+          .content{
+            margin: 0 23px;
+            width: 300px;
+            height: 190px;
+            overflow: hidden;
+              h3{
+                display: none;
+              }
+              p{
+                line-height: 1.4;
+              }
+          }
+          .next_btn{
+            display: block;
+            margin-top: 20px;
+          }
+      }
+      .right{
+        display: none;  
+      } 
+  }
+
+  
+}
+
+.-close{
+  display: none;
 }

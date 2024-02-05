@@ -1,3 +1,8 @@
+.planA_banner {
+  background-image: url(../../img/planA/planA_banner.jpg);
+}
+
+
 .planA{
     display: flex;
     margin: 0px 40px 63px 40px;
@@ -11,6 +16,7 @@
           margin-bottom: 12px;
         }
         div{
+          border-radius: 10px;
           margin-top: 42px;
           padding: 20px 30px;
           background-color: $light-milktea;
@@ -95,12 +101,6 @@
          
       }
 }
-
-
-
-
-
-
 
 
 

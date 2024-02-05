@@ -1,3 +1,8 @@
+.reserve1_banner {
+  background-image: url(../../img/reserve1/reserve1_banner.jpg);
+}
+
+
 .reserve_one{
     display: flex;
     margin: 0 auto;
@@ -147,6 +152,7 @@
 
 .-on{
     display: block;
+ 
 }
 
 .reserve_choose .-bgc{
@@ -164,4 +170,10 @@
     text-align: center;
     padding: 0;
     font-size: $h3;
+}
+
+.reserve_choose .color{
+  background-color: $dark-milktea;
+  color: white;
+  
 }

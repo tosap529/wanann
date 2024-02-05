@@ -1,3 +1,7 @@
+.reserve2_banner {
+  background-image: url(../../img/reserve1/reserve1_banner.jpg);
+}
+
 .reserve_two{
     display: flex;
     margin: 0 auto;
@@ -74,10 +78,12 @@
             height: 20px;
             vertical-align: middle;
             margin-right: 15px;
+            cursor: pointer;
           }
           .check label{
             font-size: $h3;
             vertical-align: middle;
+            cursor: pointer;
           }
     
       }
@@ -116,10 +122,12 @@
             height: 20px;
             vertical-align: middle;
             margin-right: 15px;
+            cursor: pointer;
           }
           .check label{
             font-size: $h3;
             vertical-align: middle;
+            cursor: pointer;
           }
       }
 }
