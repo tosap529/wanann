@@ -2,13 +2,14 @@
 
     display: block;
     font-family: $fontFamily;
-    font-size: $h2;
+    font-size: $h3;
     padding: 10px;
     border-radius: 8px;
     background-color: $dark-milktea;
     color: $white;
     border: none;
     cursor: pointer;
+    transition: background-color .6s ease;
 
     &:hover {
         background-color: $brown;

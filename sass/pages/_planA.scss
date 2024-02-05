@@ -1,0 +1,121 @@
+.planA_banner {
+  background-image: url(../../img/planA/planA_banner.jpg);
+}
+
+
+.planA{
+    display: flex;
+    margin: 0px 40px 63px 40px;
+      article{
+        margin-right: 42px;
+        width: 380px;
+        h3{          
+          margin-bottom: 32px;
+        }
+        p{
+          margin-bottom: 12px;
+        }
+        div{
+          border-radius: 10px;
+          margin-top: 42px;
+          padding: 20px 30px;
+          background-color: $light-milktea;
+
+        }
+      }
+      .right{
+        width:697px;
+         img{
+            width: 100%;
+            margin-bottom: 48px;
+         }
+      }
+}
+
+.notice{
+
+    .text{
+        margin: 40px 127px;
+        li{
+            padding: 20px;
+            list-style-type: decimal;
+            font-size: $h3;
+        }
+    }
+}
+
+.rank{
+    width: 1000px;
+    margin: 0 auto;
+      li{
+        width: 900px;
+        display: flex;
+        margin-bottom: 55px;
+        
+          img{
+            width:200px;
+            margin-right: 40px;
+          }
+          article{
+            padding: 44px 0px;
+          }
+      }
+}
+
+
+.rank_top{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    width: 660px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    &:before{
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: $dark-grey ;
+        width: 660px;
+        height: 2px;
+    }
+      span{
+        font-size: $h3;
+        padding-left: 30px;
+        i{
+          color: $dark-milktea;
+        }
+        &:nth-child(2){
+          position: relative;
+          &:before{
+            content: "";
+            position: absolute;
+            top: -80%;
+            left: -230px;
+            background-color: $dark-grey ;
+            width: 2px;
+            height: 50px;
+          }
+          
+        }
+         
+      }
+}
+
+
+
+
+
+
+
+.next{
+    display: block;
+    text-decoration: none;
+    width: 116px;
+    height: 42px;
+    margin: 0 auto;
+    line-height: 42px;
+    text-align: center;
+    padding: 0;
+    font-size: $h3;
+}

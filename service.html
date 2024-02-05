@@ -4,13 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a7a16df63a.js" crossorigin="anonymous"></script>
     <title>浣安 | 服務介紹</title>
     <link rel="stylesheet" href="../css/main.css">
 </head>
 
 <body>
 
+    <header class="service_banner">
+        <nav>
+            <div class="nav_left">
+                <a href="index.html"><img src="img/logo_long.svg" alt="logo"></a>
+                <h4>最安心的居家清潔服務</h4>
+            </div>
+            <div class="nav_right">
+                <i class="fa fa-bars" area-hidden="true"></i>
+                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">最新消息</a>
+                        <ol>
+                            <li><a href="#">優惠活動</a></li>
+                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                        </ol>
+                    </li>
+
+                    <li><a href="#">我們的服務</a>
+                        <ol>
+                            <li><a href="#">服務介紹</a></li>
+                            <li><a href="#">案例分享</a></li>
+                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">商城</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+                <div class="nav_user">
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="header_text">
+            <!-- 請換成你的頁面名稱 -->
+            <h1>服務介紹</h1>
+            <h1>Our Service</h1>
+        </div>
+    </header>
+
+    <!-- 請與pageDefault.js合用 -->
+
+<!-- 機器人 -->
+<div class="robot">
+    <div class="robot_layout">
+        <div class="robot_layout_top">
+            <img src="/img/logo_title.svg" alt="logo">
+            <h4>浣安小助手</h4>
+        </div>
+        <div class="robot_layout_bottom">
+            <input type="text" placeholder="請輸入關鍵字...">
+            <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+    <img class="robot_logo" src="/img/robot.svg" alt="robot">
+</div>
+
+<!-- 回到頁首 -->
+<i class="fa fa-angle-up" aria-hidden="true" onclick="scrollToTop()"></i>
+
+
     <div class="wrapper service">
+
+        <div class="title">
+            <h1>方案介紹</h1>
+        </div>
 
         <section class="service_plan">
             
@@ -30,22 +98,22 @@
                     <a href="" class="btn">直接預約</a>
                 </div>             
             </article>
-
+            <p class="new">適用對象：下班就是要回家放鬆！不想打掃><，想在庸碌生活中稍作休息的你</p>
         </section>
         
         <section class="service_plan">
             
             <div class="left">
-                <img src="../img/service/service_1.jpg" alt="">
-                <p>適用對象：下班就是要回家放鬆！不想打掃><，想在庸碌生活中稍作休息的你</p>
+                <img src="../img/service/service_2.jpg" alt="">
+                <p>適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
             </div>
             <article>
-                <h2>浣安全室清潔</h2>
-                <h3>基本清潔</h3>
-                <h3>廚房簡易清潔</h3>
-                <h3>浴室簡易清潔</h3>
-                <h3>臥室及客房清潔</h3>
-                <p>NTD4,000</p>
+                <h2>浣內咖手－廚房徹底清潔</h2>
+                <h3>廚房專業清潔</h3>
+                <h3>加強油汙處理</h3>
+                <h3>廚具汰洗</h3>
+                <h3>水槽疏通</h3>
+                <p>NTD2,000</p>
                 <div>
                     <a href="" class="btn">詳細內容</a>
                     <a href="" class="btn">直接預約</a>
@@ -58,15 +126,15 @@
             
             <div class="left">
                 <img src="../img/service/service_1.jpg" alt="">
-                <p>適用對象：下班就是要回家放鬆！不想打掃><，想在庸碌生活中稍作休息的你</p>
+                <p>適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
             </div>
             <article>
-                <h2>浣安全室清潔</h2>
-                <h3>基本清潔</h3>
-                <h3>廚房簡易清潔</h3>
-                <h3>浴室簡易清潔</h3>
-                <h3>臥室及客房清潔</h3>
-                <p>NTD4,000</p>
+                <h2>洗咧考喔！－浴室特攻清潔</h2>
+                <h3>浴室專業清潔</h3>
+                <h3>加強水垢處理</h3>
+                <h3>專業除黴</h3>
+                <h3>馬桶清潔</h3>
+                <p>NTD1,500</p>
                 <div>
                     <a href="" class="btn">詳細內容</a>
                     <a href="" class="btn">直接預約</a>
@@ -77,9 +145,13 @@
 
         <section class="service_icon">
 
+            <div class="title">
+                <h1>追加服務</h1>
+            </div>
+
             <article>
                 <h2>延伸服務</h2>
-                <div class="right_icon">
+                <div class="right_icon1">
                     <ul>
                         <li>
                             <img src="../img/service/service_icon1.png" alt="">
@@ -90,50 +162,187 @@
                         </li>
                         <li>
                             <img src="../img/service/service_icon2.png" alt="">
-                            <h3></h3>
-                            <p></p>
-                            <p></p>
+                            <h3>布件除蟎</h3>
+                            <p>為窗簾布、沙發布、床單等布件去除塵蟎</p>
+                            <p>$ 500</p>
                         </li>
                         <li>
                             <img src="../img/service/service_icon3.png" alt="">
-                            <h3></h3>
-                            <p></p>
-                            <p></p>
+                            <h3>冷氣機清理</h3>
+                            <p>濾網清理、散熱鋁鰭片清理</p>
+                            <p>$ 500</p>
                         </li>
                         <li>
                             <img src="../img/service/service_icon4.png" alt="">
-                            <h3></h3>
-                            <p></p>
-                            <p></p>
+                            <h3>冰箱清理</h3>
+                            <p>擦拭表面、密封條，除霜，整理食物</p>
+                            <p>$ 500</p>
                         </li>
                         <li>
                             <img src="../img/service/service_icon5.png" alt="">
-                            <h3></h3>
-                            <p></p>
-                            <p></p>
+                            <h3>洗衣機清理</h3>
+                            <p>洗衣槽、導水管、洗衣粉盒清理</p>
+                            <p>$ 500</p>
                         </li>
                         <li>
                             <img src="../img/service/service_icon6.png" alt="">
-                            <h3></h3>
-                            <p></p>
-                            <p></p>
+                            <h3>陽台清潔</h3>
+                            <p>清理灰塵與污垢、照明設施、陽台水槽</p>
+                            <p>$ 500</p>
                         </li>
                         <li>
                             <img src="../img/service/service_icon7.png" alt="">
-                            <h3></h3>
-                            <p></p>
-                            <p></p>
+                            <h3>簡易消毒</h3>
+                            <p>以環保消毒劑簡易消毒家中環境</p>
+                            <p>$ 500</p>
                         </li>
                     </ul>
                 </div>
             </article>
             <article>
+                <h2>特殊處理</h2>
+                <div class="right_icon2">
+                    <ul>
+                        <li>
+                            <img src="../img/service/service_icon8.png" alt="">
+                            <h3>空屋</h3>
+                            <p>若屋況為空屋，則可減免價格</p>
+                        </li>
+                        <li>
+                            <img src="../img/service/service_icon9.png" alt="">
+                            <h3>毛孩服務</h3>
+                            <p>適用於家中有飼養狗、貓等寵物的用戶</p>
+                        </li>
+                        <li>
+                            <img src="../img/service/service_icon10.png" alt="">
+                            <h3>大坪數</h3>
+                            <p>適用於室內坪數超過25坪</p>
+                        </li>
+                        <li>
+                            <img src="../img/service/service_icon11.png" alt="">
+                            <h3>樓中樓</h3>
+                            <p>適用於室內空間有樓中樓</p>
+                        </li>
+                        <li>
+                            <img src="../img/service/service_icon12.png" alt="">
+                            <h3>局部加強</h3>
+                            <p>適用於房屋有特殊格局：深窄的空間、地下室等</p>
+                        </li>
+                    </ul>
+                </div>
+            </article>
 
+        </section>
+
+        <section>
+
+            <div class="title">
+                <h1>我們的特色</h1>
+            </div>
+
+            <table class="service_compare">
+                <thead>
+                    <tr>
+                        <td>自行打掃</td>
+                        <td><img src="/img/logo_long.svg" alt=""></td>
+                        <td>他牌清潔服務</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>耗時高，令人卻步</td>
+                        <td>由浣安專業清潔人員服務</td>
+                        <td>人力外包，品質不一</td>
+                    </tr>
+                    <tr>
+                        <td>時常無法抽空</td>
+                        <td>24小時隨時預約好方便 !</td>
+                        <td>僅能透過電話預約</td>
+                    </tr>
+                    <tr>
+                        <td>缺乏標準檢驗清潔品質</td>
+                        <td>訂有清潔SOP，確保清潔品質</td>
+                        <td>不同人員，清潔品質不一</td>
+                    </tr>
+                    <tr>
+                        <td>環保耗材及清潔劑成本高，
+                            未必能活用</td>
+                        <td>全面使用環保耗材及清潔劑</td>
+                        <td>未必全面符合環保標準</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>注重隱私性、確保安全性</td>
+                        <td>員工資格審核標準不一</td>
+                    </tr>
+                </tbody>
+               
+
+            </table>
+
+           
+
+        </section>
+
+        <div class="title">
+            <h1>服務地區</h1>
+        </div>
+
+        <section class="service_map">
+            
+            <img src="/img/service/service_map.jpg" alt="">
+            
+            <article class="area">
+            
+                    <h2>台北市</h2>
+                    <h4>中正區、大同區、中山區、松山區、大安區、萬華區、信義區、士林區、北投區、內湖區、南港區、文山區</h4>
+               
+            
+                    <h2>新北市部分區域</h2>
+                    <h4>三峽區、三重區、中和區、五股區、板橋區、新店區、永和區、汐止區、 新莊區、淡水區、深坑區、蘆洲區、林口區、泰山區、土城區</h4>
+             
+               
+                    <h2>其他服務地區</h2>
+                    <h4>桃園市桃園區、桃園市八德區、桃園市龜山區</h4>
+           
             </article>
 
         </section>
 
     </div>
+    <footer>
+    <ul>
+        <li class="footer_customer_service">
+            <h4>客服時間</h4>
+            <p>週一至週五</p>
+            <p>09:00 – 12:00 / 13:00 – 17:30</p>
+        </li>
+        <li class="footer_area">
+            <h4>服務地區</h4>
+            <p>台北/新北/桃園</p>
+            <button class="btn"><img src="/img/footer_calendar.svg" alt="calendar_icon">立即預約</button>
+        </li>
+        <li class="footer_logo">
+            <a href="index.html"><img src="/img/logo_square.svg" alt="logo"></a>
+        </li>
+        <li class="footer_contact">
+            <h4>聯絡資訊</h4>
+            <p>電話 : 02-12345678</p>
+            <p>Email: wa@rmail.com</p>
+            <p>地址：台北市中山區南京東路三段219號4樓、5樓</p>
+        </li>
+        <li class="footer_social_media">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-line"></i></a>
+        </li>
+    </ul>
+
+    <div class="footer_rights_reserved">
+        <p>Copyright © 2024 浣安 – THD104-G1 All Rights Reserved</p>
+        <p>本網站為緯育TibaMe【第89期】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</p>
+    </div>
+
+</footer>
 
 </body>
 
