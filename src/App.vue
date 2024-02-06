@@ -55,7 +55,7 @@ import { RouterLink, RouterView } from 'vue-router'
 
 
     <div class="page-content">
-      <RouterView />
+        <RouterView />
 
     </div>
     <footer>
