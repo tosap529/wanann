@@ -1,0 +1,15 @@
+// base
+@import "vendors/_reset.scss";
+@import "base/_base.scss";
+
+// utils
+@import "utils/_mixins.scss";
+
+// components
+@import "components/_components.scss";
+
+// layout
+@import "layout/_layout.scss";
+
+@import "pages/_about.scss";
+@import "pages/_articles.scss";
