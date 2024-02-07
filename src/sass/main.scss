@@ -11,5 +11,33 @@
 // layout
 @import "layout/_layout.scss";
 
+//前台頁面
 @import "pages/_about.scss";
 @import "pages/_articles.scss";
+@import "pages/_act.scss";
+@import "pages/_article1.scss";
+@import "pages/_case.scss";
+@import "pages/_contact.scss";
+@import "pages/_forget.scss";
+@import "pages/_game.scss";
+@import "pages/_gameQ.scss";
+@import "pages/_gameR.scss";
+@import "pages/_index.scss";
+@import "pages/_mall.scss";
+@import "pages/_member.scss";
+@import "pages/_mItem.scss";
+@import "pages/_mPay1.scss";
+@import "pages/_mPay2.scss";
+@import "pages/_mPay3.scss";
+@import "pages/_planA.scss";
+@import "pages/_reserve1.scss";
+@import "pages/_reserve2.scss";
+@import "pages/_reserve3.scss";
+@import "pages/_service.scss";
+@import "pages/_sPay1.scss";
+@import "pages/_sPay2.scss";
+@import "pages/_sPay3.scss";
+@import "pages/_welcome.scss";
+
+// 後台頁面
+@import "pages/_bMember.scss";
