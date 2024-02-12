@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import header from '@/layouts/header.vue'
+import footer from '@/layouts/footer.vue'
+import about from '@/views/about.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -14,7 +17,9 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/about.vue')
+      // component: () => import('../views/about.vue'),
+      meta: { hideDefault: true }, // 如果不需要預設的header, footer，此處需填true
+      components: { default: about, header: header, footer: footer }
     },
     {
       path: '/act',
@@ -141,7 +146,7 @@ const router = createRouter({
       name: 'welcome',
       component: () => import('../views/welcome.vue')
     },
-    
+
 
   ]
 })

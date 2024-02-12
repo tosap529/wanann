@@ -159,7 +159,7 @@
     top: 4000px;
     width: 100%;
     height: 700px;
-    background-image: url(../../img/about/about_background.jpg);
+    background-image: url(@/img/about/about_background.jpg);
     background-size: cover;
 
     article {
@@ -221,10 +221,4 @@
         margin: 60px auto;
         text-align: center;
     }
-}
-
-div.about+footer {
-    position: absolute;
-    width: 100%;
-    top: 6100px;
 }
