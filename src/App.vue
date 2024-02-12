@@ -1,19 +1,19 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 // import HelloWorld from './components/HelloWorld.vue'
+
 </script>
 
 <template>
   <div>
-    <header class="about_banner">
+    <header>
         <nav>
             <div class="nav_left">
-                <a href="index.html"><img src="./assets/logo_long.svg" alt="logo"></a>
+                <a href="#"><img src="./img/logo_long.svg" alt="logo"></a>
                 <h4>最安心的居家清潔服務</h4>
             </div>
             <div class="nav_right">
-                <i class="fa fa-bars" area-hidden="true"></i>
-                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+
                 <ul>
                     <li><a href="#">關於我們</a></li>
                     <li><a href="#">最新消息</a>
@@ -34,17 +34,23 @@ import { RouterLink, RouterView } from 'vue-router'
                     <li><a href="#">聯絡我們</a></li>
                 </ul>
                 <div class="nav_user">
-                    <a href="#"><i class="fa-solid fa-user"></i></a>
-                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#" class="fai"><font-awesome-icon icon="user" /></a>
+                    <a href="#" class="fai"><font-awesome-icon icon="cart-shopping" /></a>
                 </div>
             </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
         </nav>
 
-        <div class="header_text">
-            <!-- 請換成你的頁面名稱 -->
+        <!-- <div class="header_text">
             <h1>關於我們</h1>
             <h1>About</h1>
-        </div>
+        </div> -->
     </header>
 
 
@@ -71,7 +77,7 @@ import { RouterLink, RouterView } from 'vue-router'
             <button class="btn"><img src="@/img/footer_calendar.svg" alt="calendar_icon">立即預約</button>
         </li>
         <li class="footer_logo">
-            <a href="index.html"><img src="@/img/logo_square.svg" alt="logo"></a>
+            <a href="#"><img src="@/img/logo_square.svg" alt="logo"></a>
         </li>
         <li class="footer_contact">
             <h4>聯絡資訊</h4>
@@ -80,8 +86,8 @@ import { RouterLink, RouterView } from 'vue-router'
             <p>地址：台北市中山區南京東路三段219號4樓、5樓</p>
         </li>
         <li class="footer_social_media">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-line"></i></a>
+            <a href="#"><img src="./img/icon_fb.svg" alt=""></a>
+            <a href="#"><img src="./img/icon_line.svg" alt=""></a>
         </li>
     </ul>
 
