@@ -101,6 +101,8 @@ ul.mall_products {
             width: 200px;
             display: block;
             margin-bottom: 25px;
+
+            border-radius: 10px;
         }
 
         >h1 {
@@ -122,6 +124,10 @@ ul.mall_products {
             border: none;
             border-radius: 10px;
             cursor: pointer;
+
+            &:hover{
+                background-color: $brown;
+            }
         }
     }
 }
@@ -150,16 +156,11 @@ div.mall_paginator {
             // border: 1px solid black;
 
             &:hover {
-                color: $black;
+                color: $brown;
             }
         }
 
         > li.-on{
-            border: 1px solid $dark-milktea;
-
-        }
-
-        >i {
             color: $black;
 
         }
