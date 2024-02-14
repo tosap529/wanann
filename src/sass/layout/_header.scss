@@ -1,10 +1,14 @@
 header {
-    width: 100vw;
+    width: 100%;
     height: 300px;
     background-image: url(); //請換成你的頁面的banner圖
     background-size: cover;
     transition: height .7s ease;
     position: relative;
+
+    @include m() {
+        height: 150px;
+    }
 
     .header_text {
         position: absolute;
@@ -24,16 +28,20 @@ header {
         justify-content: space-between;
         padding-top: 20px;
 
-        .fa {
-            display: none;
-        }
-
         .nav_left {
             display: flex;
             margin-left: 45px;
 
+            @include m() {
+                margin-left: 25px;
+            }
+
             img {
                 width: 150px;
+
+                @include m() {
+                    width: 100px;
+                }
             }
 
             h4 {
@@ -41,11 +49,19 @@ header {
                 align-self: center;
                 font-family: $fontFamily;
                 font-weight: bold;
+
+                @include m() {
+                    margin-left: 12px;
+                }
             }
         }
 
         .nav_right {
             display: flex;
+
+            @include m() {
+                display: none;
+            }
 
             ul {
                 display: flex;
@@ -109,6 +125,7 @@ header {
                             }
                         }
                     }
+
                 }
             }
 
@@ -117,7 +134,7 @@ header {
                 margin-left: 20px;
                 margin-right: 45px;
 
-                i {
+                .fai {
                     padding: 10px;
                     color: $black;
                     text-shadow: 0px 0px 5px $white;
@@ -129,5 +146,39 @@ header {
                 }
             }
         }
+
+        .hamburger {
+            display: none;
+
+            @include m() {
+                display: block;
+                margin-right: 25px;
+
+                // .hamburger.active .bar:nth-child(2) {
+                //     opacity: 0;
+                // }
+
+                // .hamburger.active .bar:nth-child(1) {
+                //     transform: translateY(8px) rotate(45deg);
+                // }
+
+                // .hamburger.active .bar:nth-child(3) {
+                //     transform: translateY(-8px) rotate(-45deg);
+                // }
+            }
+
+            .bar {
+                display: block;
+                background-color: $brown;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                transition: all 0.3s ease-in-out;
+
+            }
+
+
+        }
+
     }
 }

@@ -1,6 +1,183 @@
 <template>
     <div>
+        <div class="wrapper">
 
+            <section>
+                <a class="index_first" href="#">
+                    <h2>第一次來？歡迎點此快速了解網站使用說明！</h2>
+                    <h2>還有初次消費的優惠碼喔！</h2>
+                </a>
+
+                <div class="index_rolling">
+                    <div class="view">
+                        <div class="pic-container">
+                            <div class="pic">
+                                <img src="../img/index/index_carousel1.jpg" alt="carousel" />
+                            </div>
+                            <div class="pic">
+                                <img src="../img/index/index_carousel2.jpg" alt="carousel" />
+                            </div>
+                            <div class="pic">
+                                <img src="../img/index/index_carousel3.jpg" alt="carousel" />
+                            </div>
+                            <div class="pic">
+                                <img src="../img/index/index_carousel4.jpg" alt="carousel" />
+                            </div>
+                            <div class="pic">
+                                <img src="../img/index/index_carousel5.jpg" alt="carousel" />
+                            </div>
+                            <div class="pic">
+                                <img src="../img/index/index_carousel1.jpg" alt="carousel" />
+                            </div>
+                            <div class="pic">
+                                <img src="../img/index/index_carousel2.jpg" alt="carousel" />
+                            </div>
+                            <div class="pic">
+                                <img src="../img/index/index_carousel3.jpg" alt="carousel" />
+                            </div>
+                            <div class="pic">
+                                <img src="../img/index/index_carousel4.jpg" alt="carousel" />
+                            </div>
+                            <div class="pic">
+                                <img src="../img/index/index_carousel5.jpg" alt="carousel" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="index_intr">
+                    <div class="index_intr_left">
+                        <img src="../img/index/index_star.png" alt="star">
+                        <h2>輕鬆愜意，家的幸福保姆。</h2>
+                    </div>
+                    <div class="index_intr_right">
+                        <h3>浣安致力於提供高品質的居家清潔服務，讓客戶享受乾淨、整潔的生活環境，減輕生活中的瑣事，專心追求更有價值的事物。</h3>
+                        <h3>我們目前已服務數百個家庭，擁有高達9成的再次預約率！
+                            <br>希望也能為您帶來更美好舒適的生活！
+                        </h3>
+                        <div class="index_intr_right_btn">
+                            <button class="btn"><a href="#">馬上預約</a></button>
+                            <button class="btn"><a href="#">測試你的清潔人格</a></button>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+            <section>
+                <div class="title">
+                    <h1>服務特色</h1>
+                </div>
+                <div class="index_feature">
+                    <ul>
+                        <li>
+                            <h2>安心</h2>
+                            <img src="../img/index/index_feature1.png" alt="feature1">
+                            <h4>我們的員工</h4>
+                            <div class="index_feature_p">
+                                <p>良民證</p>
+                                <p>專業教育訓練</p>
+                            </div>
+                        </li>
+                        <li>
+                            <h2>細心</h2>
+                            <img src="../img/index/index_feature2.png" alt="feature2">
+                            <h4>我們的品質</h4>
+                            <div class="index_feature_p">
+                                <p>SOP標準流程</p>
+                                <p>環保清潔用品</p>
+                            </div>
+                        </li>
+                        <li>
+                            <h2>貼心</h2>
+                            <img src="../img/index/index_feature3.png" alt="feature3">
+                            <h4>我們的服務</h4>
+                            <div class="index_feature_p">
+                                <p>充滿熱忱</p>
+                                <p>您家就是我們家</p>
+                            </div>
+                        </li>
+                        <li>
+                            <h2>開心</h2>
+                            <img src="../img/index/index_feature4.png" alt="feature4">
+                            <h4>我們的評價</h4>
+                            <div class="index_feature_p">
+                                <p>90%再次預約</p>
+                                <p>總評價4.9★</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <div class="title">
+                    <h1>服務流程</h1>
+                </div>
+                <div class="index_process">
+                    <ul>
+                        <li>
+                            <h3>Step1</h3>
+                            <h3 class="index_process_2h3">線上預約</h3>
+                            <img src="../img/index/index_process1.png" alt="process1">
+                            <h4>隨時預約好方便</h4>
+                        </li>
+                        <li>
+                            <h3>Step2</h3>
+                            <h3 class="index_process_2h3">到府清潔</h3>
+                            <img src="../img/index/index_process2.png" alt="process2">
+                            <h4>專業用心好乾淨</h4>
+                        </li>
+                        <li>
+                            <h3>Step3</h3>
+                            <h3 class="index_process_2h3">客戶驗收</h3>
+                            <img src="../img/index/index_process3.png" alt="process3">
+                            <h4>輕鬆舒適好愜意</h4>
+                        </li>
+                        <li>
+                            <h3>Step4</h3>
+                            <h3 class="index_process_2h3">給予評價</h3>
+                            <img src="../img/index/index_process4.png" alt="process4">
+                            <h4>浣安服務好滿意</h4>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <div class="title">
+                    <h1>常見問題</h1>
+                </div>
+                <div class="index_qa">
+                    <ul>
+                        <li>
+                            <h2>有哪些服務內容？如何計費？</h2>
+                        </li>
+                        <li>
+                            <h2>清潔用品由誰提供？須另外付費嗎？</h2>
+                        </li>
+                        <li>
+                            <h2>變更或取消預約的相關規定為何？</h2>
+                        </li>
+                        <li>
+                            <h2>打掃時屋主一定要在現場嗎？</h2>
+                        </li>
+                        <li>
+                            <h2>如何預估清潔所需時間？</h2>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <div class="index_game">
+                    <div class="index_game_content">
+                        <h1>想知道你是哪種清潔人格嗎？</h1>
+                        <button class="btn"><a href="#">點擊進入測驗</a></button>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 </template>
 
@@ -10,6 +187,7 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import '@/sass/main.scss';
 
 </style>

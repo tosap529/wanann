@@ -1,7 +1,12 @@
-<script>
+<script setup>
+
+import AboutHeader from '@/layouts/header.vue';
+import AboutFooter from '@/layouts/footer.vue'
+
 
 </script>
 <template>
+    <AboutHeader />
   <div>
     <div class="wrapper about">
         <section class="about_scroll">
@@ -91,36 +96,15 @@
         </section>
     </div>
    
-    <ul>
-        <li class="footer_customer_service">
-            <h4>客服時間</h4>
-            <p>週一至週五</p>
-            <p>09:00 – 12:00 / 13:00 – 17:30</p>
-        </li>
-        <li class="footer_area">
-            <h4>服務地區</h4>
-            <p>台北/新北/桃園</p>
-            <button class="btn"><img src="@/img/footer_calendar.svg" alt="calendar_icon">立即預約</button>
-        </li>
-        <li class="footer_logo">
-            <a href="index.html"><img src="@/img/logo_square.svg" alt="logo"></a>
-        </li>
-        <li class="footer_contact">
-            <h4>聯絡資訊</h4>
-            <p>電話 : 02-12345678</p>
-            <p>Email: wa@rmail.com</p>
-            <p>地址：台北市中山區南京東路三段219號4樓、5樓</p>
-        </li>
-        <li class="footer_social_media">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-line"></i></a>
-        </li>
-    </ul>
-
+    <AboutFooter />
   </div>
 </template>
 
 <style lang="scss">
 @import '@/sass/main.scss';
-
+div.about+div>footer {
+    position: absolute;
+    width: 100%;
+    top: 6100px;
+}
 </style>

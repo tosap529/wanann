@@ -2,9 +2,9 @@ a {
     text-decoration: none;
 }
 
-.index_header{
+.index_header {
     height: 100vh;
-    background-image: url(/img/index/index_banner.jpg);
+    background-image: url(../img/index/index_banner.jpg);
 
     .header_center {
         position: absolute;
@@ -150,6 +150,7 @@ section {
 
     ul {
         display: flex;
+        flex-wrap: wrap;
 
         li {
             margin: 0 40px;
@@ -167,7 +168,7 @@ section {
                 display: inline-block;
                 width: 35px;
                 height: 35px;
-                background-image: url(/img/index/index_heart.svg);
+                background-image: url(../img/index/index_heart.svg);
                 background-repeat: no-repeat;
                 margin-right: -20px;
                 vertical-align: text-bottom;
@@ -192,7 +193,7 @@ section {
                     display: inline-block;
                     width: 20px;
                     height: 20px;
-                    background-image: url(/img/index/index_check.svg);
+                    background-image: url(../img/index/index_check.svg);
                     background-repeat: no-repeat;
                     margin-right: 4px;
                     vertical-align: middle;
@@ -209,6 +210,7 @@ section {
 .index_process {
     ul {
         display: flex;
+        flex-wrap: wrap;
 
         li {
             margin: 0 40px;
@@ -264,7 +266,7 @@ section {
                 display: block;
                 width: 40px;
                 height: 40px;
-                background-image: url(/img/index/index_down.svg);
+                background-image: url(../img/index/index_down.svg);
                 margin-right: 54px;
             }
         }
@@ -275,7 +277,7 @@ section {
 
 .index_game {
     height: 300px;
-    background-image: url(/img/index/index_game.jpg);
+    background-image: url(../img/index/index_game.jpg);
     background-size: cover;
     position: relative;
     border-radius: 10px;
