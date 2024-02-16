@@ -1,6 +1,11 @@
 <script setup>
 import { ref } from "vue";
 import MemberTab from "@/components/MemberTab.vue"
+
+import DefaultHeader from '@/layouts/header.vue'; 
+import DefaultFooter from '@/layouts/footer.vue';
+import BannerUrl  from '@/img/member/member_banner.jpg'; 
+const banner_url = BannerUrl; 
 const sidebar = ref(null);
 
 let memberSubPage = ref('userData');
@@ -64,6 +69,8 @@ function infoSave(e){
 
 </script>
 <template>
+    <div>
+        <DefaultHeader header-title-zh="會員中心" header-title-eng="Member" :bgi="banner_url" /> 
     <div class="member wrapper" >
         <section class="member_sidebar">
             <div>
@@ -385,6 +392,8 @@ function infoSave(e){
         </section>
 
     </div>
+    <DefaultFooter />
+</div>
 </template>
 
 

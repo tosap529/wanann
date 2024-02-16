@@ -1,13 +1,13 @@
 .welcome_wrapper {
     width: 100vw;
     height: 100vh;
-    background-image: url(../img/welcome/welcome_bgi.jpg);
+    background-image: url(@/img/welcome/welcome_bgi.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
 
     @include m() {
-        background-image: url(../img/welcome/welcome_bgi_m.jpg);
+        background-image: url(@/img/welcome/welcome_bgi_m.jpg);
 
     }
 
