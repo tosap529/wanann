@@ -9,7 +9,7 @@ import gameFooter from '@/layouts/footer.vue'
         <header class="fixed">
             <nav>
             <div class="nav_left">
-                <a href="#"><img src="../img/logo_long.svg" alt="logo"></a>
+                <a href="#"><img src="@/img/logo_long.svg" alt="logo"></a>
                 <h4>最安心的居家清潔服務</h4>
             </div>
             <div class="nav_right">

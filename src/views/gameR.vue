@@ -9,7 +9,7 @@ import gameFooter from '@/layouts/footer.vue'
         <header class="fixed">
             <nav>
             <div class="nav_left">
-                <a href="#"><img src="../img/logo_long.svg" alt="logo"></a>
+                <a href="#"><img src="@/img/logo_long.svg" alt="logo"></a>
                 <h4>最安心的居家清潔服務</h4>
             </div>
             <div class="nav_right">
@@ -51,8 +51,8 @@ import gameFooter from '@/layouts/footer.vue'
         <section>
             <div class="gameR_contect">
                 <div class="gameR_text">
-                    <h3>你的清潔人格是....</h3>
-                    <img src="../img/game/gameR_bear.png" alt="bear">
+                    <h3>你的清潔人格是...</h3>
+                    <img src="@/img/game/gameR_bear.png" alt="bear">
                     <h2>熊型清潔人格</h2>
                     <p>你是個比較隨興的人，對於居住環境的整潔比較沒有要求，即使環境不太整潔也可以接受，除非已經影響到生活機能或是有時間、有清理的心情才會去做。
                         平時的你看上去有些慵懶，遇到問題可能偏向以「船到橋頭自然直」的態度去面對。</p>
@@ -63,8 +63,8 @@ import gameFooter from '@/layouts/footer.vue'
                     <p class="btn_p">適合你的清潔法寶</p>
 
                     <div class="gameR_recomm">
-                        <a href="#" title="輕巧型吸塵器"><img src="../img/game/gameR_bear_recomm1.jpg" alt="recomm"></a>
-                        <a href="#" title="智能潔淨掃地機器人"><img src="../img/game/gameR_bear_recomm2.jpg" alt="recomm"></a>
+                        <a href="#" title="輕巧型吸塵器"><img src="@/img/game/gameR_bear_recomm1.jpg" alt="recomm"></a>
+                        <a href="#" title="智能潔淨掃地機器人"><img src="@/img/game/gameR_bear_recomm2.jpg" alt="recomm"></a>
                     </div>
                     <div class="gameR_share">
                         <button class="btn">分享給朋友</button>
@@ -80,14 +80,7 @@ import gameFooter from '@/layouts/footer.vue'
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 @import '@/sass/main.scss';
 
-body {
-    @include m() {
-        background-image: url(../img/game/gameR_bgi_mb.jpg);
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
-}
 </style>

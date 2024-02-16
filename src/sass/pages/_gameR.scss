@@ -1,13 +1,14 @@
 .gameR_contect {
-    background-image: url(../img/game/gameR_bgi.jpg);
+    background-image: url(@/img/game/gameR_bgi.jpg);
     background-size: cover;
     height: 866px;
     margin-top: 120px;
     border-radius: 20px;
 
     @include m() {
-        background-image: url(../img/game/gameR_bgi_m.png);
+        background-image: url(@/img/game/gameR_bgi_m.png);
         height: 960px;
+        margin-top: 50px;
     }
 
     .gameR_text {

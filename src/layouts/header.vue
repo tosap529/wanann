@@ -40,10 +40,6 @@
             </div>
 
         </nav>
-            <!-- <div class="header_text">
-                <h1>關於我們</h1>
-                <h1>About</h1>
-            </div> -->
 
     </header>
     </div>

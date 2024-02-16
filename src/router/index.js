@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import header from '@/layouts/header.vue'
 import footer from '@/layouts/footer.vue'
+
 // 載入頁面檔
 import about from '@/views/about.vue'
 import act from '@/views/act.vue'
