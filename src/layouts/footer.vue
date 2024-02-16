@@ -22,13 +22,8 @@
                 <p>地址：台北市中山區南京東路三段219號4樓、5樓</p>
             </li>
             <li class="footer_social_media">
-<<<<<<< HEAD
-                <a href="#"><img src="../img/icon_fb.svg" alt=""></a>
-                <a href="#"><img src="../img/icon_line.svg" alt=""></a>
-=======
                 <a href="#"><img src="@/img/icon_fb.svg" alt=""></a>
                 <a href="#"><img src="@/img/icon_line.svg" alt=""></a>
->>>>>>> new
             </li>
         </ul>
 

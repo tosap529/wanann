@@ -80,7 +80,7 @@ import gameFooter from '@/layouts/footer.vue'
     </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '@/sass/main.scss';
 
 body {

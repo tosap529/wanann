@@ -93,20 +93,20 @@ const router = createRouter({
     {
       path: '/game',
       name: 'game',
-      meta: { hideDefault: false },
-      components: { default: game, header: header, footer: footer }
+      meta: { hideDefault: true },
+      components: { default: game}
     },
     {
       path: '/gameQ',
       name: 'gameQ',
-      meta: { hideDefault: false },
-      components: { default: gameQ, header: header, footer: footer }
+      meta: { hideDefault: true },
+      components: { default: gameQ}
     },
     {
       path: '/gameR',
       name: 'gameR',
-      meta: { hideDefault: false },
-      components: { default: gameR, header: header, footer: footer }
+      meta: { hideDefault: true },
+      components: { default: gameR }
     },
     {
       path: '/mall',
