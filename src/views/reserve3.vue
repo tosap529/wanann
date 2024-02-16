@@ -1,5 +1,12 @@
+<script setup>
+import DefaultHeader from '@/layouts/header.vue'; 
+import DefaultFooter from '@/layouts/footer.vue';
+import BannerUrl  from '@/img/reserve1/reserve1_banner.jpg'; 
+const banner_url = BannerUrl; 
+</script>
 <template>
     <div>
+        <DefaultHeader header-title-zh="預約服務" header-title-eng="Schedule Your Cleaning" :bgi="banner_url" /> 
         <div class="wrapper reserve3">
         <section class="subtitle">
             <h1>3</h1>
@@ -53,14 +60,11 @@
         <p>僅接受3日後的預約，具體施作時間交由浣安與您聯繫進一步討論</p>
         <a href="#" class="btn">前往結帳</a>
     </div>
+    <DefaultFooter />
     </div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
+
 
 <style lang="scss">
 @import '@/sass/main.scss';

@@ -1,35 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import header from '@/layouts/header.vue'
-import footer from '@/layouts/footer.vue'
-
-// 載入頁面檔
-import about from '@/views/about.vue'
-import act from '@/views/act.vue'
-import article1 from '@/views/article1.vue'
-import articles from '@/views/articles.vue'
-import bMember from '@/views/bMember.vue'
-import caseP from '@/views/case.vue' // 注意case這頁命名有差異
-import contact from '@/views/contact.vue'
-import forget from '@/views/forget.vue'
-import game from '@/views/game.vue'
-import gameQ from '@/views/gameQ.vue'
-import gameR from '@/views/gameR.vue'
-import index from '@/views/index.vue'
-import mall from '@/views/mall.vue'
-import member from '@/views/member.vue'
-import mItem from '@/views/mItem.vue'
-import mPay1 from '@/views/mPay1.vue'
-import mPay2 from '@/views/mPay2.vue'
-import mPay3 from '@/views/mPay3.vue'
-import planA from '@/views/planA.vue'
-import reserve1 from '@/views/reserve1.vue'
-import reserve2 from '@/views/reserve2.vue'
-import reserve3 from '@/views/reserve3.vue'
-import service from '@/views/service.vue'
-import sPay1 from '@/views/sPay1.vue'
-import sPay2 from '@/views/sPay2.vue'
-import sPay3 from '@/views/sPay3.vue'
-import welcome from '@/views/welcome.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -37,8 +6,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'index',
-      meta: { hideDefault: true }, // 如果不需要預設的header, footer，此處需填true
-      components: { default: index }
+      component: () => import('@/views/index.vue')
     },
     {
       path: '/about',
@@ -46,158 +14,132 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      meta: { hideDefault: true }, // 如果不需要預設的header, footer，此處需填true
-      components: { default: about }
+      component: () => import('@/views/about.vue')
     },
     {
       path: '/act',
       name: 'act',
-      meta: { hideDefault: false },
-      components: { default: act, header: header, footer: footer }
+      component: () => import('@/views/act.vue')
     },
     {
       path: '/article1',
       name: 'article1',
-      meta: { hideDefault: false },
-      components: { default: article1, header: header, footer: footer }
+      component: () => import('@/views/article1.vue')
     },
     {
       path: '/articles',
       name: 'articles',
-      meta: { hideDefault: false },
-      components: { default: articles, header: header, footer: footer }
+      component: () => import('@/views/articles.vue')
     },
     {
       path: '/bMember',
       name: 'bMember',
-      meta: { hideDefault: true },
-      components: { default: bMember }
+      component: () => import('@/views/bMember.vue')
     },
     {
       path: '/case',
       name: 'case',
-      meta: { hideDefault: false },
-      components: { default: caseP, header: header, footer: footer }
+      component: () => import('@/views/case.vue')
     },
     {
       path: '/contact',
       name: 'contact',
-      meta: { hideDefault: false },
-      components: { default: contact, header: header, footer: footer }
+      component: () => import('@/views/contact.vue')
     },
     {
       path: '/forget',
       name: 'forget',
-      meta: { hideDefault: false },
-      components: { default: forget, header: header, footer: footer }
+      component: () => import('@/views/forget.vue')
     },
     {
       path: '/game',
       name: 'game',
-      meta: { hideDefault: true },
-      components: { default: game}
+      component: () => import('@/views/game.vue')
     },
     {
       path: '/gameQ',
       name: 'gameQ',
-      meta: { hideDefault: true },
-      components: { default: gameQ}
+      component: () => import('@/views/gameQ.vue')
     },
     {
       path: '/gameR',
       name: 'gameR',
-      meta: { hideDefault: true },
-      components: { default: gameR }
+      component: () => import('@/views/gameR.vue')
     },
     {
       path: '/mall',
       name: 'mall',
-      meta: { hideDefault: false },
-      components: { default: mall, header: header, footer: footer }
+      component: () => import('@/views/mall.vue')
     },
     {
       path: '/member',
       name: 'member',
-      meta: { hideDefault: false },
-      components: { default: member, header: header, footer: footer }
+      component: () => import('@/views/member.vue')
     },
     {
       path: '/mItem',
       name: 'mItem',
-      meta: { hideDefault: false },
-      components: { default: mItem, header: header, footer: footer }
+      component: () => import('@/views/mItem.vue')
     },
     {
       path: '/mPay1',
       name: 'mPay1',
-      meta: { hideDefault: false },
-      components: { default: mPay1, header: header, footer: footer }
+      component: () => import('@/views/mPay1.vue')
     },
     {
       path: '/mPay2',
       name: 'mPay2',
-      meta: { hideDefault: false },
-      components: { default: mPay2, header: header, footer: footer }
+      component: () => import('@/views/mPay2.vue')
     },
     {
       path: '/mPay3',
       name: 'mPay3',
-      meta: { hideDefault: false },
-      components: { default: mPay3, header: header, footer: footer }
+      component: () => import('@/views/mPay3.vue')
     },
     {
       path: '/planA',
       name: 'planA',
-      cmeta: { hideDefault: false },
-      components: { default: planA, header: header, footer: footer }
+      component: () => import('@/views/planA.vue')
     },
     {
       path: '/reserve1',
       name: 'reserve1',
-      meta: { hideDefault: false },
-      components: { default: reserve1, header: header, footer: footer }
+      component: () => import('@/views/reserve1.vue')
     },
     {
       path: '/reserve2',
       name: 'reserve2',
-      meta: { hideDefault: false },
-      components: { default: reserve2, header: header, footer: footer }
+      component: () => import('@/views/reserve2.vue')
     },
     {
       path: '/reserve3',
       name: 'reserve3',
-      meta: { hideDefault: false },
-      components: { default: reserve3, header: header, footer: footer }
+      component: () => import('@/views/reserve3.vue')
     },
     {
       path: '/service',
       name: 'service',
-      meta: { hideDefault: false },
-      components: { default: service, header: header, footer: footer }
+      component: () => import('@/views/service.vue')
     },
     {
       path: '/sPay1',
       name: 'sPay1',
-      meta: { hideDefault: false },
-      components: { default: sPay1, header: header, footer: footer }
+      component: () => import('@/views/sPay1.vue')
     },
     {
       path: '/sPay2',
       name: 'sPay2',
-      meta: { hideDefault: false },
-      components: { default: sPay2, header: header, footer: footer }
+      component: () => import('@/views/sPay2.vue')
     },
     {
       path: '/sPay3',
       name: 'sPay3',
-      meta: { hideDefault: false },
-      components: { default: sPay3, header: header, footer: footer }
+      component: () => import('@/views/sPay3.vue')
     },
     {
       path: '/welcome',
       name: 'welcome',
-      meta: { hideDefault: true },
-      components: { default: welcome }
+      component: () => import('@/views/welcome.vue')
     },
 
     // 暫時放，做漢堡選單用，做好會刪除

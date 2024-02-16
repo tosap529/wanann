@@ -1,4 +1,12 @@
+<script setup>
+import DefaultHeader from '@/layouts/header.vue'; 
+import DefaultFooter from '@/layouts/footer.vue';
+import BannerUrl  from '@/img/reserve1/reserve1_banner.jpg'; 
+const banner_url = BannerUrl; 
+</script>
 <template>
+    <div>
+        <DefaultHeader header-title-zh="預約服務" header-title-eng="Schedule Your Cleaning" :bgi="banner_url" /> 
     <div class="wrapper reserve2">
         <section class="subtitle">
         <h1>2</h1>
@@ -114,13 +122,10 @@
         </section>
 
     </div>
+    <DefaultFooter />
+</div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
 
 <style lang="scss">
 @import '@/sass/main.scss';

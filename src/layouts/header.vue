@@ -1,6 +1,16 @@
+<script setup>
+import { computed } from "vue";
+const props = defineProps(['headerTitleZh','headerTitleEng','bgi']);
+const bgi_css = computed(() => {
+      return {
+        "background-image": `url('${props.bgi}')`
+      };
+    });
+</script>
+
 <template>
     <div>
-        <header>
+        <header :style="bgi_css">
         <nav>
             <div class="nav_left">
                 <a href="#"><img src="@/img/logo_long.svg" alt="logo"></a>
@@ -40,17 +50,16 @@
             </div>
 
         </nav>
+            <div class="header_text">
+                <h1>{{headerTitleZh}}</h1>
+                <h1>{{headerTitleEng}}</h1>
+            </div>
 
     </header>
     </div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 
 </style>
