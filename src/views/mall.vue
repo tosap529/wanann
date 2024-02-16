@@ -63,7 +63,7 @@
                         <span>&lt;</span>
                     </li>
 
-                    <li v-for="n in totalPages" v-bind:key="n" v-on:click="setPage(n)" v-bind:class="{'-on' : n == currentPage}">
+                    <li v-for="n in totalPages" v-bind:key="n" v-on:click="setPage(n)" v-bind:class="{'mall_paginator_on' : n == currentPage}">
                         {{ n }}
                     </li>
 
