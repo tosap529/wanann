@@ -118,7 +118,7 @@ const banner_url = BannerUrl;
 
 
         <section class="next_btn">
-            <a href="" class="btn next">下一步</a>
+            <router-link class="btn" :to="{ name: 'reserve3' }">下一步</router-link>   
         </section>
 
     </div>
