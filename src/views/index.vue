@@ -1,6 +1,107 @@
+<script setup>
+
+import indexFooter from '@/layouts/footer.vue'
+
+// 能動但不能這樣寫 待改 暫放
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+const isHeaderFixed = ref(false);
+const showScrollTopButton = ref(false);
+const wrapperMarginTop = ref('80px');
+const showHeaderCenter = ref(true);
+
+const handleScroll = () => {
+  let scrollDistance = window.scrollY || document.documentElement.scrollTop;
+
+  if (scrollDistance > 50) {
+    isHeaderFixed.value = true;
+    showScrollTopButton.value = true;
+    wrapperMarginTop.value = '280px';
+    showHeaderCenter.value = false;
+  } else {
+    isHeaderFixed.value = false;
+    showScrollTopButton.value = false;
+    wrapperMarginTop.value = '80px';
+    showHeaderCenter.value = true;
+  }
+};
+
+const scrollToWrapper = () => {
+  window.scrollTo({
+    top: 150,
+    behavior: 'smooth'
+  });
+};
+
+function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+        }
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
+</script>
+
 <template>
     <div>
-        <div class="wrapper">
+        <header class="index_header" :class="{ fixed: isHeaderFixed }"> 
+        <nav>
+            <div class="nav_left">
+                <a href="#"><img src="../img/logo_long.svg" alt="logo"></a>
+                <h4>最安心的居家清潔服務</h4>
+            </div>
+            <div class="nav_right">
+                <i class="fa fa-bars" area-hidden="true"></i>
+                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+                <ul>
+                    <li><a href="#">關於我們</a></li>
+                    <li><a href="#">最新消息</a>
+                        <ol>
+                            <li><a href="#">優惠活動</a></li>
+                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                        </ol>
+                    </li>
+
+                    <li><a href="#">我們的服務</a>
+                        <ol>
+                            <li><a href="#">服務介紹</a></li>
+                            <li><a href="#">案例分享</a></li>
+                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                        </ol>
+                    </li>
+                    <li><a href="#">商城</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                </ul>
+                <div class="nav_user">
+                    <a href="#" class="fai"><font-awesome-icon icon="user" /></a>
+                    <a href="#" class="fai"><font-awesome-icon icon="cart-shopping" /></a>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+
+        <div class="header_center" v-show="showHeaderCenter" @click="scrollToWrapper">
+            <img src="../img/logo_square.svg" alt="logo">
+            <h4>⌵</h4>
+            <h4>scroll</h4>
+        </div>
+
+    </header>
+
+        <div class="wrapper" :style="{ marginTop: wrapperMarginTop }">
 
             <section>
                 <a class="index_first" href="#">
@@ -178,14 +279,11 @@
                 </div>
             </section>
         </div>
+    
+    <font-awesome-icon icon="angle-up" class="btt" v-show="showScrollTopButton" @click="scrollToTop"/>
+    <indexFooter />
     </div>
 </template>
-
-<script>
-    export default {
-        
-    }
-</script>
 
 <style lang="scss">
 @import '@/sass/main.scss';

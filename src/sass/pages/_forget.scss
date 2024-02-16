@@ -1,9 +1,4 @@
-.forget {
-    outline: 3px solid orange;
-}
-
 .forget_pwd {
-    outline: 3px solid blue;
     box-sizing: border-box;
     width: 500px;
     margin: 0 auto;
@@ -47,5 +42,45 @@
         width: 150px;
         margin: 30px auto 0;
         height: 50px;
+    }
+}
+
+@media screen and (max-width:430px) {
+    .forget_pwd {
+        width: 100%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .forget_form {
+        margin: 0 auto;
+
+        label {
+            font-size: $h3;
+        }
+
+        h4 {
+            font-size: $p;
+        }
+
+        .btn {
+            font-size: $h4;
+        }
+
+        div,
+        label>input {
+            width: 320px;
+        }
+
+        button.btn {
+            width: 80px;
+        }
+
+        input.btn {
+            width: 120px;
+            height: 40px;
+            line-height: 20px;
+        }
     }
 }

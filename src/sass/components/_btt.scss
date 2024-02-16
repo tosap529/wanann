@@ -1,11 +1,10 @@
-.fa-angle-up {
-    display: none;
-    width: 30px;
-    height: 30px;
+.btt {
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     text-align: center;
-    line-height: 30px;
-    font-size: 15px;
+    line-height: 20px;
+    padding: 4px;
     cursor: pointer;
     z-index: 70;
     position: fixed;
@@ -14,7 +13,7 @@
     background-color: $dark-milktea;
     color: $white;
 
-    &:hover{
+    &:hover {
         background-color: $brown;
     }
 }

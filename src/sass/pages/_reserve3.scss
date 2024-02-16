@@ -182,8 +182,10 @@
         }
     }
 
-    .subtitle+section {
-        flex-direction: column;
+    .reserve3 {
+        .subtitle+section {
+            flex-direction: column;
+        }
     }
 
     .calendar {
