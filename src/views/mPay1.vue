@@ -27,22 +27,27 @@
                     <div class="mPay1_item">
 
                         <img src="@/img/mall/mall_product1_1.jpg">
-                        <div class="mPay1_item_name">
-                            <h2>浣安手工香皂</h2>
-                            <div class="mPay1_design">
-                                <h4>經典款</h4>
-                            </div>
-                        </div>
 
-                        <div class="cal">
-                            <i class="fa-solid fa-minus cal_btn"></i>
-                            <div class="cal_count">1</div>
-                            <i class="fa-solid fa-plus cal_btn"></i>
+                        <div class="mPay1_item_product">
+
+                            <div class="mPay1_item_name">
+                                <h2>浣安手工香皂</h2>
+                                <div class="mPay1_design">
+                                    <h4>經典款</h4>
+                                </div>
+                            </div>
+
+                            <div class="cal">
+                                <font-awesome-icon class="cal_btn" :icon="['fas', 'minus']" />
+                                <div class="cal_count">1</div>
+                                <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
+                            </div>
+
                         </div>
 
                         <div class="mPay1_item_price">
                             <h2>NTD200</h2>
-                            <i class="fa-solid fa-trash"></i>
+                            <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div>
 
                     </div>
@@ -50,29 +55,78 @@
                     <div class="mPay1_item">
 
                         <img src="@/img/mall/mall_product1_1.jpg">
-                        <div class="mPay1_item_name">
-                            <h2>浣安手工香皂</h2>
-                            <div class="mPay1_design">
-                                <h4>經典款</h4>
-                            </div>
-                        </div>
 
-                        <div class="cal">
-                            <i class="fa-solid fa-minus cal_btn"></i>
-                            <div class="cal_count">1</div>
-                            <i class="fa-solid fa-plus cal_btn"></i>
+                        <div class="mPay1_item_product">
+
+                            <div class="mPay1_item_name">
+                                <h2>浣安手工香皂</h2>
+                                <div class="mPay1_design">
+                                    <h4>經典款</h4>
+                                </div>
+                            </div>
+
+                            <div class="cal">
+                                <font-awesome-icon class="cal_btn" :icon="['fas', 'minus']" />
+                                <div class="cal_count">1</div>
+                                <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
+                            </div>
+
                         </div>
 
                         <div class="mPay1_item_price">
                             <h2>NTD200</h2>
                             <i class="fa-solid fa-trash"></i>
+                            <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div>
 
                     </div>
 
                 </div>
 
-                <div class="mPay1_coupon">
+
+                <div class="mPay1_des">
+                    <div class="mPay1_des_step">
+
+                        <div class="mPay1_coupon_number">
+                            <h3>優惠代碼</h3>
+                            <input class="mPay1_coupon_input" type="text" placeholder="請輸入優惠代碼">
+                            <button class="btn mPay1_btn">兌換</button>
+                            <p class="mPay1_coupon_success">兌換成功</p>
+                        </div>
+
+                        <div class="mPay1_shipping_methods">
+                            <h3>寄送方式</h3>
+                            <h3>宅配到府</h3>
+                        </div>
+
+                        <div class="mPay1_payment">
+                            <h3>付款方式</h3>
+                            <h3>信用卡</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="mPay1_des_price">
+
+                        <div class="mPay1_coupon_discount">
+                            <h2>優惠代碼</h2>
+                            <h2>NTD -60</h2>
+                        </div>
+
+                        <div class="mPay1_shipping_fee">
+                            <h2>運費</h2>
+                            <h2>NTD 60</h2>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mPay1_total">
+                    <h2>總金額</h2>
+                    <h1>NTD400</h1>
+                </div>
+
+                <!-- <div class="mPay1_coupon">
                     <div class="mPay1_coupon_number">
                         <h3>優惠代碼</h3>
                         <input class="mPay1_coupon_input" type="text" placeholder="請輸入優惠代碼">
@@ -105,9 +159,9 @@
                 
 
                 <div class="mPay1_total">
-                        <h2>總金額</h2>
-                        <h1>NTD400</h1>
-                </div>
+                    <h2>總金額</h2>
+                    <h1>NTD400</h1>
+                </div> -->
 
                 <button class="btn mPay1_nextpage">下一步</button>
 

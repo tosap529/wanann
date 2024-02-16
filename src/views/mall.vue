@@ -24,7 +24,8 @@
                     </ul>
 
                     <ul class="mall_search">
-                        <li><i class="fa-solid fa-magnifying-glass mall_search_icon"></i></li>
+                        <li><font-awesome-icon class="mall_search_icon" :icon="['fas', 'magnifying-glass']" /></li>
+                        <!-- <li><i class="fa-solid fa-magnifying-glass mall_search_icon"></i></li> -->
                         <li><input v-model.lazy.trim.enter="searchBar" type="text" placeholder="搜尋商品"></li>
                     </ul>
 
@@ -34,7 +35,7 @@
             </nav>
 
             <ul class="mall_search_rwd">
-                <li><i class="fa-solid fa-magnifying-glass mall_search_icon"></i></li>
+                <li><font-awesome-icon class="mall_search_icon" :icon="['fas', 'magnifying-glass']" /></li>
                 <li><input v-model.lazy.trim.enter="searchBar" type="text" placeholder="搜尋商品"></li>
             </ul>
 

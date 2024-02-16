@@ -2,6 +2,10 @@ header.mPay1__banner {
     background-image: url(../../img/mall/mall_banner.jpg);
 }
 
+div.mPay1_wrappe{
+    max-width: 100%;
+}
+
 
 div.mPay1_circle {
     margin: 0 auto;
@@ -10,6 +14,10 @@ div.mPay1_circle {
 
 div.mPay1_title {
     margin-bottom: 30px;
+}
+
+div.mPay1_items{
+    margin-bottom: 50px;
 }
 
 div.mPay1_item {
@@ -32,25 +40,39 @@ div.mPay1_item {
         width: 120px;
     }
 
-    div.mPay1_item_name {
-        margin-left: 2%;
-        margin-right: 13.1%;
 
+    div.mPay1_item_product{
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: 140px;
+        
 
-        // border: 1px solid blue;
+        margin-left: 2%;
+        margin-right: auto;
+
+        // border: 1px solid red;
+
+        div.mPay1_item_name {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+
+            // border: 1px solid blue;
+        }
+
+
+        >div.cal {
+            width: 130px;
+            max-width: 100%;
+
+        }
+
     }
 
-    >div.cal {
-        width: 130px;
-        max-width: 100%;
-
-        margin-right: 42.3%;
-
-    }
+    
+    
 
     div.mPay1_item_price {
         height: 120px;
@@ -62,7 +84,7 @@ div.mPay1_item {
 
         // border: 1px solid red;
 
-        >i {
+        >.mPay1_item_price_icon {
             color: $dark-milktea;
             cursor: pointer;
 
@@ -91,16 +113,13 @@ div.mPay1_design {
     margin-bottom: 16px;
 }
 
-div.mPay1_coupon {
+
+div.mPay1_des{
     display: flex;
     justify-content: space-between;
 
-    height: 40px;
-
     padding: 0 4.58%;
-    margin-bottom: 28px;
 
-    // border: 1px solid red;
 
     div.mPay1_coupon_number {
         display: flex;
@@ -108,6 +127,10 @@ div.mPay1_coupon {
 
         width: 546px;
         max-width: 100%;
+
+        margin-bottom: 30px;
+
+        // border: 1px solid red;
 
         >h3 {
             background-color: $light-milktea;
@@ -153,25 +176,6 @@ div.mPay1_coupon {
         }
     }
 
-    div.mPay1_coupon_discount {
-        width: 214px;
-        max-width: 100%;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-    }
-}
-
-div.mPay1_shipping {
-    display: flex;
-    justify-content: space-between;
-
-    height: 40px;
-
-    padding: 0 4.58%;
-    margin-bottom: 28px;
 
     div.mPay1_shipping_methods {
         display: flex;
@@ -179,6 +183,8 @@ div.mPay1_shipping {
 
         width: 546px;
         max-width: 100%;
+
+        margin-bottom: 30px;
 
         & :first-child {
             background-color: $light-milktea;
@@ -194,41 +200,67 @@ div.mPay1_shipping {
         }
     }
 
-    div.mPay1_shipping_fee {
-        width: 214px;
-        max-width: 100%;
 
+
+    div.mPay1_payment {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+    
+        height: 40px;
+    
+        // padding: 0 4.58%;
+        margin-bottom: 28px;
+    
+    
+        & h3:first-child {
+            background-color: $light-milktea;
+            margin-right: 9.1%;
+    
+            height: 32px;
+            width: 94px;
+            max-width: 100%;
+    
+            line-height: 32px;
+            text-align: center;
+            border-radius: 8px;
+    
+        }
+    }
+
+
+    div.mPay1_des_price{
+
+        line-height: 43px;
+
+        div.mPay1_coupon_discount {
+            width: 214px;
+            max-width: 100%;
+    
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            >h2{
+                margin-bottom: 23px;
+            }
+    
+        }
+
+
+        div.mPay1_shipping_fee {
+            width: 214px;
+            max-width: 100%;
+    
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+    
+        }
 
     }
+
 }
 
-div.mPay1_payment {
-    display: flex;
-    align-items: center;
-
-    height: 40px;
-
-    padding: 0 4.58%;
-    margin-bottom: 28px;
-
-
-    & :first-child {
-        background-color: $light-milktea;
-        margin-right: 4.4%;
-
-        height: 32px;
-        width: 94px;
-        max-width: 100%;
-
-        line-height: 32px;
-        text-align: center;
-        border-radius: 8px;
-
-    }
-}
 
 div.mPay1_total {
     display: flex;
@@ -239,12 +271,103 @@ div.mPay1_total {
 
     margin-bottom: 75px;
 
+    // border: 1px solid blue;
+
     & :first-child {
         margin-right: 4.4%;
         text-align: center;
     }
 }
 
+
+
 .mPay1_nextpage {
     margin: 0 auto;
+}
+
+
+@media(max-width:700px) {
+    *{
+        box-sizing: border-box;
+    }
+    div.mPay1_wrapper{
+        border: 1px solid blue;
+    }
+
+
+
+    div.mPay1_circle{
+        width: 340px;
+
+        >div.circle_step{
+            width: 80px;
+            height: 80px;
+
+            >h1{
+                font-size: $h4;
+            }
+        }
+    }
+
+    div.mPay1_items{
+        width: 380px;
+
+        div.mPay1_item{
+            > div.mPay1_item_product{
+                flex-direction: column;
+                // justify-content: start;
+                align-items: start;
+                gap: 5px;
+
+                border: 1px solid green;
+                >div.cal{
+                    border: 1px solid red;
+                }
+                >div.mPay1_item_name{
+                    align-items: start;
+                    border: 1px solid blue;
+                }
+            }
+        }
+    }
+
+    div.mPay1_des{
+        flex-direction: column;
+        border: 1px solid blue;
+
+        >div.mPay1_des_step{
+            >div.mPay1_coupon_number{
+                width: 380px;
+
+                margin-bottom: 20px;
+
+                flex-wrap: wrap;
+                // gap:0 0 20px 0;
+
+                >h3{
+                    font-size: $h4;
+                    margin-right: 20px;
+                }
+
+                >input.mPay1_coupon_input{
+                    width: 120px;
+                    margin-right: auto;
+                }
+
+                
+
+                >p{
+                    margin-left: 40%;
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        
+
+        
+    }
+
+
+    
 }
