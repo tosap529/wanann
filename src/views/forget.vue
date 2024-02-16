@@ -1,6 +1,13 @@
+<script setup>
+import DefaultHeader from '@/layouts/header.vue'; 
+import DefaultFooter from '@/layouts/footer.vue';
+import BannerUrl  from '@/img/member/member_banner.jpg'; 
+const banner_url = BannerUrl; 
+</script>
 <template>
     <div>
-        <div class="wrapper forget">
+        <DefaultHeader header-title-zh="重設密碼" header-title-eng="Forget" :bgi="banner_url" /> 
+    <div class="wrapper forget">
         <section class="forget_pwd">
             <div class="title">
                 <h1>重設密碼</h1>
@@ -19,14 +26,11 @@
             </form>
         </section>
     </div>
+    <DefaultFooter />
     </div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
+
 
 <style lang="scss">
 @import '@/sass/main.scss';

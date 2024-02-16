@@ -1,19 +1,19 @@
 <script setup>
-import { ref } from "vue";
-import AboutHeader from '@/layouts/header.vue';
-import AboutFooter from '@/layouts/footer.vue';
+import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
 import LightboxAboutBelief from '@/components/LightboxAboutBelief.vue';
-
+const banner_url = BannerUrl; // banner路徑令變數(請照抄)
 function lightboxAboutBelief (e){
 
-    
 }
 
 </script>
 <template>
     <div>
-        <LightboxAboutBelief />
-      <AboutHeader />
+    <LightboxAboutBelief />
+    <!-- 貼上以下這行(footer一樣不多贅述) 並更改成需要的標題，:bgi照貼即可 -->
+    <DefaultHeader header-title-zh="關於我們" header-title-eng="About" :bgi="banner_url" /> 
     <div class="wrapper about">
         <section class="about_scroll">
             <ul>
@@ -109,15 +109,16 @@ function lightboxAboutBelief (e){
         </section>
     </div>
    
-    <AboutFooter />
+    <DefaultFooter />
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" >
 @import '@/sass/main.scss';
 div.about+div>footer {
     position: absolute;
     width: 100%;
     top: 6100px;
 }
+
 </style>
