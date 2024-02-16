@@ -1,10 +1,10 @@
 <template>
     <div>
         <!-- 臨時的購物車按鈕 -->
-        <h1 
+        <!-- <h1 
             style="border: 1px solid black; width: 100px;"
             v-on:click="cartToggle"
-            class="cartBtn">購物車</h1>
+            class="cartBtn">購物車</h1> -->
         <!-- 臨時的購物車按鈕 -->
 
 
@@ -29,7 +29,14 @@
                     </ul>
 
                 </div>
+
+                
             </nav>
+
+            <ul class="mall_search_rwd">
+                <li><i class="fa-solid fa-magnifying-glass mall_search_icon"></i></li>
+                <li><input v-model.lazy.trim.enter="searchBar" type="text" placeholder="搜尋商品"></li>
+            </ul>
 
             <!-----------------------------  商品列表 ----------------------------------------->
             <main class="mall">
