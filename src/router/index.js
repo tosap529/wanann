@@ -147,6 +147,12 @@ const router = createRouter({
       component: () => import('../views/welcome.vue')
     },
 
+    // 暫時放，做漢堡選單用，做好會刪除
+    {
+      path: '/hamburger',
+      name: 'hamburger',
+      component: () => import('../layouts/hamburger.vue')
+    },
 
   ]
 })
