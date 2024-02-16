@@ -58,7 +58,9 @@ const banner_url = BannerUrl;
             </div>
         </section>
         <p>僅接受3日後的預約，具體施作時間交由浣安與您聯繫進一步討論</p>
-        <a href="#" class="btn">前往結帳</a>
+        <section class="next_btn">
+            <router-link class="btn" :to="{ name: 'sPay1' }">前往結帳</router-link>   
+        </section>
     </div>
     <DefaultFooter />
     </div>

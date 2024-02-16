@@ -1,40 +1,3 @@
-.reserve1_banner {
-  background-image: url(../../img/reserve1/reserve1_banner.jpg);
-}
-
-
-// .reserve_one{
-//     display: flex;
-//     margin: 0 auto;
-//     width: 1010px;
-//     margin-bottom: 45px;
-//       div{
-//         border-radius: 50%;
-//         background-color: $light-milktea;
-//         width: 50px;
-//         height: 50px;  
-//           h2{
-//             text-align: center;
-//             line-height: 50px;
-//             font-size: $h1;
-//           }
-//         }
-//       h1{
-//         line-height: 50px;
-//         padding-left: 16px;
-//         position: relative;
-//         &:before{
-//             content: "";
-//             position: absolute;
-//             width: 944px;
-//             height: 10px;
-//             background-color: $light-milktea;
-//             top: 100%;
-//             left: 15px;
-//         }
-//     }  
-// }
-
 .reserve_choose {
   margin: 0 auto;
   width: 1010px;
@@ -101,23 +64,61 @@
   color: white;
 }
 
-.next {
-  display: block;
-  text-decoration: none;
-  width: 116px;
-  height: 42px;
-  margin: 0 auto;
-  line-height: 42px;
-  text-align: center;
-  padding: 0;
-  font-size: $h3;
-}
-
 .reserve_choose .color {
   background-color: $dark-milktea;
   color: white;
-
 }
+
+//-----------reserve 三頁面共通class-------------
+section.next_btn a {
+  width: 120px;
+  height: 40px;
+  padding: 0;
+  margin: 0 auto;
+  line-height: 40px;
+  text-align: center;
+  font-size: $h3;
+}
+
+.subtitle {
+  display: flex;
+  width: 1000px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+
+  h1:first-child {
+    background-color: $light_milktea;
+    text-align: center;
+    line-height: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+
+  h1:last-child {
+    flex-grow: 1;
+    border-bottom: 10px solid $light_milktea;
+  }
+}
+
+@include m() {
+  .subtitle {
+    width: 380px;
+
+    h1 {
+      font-size: $h2;
+    }
+
+    h1:first-child {
+      line-height: 30px;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+  }
+}
+
 
 @media screen and (max-width:430px) {
   .reserve1 {
