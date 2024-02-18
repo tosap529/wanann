@@ -1,4 +1,14 @@
+<script setup>
+import DefaultHeader from '@/layouts/header.vue'; 
+import DefaultFooter from '@/layouts/footer.vue';
+import BannerUrl  from '@/img/reserve1/reserve1_banner.jpg'; 
+const banner_url = BannerUrl; 
+</script>
+
 <template>
+    <div>
+        <DefaultHeader header-title-zh="預約服務" header-title-eng="Schedule Your Cleaning" :bgi="banner_url" /> 
+    
 <div class="wrapper reserve1">
 
     
@@ -56,17 +66,15 @@
 </section>
 
 <section class="next_btn">
-    <a href="reserve2.html" class="btn next">下一步</a>
+    <router-link class="btn" :to="{ name: 'reserve2' }">下一步</router-link>   
 </section>
 
 </div>
+<DefaultFooter />
+</div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
+
 
 <style lang="scss">
 @import '@/sass/main.scss';

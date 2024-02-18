@@ -5,22 +5,32 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <template>
-  <div id="app">
+  <div id="app" :class="$route.name">
 
         <!-- <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink> -->
 
-        <RouterView v-if="!$route.meta.hideDefault" name="header"/>
+
         <RouterView />
-        <RouterView v-if="!$route.meta.hideDefault" name="footer"/>
+
         
 
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" >
 
 @import './sass/main.scss';
+
+#app.gameR{
+    @include m() {
+        background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding-top: 40px;
+    }
+}
+
 
 
 </style>

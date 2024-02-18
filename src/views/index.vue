@@ -1,45 +1,30 @@
 <script setup>
 
-import indexFooter from '@/layouts/footer.vue'
+import indexFooter from '@/layouts/footer.vue';
+import btt from '@/layouts/btt.vue';
 
-// 能動但不能這樣寫 待改 暫放
+
+//待改 暫放
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const isHeaderFixed = ref(false);
-const showScrollTopButton = ref(false);
-const wrapperMarginTop = ref('80px');
-const showHeaderCenter = ref(true);
 
 const handleScroll = () => {
   let scrollDistance = window.scrollY || document.documentElement.scrollTop;
 
   if (scrollDistance > 50) {
     isHeaderFixed.value = true;
-    showScrollTopButton.value = true;
-    wrapperMarginTop.value = '280px';
-    showHeaderCenter.value = false;
   } else {
     isHeaderFixed.value = false;
-    showScrollTopButton.value = false;
-    wrapperMarginTop.value = '80px';
-    showHeaderCenter.value = true;
   }
 };
 
-const scrollToWrapper = () => {
-  window.scrollTo({
-    top: 150,
-    behavior: 'smooth'
-  });
-};
-
-function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-
-        }
+function scrollTo(){
+    window.scrollTo({
+        top: 51,
+        behavior: 'smooth'
+    });
+} 
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
@@ -56,7 +41,7 @@ onBeforeUnmount(() => {
         <header class="index_header" :class="{ fixed: isHeaderFixed }"> 
         <nav>
             <div class="nav_left">
-                <a href="#"><img src="../img/logo_long.svg" alt="logo"></a>
+                <a href="#"><img src="@/img/logo_long.svg" alt="logo"></a>
                 <h4>最安心的居家清潔服務</h4>
             </div>
             <div class="nav_right">
@@ -93,15 +78,15 @@ onBeforeUnmount(() => {
             </div>
         </nav>
 
-        <div class="header_center" v-show="showHeaderCenter" @click="scrollToWrapper">
-            <img src="../img/logo_square.svg" alt="logo">
+        <div class="header_center" @click="scrollTo">
+            <img src="@/img/logo_square.svg" alt="logo">
             <h4>⌵</h4>
             <h4>scroll</h4>
         </div>
 
     </header>
 
-        <div class="wrapper" :style="{ marginTop: wrapperMarginTop }">
+        <div class="wrapper" :class="{ fixed: isHeaderFixed }">
 
             <section>
                 <a class="index_first" href="#">
@@ -113,34 +98,34 @@ onBeforeUnmount(() => {
                     <div class="view">
                         <div class="pic-container">
                             <div class="pic">
-                                <img src="../img/index/index_carousel1.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel1.jpg" alt="carousel" />
                             </div>
                             <div class="pic">
-                                <img src="../img/index/index_carousel2.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel2.jpg" alt="carousel" />
                             </div>
                             <div class="pic">
-                                <img src="../img/index/index_carousel3.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel3.jpg" alt="carousel" />
                             </div>
                             <div class="pic">
-                                <img src="../img/index/index_carousel4.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel4.jpg" alt="carousel" />
                             </div>
                             <div class="pic">
-                                <img src="../img/index/index_carousel5.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel5.jpg" alt="carousel" />
                             </div>
                             <div class="pic">
-                                <img src="../img/index/index_carousel1.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel1.jpg" alt="carousel" />
                             </div>
                             <div class="pic">
-                                <img src="../img/index/index_carousel2.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel2.jpg" alt="carousel" />
                             </div>
                             <div class="pic">
-                                <img src="../img/index/index_carousel3.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel3.jpg" alt="carousel" />
                             </div>
                             <div class="pic">
-                                <img src="../img/index/index_carousel4.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel4.jpg" alt="carousel" />
                             </div>
                             <div class="pic">
-                                <img src="../img/index/index_carousel5.jpg" alt="carousel" />
+                                <img src="@/img/index/index_carousel5.jpg" alt="carousel" />
                             </div>
                         </div>
                     </div>
@@ -148,7 +133,7 @@ onBeforeUnmount(() => {
 
                 <div class="index_intr">
                     <div class="index_intr_left">
-                        <img src="../img/index/index_star.png" alt="star">
+                        <img src="@/img/index/index_star.png" alt="star">
                         <h2>輕鬆愜意，家的幸福保姆。</h2>
                     </div>
                     <div class="index_intr_right">
@@ -173,7 +158,7 @@ onBeforeUnmount(() => {
                     <ul>
                         <li>
                             <h2>安心</h2>
-                            <img src="../img/index/index_feature1.png" alt="feature1">
+                            <img src="@/img/index/index_feature1.png" alt="feature1">
                             <h4>我們的員工</h4>
                             <div class="index_feature_p">
                                 <p>良民證</p>
@@ -182,7 +167,7 @@ onBeforeUnmount(() => {
                         </li>
                         <li>
                             <h2>細心</h2>
-                            <img src="../img/index/index_feature2.png" alt="feature2">
+                            <img src="@/img/index/index_feature2.png" alt="feature2">
                             <h4>我們的品質</h4>
                             <div class="index_feature_p">
                                 <p>SOP標準流程</p>
@@ -191,7 +176,7 @@ onBeforeUnmount(() => {
                         </li>
                         <li>
                             <h2>貼心</h2>
-                            <img src="../img/index/index_feature3.png" alt="feature3">
+                            <img src="@/img/index/index_feature3.png" alt="feature3">
                             <h4>我們的服務</h4>
                             <div class="index_feature_p">
                                 <p>充滿熱忱</p>
@@ -200,7 +185,7 @@ onBeforeUnmount(() => {
                         </li>
                         <li>
                             <h2>開心</h2>
-                            <img src="../img/index/index_feature4.png" alt="feature4">
+                            <img src="@/img/index/index_feature4.png" alt="feature4">
                             <h4>我們的評價</h4>
                             <div class="index_feature_p">
                                 <p>90%再次預約</p>
@@ -220,25 +205,25 @@ onBeforeUnmount(() => {
                         <li>
                             <h3>Step1</h3>
                             <h3 class="index_process_2h3">線上預約</h3>
-                            <img src="../img/index/index_process1.png" alt="process1">
+                            <img src="@/img/index/index_process1.png" alt="process1">
                             <h4>隨時預約好方便</h4>
                         </li>
                         <li>
                             <h3>Step2</h3>
                             <h3 class="index_process_2h3">到府清潔</h3>
-                            <img src="../img/index/index_process2.png" alt="process2">
+                            <img src="@/img/index/index_process2.png" alt="process2">
                             <h4>專業用心好乾淨</h4>
                         </li>
                         <li>
                             <h3>Step3</h3>
                             <h3 class="index_process_2h3">客戶驗收</h3>
-                            <img src="../img/index/index_process3.png" alt="process3">
+                            <img src="@/img/index/index_process3.png" alt="process3">
                             <h4>輕鬆舒適好愜意</h4>
                         </li>
                         <li>
                             <h3>Step4</h3>
                             <h3 class="index_process_2h3">給予評價</h3>
-                            <img src="../img/index/index_process4.png" alt="process4">
+                            <img src="@/img/index/index_process4.png" alt="process4">
                             <h4>浣安服務好滿意</h4>
                         </li>
                     </ul>
@@ -279,8 +264,7 @@ onBeforeUnmount(() => {
                 </div>
             </section>
         </div>
-    
-    <font-awesome-icon icon="angle-up" class="btt" v-show="showScrollTopButton" @click="scrollToTop"/>
+    <btt />
     <indexFooter />
     </div>
 </template>

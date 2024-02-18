@@ -4,7 +4,7 @@ a {
 
 .index_header {
     height: 100vh;
-    background-image: url(../img/index/index_banner.jpg);
+    background-image: url(@/img/index/index_banner.jpg);
 
     @include m() {
         height: 260px;
@@ -76,7 +76,7 @@ section {
     transition: background-color .6s ease;
 
     @include m() {
-        width: 260px;
+        width: 290px;
         padding: 28px;
         margin-bottom: 24px;
     }
@@ -105,6 +105,7 @@ section {
 
     @include m() {
         padding: 20px 0;
+        display: none;
     }
 
     .view {
@@ -248,7 +249,7 @@ section {
                 display: inline-block;
                 width: 35px;
                 height: 35px;
-                background-image: url(../img/index/index_heart.svg);
+                background-image: url(@/img/index/index_heart.svg);
                 background-repeat: no-repeat;
                 margin-right: -20px;
                 vertical-align: text-bottom;
@@ -277,7 +278,7 @@ section {
                     display: inline-block;
                     width: 20px;
                     height: 20px;
-                    background-image: url(../img/index/index_check.svg);
+                    background-image: url(@/img/index/index_check.svg);
                     background-repeat: no-repeat;
                     margin-right: 4px;
                     vertical-align: middle;
@@ -368,7 +369,7 @@ section {
                 display: block;
                 width: 40px;
                 height: 40px;
-                background-image: url(../img/index/index_down.svg);
+                background-image: url(@/img/index/index_down.svg);
                 margin-right: 54px;
 
                 @include m() {
@@ -383,7 +384,7 @@ section {
 
 .index_game {
     height: 300px;
-    background-image: url(../img/index/index_game.jpg);
+    background-image: url(@/img/index/index_game.jpg);
     background-size: cover;
     position: relative;
     border-radius: 10px;
