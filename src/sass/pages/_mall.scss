@@ -5,16 +5,16 @@ header.mall_banner {
 }
 
 
-.mall_wrapper {
+div.mall_wrapper {
     width: 1200px;
     max-width: 100%;
     margin: 80px auto;
 
+    // border: 1px solid blue;
 }
 
 // --------------  導覽分頁  ---------------
 nav.mall_nav {
-    // margin-bottom: 50px;
     width: 1100px;
     max-width: 100%;
 
@@ -24,10 +24,8 @@ nav.mall_nav {
     border-bottom: 1px solid $dark-grey;
     padding-bottom: 2px;
 
-    // display: flex;
-    // justify-content: space-between;
+    // border: 1px solid red;
 
-    // border: 1PX solid blue;
 
     div.mall_tab {
         display: flex;
@@ -79,6 +77,10 @@ nav.mall_nav {
     }
 }
 
+ul.mall_search_rwd{
+    display: none;
+}
+
 main.mall {
     margin: 0 auto;
     width: 1010px;
@@ -92,6 +94,9 @@ ul.mall_products {
     justify-content: start;
     gap: 50px 70px;
 
+
+    // border: 1px solid green;
+
     >li {
         width: 200px;
         height: 340px;
@@ -101,6 +106,8 @@ ul.mall_products {
             width: 200px;
             display: block;
             margin-bottom: 25px;
+
+            border-radius: 10px;
         }
 
         >h1 {
@@ -122,6 +129,10 @@ ul.mall_products {
             border: none;
             border-radius: 10px;
             cursor: pointer;
+
+            &:hover{
+                background-color: $brown;
+            }
         }
     }
 }
@@ -150,18 +161,99 @@ div.mall_paginator {
             // border: 1px solid black;
 
             &:hover {
-                color: $black;
+                color: $brown;
             }
         }
 
-        > li.-on{
-            border: 1px solid $dark-milktea;
-
-        }
-
-        >i {
+        > li.mall_paginator_on{
             color: $black;
-
         }
     }
+}
+
+
+// --------------- RWD ------------------
+
+
+@media(max-width:435px) {
+    *{
+        box-sizing: border-box;
+    }
+
+    .mall_wrapper{
+        padding: 0 40px;
+        width: 430px;
+    }
+
+    ul.nav_products{
+        >li >a{
+            width: 80px;
+        };
+    }
+
+    nav.mall_nav{
+        width: 380px;
+        box-sizing: border-box;
+
+        margin-bottom: 10px;
+    }
+
+
+
+
+
+    ul.mall_products{
+        gap: 20px;
+        >li{
+            width: 150px;
+
+            >img{
+                width: 150px;
+            }
+
+            >.mall_add_to_cart{
+                width: 150px;
+            }
+        }
+    }
+
+
+
+
+    ul.mall_search>li{    
+            display: none;
+    }
+
+    ul.mall_search_rwd {
+        display: flex;
+        align-items: center;
+        padding: 0;
+
+        margin-bottom: 20px;
+
+        >li {
+            margin: 0;
+            background-color: $white;
+
+            i.mall_search_icon {
+                color: $brown;
+                font-size: 25px;
+                margin-right: 0.5rem;
+            }
+
+            >input {
+                width: 140px;
+                max-width: 100%;
+                height: 30px;
+            }
+
+        }
+
+    }
+
+
+
+
+
+
 }

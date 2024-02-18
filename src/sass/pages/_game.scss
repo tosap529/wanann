@@ -1,23 +1,48 @@
 .game_contect {
-    background-image: url(/img/game/game_bgi.jpg);
+    background-image: url(@/img/game/game_bgi.jpg);
     background-size: cover;
     height: 866px;
     margin-top: 120px;
     border-radius: 20px;
 
+    @include m() {
+        background-image: url(@/img/game/game_bgi_m.jpg);
+        height: 700px;
+        background-position: center;
+        margin-top: 90px;
+
+    }
+
     .game_text {
         padding-top: 380px;
+
+        @include m() {
+            padding-top: 210px;
+            width: 300px;
+            margin: 0 auto;
+        }
 
         h2 {
             text-align: center;
             margin-top: 44px;
+            line-height: 1.6;
+
+            @include m() {
+                text-shadow: 0 0 2px $white;
+                font-size: $h3;
+            }
         }
 
         .btn {
             margin: 0 auto;
             margin-top: 160px;
-            font-size: $h1;
-            padding: 16px 66px;
+            font-size: $h2;
+            padding: 12px 44px;
+
+            @include m() {
+                margin-top: 130px;
+
+            }
         }
     }
 

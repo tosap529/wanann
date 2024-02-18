@@ -39,6 +39,7 @@ div.mitem_photo {
         img {
             width: 120px;
             max-width: 100%;
+            border-radius: 10px;
         }
     }
 
@@ -46,6 +47,7 @@ div.mitem_photo {
         img {
             width: 420px;
             max-width: 100%;
+            border-radius: 10px;
         }
 
     }
@@ -98,7 +100,7 @@ div.mitem_product {
         justify-content: center;
         align-items: center;
 
-        margin-bottom: 16px;
+        margin-bottom: 20px;
     }
 
     div.cal {
@@ -125,6 +127,11 @@ div.mitem_tab {
     max-width: 100%;
     margin-bottom: 25px;
 }
+
+.mitem_sec > div.tab > ul{
+    margin-bottom: 0;  
+    width: auto;
+} 
 
 ol.mitem_text {
     margin-left: 25px;

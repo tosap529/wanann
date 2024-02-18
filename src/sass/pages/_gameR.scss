@@ -1,15 +1,26 @@
 .gameR_contect {
-    background-image: url(/img/game/gameR_bgi.jpg);
+    background-image: url(@/img/game/gameR_bgi.jpg);
     background-size: cover;
     height: 866px;
     margin-top: 120px;
     border-radius: 20px;
+
+    @include m() {
+        background-image: url(@/img/game/gameR_bgi_m.png);
+        height: 960px;
+        margin-top: 50px;
+    }
 
     .gameR_text {
         padding-top: 56px;
         max-width: 600px;
         margin: 0 auto;
         position: relative;
+
+        @include m() {
+            max-width: 330px;
+            padding-top: 64px;
+        }
 
         h3 {
             margin-bottom: 16px;
@@ -18,6 +29,11 @@
         img {
             width: 360px;
             margin: 0 auto;
+
+            @include m() {
+                width: 280px;
+            }
+
         }
 
         h2 {
@@ -67,6 +83,10 @@
             position: absolute;
             bottom: 0;
             right: 0;
+
+            @include m() {
+                bottom: -60px;
+            }
 
             .btn {
                 font-size: $p;

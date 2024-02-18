@@ -4,7 +4,11 @@ a {
 
 .index_header {
     height: 100vh;
-    background-image: url(../img/index/index_banner.jpg);
+    background-image: url(@/img/index/index_banner.jpg);
+
+    @include m() {
+        height: 260px;
+    }
 
     .header_center {
         position: absolute;
@@ -14,6 +18,12 @@ a {
         img {
             width: 100px;
             margin-bottom: 40px;
+
+            @include m() {
+                width: 60px;
+                margin-bottom: 16px;
+
+            }
         }
 
         h4 {
@@ -23,6 +33,11 @@ a {
             color: $white;
             animation: blink 3s infinite;
             cursor: pointer;
+
+            @include m() {
+                display: none;
+
+            }
         }
 
         @keyframes blink {
@@ -44,6 +59,10 @@ a {
 
 section {
     margin-bottom: 72px;
+
+    @include m() {
+        margin-bottom: 40px;
+    }
 }
 
 .index_first {
@@ -56,6 +75,12 @@ section {
     margin-bottom: 64px;
     transition: background-color .6s ease;
 
+    @include m() {
+        width: 290px;
+        padding: 28px;
+        margin-bottom: 24px;
+    }
+
     &:hover {
         background-color: $brown;
     }
@@ -64,12 +89,24 @@ section {
         text-align: center;
         color: $white;
         line-height: 1.6;
+
+        @include m() {
+            font-size: $h4;
+            width: 250px;
+            text-align: left;
+            margin: 0 auto;
+        }
     }
 }
 
 .index_rolling {
     padding: 50px 0;
     width: 100%;
+
+    @include m() {
+        padding: 20px 0;
+        display: none;
+    }
 
     .view {
         overflow: hidden;
@@ -106,37 +143,75 @@ section {
     display: flex;
     justify-content: center;
 
+    @include m() {
+        display: block;
+        margin-bottom: 80px;
+    }
+
     .index_intr_left {
         position: relative;
         margin-right: 60px;
         width: 380px;
 
+        @include m() {
+            width: 300px;
+            margin: 0 auto;
+            margin-bottom: 24px;
+        }
+
         img {
             width: 178px;
+
+            @include m() {
+                width: 100px;
+            }
         }
 
         h2 {
             position: absolute;
             top: 70px;
             left: 25%;
+
+            @include m() {
+                top: 32px;
+                left: 20%;
+            }
         }
     }
 
     .index_intr_right {
         margin-left: 60px;
 
+        @include m() {
+            margin: 20px auto;
+        }
+
         h3 {
             width: 520px;
             line-height: 1.6;
             margin-bottom: 16px;
+
+            @include m() {
+                width: 380px;
+
+            }
         }
 
         .index_intr_right_btn {
             display: flex;
             justify-content: center;
 
+            @include m() {
+                margin-top: 24px;
+            }
+
             .btn {
                 margin: 0 40px;
+
+                @include m() {
+                    margin: 0 16px;
+
+                }
 
                 a {
                     color: $white;
@@ -156,6 +231,12 @@ section {
             margin: 0 40px;
             flex-grow: 1;
 
+            @include m() {
+                margin: 0 15px;
+                flex-grow: 0;
+                margin-bottom: 56px;
+            }
+
             h2 {
                 text-align: center;
                 margin-bottom: 12px;
@@ -168,7 +249,7 @@ section {
                 display: inline-block;
                 width: 35px;
                 height: 35px;
-                background-image: url(../img/index/index_heart.svg);
+                background-image: url(@/img/index/index_heart.svg);
                 background-repeat: no-repeat;
                 margin-right: -20px;
                 vertical-align: text-bottom;
@@ -177,6 +258,10 @@ section {
             img {
                 width: 180px;
                 margin: 0 auto;
+
+                @include m() {
+                    width: 160px;
+                }
             }
 
             h4 {
@@ -193,7 +278,7 @@ section {
                     display: inline-block;
                     width: 20px;
                     height: 20px;
-                    background-image: url(../img/index/index_check.svg);
+                    background-image: url(@/img/index/index_check.svg);
                     background-repeat: no-repeat;
                     margin-right: 4px;
                     vertical-align: middle;
@@ -216,6 +301,12 @@ section {
             margin: 0 40px;
             flex-grow: 1;
 
+            @include m() {
+                margin: 0 15px;
+                flex-grow: 0;
+                margin-bottom: 56px;
+            }
+
             h3 {
                 text-align: center;
                 margin-bottom: 12px;
@@ -231,6 +322,10 @@ section {
             img {
                 width: 180px;
                 margin: 0 auto;
+
+                @include m() {
+                    width: 160px;
+                }
             }
 
             h4 {
@@ -250,6 +345,10 @@ section {
             border-radius: 10px;
             cursor: pointer;
 
+            @include m() {
+                padding-left: 8px;
+            }
+
             &:hover {
                 background-color: $light-milktea;
             }
@@ -259,6 +358,10 @@ section {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+
+                @include m() {
+                    font-size: $h4;
+                }
             }
 
             h2::after {
@@ -266,8 +369,12 @@ section {
                 display: block;
                 width: 40px;
                 height: 40px;
-                background-image: url(../img/index/index_down.svg);
+                background-image: url(@/img/index/index_down.svg);
                 margin-right: 54px;
+
+                @include m() {
+                    margin-right: 12px;
+                }
             }
         }
     }
@@ -277,20 +384,33 @@ section {
 
 .index_game {
     height: 300px;
-    background-image: url(../img/index/index_game.jpg);
+    background-image: url(@/img/index/index_game.jpg);
     background-size: cover;
     position: relative;
     border-radius: 10px;
+
+    @include m() {
+        height: 200px;
+    }
 
     .index_game_content {
         position: absolute;
         top: 30%;
         left: 392px;
 
+        @include m() {
+            top: 30%;
+            left: 64px;
+        }
+
         h1 {
 
             margin-bottom: 32px;
             animation: sparkle 2.5s infinite;
+
+            @include m() {
+                font-size: $h2;
+            }
         }
 
         @keyframes sparkle {
@@ -310,6 +430,10 @@ section {
         .btn {
             margin: 0 auto;
             font-size: $h2;
+
+            @include m() {
+                font-size: $h4;
+            }
 
             a {
                 color: $white;

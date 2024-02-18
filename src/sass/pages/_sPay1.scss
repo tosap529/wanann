@@ -1,0 +1,231 @@
+header.sPay1__banner {
+    background-image: url(@/img/mall/mall_banner.jpg);
+}
+
+
+div.sPay1_wrapper{
+    max-width: 100%;
+}
+
+div.sPay1_circle {
+    margin: 0 auto;
+    margin-bottom: 60px;
+}
+
+div.sPay1_title {
+    margin-bottom: 30px;
+}
+
+// 服務時間
+div.sPay1_time{
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    padding-left: 49px;
+    margin-bottom: 20px;
+
+    > h2{
+        margin-right: 20px;
+    }
+
+    > h2:nth-child(2){
+        width: 130px;
+        background-color: $light-milktea;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 8px;
+    }
+
+    > h2:nth-child(3) {
+        width: 60px;
+        background-color: $light-milktea;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 8px;
+    }
+}
+
+// 服務種類
+div.sPay1_item {
+    width: 1100px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px dashed $grey;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    div.sPay1_item_img{
+        width: 120px;
+        height: 120px;
+        max-width: 100%;
+        background-color: $light-milktea;
+        border-radius: 8px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin-right: 25px;
+
+        >img {
+        width: 100px;
+        max-width: 100%;
+        }
+    }
+
+    >h2{
+        width: 120px;
+        margin-right: 40px;
+    }
+
+    div.sPay1_item_descript{
+        margin-right: auto;
+        padding-left: 20px;
+        height: 100px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+
+        border-left: 3px solid $dark-grey;
+
+
+    }
+
+    div.sPay1_item_descript_price{
+        height: 130px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        >i{
+            font-size: 25px;
+            color: $dark-milktea;
+
+            &:hover{
+                color: $brown;
+                cursor: pointer;
+            }
+        }   
+    }
+    
+}
+
+
+
+
+div.sPay1_coupon {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    padding: 0 4.58%;
+    margin-bottom: 28px;
+    div.sPay1_coupon_number {
+        display: flex;
+        align-items: center;
+
+        width: 546px;
+        max-width: 100%;
+
+        >h3 {
+            background-color: $light-milktea;
+            margin-right: 9.1%;
+
+            height: 32px;
+            width: 94px;
+            max-width: 100%;
+
+            line-height: 32px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        >.sPay1_coupon_input {
+            width: 186px;
+            max-width: 100%;
+
+            margin-right: 9.1%;
+        }
+
+        >.sPay1_btn {
+            width: 66px;
+            height: 30px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: $h4;
+
+            margin-right: 3.6%;
+
+        }
+
+        >p.sPay1_coupon_success {
+            color: green;
+        }
+
+        // 兌換失敗的樣式
+        >p.sPay1_coupon_fail {
+            color: $warning;
+        }
+    }
+
+    div.sPay1_coupon_discount {
+        width: 214px;
+        max-width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+}
+
+
+
+div.sPay1_payment {
+    display: flex;
+    align-items: center;
+
+    height: 40px;
+
+    padding: 0 4.58%;
+    margin-bottom: 28px;
+
+
+    & :first-child {
+        background-color: $light-milktea;
+        margin-right: 4.4%;
+
+        height: 32px;
+        width: 94px;
+        max-width: 100%;
+
+        line-height: 32px;
+        text-align: center;
+        border-radius: 8px;
+
+    }
+}
+
+div.sPay1_total {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    padding: 0 4.58%;
+
+    margin-bottom: 75px;
+
+    & :first-child {
+        margin-right: 4.4%;
+        text-align: center;
+    }
+}
+
+.sPay1_nextpage {
+    margin: 0 auto;
+}

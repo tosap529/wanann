@@ -1,18 +1,32 @@
 .welcome_wrapper {
     width: 100vw;
     height: 100vh;
-    background-image: url(../img/welcome/welcome_bgi.jpg);
+    background-image: url(@/img/welcome/welcome_bgi.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+
+    @include m() {
+        background-image: url(@/img/welcome/welcome_bgi_m.jpg);
+
+    }
 
     .welcome_back {
         position: absolute;
         top: 50px;
         right: 32%;
 
+        @include m() {
+            top: 350px;
+            right: 7%;
+        }
+
         img {
             width: 200px;
+
+            @include m() {
+                width: 160px;
+            }
         }
     }
 
@@ -22,8 +36,17 @@
         bottom: 50px;
         left: 26%;
 
+        @include m() {
+            bottom: 50px;
+            left: 7%;
+        }
+
         img {
             width: 200px;
+
+            @include m() {
+                width: 160px;
+            }
         }
     }
 }
