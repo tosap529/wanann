@@ -1,0 +1,17 @@
+.article{
+    margin: 0 auto;
+      .article_page{
+        h1{
+            color: $brown;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        h3{
+            margin-bottom: 16px;
+        }
+        img{
+            width: 1200px;
+            margin-bottom: 20px;
+        }
+      }
+}
