@@ -104,7 +104,11 @@ const router = createRouter({
     {
       path: '/reserve1',
       name: 'reserve1',
-      component: () => import('@/views/reserve1.vue')
+      component: () => import('@/views/reserve1.vue'),
+      children: [
+        // 注意小孩路徑前不需加正斜線
+        { path: 'reserve1', component: () => import('@/views/reserve1.vue') }
+      ]
     },
     {
       path: '/reserve2',
