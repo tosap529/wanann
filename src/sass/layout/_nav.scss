@@ -1,6 +1,6 @@
 header.fixed {
     height: 90px;
-    background-image: url(../img/nav_bgi.png); //通用不用換圖
+    background-image: url(@/img/nav_bgi.png) !important; //通用不用換圖
     position: fixed;
     left: 0;
     top: 0;
@@ -8,7 +8,7 @@ header.fixed {
 
     @include m() {
         height: 60px;
-        background-image: url(../img/nav_bgi_m.png);
+        background-image: url(@/img/nav_bgi_m.png);
     }
 
     .wrapper {
@@ -16,6 +16,10 @@ header.fixed {
     }
 
     .header_center {
+        display: none;
+    }
+
+    .header_text {
         display: none;
     }
 }

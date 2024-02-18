@@ -3,8 +3,6 @@
 import indexFooter from '@/layouts/footer.vue';
 import btt from '@/layouts/btt.vue';
 
-
-//待改 暫放
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const isHeaderFixed = ref(false);

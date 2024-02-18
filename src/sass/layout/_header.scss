@@ -70,6 +70,7 @@ header {
 
                 @include m() {
                     margin-left: 12px;
+                    font-size: $p;
                 }
             }
         }
@@ -187,9 +188,9 @@ header {
 
             .bar {
                 display: block;
-                background-color: $brown;
+                background-color: $black;
                 width: 25px;
-                height: 3px;
+                height: 2px;
                 margin: 5px auto;
                 transition: all 0.3s ease-in-out;
 

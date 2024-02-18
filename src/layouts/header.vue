@@ -1,16 +1,38 @@
 <script setup>
-import { computed } from "vue";
+import btt from '@/layouts/btt.vue';
+import { computed, ref, onMounted, onBeforeUnmount } from "vue";
+
 const props = defineProps(['headerTitleZh','headerTitleEng','bgi']);
 const bgi_css = computed(() => {
       return {
         "background-image": `url('${props.bgi}')`
       };
     });
+
+const isHeaderFixed = ref(false);
+const handleScroll = () => {
+  let scrollDistance = window.scrollY || document.documentElement.scrollTop;
+
+  if (scrollDistance > 50) {
+    isHeaderFixed.value = true;
+  } else {
+    isHeaderFixed.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+});
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll);
+});
+
 </script>
 
 <template>
     <div>
-        <header :style="bgi_css">
+        <header :style="bgi_css" :class="{ fixed: isHeaderFixed }">
         <nav>
             <div class="nav_left">
                 <a href="#"><img src="@/img/logo_long.svg" alt="logo"></a>
@@ -56,6 +78,8 @@ const bgi_css = computed(() => {
             </div>
 
     </header>
+    <btt />
+
     </div>
 </template>
 
