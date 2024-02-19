@@ -1,14 +1,16 @@
 <script setup>
 
-import AboutHeader from '@/layouts/header.vue';
-import AboutFooter from '@/layouts/footer.vue'
+import DefaultHeader from '@/layouts/header.vue'; 
+import DefaultFooter from '@/layouts/footer.vue'; 
+import BannerUrl  from '@/img/contact/contact_banner.jpg'; 
+const banner_url = BannerUrl;
 
 
 </script>
 <template>
-     <AboutHeader/>
+   
     <div>
-      
+        <DefaultHeader header-title-zh="聯絡我們" header-title-eng="Contact" :bgi="banner_url" /> 
         <div class="wrapper contact_wrapper">
            
 
