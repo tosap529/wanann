@@ -6,7 +6,6 @@ header.mPay3__banner{
 
 div.mPay3_wrapper{
     max-width: 100%;
-    // border: 1px solid blue;
 }
 
 div.mPay3_circle{
@@ -235,5 +234,24 @@ div.product-row-price{
 
     > i.cart-item-remove-btn:hover{
         color: $brown;
+    }
+}
+
+
+
+// RWD
+
+@media(max-width:431px){
+    div.mPay3_circle{
+        width: 340px;
+
+        >div.circle_step{
+            width: 80px;
+            height: 80px;
+
+            >h1{
+                font-size: $h4;
+            }
+        }
     }
 }

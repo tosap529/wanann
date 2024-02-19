@@ -1,5 +1,15 @@
+<script setup>
+    // 設置header及footer
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/pay/pay_banner.jpg'; // 更改成banner路徑
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+</script>
+
+
 <template>
     <div>
+        <DefaultHeader header-title-zh="商城結帳" header-title-eng="Checkout" :bgi="banner_url" />
         <div class="wrapper mPay1_wrapper">
             <section class="mPay1">
 
@@ -126,48 +136,12 @@
                     <h1>NTD400</h1>
                 </div>
 
-                <!-- <div class="mPay1_coupon">
-                    <div class="mPay1_coupon_number">
-                        <h3>優惠代碼</h3>
-                        <input class="mPay1_coupon_input" type="text" placeholder="請輸入優惠代碼">
-                        <button class="btn mPay1_btn">兌換</button>
-                        <p class="mPay1_coupon_success">兌換成功</p>
-                    </div>
-                    <div class="mPay1_coupon_discount">
-                        <h2>優惠代碼</h2>
-                        <h2>NTD -60</h2>
-                    </div>
-                </div>
-
-                <div class="mPay1_shipping">
-                    <div class="mPay1_shipping_methods">
-                        <h3>寄送方式</h3>
-                        <h3>宅配到府</h3>
-                    </div>
-
-                    <div class="mPay1_shipping_fee">
-                        <h2>運費</h2>
-                        <h2>NTD 60</h2>
-                    </div>
-                </div>
-
-                
-                <div class="mPay1_payment">
-                    <h3>付款方式</h3>
-                    <h3>信用卡</h3>
-                </div>
-                
-
-                <div class="mPay1_total">
-                    <h2>總金額</h2>
-                    <h1>NTD400</h1>
-                </div> -->
-
                 <button class="btn mPay1_nextpage">下一步</button>
 
             </section>
         
         </div>
+        <DefaultFooter />
     </div>
 </template>
 

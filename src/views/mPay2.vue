@@ -1,5 +1,15 @@
+<script setup>
+    // 設置header及footer
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/pay/pay_banner.jpg'; // 更改成banner路徑
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+</script>
+
+
 <template>
     <div>
+        <DefaultHeader header-title-zh="商城結帳" header-title-eng="Checkout" :bgi="banner_url" />
         <div class="wrapper mPay2_wrapper">
             <section class="mPay_2">
 
@@ -22,37 +32,48 @@
                     <h1>商城產品</h1>
                 </div>
 
+                <!-- 商品新增處 -->
                 <div class="mPay2_items">
 
                     <div class="mPay2_item">
+
                         <img src="@/img/mall/mall_product1_1.jpg">
 
-                        <div class="mPay2_item_name">
-                            <h2>浣安手工香皂</h2>
-                            <div class="mPay2_design">
-                                <h4>經典款</h4>
+                        <div class="mPay2_item_product">
+
+                            <div class="mPay2_item_name">
+                                <h2>浣安手工香皂</h2>
+                                <div class="mPay2_design">
+                                    <h4>經典款</h4>
+                                </div>
                             </div>
+
                         </div>
 
                         <div class="mPay2_item_price">
-                            <h2>NTD400</h2>
+                            <h2>NTD200</h2>
                             <p>X2</p>
                         </div>
 
                     </div>
 
                     <div class="mPay2_item">
+
                         <img src="@/img/mall/mall_product1_1.jpg">
 
-                        <div class="mPay2_item_name">
-                            <h2>浣安手工香皂</h2>
-                            <div class="mPay2_design">
-                                <h4>經典款</h4>
+                        <div class="mPay2_item_product">
+
+                            <div class="mPay2_item_name">
+                                <h2>浣安手工香皂</h2>
+                                <div class="mPay2_design">
+                                    <h4>經典款</h4>
+                                </div>
                             </div>
+
                         </div>
 
                         <div class="mPay2_item_price">
-                            <h2>NTD400</h2>
+                            <h2>NTD200</h2>
                             <p>X2</p>
                         </div>
 
@@ -154,6 +175,7 @@
 
 
         </div>
+        <DefaultFooter />
     </div>
 </template>
 

@@ -1,5 +1,15 @@
+<script setup>
+    // 設置header及footer
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/mall/mall_banner.jpg'; // 更改成banner路徑
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+</script>
+
+
 <template>
     <div>
+        <DefaultHeader header-title-zh="商城" header-title-eng="Mall" :bgi="banner_url" />
         <div class="mitem_wrapper wrapper">
             <section class="mitem_sec">
 
@@ -65,6 +75,7 @@
 
             </section>
         </div>
+        <DefaultFooter />
     </div>
 </template>
 
