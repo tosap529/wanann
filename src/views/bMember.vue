@@ -3,7 +3,7 @@
         <div class="bMember container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-sm-3 sidebar bMember_sidebar">
+            <div class="col-sm-3 sidebar bMember_sidebar" id="bMember_scroll">
                 <ul class="nav flex-column">
                     <li class="bMember_nav-item">
                         <h3>會員管理</h3>
@@ -134,7 +134,6 @@
 </script>
 
 <style lang="scss">
-@import '@/sass/main.scss';
 
 </style>
 

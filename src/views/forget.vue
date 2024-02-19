@@ -1,25 +1,25 @@
 <script setup>
 import {ref} from 'vue'
-import Modal from '@/components/ModalAboutBelief.vue'; 
+// import Modal from '@/components/ModalAboutBelief.vue'; 
 import DefaultHeader from '@/layouts/header.vue'; 
 import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
 const banner_url = BannerUrl; 
 
-const isModalShow = ref(false);
-const ModalAboutBelief = ()=>{
-    isModalShow.value = !isModalShow.value;
-    console.log( isModalShow.value)
-}
+// const isModalShow = ref(false);
+// const ModalAboutBelief = ()=>{
+//     isModalShow.value = !isModalShow.value;
+//     console.log( isModalShow.value)
+// }
 </script>
 <template>
     <div>
         <DefaultHeader header-title-zh="重設密碼" header-title-eng="Forget" :bgi="banner_url" /> 
-        <Modal @ModalAboutBelief="ModalAboutBelief" v-show="isModalShow"  />
+        <!-- <Modal @ModalAboutBelief="ModalAboutBelief" v-show="isModalShow"  /> -->
     <div class="wrapper forget">
         
         <section class="forget_pwd">
-            <div @click="ModalAboutBelief" class="title">
+            <div class="title">
                 <h1>重設密碼</h1>
             </div>
             <form class="forget_form" action="">
