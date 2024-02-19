@@ -1,6 +1,5 @@
 div.mitem_wrapper {
     max-width: 100%;
-    padding-top: 80px;
 }
 
 .mitem_sec {
@@ -137,7 +136,6 @@ ol.mitem_text {
 @media(max-width:431px) {
     div.mitem_wrapper{
         width: 429px;
-        margin: 0;
     }
 
     .mitem_sec{
