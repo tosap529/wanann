@@ -9,6 +9,11 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import App from './App.vue'
 import router from './router'
 
+// 路徑切換即頁面滾回最上方
+router.afterEach((to, from, next) => {
+    window.scrollTo(0, 0);
+});
+
 library.add(fas, faFacebook, faLine)
 
 const app = createApp(App)

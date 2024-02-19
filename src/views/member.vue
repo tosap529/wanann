@@ -12,13 +12,15 @@ let memberSubPage = ref('userData');
 let memberTabPage = ref('incomplete');
 let county = ref('');
 function  sidebarClick(e){
-    // console.log(memberTabPage.value)
+
+    e.preventDefault();
     // sidebar切換
     for (let i = 0; i < sidebar.value.children.length; i++) {
-        if(sidebar.value.children[i].classList.contains('member_sidebar_active'))
-        sidebar.value.children[i].classList.remove('member_sidebar_active');
-}
+        if(sidebar.value.children[i].classList.contains('member_sidebar_active')){
 
+            sidebar.value.children[i].classList.remove('member_sidebar_active');
+        }
+}
     // 主要版面切換
     if(e.target.closest('li').classList.contains('userData')){
             memberSubPage.value = 'userData';
@@ -34,6 +36,7 @@ function  sidebarClick(e){
 }
 function memberTabClick(event,index) {
     // 未完成&完成訂單頁面切換
+    event.preventDefault();
     if(event.target.closest('li').classList.contains('complete')){
         memberTabPage.value = 'complete'
     }else{
