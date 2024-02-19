@@ -1,11 +1,21 @@
+<script setup>
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+    
+</script>
+
 <template>
+    <DefaultHeader header-title-zh="活動專區" header-title-eng="Activity" :bgi="banner_url" /> 
     <div>
         <div class="wrapper">
 
 <section class="act_tab">
 
     <div class="tab">
-        <ul>
+        <ul class="tab_act_phone">
             <li class="tab_on"><a href="#">優惠活動</a></li>
             <li><a href="#">職人講座</a></li>
         </ul>
@@ -69,6 +79,7 @@
     </article>
 </section>
 </div>
+<DefaultFooter />
     </div>
 </template>
 

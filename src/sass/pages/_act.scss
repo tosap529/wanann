@@ -91,6 +91,15 @@
     margin-top: 26px;
   }
   
+  .tab .tab_act_phone{
+    border-top: 0px;
+    border-bottom: 1px solid $grey;
+    width: 360px;
+    a{
+      font-size: $h4;
+      width: 85px;
+    }
+  }
   
   .act_main article {
     display: flex;
