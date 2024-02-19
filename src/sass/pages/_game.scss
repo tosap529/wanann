@@ -35,13 +35,18 @@
 
         .btn {
             margin: 0 auto;
-            margin-top: 160px;
+            margin-top: 140px;
             font-size: $h2;
-            padding: 12px 44px;
+            padding: 14px 60px;
+
+            &:hover {
+                color: $white;
+            }
 
             @include m() {
-                margin-top: 130px;
-
+                margin-top: 110px;
+                padding: 12px 0;
+                width: 180px;
             }
         }
     }

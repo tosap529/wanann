@@ -7,6 +7,7 @@
                 <p>週一至週五</p>
                 <p>09:00 – 12:00 / 13:00 – 17:30</p>
             </li>
+
             <li class="footer_area">
                 <h4>服務地區</h4>
                 <p>台北/新北/桃園</p>
@@ -28,6 +29,7 @@
         </ul>
 
         <div class="footer_rights_reserved">
+            <p><a href="#" class="privacy">隱私權政策</a></p>
             <p>Copyright © 2024 浣安 – THD104-G1 All Rights Reserved</p>
             <p>本網站為緯育TibaMe【第89期】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</p>
         </div>

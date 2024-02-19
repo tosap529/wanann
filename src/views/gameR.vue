@@ -18,14 +18,14 @@ import gameFooter from '@/layouts/footer.vue'
                 <ul>
                     <li><a href="#">關於我們</a></li>
                     <li><a href="#">最新消息</a>
-                        <ol>
+                        <ol class="header_news">
                             <li><a href="#">優惠活動</a></li>
                             <li><a href="#" class="nav_last_a">專欄文章</a></li>
                         </ol>
                     </li>
 
                     <li><a href="#">我們的服務</a>
-                        <ol>
+                        <ol class="header_ser">
                             <li><a href="#">服務介紹</a></li>
                             <li><a href="#">案例分享</a></li>
                             <li><a href="#" class="nav_last_a">預約服務</a></li>

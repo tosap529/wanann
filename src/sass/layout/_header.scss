@@ -117,16 +117,17 @@ header {
                         left: 0;
                         display: none;
 
+
                         li {
-                            width: 100%;
+                            // width: 100%;
                             text-align: center;
 
                             a {
+                                width: 90px;
                                 display: block;
-                                padding: 0 10px;
+                                padding: 0 12px;
                                 color: $white;
                                 background-color: $dark-milktea;
-                                line-height: 35px;
                                 border-bottom: 1px solid $white;
                                 font-weight: normal;
                                 text-shadow: none;
@@ -143,6 +144,15 @@ header {
                                 border-bottom: none;
                             }
                         }
+                    }
+
+                    .header_news {
+                        margin-left: -14px;
+                    }
+
+                    .header_ser {
+                        margin-left: -5px;
+
                     }
 
                 }
