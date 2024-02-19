@@ -1,7 +1,7 @@
-header.mPay1__banner {
-    background-image: url(../../img/mall/mall_banner.jpg);
-}
 
+div.mPay1_wrappe{
+    max-width: 100%;
+}
 
 div.mPay1_circle {
     margin: 0 auto;
@@ -12,57 +12,53 @@ div.mPay1_title {
     margin-bottom: 30px;
 }
 
+div.mPay1_items{
+    margin-bottom: 50px;
+}
+
 div.mPay1_item {
     width: 1085px;
     max-width: 100%;
-
     margin: 0 auto;
-
     display: flex;
     align-items: center;
-
     border-bottom: 3px dashed $grey;
     padding-bottom: 28px;
-
     margin-bottom: 24px;
-
-    // border: 1px solid green;
 
     >img {
         width: 120px;
     }
 
-    div.mPay1_item_name {
-        margin-left: 2%;
-        margin-right: 13.1%;
-
+    div.mPay1_item_product{
         display: flex;
-        flex-direction: column;
         align-items: center;
-        gap: 16px;
+        gap: 140px; 
+        margin-left: 2%;
+        margin-right: auto;
 
-        // border: 1px solid blue;
-    }
+        div.mPay1_item_name {
 
-    >div.cal {
-        width: 130px;
-        max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
 
-        margin-right: 42.3%;
-
+        >div.cal {
+            width: 130px;
+            max-width: 100%;
+        }
     }
 
     div.mPay1_item_price {
         height: 120px;
-
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: end;
 
-        // border: 1px solid red;
-
-        >i {
+        >.mPay1_item_price_icon {
             color: $dark-milktea;
             cursor: pointer;
 
@@ -79,35 +75,24 @@ div.mPay1_design {
     max-width: 100%;
     height: 30px;
     background-color: $medium-milktea;
-
     color: $white;
-
     border-radius: 8px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     margin-bottom: 16px;
 }
 
-div.mPay1_coupon {
+div.mPay1_des{
     display: flex;
     justify-content: space-between;
-
-    height: 40px;
-
     padding: 0 4.58%;
-    margin-bottom: 28px;
-
-    // border: 1px solid red;
-
     div.mPay1_coupon_number {
         display: flex;
         align-items: center;
-
         width: 546px;
         max-width: 100%;
+        margin-bottom: 30px;
 
         >h3 {
             background-color: $light-milktea;
@@ -153,32 +138,14 @@ div.mPay1_coupon {
         }
     }
 
-    div.mPay1_coupon_discount {
-        width: 214px;
-        max-width: 100%;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-    }
-}
-
-div.mPay1_shipping {
-    display: flex;
-    justify-content: space-between;
-
-    height: 40px;
-
-    padding: 0 4.58%;
-    margin-bottom: 28px;
-
     div.mPay1_shipping_methods {
         display: flex;
         align-items: center;
 
         width: 546px;
         max-width: 100%;
+
+        margin-bottom: 30px;
 
         & :first-child {
             background-color: $light-milktea;
@@ -194,39 +161,46 @@ div.mPay1_shipping {
         }
     }
 
-    div.mPay1_shipping_fee {
-        width: 214px;
-        max-width: 100%;
-
+    div.mPay1_payment {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-
+        height: 40px;
+        margin-bottom: 28px;
+    
+        & h3:first-child {
+            background-color: $light-milktea;
+            margin-right: 9.1%;
+            height: 32px;
+            width: 94px;
+            max-width: 100%;
+            line-height: 32px;
+            text-align: center;
+            border-radius: 8px;
+        }
     }
-}
 
-div.mPay1_payment {
-    display: flex;
-    align-items: center;
+    div.mPay1_des_price{
+        line-height: 43px;
+        div.mPay1_coupon_discount {
+            width: 214px;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    height: 40px;
+            >h2{
+                margin-bottom: 23px;
+            }
 
-    padding: 0 4.58%;
-    margin-bottom: 28px;
+        }
 
-
-    & :first-child {
-        background-color: $light-milktea;
-        margin-right: 4.4%;
-
-        height: 32px;
-        width: 94px;
-        max-width: 100%;
-
-        line-height: 32px;
-        text-align: center;
-        border-radius: 8px;
-
+        div.mPay1_shipping_fee {
+            width: 214px;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 }
 
@@ -234,11 +208,8 @@ div.mPay1_total {
     display: flex;
     justify-content: end;
     align-items: center;
-
     padding: 0 4.58%;
-
     margin-bottom: 75px;
-
     & :first-child {
         margin-right: 4.4%;
         text-align: center;
@@ -247,4 +218,100 @@ div.mPay1_total {
 
 .mPay1_nextpage {
     margin: 0 auto;
+}
+
+
+@media(max-width:431px) {
+    div.mPay1_wrapper{
+        width: 400px;
+    }
+
+    div.mPay1_title{
+        padding-left: 10px;
+    }
+
+    div.mPay1_circle{
+        width: 340px;
+
+        >div.circle_step{
+            width: 80px;
+            height: 80px;
+
+            >h1{
+                font-size: $h4;
+            }
+        }
+    }
+
+    div.mPay1_items{
+        width: 380px;
+        margin: 0 auto;
+        div.mPay1_item{
+            > div.mPay1_item_product{
+                flex-direction: column;
+                align-items: start;
+                gap: 5px;
+                >div.mPay1_item_name{
+                    align-items: start;
+                }
+            }
+        }
+    }
+
+    div.mPay1_des{
+        width: 380px;
+        flex-direction: column;
+        margin: 0 auto;
+        margin-bottom: 25px;
+        border-bottom: 2px solid $dark-grey;
+
+        >div.mPay1_des_step{
+            h3{
+                font-size: $h4;
+            }
+            >div.mPay1_coupon_number{
+                width: 380px;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+                >h3{
+                    margin-right: 20px;
+                }
+                >input.mPay1_coupon_input{
+                    width: 120px;
+                    margin-right: auto;
+                }
+                >p{
+                    margin-left: 40%;
+                    margin-top: 10px;
+                }
+            }
+
+        }
+
+        >div.mPay1_des_price{
+            margin-left: auto;
+
+            h2{
+                font-size: $h4;
+            }
+
+            >div.mPay1_coupon_discount{
+                >h2{
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    div.mPay1_total{
+        padding-right: 11%;
+        >h2{
+            font-size: $h3;
+        }
+        >h1{
+            font-size: $h2;
+            margin-left: 61px;
+        }
+    }
+    
 }
