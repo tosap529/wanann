@@ -1,81 +1,93 @@
-<script>
-export default {
-    data(){
+<script setup>
 
-    },
-    mounted(){
-    let btn_wanann_el = document.getElementById("btn_wanann");
-        let btn_know_el = document.getElementById("btn_know");
-        let btn_interview_el = document.getElementById("btn_interview");
 
-        let articles_wanann_el = document.getElementById("articles_wanann");
-        let articles_know_el = document.getElementById("articles_know");
-        let articles_interview_el = document.getElementById("articles_interview");
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
 
-        let wannan_top_el = document.getElementById("wannan_top");
-        let know_top_el = document.getElementById("know_top");
-        let interview_top_el = document.getElementById("interview_top");
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+    
+
+// export default {
+//     data(){
+    
+//     },
+//     methods:{
+
+//     },
+//     mounted(){
+//     let btn_wanann_el = document.getElementById("btn_wanann");
+//         let btn_know_el = document.getElementById("btn_know");
+//         let btn_interview_el = document.getElementById("btn_interview");
+
+//         let articles_wanann_el = document.getElementById("articles_wanann");
+//         let articles_know_el = document.getElementById("articles_know");
+//         let articles_interview_el = document.getElementById("articles_interview");
+
+//         let wannan_top_el = document.getElementById("wannan_top");
+//         let know_top_el = document.getElementById("know_top");
+//         let interview_top_el = document.getElementById("interview_top");
        
         
 
 
-        btn_wanann_el.addEventListener('click',function(){
-            articles_wanann_el.classList.remove('-off');
-            btn_wanann_el.classList.add('color');
-            articles_know_el.classList.add('-off');
-            articles_interview_el.classList.add('-off');
-            btn_know_el.classList.remove('color');
-            btn_interview_el.classList.remove('color');
-            wannan_top_el.classList.remove('-close');
-            know_top_el.classList.add('-close');
-            interview_top_el.classList.add('-close');
-        }
+//         btn_wanann_el.addEventListener('click',function(){
+//             articles_wanann_el.classList.remove('-off');
+//             btn_wanann_el.classList.add('color');
+//             articles_know_el.classList.add('-off');
+//             articles_interview_el.classList.add('-off');
+//             btn_know_el.classList.remove('color');
+//             btn_interview_el.classList.remove('color');
+//             wannan_top_el.classList.remove('-close');
+//             know_top_el.classList.add('-close');
+//             interview_top_el.classList.add('-close');
+//         }
         
         
 
-        )
+//         )
 
-        btn_know_el.addEventListener('click',function(){
-            articles_know_el.classList.remove('-off');
-            btn_know_el.classList.add('color');
-            articles_wanann_el.classList.add('-off');
-            articles_interview_el.classList.add('-off');
-            btn_wanann_el.classList.remove('color');
-            btn_interview_el.classList.remove('color');
-            wannan_top_el.classList.add('-close');
-            know_top_el.classList.remove('-close');
-            interview_top_el.classList.add('-close');
-        }
+//         btn_know_el.addEventListener('click',function(){
+//             articles_know_el.classList.remove('-off');
+//             btn_know_el.classList.add('color');
+//             articles_wanann_el.classList.add('-off');
+//             articles_interview_el.classList.add('-off');
+//             btn_wanann_el.classList.remove('color');
+//             btn_interview_el.classList.remove('color');
+//             wannan_top_el.classList.add('-close');
+//             know_top_el.classList.remove('-close');
+//             interview_top_el.classList.add('-close');
+//         }
 
-        )
+//         )
 
-        btn_interview_el.addEventListener('click',function(){
-            articles_interview_el.classList.remove('-off');
-            btn_interview_el.classList.toggle('color');
-            articles_wanann_el.classList.add('-off');
-            articles_know_el.classList.add('-off');
-            btn_wanann_el.classList.remove('color');
-            btn_know_el.classList.remove('color');
-            wannan_top_el.classList.add('-close');
-            know_top_el.classList.add('-close');
-            interview_top_el.classList.remove('-close');
-        }
+//         btn_interview_el.addEventListener('click',function(){
+//             articles_interview_el.classList.remove('-off');
+//             btn_interview_el.classList.toggle('color');
+//             articles_wanann_el.classList.add('-off');
+//             articles_know_el.classList.add('-off');
+//             btn_wanann_el.classList.remove('color');
+//             btn_know_el.classList.remove('color');
+//             wannan_top_el.classList.add('-close');
+//             know_top_el.classList.add('-close');
+//             interview_top_el.classList.remove('-close');
+//         }
 
-        )
-    }
+//         )
+//     }
 
-}
-
-
+// };
 </script>
+
 <template>
     <div>
+        <DefaultHeader header-title-zh="專欄文章" header-title-eng="Articles" :bgi="banner_url" /> 
         <div class="articles wrapper">
         <div id="wannan_top">
         <section class="articles_top">
            
             <article class="left">
-                <div class="title">
+                <div class="title title_phone">
                     <h1>最新文章</h1>
                 </div>
 
@@ -150,14 +162,15 @@ export default {
             <aside>
                 <h2>文章一覽</h2>
                 <ul>
+                    <!-- class="color" -->
                     <li>
-                        <a href="#" id="btn_wanann" class="color">浣安小品</a>
+                        <a href="#" id="btn_wanann" @click="add_color" :style="{ color: isActive1 ? 'green' : 'blue' }">浣安小品</a>
                     </li>
                     <li>
-                        <a href="#" id="btn_know">清潔小知識</a>
+                        <a href="#" id="btn_know" @click="add_color" :style="{ color: isActive2 ? 'green' : 'blue' }">清潔小知識</a>
                     </li>
                     <li>
-                        <a href="#" id="btn_interview">職人專訪</a>
+                        <a href="#" id="btn_interview" @click="add_color" :style="{ color: isActive3 ? 'green' : 'blue' }">職人專訪</a>
                     </li>
                     <li>
                         <a href="">品牌聯名</a>
@@ -329,11 +342,9 @@ export default {
 
 
     </div>
+    <DefaultFooter />
     </div>
 </template>
 
-
-
 <style lang="scss" >
-
 </style>

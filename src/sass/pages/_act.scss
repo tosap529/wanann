@@ -8,6 +8,10 @@
   width: 1200px;
 }
 
+.act_tab .tab ul{
+  margin: 0 auto;
+}
+
 .act_main {
   margin-top: 70px;
 }
@@ -64,6 +68,7 @@
         height: 40px;
         border-radius: 0 10px 10px 0;
         cursor: pointer;
+        border: none;
       }
     }
 
@@ -86,6 +91,15 @@
     margin-top: 26px;
   }
   
+  .tab .tab_act_phone{
+    border-top: 0px;
+    border-bottom: 1px solid $grey;
+    width: 360px;
+    a{
+      font-size: $h4;
+      width: 85px;
+    }
+  }
   
   .act_main article {
     display: flex;
@@ -160,10 +174,5 @@
       }
     }
   }
-
-
-
-
-
 
 }
