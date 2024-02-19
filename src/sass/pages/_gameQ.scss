@@ -53,9 +53,15 @@
             margin-top: 48px;
             padding: 16px 66px;
 
+            &:hover {
+                color: $white;
+            }
+
+
             @include m() {
                 margin-top: 40px;
-                padding: 8px 40px;
+                padding: 12px 0;
+                width: 180px;
             }
         }
     }

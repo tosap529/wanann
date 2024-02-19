@@ -1,6 +1,9 @@
 <script>
 export default {
     data(){
+    
+    },
+    methods:{
 
     },
     mounted(){
@@ -64,10 +67,9 @@ export default {
         )
     }
 
-}
-
-
+};
 </script>
+
 <template>
     <div>
         <div class="articles wrapper">
@@ -150,14 +152,15 @@ export default {
             <aside>
                 <h2>文章一覽</h2>
                 <ul>
+                    <!-- class="color" -->
                     <li>
-                        <a href="#" id="btn_wanann" class="color">浣安小品</a>
+                        <a href="#" id="btn_wanann" @click="add_color" :style="{ color: isActive1 ? 'green' : 'blue' }">浣安小品</a>
                     </li>
                     <li>
-                        <a href="#" id="btn_know">清潔小知識</a>
+                        <a href="#" id="btn_know" @click="add_color" :style="{ color: isActive2 ? 'green' : 'blue' }">清潔小知識</a>
                     </li>
                     <li>
-                        <a href="#" id="btn_interview">職人專訪</a>
+                        <a href="#" id="btn_interview" @click="add_color" :style="{ color: isActive3 ? 'green' : 'blue' }">職人專訪</a>
                     </li>
                     <li>
                         <a href="">品牌聯名</a>
@@ -332,8 +335,6 @@ export default {
     </div>
 </template>
 
-
-
 <style lang="scss" >
-@import '@/sass/main.scss';
+    @import '@/sass/main.scss';
 </style>
