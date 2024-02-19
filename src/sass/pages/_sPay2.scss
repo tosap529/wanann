@@ -1,8 +1,3 @@
-header.sPay2__banner {
-    background-image: url(@/img/mall/mall_banner.jpg);
-}
-
-
 div.sPay2_wrapper{
     max-width: 100%;
 }
@@ -45,7 +40,6 @@ div.sPay2_time{
     }
 }
 
-// 服務種類
 div.sPay2_item {
     width: 1100px;
     max-width: 100%;
@@ -61,11 +55,9 @@ div.sPay2_item {
         max-width: 100%;
         background-color: $light-milktea;
         border-radius: 8px;
-
         display: flex;
         align-items: center;
         justify-content: center;
-
         margin-right: 25px;
 
         >img {
@@ -74,50 +66,49 @@ div.sPay2_item {
         }
     }
 
-    >h2{
-        width: 120px;
-        margin-right: 40px;
-    }
-
-    div.sPay2_item_descript{
-        margin-right: auto;
-        padding-left: 20px;
-        height: 100px;
-
+    div.sPay2_item_layout{
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
+        align-items: center;
 
-        border-left: 3px solid $dark-grey;
+        >h2{
+            width: 120px;
+            margin-right: 40px;
+        }
 
+        div.sPay2_item_descript{
+            margin-right: auto;
+            padding-left: 20px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            border-left: 3px solid $dark-grey;
+        }
+
+        div.sPay2_item_descript_price{
+            height: 130px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: end;
+            >h2{
+                text-align: end;
+            }
+
+            >.sPay2_item_descript_price_icon{
+                font-size: 25px;
+                color: $dark-milktea;
+
+                &:hover{
+                    color: $brown;
+                    cursor: pointer;
+                }
+            }   
+        }
     }
-
-    div.sPay2_item_descript_price{
-        height: 130px;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: end;
-        >i{
-            font-size: 25px;
-            color: $dark-milktea;
-        }   
-    }
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 div.sPay2_coupon{
     display: flex;
@@ -127,18 +118,6 @@ div.sPay2_coupon{
     padding: 0 4.58%;
     margin-bottom: 40px;
 }
-
-
-
-// div.sPay2_shipping{
-//     display: flex;
-//     justify-content: end;
-//     gap: 35px;
-
-//     padding: 0 4.58%;
-//     margin-bottom: 40px;
-// }
-
 
 div.sPay2_total{
     display: flex;
@@ -155,50 +134,35 @@ div.sPay2_total{
     }
 }
 
-
-
 div.sPay2_info{
     display: flex;
     justify-content: space-evenly;
-
     margin: 0 auto;
-
-    // border: 1px solid red;
-
     box-sizing: border-box;
 
     div.sPay2_custom{
         width: 531px;
         max-width: 100%;
 
-        // border: 1px solid blue;
-
         div.sPay2_title{
             margin-bottom: 24px;
-
-            // border: 1px solid green;
         }
 
         div.sPay2_info_name{
             display: flex;
             align-items: center;
             padding-left: 40px;
-
             margin-bottom: 20px;
 
-            // border: 1px solid red;
             >h2{
                 width: 160px;
                 max-width: 100%;
-
-                // border: 1px solid blue;
             }
 
             >input{
                 width: 100px;
                 max-width: 100%;
             }
-
             
         }
 
@@ -211,7 +175,6 @@ div.sPay2_info{
             >h2{
                 width: 160px;
                 max-width: 100%;
-                // border: 1px solid blue;
             }
 
             >input{
@@ -226,21 +189,12 @@ div.sPay2_info{
             display: flex;
             align-items: center;
             flex-wrap: wrap;
-
             margin-bottom: 20px;
-
-            // gap: 20px;
-
             padding-left: 40px;
-
-
-
-            // border: 1px solid purple;
 
             >h2{
                 width: 160px;
                 max-width: 100%;
-                // border: 1px solid blue;
             }
 
             >input#sPay2_address_as_member{
@@ -253,13 +207,9 @@ div.sPay2_info{
             >input.sPay2_info_address_input{
                 width: 63%;
                 max-width: 100%;
-
                 margin: 0;
-
                 display: block;
-                
 
-                // background-color: red;
             }
         }
 
@@ -271,7 +221,6 @@ div.sPay2_info{
             >h2{
                 width: 160px;
                 max-width: 100%;
-                // border: 1px solid blue;
             }
 
             >textarea{
@@ -291,10 +240,6 @@ div.sPay2_info{
         }
 
     }
-
-
-
-
 
     div.sPay2_payment{
         
@@ -416,4 +361,190 @@ div.sPay2_info{
 button.sPay2_nextpage{
     display: block;
     margin: 0 auto;
+}
+
+
+@media(max-width:431px){
+    div.sPay2_wrapper{
+        width: 400px;
+        padding: 0 25px;
+    }
+
+    div.sPay2_title{
+        padding-left: 10px;
+    }
+
+    div.sPay2_circle{
+        width: 340px;
+
+        >div.circle_step{
+            width: 80px;
+            height: 80px;
+            >h1{
+                font-size: $h4;
+            }
+        }
+    }
+
+    div.sPay2_items{
+        width: 360px;
+        margin: 0 auto;
+
+        div.sPay2_item{
+            justify-content: space-between;
+            div.sPay2_item_descript{
+                display: none;
+            }
+
+            div.sPay2_item_img{
+                width: 120px;
+                height: 120px;
+                margin-right: 10px;
+            }
+
+            div.sPay2_item_layout{
+                width: 60%;
+                flex-direction: column;
+                align-items: start;
+
+                div.sPay2_item_descript_price{
+                    flex-direction: row;
+                    width: 100%;
+                    height: 80px;
+                    >h2{
+                        text-align: left;
+                    }
+                }
+            }
+
+        }
+    }
+
+
+
+    // 購買人資料
+    div.sPay2_info{
+        flex-direction: column;
+
+        input{
+            height: 30px;
+        }
+
+        div.sPay2_custom{
+            margin-bottom: 60px;
+
+            div.sPay2_info_name{
+                padding-left: 0;
+            }
+
+            div.sPay2_info_phone{
+                padding-left: 0;
+            }
+
+            div.sPay2_info_address{
+                padding-left: 0;
+
+                >h2{
+                    order: 1;
+                }
+
+                >input.sPay2_info_address_input{
+                    order: 3;
+                    width: 100%;
+                }
+
+                >input#sPay2_address_as_member,
+                >label{
+                    order: 2;
+                }
+            }
+
+            div.sPay2_notes{
+                padding-left: 0;
+                flex-direction: column;
+                align-items: start;
+                gap: 10px;
+
+                >textarea{
+                    width: 100%;
+                }
+            }
+        }
+
+        div.sPay2_payment{
+            margin-bottom: 30px;
+            >div.sPay2_card_number{
+                flex-wrap: wrap;
+                >h3{
+                    margin-right: 50%;
+                    margin-bottom: 10px;
+                }
+                >input{
+                    width: 60px;
+                    margin-right: 10px;
+                }
+            }
+
+            >div.sPay2_card_info{
+                flex-direction: column;
+                align-items: start;
+                margin-bottom: 10px;
+
+                div.sPay2_card_date{
+                    margin: 0;
+                    margin-bottom: 10px;
+                    >h3{
+                        width: 130px;
+                    }
+                }
+
+                div.sPay2_card_safe{
+                    >h3{
+                        margin: 0;
+                        width: 130px;
+                    }
+                    
+                }
+            }
+
+            div.sPay2_card_name{
+                margin-bottom: 10px;
+                >h3{
+                    width: 130px;
+                }
+                >input{
+                    width: 150px;
+                    max-width: 100%;
+                }
+            }
+
+            div.sPay2_card_address{
+                flex-wrap: wrap;
+                >h3{
+                    margin-right: 50%;
+                    margin-bottom: 10px;
+                }
+                >input{
+                    width: 100%;
+                }
+            }
+            div.sPay2_card_post{
+                >h3{
+                    width: 130px;
+                }
+            }
+        }
+    }
+
+    div.sPay1_total{
+        margin-bottom: 30px;
+        padding-right: 8%;
+        >h2{
+            font-size: $h3;
+        }
+        >h1{
+            font-size: $h2;
+            margin-left: 61px;
+        }
+    }
 }
