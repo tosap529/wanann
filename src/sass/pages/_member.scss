@@ -1,10 +1,4 @@
-.member_banner {
-    background-image: url(@/img/member/member_banner.jpg);
-}
-
-.member {
-    outline: 3px solid purple;
-
+.wrapper.member {
     display: flex;
 }
 
@@ -50,7 +44,7 @@
             left: -30px;
             background-size: cover;
             background-repeat: no-repeat;
-            background-image: url(@/img/member/member_icon_sidebar#{$i}.png);
+            background-image: url('@/img/member/member_icon_sidebar#{$i}.png');
         }
     }
 
@@ -230,6 +224,7 @@
             width: 120px;
             height: 40px;
             line-height: 20px;
+            margin: 0;
         }
 
         p {
