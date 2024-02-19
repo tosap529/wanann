@@ -12,7 +12,6 @@ let memberSubPage = ref('userData');
 let memberTabPage = ref('incomplete');
 let county = ref('');
 function  sidebarClick(e){
-
     e.preventDefault();
     // sidebar切換
     for (let i = 0; i < sidebar.value.children.length; i++) {
@@ -74,7 +73,7 @@ function infoSave(e){
 <template>
     <div>
         <DefaultHeader header-title-zh="會員中心" header-title-eng="Member" :bgi="banner_url" /> 
-    <div class="member wrapper" >
+    <div class="member wrapper">
         <section class="member_sidebar">
             <div>
                 <input type="file" id="profileMini">

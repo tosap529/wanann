@@ -88,7 +88,6 @@ header {
                 li {
                     position: relative;
                     line-height: 35px;
-                    padding: 0 15px;
                     align-self: center;
 
                     &:hover ol {
@@ -98,6 +97,8 @@ header {
                     }
 
                     a {
+                        box-sizing: border-box;
+                        padding: 0 15px;
                         text-decoration: none;
                         color: $black;
                         font-family: $fontFamily;
@@ -112,6 +113,7 @@ header {
                     }
 
                     ol {
+                        width: 100%;
                         position: absolute;
                         top: 100%;
                         left: 0;
@@ -144,15 +146,6 @@ header {
                                 border-bottom: none;
                             }
                         }
-                    }
-
-                    .header_news {
-                        margin-left: -14px;
-                    }
-
-                    .header_ser {
-                        margin-left: -5px;
-
                     }
 
                 }

@@ -62,6 +62,7 @@ footer {
                 margin-top: 12px;
                 font-size: $h4;
                 background-color: $brown;
+                padding: 8px 10px;
 
                 &:hover {
                     background-color: $dark-milktea;
@@ -166,6 +167,10 @@ footer {
 
             a {
                 color: $black;
+
+                &:hover {
+                    color: $brown;
+                }
             }
         }
     }

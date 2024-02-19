@@ -11,10 +11,15 @@
             <li class="footer_area">
                 <h4>服務地區</h4>
                 <p>台北/新北/桃園</p>
-                <button class="btn"><img src="@/img/footer_calendar.svg" alt="calendar_icon">立即預約</button>
+                <!-- <button class="btn"><img src="@/img/footer_calendar.svg" alt="calendar_icon">立即預約</button> -->
+                <router-link class="btn" :to="{ name: 'reserve' }">
+                    <img src="@/img/footer_calendar.svg" alt="calendar_icon">立即預約
+                    </router-link>
             </li>
             <li class="footer_logo">
-                <a href="#"><img src="@/img/logo_square.svg" alt="logo"></a>
+                <!-- <a href="#"><img src="@/img/logo_square.svg" alt="logo"></a> -->
+                <router-link :to="{ name: 'index' }">
+                    <img src="@/img/logo_square.svg" alt="logo"></router-link>
             </li>
             <li class="footer_contact">
                 <h4>聯絡資訊</h4>

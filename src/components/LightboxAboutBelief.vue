@@ -4,7 +4,7 @@
 
 </script>
 <template>
-    <div class="lightbox lightbox_about lightbox_off"  >
+    <div class="lightbox lightbox_about"  >
     <div class="about_belief">
         <img src="@/img/about/about_lightbox_cross.svg" alt="">
         <p>
@@ -22,8 +22,8 @@
     display: none;
 }
 .lightbox_about{
-    position: absolute;
-    z-index: 5;
+    // position: absolute;
+    // z-index: 5;
 }
 .about_belief{
     margin: 0 auto;

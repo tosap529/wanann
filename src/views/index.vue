@@ -39,33 +39,33 @@ onBeforeUnmount(() => {
         <header class="index_header" :class="{ fixed: isHeaderFixed }"> 
         <nav>
             <div class="nav_left">
-                <a href="#"><img src="@/img/logo_long.svg" alt="logo"></a>
+                <router-link :to="{ name: 'index' }"><img src="@/img/logo_long.svg" alt="logo"></router-link>
                 <h4>最安心的居家清潔服務</h4>
             </div>
             <div class="nav_right">
                 <i class="fa fa-bars" area-hidden="true"></i>
                 <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
                 <ul>
-                    <li><a href="#">關於我們</a></li>
-                    <li><a href="#">最新消息</a>
+                    <li><router-link :to="{ name: 'about' }">關於我們</router-link></li>
+                    <li><router-link :to="{ name: 'articles' }">最新消息</router-link>
                         <ol class="header_news">
-                            <li><a href="#">優惠活動</a></li>
-                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                            <li><router-link :to="{ name: 'act' }">優惠活動</router-link></li>
+                            <li><router-link class="nav_last_a" :to="{ name: 'articles' }">專欄文章</router-link></li>
                         </ol>
                     </li>
 
-                    <li><a href="#">我們的服務</a>
+                    <li><router-link :to="{ name: 'service' }">我們的服務</router-link>
                         <ol class="header_ser">
-                            <li><a href="#">服務介紹</a></li>
-                            <li><a href="#">案例分享</a></li>
-                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                            <li><router-link :to="{ name: 'service' }">服務介紹</router-link></li>
+                            <li><router-link :to="{ name: 'case' }">案例分享</router-link></li>
+                            <li><router-link class="nav_last_a" :to="{ name: 'reserve' }">預約服務</router-link></li>
                         </ol>
                     </li>
-                    <li><a href="#">商城</a></li>
-                    <li><a href="#">聯絡我們</a></li>
+                    <li><router-link :to="{ name: 'mall' }">商城</router-link></li>
+                    <li><router-link :to="{ name: 'contact' }">聯絡我們</router-link></li>
                 </ul>
                 <div class="nav_user">
-                    <a href="#" class="fai"><font-awesome-icon icon="user" /></a>
+                    <router-link class="fai" :to="{ name: 'member' }"><font-awesome-icon icon="user" /></router-link>
                     <a href="#" class="fai"><font-awesome-icon icon="cart-shopping" /></a>
                 </div>
             </div>
@@ -140,8 +140,9 @@ onBeforeUnmount(() => {
                             <br>希望也能為您帶來更美好舒適的生活！
                         </h3>
                         <div class="index_intr_right_btn">
-                            <button class="btn"><a href="#">馬上預約</a></button>
-                            <button class="btn"><a href="#">測試你的清潔人格</a></button>
+                            <button class="btn"><router-link :to="{ name: 'reserve' }">馬上預約</router-link></button>
+                            <button class="btn"><router-link :to="{ name: 'game' }">測試你的清潔人格</router-link></button>
+                            
                         </div>
                     </div>
                 </div>
@@ -257,7 +258,8 @@ onBeforeUnmount(() => {
                 <div class="index_game">
                     <div class="index_game_content">
                         <h1>想知道你是哪種清潔人格嗎？</h1>
-                        <button class="btn"><a href="#">點擊進入測驗</a></button>
+                        <button class="btn"><router-link :to="{ name: 'game' }">點擊進入測驗</router-link></button>
+                        
                     </div>
                 </div>
             </section>
