@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
 import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
 import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
@@ -16,21 +17,22 @@ const scroll_anchor3 = ref(null);
 
 const scrollItems=[
     {name:'企業理念',
+    href:'#scroll_anchor1',
     anchor:scroll_anchor1},
     {name:'企業特色',
+    href:'#scroll_anchor2',
     anchor:scroll_anchor2},
     {name:'企業貢獻',
+    href:'#scroll_anchor3',
     anchor:scroll_anchor3}
 ]
-console.log(scrollItems)
-const goPosition = (anchor) => {
-    console.log(anchor.value);
-    // 參考：https://www.nightprogrammer.com/vue-js/show-the-position-of-an-element-in-vue-3-composition-api-example/
-  
-    const { top } =  anchor.value.getBoundingClientRect();
-    window.scrollTo({top:top-50,behavior:'smooth'})
-  
-}
+// const goPosition = (anchor) => {
+    
+//     // 參考：https://www.nightprogrammer.com/vue-js/show-the-position-of-an-element-in-vue-3-composition-api-example/
+//     const { top } =  anchor.value.getBoundingClientRect();
+//     console.log(top);
+//     window.scrollTo({top : top-50, behavior:'smooth'})
+// }
 
 //--------------動畫------------
 function scrollFast(){
@@ -71,18 +73,14 @@ function fullBgc(){
     if (charity_pos.top>3110 ||charity_pos.top-window.innerHeight<-200){
       bgiShow.value = false;
               scroll_anchor3.value.style.display='block';
-
-    }
-    else{
+    }else{
       bgiShow.value = true;       
         scroll_anchor3.value.style.display='none';
     }
-
 }
-
 document.addEventListener("scroll", addClassToVisibleElements);
 document.addEventListener("scroll", fullBgc);
-// addClassToVisibleElements();
+
 
 
 
@@ -92,14 +90,16 @@ document.addEventListener("scroll", fullBgc);
 </script>
 <template>
     <div>
-    <LightboxAboutBelief />
+    <!-- <LightboxAboutBelief /> -->
     <!-- 貼上以下這行(footer一樣不多贅述) 並更改成需要的標題，:bgi照貼即可 -->
     <DefaultHeader header-title-zh="關於我們" header-title-eng="About" :bgi="banner_url" /> 
-    <div class="wrapper about">
+
+    <!-- ↓將原本的.wrapper div換成這個標籤，並加上本來有的class -->
+    <wrapper class="about"> 
         <section class="about_scroll ">
             <ul>
                 <li v-for="scrollItem in scrollItems" :key="scrollItem.name" >
-                    <a href="#" @click="goPosition(scrollItem.anchor)">{{scrollItem.name}}</a>
+                    <a :href="scrollItem.href">{{scrollItem.name}}</a>
                 </li>
                 <!-- <li><a href="#" @click="goPosition">企業理念</a></li>
                 <li><a href="#" @click="goPosition">企業特色</a></li>
@@ -108,7 +108,7 @@ document.addEventListener("scroll", fullBgc);
             <img src="@/img/about/about_main.jpg" alt="">
         </section>
         <section class="about_bgc">
-            <div class="title" ref="scroll_anchor1">
+            <div class="title" ref="scroll_anchor1" id="scroll_anchor1">
                 <h1>企業理念</h1>
             </div>
             <div class="belief about_anime aboutSlideIn">
@@ -132,8 +132,8 @@ document.addEventListener("scroll", fullBgc);
             <img class="about_anime aboutSlideInLeft" src="@/img/about/about_art1.jpg" alt="">
             <img class="about_anime aboutSlideInRight" src="@/img/about/about_art2.jpg" alt="">
         </section>
-        <section class="about_feature">
-            <div class="title" ref="scroll_anchor2">
+        <section class="about_feature" >
+            <div class="title" ref="scroll_anchor2" id="scroll_anchor2">
                 <h1>企業特色</h1>
             </div>
             <div>
@@ -178,8 +178,8 @@ document.addEventListener("scroll", fullBgc);
             </div>
         </section>
 
-        <section class="about_charity" ref="charity">
-            <div class="title" ref="scroll_anchor3">
+        <section class="about_charity" ref="charity" >
+            <div class="title" ref="scroll_anchor3" id="scroll_anchor3">
                 <h1>企業貢獻</h1>
             </div>
             <article class="about_anime aboutSlideIn">
@@ -195,9 +195,10 @@ document.addEventListener("scroll", fullBgc);
             <h2 class="about_anime aboutSlideIn">如果您正在尋找一個可靠、專業的居家清潔服務，歡迎與浣安聯繫。
                 我們是打造清新舒適家居環境的最佳選擇。</h2>
         </section>
-    </div>
-   
+    </wrapper>
+    <!-- ↑原本的.wrapper div結束標籤換成這個 -->
     <DefaultFooter />
+
   </div>
 </template>
 

@@ -70,6 +70,7 @@ header {
 
                 @include m() {
                     margin-left: 12px;
+                    font-size: $p;
                 }
             }
         }
@@ -87,7 +88,6 @@ header {
                 li {
                     position: relative;
                     line-height: 35px;
-                    padding: 0 15px;
                     align-self: center;
 
                     &:hover ol {
@@ -97,6 +97,8 @@ header {
                     }
 
                     a {
+                        box-sizing: border-box;
+                        padding: 0 15px;
                         text-decoration: none;
                         color: $black;
                         font-family: $fontFamily;
@@ -111,21 +113,23 @@ header {
                     }
 
                     ol {
+                        width: 100%;
                         position: absolute;
                         top: 100%;
                         left: 0;
                         display: none;
 
+
                         li {
-                            width: 100%;
+                            // width: 100%;
                             text-align: center;
 
                             a {
+                                width: 90px;
                                 display: block;
-                                padding: 0 10px;
+                                padding: 0 12px;
                                 color: $white;
                                 background-color: $dark-milktea;
-                                line-height: 35px;
                                 border-bottom: 1px solid $white;
                                 font-weight: normal;
                                 text-shadow: none;
@@ -187,9 +191,9 @@ header {
 
             .bar {
                 display: block;
-                background-color: $brown;
+                background-color: $black;
                 width: 25px;
-                height: 3px;
+                height: 2px;
                 margin: 5px auto;
                 transition: all 0.3s ease-in-out;
 
