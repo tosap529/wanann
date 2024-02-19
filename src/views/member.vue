@@ -401,7 +401,7 @@ function infoSave(e){
 
 
 <style lang="scss">
-@import '@/sass/main.scss';
+
 // ---------------切換分頁用------------------
 .member_main,.sOrder_data,.mOrder_data,.notForSelect{
     display: none;
