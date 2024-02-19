@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
 import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
 import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
@@ -92,8 +93,10 @@ document.addEventListener("scroll", fullBgc);
     <!-- <LightboxAboutBelief /> -->
     <!-- 貼上以下這行(footer一樣不多贅述) 並更改成需要的標題，:bgi照貼即可 -->
     <DefaultHeader header-title-zh="關於我們" header-title-eng="About" :bgi="banner_url" /> 
-    <div class="wrapper about">
-        <section class="about_scroll">
+
+    <!-- ↓將原本的.wrapper div換成這個標籤，並加上本來有的class -->
+    <wrapper class="about"> 
+        <section class="about_scroll ">
             <ul>
                 <li v-for="scrollItem in scrollItems" :key="scrollItem.name" >
                     <a :href="scrollItem.href">{{scrollItem.name}}</a>
@@ -192,9 +195,10 @@ document.addEventListener("scroll", fullBgc);
             <h2 class="about_anime aboutSlideIn">如果您正在尋找一個可靠、專業的居家清潔服務，歡迎與浣安聯繫。
                 我們是打造清新舒適家居環境的最佳選擇。</h2>
         </section>
-    </div>
-   
+    </wrapper>
+    <!-- ↑原本的.wrapper div結束標籤換成這個 -->
     <DefaultFooter />
+
   </div>
 </template>
 
