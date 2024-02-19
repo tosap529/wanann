@@ -5,6 +5,10 @@
 // utils
 @import "utils/_mixins.scss";
 
+img {
+    display: block;
+}
+
 // components
 @import "components/_components.scss";
 

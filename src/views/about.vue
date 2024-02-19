@@ -75,7 +75,7 @@ function fullBgc(){
     const charity_pos = charity.value.getBoundingClientRect();
        // console.log(charity_pos.top);
     // console.log(window.scrollY);
-    if (charity_pos.top>3110 ||charity_pos.top-window.innerHeight<-200){
+    if (charity_pos.top>3110 ||charity_pos.top-window.innerHeight<0){
       bgiShow.value = false;
               scroll_anchor3.value.style.display='block';
     }else{
@@ -202,13 +202,15 @@ document.addEventListener("scroll", fullBgc);
   </div>
 </template>
 
-<style lang="scss" >
+<style lang="scss">
 @import '@/sass/main.scss';
+// @import '@/sass/base/_base.scss';
+// @import '@/sass/utils/_mixins.scss';
 div.about+div>footer {
     position: absolute;
     width: 100%;
     // top: 6100px;
-    top:$about_d+8100;
+    top:$about_d+7800;
     @include m(){
         top: 3950px;
     }
