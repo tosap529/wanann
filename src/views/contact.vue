@@ -91,6 +91,6 @@ const banner_url = BannerUrl;
 
 
 <style lang="scss">
-@import '@/sass/main.scss';
+
 
 </style>

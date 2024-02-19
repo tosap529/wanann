@@ -68,6 +68,6 @@ import gameFooter from '@/layouts/footer.vue'
 </template>
 
 <style lang="scss">
-@import '@/sass/main.scss';
+
 
 </style>
