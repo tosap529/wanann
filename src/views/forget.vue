@@ -1,4 +1,5 @@
 <script setup>
+import Modal from '@/components/LightboxAboutBelief.vue'; 
 import DefaultHeader from '@/layouts/header.vue'; 
 import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
@@ -7,7 +8,9 @@ const banner_url = BannerUrl;
 <template>
     <div>
         <DefaultHeader header-title-zh="重設密碼" header-title-eng="Forget" :bgi="banner_url" /> 
+        <Modal />
     <div class="wrapper forget">
+        
         <section class="forget_pwd">
             <div class="title">
                 <h1>重設密碼</h1>

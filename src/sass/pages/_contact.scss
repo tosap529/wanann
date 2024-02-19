@@ -1,0 +1,303 @@
+.contact_wrapper {
+  width: 100%;
+}
+
+.contact__banner {
+  background-image: url(@/img/contact/contact_banner.jpg);
+  background-size: contain;
+}
+
+
+
+
+.contact_wrapper h1 {
+  text-align: center;
+  width: 62%;
+  margin-bottom: 56px;
+
+}
+
+.contact_wrapper h1::before {
+  content: "";
+  display: inline-block;
+  background-image: url(@/img/contact/contact_logo.png);
+  width: 46px;
+  height: 32.44px;
+  background-size: contain;
+  margin-right: 10px;
+  vertical-align: top;
+
+}
+
+.contact_container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  // flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+
+}
+
+.contact_container ul {
+  // display: flex;
+}
+
+.contact_container.left,
+.contact_container.right {
+  width: 50%;
+
+}
+
+.left .contact_social li {
+  margin-bottom: 56px;
+  display: flex;
+  align-items: center;
+
+}
+
+.contact_social li img {
+  margin-right: 10px;
+  width: 55px;
+  height: 55px;
+}
+
+.contact_phone {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.contact_social p {
+  line-height: 1.2;
+
+}
+
+
+
+.right .contact_social li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 56px;
+
+}
+
+//form表單
+.contact_form {
+  max-width: 1200px;
+  width: 60%;
+  margin: 0px auto;
+  padding: 20px;
+  background-color: #ECE7E1;
+  border-radius: 10px;
+  margin-bottom: 50px;
+
+}
+
+.contact_form form {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.contact_form h1 {
+
+  margin-bottom: 30px;
+}
+
+.contact_form h1::before {
+  content: "";
+  display: inline-block;
+  background-image: url(@/img/contact/contact_logo.png);
+  width: 46px;
+  height: 32.44px;
+  background-size: contain;
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+.contact_input {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.contact_input label {
+  margin-right: 10px;
+  margin-bottom: 8px;
+  // width: 24%;
+  flex-shrink: 0;
+}
+
+.contact_input:nth-child(4) {
+  display: flex;
+}
+
+.contact_input:nth-child(4) label {
+  flex-wrap: 0;
+  align-self: flex-start;
+  margin-top: 30px;
+}
+
+.contact_form p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+  text-align: left;
+
+
+}
+
+.contact_form form input {
+  width: 470px;
+  height: 42px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  background-color: white;
+}
+
+
+
+.contact_form form textarea {
+  margin-bottom: 30px;
+  margin-top: 20px;
+  width: 470px;
+  height: 270px;
+  flex: 1;
+  resize: vertical;
+}
+
+
+
+
+// input[type="text"],
+// input[type="tel"],
+// input[type="email"],
+// textarea {
+//   width: 100%;
+//   padding: 10px;
+//   margin-bottom: 15px;
+//   border: 1px solid #ccc;
+//   border-radius: 10px;
+//   box-sizing: border-box;
+
+// }
+
+
+
+.btn {
+
+  display: block;
+  margin: 0 auto;
+}
+
+.btn:hover {
+  background-color: #9B7B6C;
+}
+
+//斷點430px//
+@media screen and (max-width: 430px) {
+
+
+  .contact_wrapper h1 {
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 25px;
+  }
+
+  .contact_wrapper h1::before {
+    background-image: url(@/img/contact/contact_logo.png);
+  }
+
+  .contact_container {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0px;
+    margin-top: 20px;
+
+  }
+
+  .contact_container ul {
+    width: 100%;
+  }
+
+
+
+  .left .contact_social li,
+  .right .contact_social li {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .left li img,
+  .right li img {
+    width: 55px;
+    height: 55px;
+    margin-right: 28px;
+  }
+
+  .left .contact_social li p,
+  .right .contact_social li p {
+    font-size: 18px;
+  }
+
+  .contact_phone {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .contact_form {
+    width: 90%;
+    padding: 15px;
+    background-color: white;
+  }
+
+  .contact_form form {
+    background-color: #ECE7E1;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+  }
+
+  .contact_form h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+
+
+  .contact_form .contact_input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contact_form .contact_input:nth-child(3) {
+    margin-bottom: 0;
+  }
+
+  .contact_input label {
+    margin-bottom: 5px;
+    align-self: flex-start;
+  }
+
+  .contact_form form input,
+  .contact_form form textarea {
+
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 15px;
+    margin-top: 10px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 100%;
+  }
+}

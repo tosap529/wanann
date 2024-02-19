@@ -1,5 +1,16 @@
+<script setup>
+    // 設置header及footer
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/mall/mall_banner.jpg'; // 更改成banner路徑
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+</script>
+
+
+
 <template>
     <div>
+        <DefaultHeader header-title-zh="商城" header-title-eng="Mall" :bgi="banner_url" />
         <!-- 臨時的購物車按鈕 -->
         <!-- <h1 
             style="border: 1px solid black; width: 100px;"
@@ -24,7 +35,8 @@
                     </ul>
 
                     <ul class="mall_search">
-                        <li><i class="fa-solid fa-magnifying-glass mall_search_icon"></i></li>
+                        <li><font-awesome-icon class="mall_search_icon" :icon="['fas', 'magnifying-glass']" /></li>
+                        <!-- <li><i class="fa-solid fa-magnifying-glass mall_search_icon"></i></li> -->
                         <li><input v-model.lazy.trim.enter="searchBar" type="text" placeholder="搜尋商品"></li>
                     </ul>
 
@@ -34,7 +46,7 @@
             </nav>
 
             <ul class="mall_search_rwd">
-                <li><i class="fa-solid fa-magnifying-glass mall_search_icon"></i></li>
+                <li><font-awesome-icon class="mall_search_icon" :icon="['fas', 'magnifying-glass']" /></li>
                 <li><input v-model.lazy.trim.enter="searchBar" type="text" placeholder="搜尋商品"></li>
             </ul>
 
@@ -44,6 +56,7 @@
                 <ul class="mall_products">
 
                     <li v-for="i in paginatedProducts" v-bind:key="i.productId">
+                        <!-- <router-link :to="{ name: 'mItem' }"><img v-bind:src="i.productSrc"></router-link> -->
                         <img v-bind:src="i.productSrc">
                         <h1>{{ i.productName }}</h1>
                         <p>{{ i.productPrice }}</p>
@@ -180,6 +193,7 @@
             </div>
         </div>
         <!-- 購物車清單結束 -->
+        <DefaultFooter />
     </div>
 </template>
 

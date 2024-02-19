@@ -1,16 +1,7 @@
-
-
-header.mall_banner {
-    background-image: url(../../img/mall/mall_banner.jpg);
-}
-
-
 div.mall_wrapper {
     width: 1200px;
     max-width: 100%;
     margin: 80px auto;
-
-    // border: 1px solid blue;
 }
 
 // --------------  導覽分頁  ---------------
@@ -23,9 +14,6 @@ nav.mall_nav {
 
     border-bottom: 1px solid $dark-grey;
     padding-bottom: 2px;
-
-    // border: 1px solid red;
-
 
     div.mall_tab {
         display: flex;
@@ -60,7 +48,7 @@ nav.mall_nav {
             margin: 0;
             background-color: $white;
 
-            i.mall_search_icon {
+            .mall_search_icon {
                 color: $brown;
                 font-size: 25px;
                 margin-right: 0.5rem;
@@ -71,9 +59,7 @@ nav.mall_nav {
                 max-width: 100%;
                 height: 30px;
             }
-
         }
-
     }
 }
 
@@ -93,9 +79,6 @@ ul.mall_products {
     flex-wrap: wrap;
     justify-content: start;
     gap: 50px 70px;
-
-
-    // border: 1px solid green;
 
     >li {
         width: 200px;
@@ -158,8 +141,6 @@ div.mall_paginator {
             width: 20px;
             text-align: center;
 
-            // border: 1px solid black;
-
             &:hover {
                 color: $brown;
             }
@@ -176,10 +157,6 @@ div.mall_paginator {
 
 
 @media(max-width:435px) {
-    *{
-        box-sizing: border-box;
-    }
-
     .mall_wrapper{
         padding: 0 40px;
         width: 430px;
@@ -199,9 +176,6 @@ div.mall_paginator {
     }
 
 
-
-
-
     ul.mall_products{
         gap: 20px;
         >li{
@@ -216,9 +190,6 @@ div.mall_paginator {
             }
         }
     }
-
-
-
 
     ul.mall_search>li{    
             display: none;
@@ -235,7 +206,7 @@ div.mall_paginator {
             margin: 0;
             background-color: $white;
 
-            i.mall_search_icon {
+            .mall_search_icon {
                 color: $brown;
                 font-size: 25px;
                 margin-right: 0.5rem;
@@ -250,10 +221,5 @@ div.mall_paginator {
         }
 
     }
-
-
-
-
-
 
 }
