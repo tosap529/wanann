@@ -96,6 +96,12 @@
 
                 &:hover {
                     background-color: $dark-milktea;
+                    color: $white;
+                }
+
+                @include m() {
+                    padding: 6px 0;
+                    width: 90px;
                 }
             }
         }
