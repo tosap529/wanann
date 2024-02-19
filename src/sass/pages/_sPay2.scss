@@ -1,8 +1,3 @@
-header.sPay2__banner {
-    background-image: url(@/img/mall/mall_banner.jpg);
-}
-
-
 div.sPay2_wrapper{
     max-width: 100%;
 }
@@ -370,9 +365,6 @@ button.sPay2_nextpage{
 
 
 @media(max-width:431px){
-    *{
-        box-sizing: border-box;
-    }
     div.sPay2_wrapper{
         width: 400px;
         padding: 0 25px;

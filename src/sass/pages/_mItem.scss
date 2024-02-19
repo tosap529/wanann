@@ -1,12 +1,6 @@
-header.mitem_banner {
-    background-image: url(../../img/mall/mall_banner.jpg);
-}
-
 div.mitem_wrapper {
     max-width: 100%;
-    // margin-top: 100px;
     padding-top: 80px;
-    border: 1px solid red;
 }
 
 .mitem_sec {
@@ -141,9 +135,6 @@ ol.mitem_text {
 // ------------  RWD ------------
 
 @media(max-width:431px) {
-    *{
-        box-sizing: border-box;
-    }
     div.mitem_wrapper{
         width: 429px;
         margin: 0;

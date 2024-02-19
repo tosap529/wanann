@@ -1,10 +1,3 @@
-
-
-header.mall_banner {
-    background-image: url(../../img/mall/mall_banner.jpg);
-}
-
-
 div.mall_wrapper {
     width: 1200px;
     max-width: 100%;
@@ -164,10 +157,6 @@ div.mall_paginator {
 
 
 @media(max-width:435px) {
-    *{
-        box-sizing: border-box;
-    }
-
     .mall_wrapper{
         padding: 0 40px;
         width: 430px;
@@ -185,9 +174,6 @@ div.mall_paginator {
 
         margin-bottom: 10px;
     }
-
-
-
 
 
     ul.mall_products{

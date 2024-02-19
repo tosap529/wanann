@@ -1,8 +1,3 @@
-header.mPay2__banner{
-    background-image: url(../../img/mall/mall_banner.jpg);
-}
-
-
 div.mPay2_wrapper{
     max-width: 100%;
 }
@@ -347,9 +342,6 @@ button.mPay2_nextpage{
 
 
 @media(max-width:431px){
-    *{
-        box-sizing: border-box;
-    }
     div.mPay2_wrapper{
         width: 400px;
         padding: 0 25px;
