@@ -1,10 +1,13 @@
 .wrapper.member {
     display: flex;
+    // justify-content: center;
 }
 
 // -----------------萬年不動側邊欄------------------
 .member_sidebar {
-    flex-basis: 330px;
+    flex-basis: 250px;
+    margin-left: 40px;
+    flex-shrink: 0;
 
     div {
         display: flex;
@@ -51,7 +54,7 @@
     li {
         margin-bottom: 20px;
         width: fit-content;
-        padding: 5px 5px 5px 0;
+        padding: 10px 10px 10px 0;
 
         a {
             text-decoration: none;

@@ -402,6 +402,6 @@ const modules = [Autoplay, Pagination, Navigation];
 
 
 <style lang="scss">
-@import '@/sass/main.scss';
+
 
 </style>
