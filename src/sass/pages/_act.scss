@@ -8,6 +8,10 @@
   width: 1200px;
 }
 
+.act_tab .tab ul{
+  margin: 0 auto;
+}
+
 .act_main {
   margin-top: 70px;
 }
@@ -64,6 +68,7 @@
         height: 40px;
         border-radius: 0 10px 10px 0;
         cursor: pointer;
+        border: none;
       }
     }
 
@@ -160,10 +165,5 @@
       }
     }
   }
-
-
-
-
-
 
 }

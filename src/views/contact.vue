@@ -83,7 +83,7 @@ const banner_url = BannerUrl;
 
             </form>
         </div>
-    <AboutFooter />
+        <DefaultFooter />
     </div>
 
 </template>
