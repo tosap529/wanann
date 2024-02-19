@@ -81,6 +81,10 @@
       }
 }
 
+.star_color{
+  color: $dark-milktea;
+  margin-left: 5px;
+}
 
 .rank_top{
     padding-bottom: 20px;
@@ -88,6 +92,7 @@
     width: 660px;
     position: relative;
     display: flex;
+    flex-grow: 1;
     &:before{
         content: "";
         position: absolute;
@@ -99,9 +104,9 @@
     }
       span{
         font-size: $h3;
-        i{
-          color: $dark-milktea;
-        }
+        display: flex;
+        align-items: center;
+        
         // &:nth-child(2){
         //   position: relative;
         //   &:before{
@@ -121,7 +126,7 @@
         margin-left: 80px;
         display: flex;
         justify-content: space-between;
-        flex-basis: 300px;
+        flex-basis: 550px;
       }
 
 }
@@ -169,8 +174,15 @@
 
 @media screen and (max-width:430px){
 
+.wrapper > .planA article{
+  margin-right: 0px;
+}
+.wrapper > .planA .right{
+  width: 380px;
+  margin-bottom: 26px;
+}
 
-.planA{
+.wrapper > .planA{
   display: flex;
   flex-direction: column;
   margin: 24px auto;
@@ -240,6 +252,12 @@
     }
 }
 
+.tab .tab_planA{
+  border-top: 0px;
+  border-bottom: 1px solid $grey;
+  padding-top: 0;
+}
+
 .rank{
   width: 300px;
   margin: 0 auto;
@@ -247,7 +265,7 @@
       width: 300px;
       display: flex;
       flex-direction: column;
-      margin: 0px auto 55px auto;
+      margin: 0px auto 100px auto;
       
         img{
           display: block;
@@ -256,10 +274,74 @@
           margin-right: 0px;
         }
         article{
-          padding: 44px 0px;
+          padding: 0px 0px;
         }
     }
 }
 
+.rank_top{
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  width: 300px;
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  &:before{
+      display: none;
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: $dark-grey ;
+      width: 660px;
+      height: 2px;
+  }
+    span{
+      font-size: $h3;
+      display: flex;
+      align-items: center;
+      
+      // &:nth-child(2){
+      //   position: relative;
+      //   &:before{
+      //     content: "";
+      //     position: absolute;
+      //     top: -80%;
+      //     left: -280px;
+      //     background-color: $dark-grey ;
+      //     width: 2px;
+      //     height: 50px;
+      //   }
+        
+      // }
+       
+    }
+    .right{
+      margin-left: 80px;
+      display: flex;
+      justify-content: space-between;
+      flex-basis: 550px;
+    }
+
+}
+
+.buttom{
+  flex-grow: 1;
+  position: relative;
+  p{
+    line-height: 1.5;
+    &:before{
+      display: none;
+      content: "";
+      position: absolute;
+      top: -80px;
+      left: 160px;
+      background-color: $dark-grey;
+      width: 2px;
+      height: 50px;
+    }
+  }
+
+}
 
 }

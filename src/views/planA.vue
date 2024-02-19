@@ -54,7 +54,7 @@
         </div>
 
     <div class="tab">
-        <ul>
+        <ul class="tab_planA">
             <li class="tab_on"><a href="#">優惠活動</a></li>
             <li><a href="#">職人講座</a></li>
             <li><a href="#">職人講座</a></li>
@@ -86,19 +86,20 @@
                 <div class="rank_top">
                     <span>SilverLion42</span>
                     <div class="right">
-                    <span>服務態度 
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <span>服務態度</span>
+                    <span>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                     </span>
                     <span>服務品質
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                     </span> 
                     </div>
                 </div>
@@ -112,18 +113,18 @@
                     <span>StarDustin20</span>
                     <div class="right">
                     <span>服務態度 
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                     </span>
                     <span>服務品質
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                     </span> 
                     </div>
                 </div>
@@ -137,12 +138,19 @@
                     <span>Ji2wendy0rLu</span>
                     <div class="right">
                     <span>服務態度 
-                        <font-awesome-icon :icon="['far', 'star']" />
-                     
-                       
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                     </span>
                     <span>服務品質
-                        <font-awesome-icon :icon="['far', 'star']" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        
                     </span> 
                     </div>
                 </div>
