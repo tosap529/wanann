@@ -1,8 +1,45 @@
+<script setup>
+
+import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+
+const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+
+  // Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+// Import Swiper styles
+import 'swiper/css';
+
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+const modules = [Autoplay, Pagination, Navigation];
+// export default {
+//   components: {
+//     Swiper,
+//     SwiperSlide,
+//   },
+//   setup() {
+//     return {
+//       modules: [Autoplay, Pagination, Navigation],
+//     };
+//   },
+// };
+</script>
+
+
+
 <template>
     <div>
+    <DefaultHeader header-title-zh="服務介紹" header-title-eng="Our Service" :bgi="banner_url" /> 
     <div class="wrapper service">
 
-        <div class="title">
+        <div class="title title_phone">
             <h1>方案介紹</h1>
         </div>
 
@@ -162,7 +199,7 @@
 
 <section class="service_icon">
 
-    <div class="title">
+    <div class="title title_phone">
         <h1>追加服務</h1>
     </div>
 
@@ -253,7 +290,7 @@
 
 <section>
 
-    <div class="title">
+    <div class="title title_phone">
         <h1>我們的特色</h1>
     </div>
 
@@ -332,7 +369,7 @@
 
 </section>
 
-<div class="title">
+<div class="title title_phone">
     <h1>服務地區</h1>
 </div>
 
@@ -358,36 +395,11 @@
 </section>
 
 </div>
+<DefaultFooter />
     </div>
 </template>
 
-<script>
-    
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
 
-// Import Swiper styles
-import 'swiper/css';
-
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    return {
-      modules: [Autoplay, Pagination, Navigation],
-    };
-  },
-};
-</script>
 
 <style lang="scss">
 @import '@/sass/main.scss';

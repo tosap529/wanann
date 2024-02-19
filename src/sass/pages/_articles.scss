@@ -173,6 +173,29 @@
     width:380px;
   }
 
+  .title_phone{
+    margin-bottom: 15px;
+  }
+
+  .title > h1{
+    font-size: $h2;
+  }
+
+  .title_phone > h1::before{
+    width: 30px;
+    height: 21.63px;
+    background-size: contain;
+  }
+
+
+  .service .title_phone{
+    h1{
+      font-size: $h2;
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+  }
+
   .articles_top {
     margin-bottom: 22px;
     display: block;

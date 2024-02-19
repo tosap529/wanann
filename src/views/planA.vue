@@ -1,41 +1,52 @@
+<script setup>
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+
+</script>
+
+
 <template>
-    <div>
-        <div class="wrapper">
-
-<section class="planA">
     
-    <article>
-        <img src="@/img/planA/planA_1.jpg" alt=""> 
-        <div class="title">
-            <h1>浣安全室清潔</h1>
-        </div>
-       
+    <div>
+        <DefaultHeader header-title-zh="浣安全室清潔" header-title-eng="Cleaning Project" :bgi="banner_url" /> 
+        
+        <div class="wrapper plan">
+            
+           <section class="planA">
 
-        <h3>包括客廳、臥室、餐廳等全室清潔，讓您的家居環境清新宜人。</h3>
-        <p>所需時長：4小時</p>
-        <p>適合坪數：室內25坪內</p>
-        <p>方案費用：$ 4000起</p>
+             <article>
+               <img src="@/img/planA/planA_1.jpg" alt=""> 
+               <div class="title">
+                 <h1>浣安全室清潔</h1>
+               </div>
+               <h3>包括客廳、臥室、餐廳等全室清潔，讓您的家居環境清新宜人。</h3>
+               <p>所需時長：4小時</p>
+               <p>適合坪數：室內25坪內</p>
+               <p>方案費用：$ 4000起</p>
 
-        <div class="rule">
-            <p>1. 基本清潔</p>
-            <p>地板清潔與消毒、家具表面清潔、玻璃窗清潔、開放式空間除塵</p>
-            <p>2. 廚房簡易清潔</p>
-            <p>擦拭廚具表面、清潔爐灶與抽油煙機、消毒廚房台面、清理廚房地板</p>
-            <p>3. 浴室簡易清潔</p>
-            <p>清潔馬桶&浴缸&淋浴區、擦拭梳妝區表面、更換毛巾與浴巾、消毒浴室地板</p>
-            <p>4. 臥室及客房清潔</p>
-            <p>更換床單與枕套、擦拭家具表面、地板吸塵、整理書桌與衣櫥</p>    
-        </div>
+               <div class="rule">
+                  <p>1. 基本清潔</p>
+                  <p>地板清潔與消毒、家具表面清潔、玻璃窗清潔、開放式空間除塵</p>
+                  <p>2. 廚房簡易清潔</p>
+                  <p>擦拭廚具表面、清潔爐灶與抽油煙機、消毒廚房台面、清理廚房地板</p>
+                  <p>3. 浴室簡易清潔</p>
+                  <p>清潔馬桶&浴缸&淋浴區、擦拭梳妝區表面、更換毛巾與浴巾、消毒浴室地板</p>
+                  <p>4. 臥室及客房清潔</p>
+                  <p>更換床單與枕套、擦拭家具表面、地板吸塵、整理書桌與衣櫥</p>    
+               </div>
 
-    </article>
+             </article>
 
-    <div class="right">
-        <img src="@/img/planA/planA_1.jpg" alt="">
-        <a href="" class="btn next">我要預約</a>
-    </div>
+             <div class="right">
+               <img src="@/img/planA/planA_1.jpg" alt="">
+               <a href="" class="btn next">我要預約</a>
+             </div>
 
 
-</section>
+           </section>
 
 <section class="notice">
         <div class="title">
@@ -98,8 +109,8 @@
             <img src="../img/planA/planA_3.jpg" alt="">
             <article>
                 <div class="rank_top">
-                    <span>StarDust2023</span>
-                    <div>
+                    <span>StarDustin20</span>
+                    <div class="right">
                     <span>服務態度 
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -116,28 +127,22 @@
                     </span> 
                     </div>
                 </div>
-                <div class="buttom">超乾淨專業～居家清潔首選！</div>
+                <div class="buttom"><p>超乾淨專業～居家清潔首選！</p></div>
             </article>
         </li>
         <li>
             <img src="../img/planA/planA_4.jpg" alt="">
             <article>
                 <div class="rank_top">
-                    <span>ji2ndorWu</span>
-                    <div>
+                    <span>Ji2wendy0rLu</span>
+                    <div class="right">
                     <span>服務態度 
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <font-awesome-icon :icon="['far', 'star']" />
+                     
+                       
                     </span>
                     <span>服務品質
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-regular fa-star"></i>
+                        <font-awesome-icon :icon="['far', 'star']" />
                     </span> 
                     </div>
                 </div>
@@ -146,21 +151,19 @@
         </li>
        
     </ul>
+
 </section>
 
 <section><a href="" class="btn next">看更多</a></section>
 
 
 
-</div>
+    </div>
+        <DefaultFooter />
     </div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
+
 
 <style lang="scss">
 @import '@/sass/main.scss';

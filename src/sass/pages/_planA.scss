@@ -3,12 +3,12 @@
 }
 
 
-.planA{
+.wrapper > .planA{
     display: flex;
-    margin: 0px 40px 63px 40px;
+    margin: 0 auto;
       article{
         margin-right: 42px;
-        width: 380px;
+        //width: 380px;
         img{
           display: none;
         }
@@ -22,6 +22,7 @@
         .rule{
           border-radius: 10px;
           margin-top: 42px;
+          margin-bottom: 63px;
           padding: 20px 30px;
           background-color: $light-milktea;
 
@@ -32,6 +33,9 @@
          img{
             width: 100%;
             margin-bottom: 48px;
+         }
+         span{
+          width: 10px;
          }
       }
 }
@@ -61,6 +65,8 @@
     width: 1000px;
     margin: 0 auto;
       li{
+        flex-grow: 1;
+        height: 200px;
         width: 900px;
         display: flex;
         margin: 0px auto 55px auto;
@@ -96,23 +102,23 @@
         i{
           color: $dark-milktea;
         }
-        &:nth-child(2){
-          position: relative;
-          &:before{
-            content: "";
-            position: absolute;
-            top: -80%;
-            left: -280px;
-            background-color: $dark-grey ;
-            width: 2px;
-            height: 50px;
-          }
+        // &:nth-child(2){
+        //   position: relative;
+        //   &:before{
+        //     content: "";
+        //     position: absolute;
+        //     top: -80%;
+        //     left: -280px;
+        //     background-color: $dark-grey ;
+        //     width: 2px;
+        //     height: 50px;
+        //   }
           
-        }
+        // }
          
       }
       .right{
-        margin-left: 100px;
+        margin-left: 80px;
         display: flex;
         justify-content: space-between;
         flex-basis: 300px;
@@ -121,9 +127,21 @@
 }
 
 .buttom{
+  flex-grow: 1;
+  position: relative;
   p{
     line-height: 1.5;
+    &:before{
+      content: "";
+      position: absolute;
+      top: -80px;
+      left: 160px;
+      background-color: $dark-grey;
+      width: 2px;
+      height: 50px;
+    }
   }
+
 }
 
 
