@@ -1,14 +1,21 @@
 <script setup>
-import Modal from '@/components/LightboxAboutBelief.vue'; 
+import {ref} from 'vue'
+// import Modal from '@/components/ModalAboutBelief.vue'; 
 import DefaultHeader from '@/layouts/header.vue'; 
 import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
 const banner_url = BannerUrl; 
+
+// const isModalShow = ref(false);
+// const ModalAboutBelief = ()=>{
+//     isModalShow.value = !isModalShow.value;
+//     console.log( isModalShow.value)
+// }
 </script>
 <template>
     <div>
         <DefaultHeader header-title-zh="重設密碼" header-title-eng="Forget" :bgi="banner_url" /> 
-        <Modal />
+        <!-- <Modal @ModalAboutBelief="ModalAboutBelief" v-show="isModalShow"  /> -->
     <div class="wrapper forget">
         
         <section class="forget_pwd">
@@ -19,7 +26,7 @@ const banner_url = BannerUrl;
                 <label for="reEmail">請輸入電子信箱<br>
                     <div>
                         <input type="email" id="reEmail">
-                        <button class="btn">送出</button>
+                        <button class="btn" >送出</button>
                     </div>
                 </label>
                 <h4>*請至電子信箱點擊認證連結</h4>
@@ -36,6 +43,5 @@ const banner_url = BannerUrl;
 
 
 <style lang="scss">
-@import '@/sass/main.scss';
 
 </style>
