@@ -1,17 +1,16 @@
 <script setup>
+
 import DefaultHeader from '@/layouts/header.vue'; 
-import DefaultFooter from '@/layouts/footer.vue';
-import BannerUrl  from '@/img/member/member_banner.jpg'; 
-const banner_url = BannerUrl; 
-// import AboutHeader from '@/layouts/header.vue';
-// import AboutFooter from '@/layouts/footer.vue'
+import DefaultFooter from '@/layouts/footer.vue'; 
+import BannerUrl  from '@/img/contact/contact_banner.jpg'; 
+const banner_url = BannerUrl;
 
 
 </script>
 <template>
-       <DefaultHeader header-title-zh="會員中心" header-title-eng="Member" :bgi="banner_url" /> 
+   
     <div>
-      
+        <DefaultHeader header-title-zh="聯絡我們" header-title-eng="Contact" :bgi="banner_url" /> 
         <div class="wrapper contact_wrapper">
            
 
