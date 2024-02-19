@@ -1,17 +1,10 @@
 <script setup>
-import DefaultHeader from '@/layouts/header.vue'; 
-import DefaultFooter from '@/layouts/footer.vue';
-import BannerUrl  from '@/img/reserve1/reserve1_banner.jpg'; 
-const banner_url = BannerUrl; 
+    defineEmits(['nextReserveStep'])
 </script>
 
 <template>
-    <div>
-        <DefaultHeader header-title-zh="預約服務" header-title-eng="Schedule Your Cleaning" :bgi="banner_url" /> 
-    
-<div class="wrapper reserve1">
-
-    
+    <div class="wrapper reserve1">
+   
 <section class="subtitle">
     <h1>1</h1>
     <h1>選擇服務</h1>
@@ -66,17 +59,15 @@ const banner_url = BannerUrl;
 </section>
 
 <section class="next_btn">
-    <router-link class="btn" :to="{ name: 'reserve2' }">下一步</router-link>   
+    <!-- <router-link class="btn" :to="{ name: 'reserve2' }">下一步</router-link>    -->
+    <a class="btn" @click="$emit('nextReserveStep',$e)">下一步</a>
 </section>
 
-</div>
-<DefaultFooter />
 </div>
 </template>
 
 
 
-<style lang="scss">
-@import '@/sass/main.scss';
+<style lang="scss" scoped>
 
 </style>
