@@ -1,5 +1,15 @@
+<script setup>
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+    
+</script>
 <template>
+    <DefaultHeader header-title-zh="關於我們" header-title-eng="About" :bgi="banner_url" /> 
     <div>
+        
         <div class="wrapper article">
             <section class="article_page">
                 <h1>年前大掃除 : 三樣神器馬上搞定</h1>
@@ -10,6 +20,7 @@
 
 
         </div>
+        <DefaultFooter />
     </div>
 </template>
 

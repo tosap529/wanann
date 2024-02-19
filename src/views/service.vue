@@ -1,8 +1,45 @@
+<script setup>
+
+import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+
+const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+
+  // Import Swiper Vue.js components
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+// Import Swiper styles
+import 'swiper/css';
+
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+const modules = [Autoplay, Pagination, Navigation];
+// export default {
+//   components: {
+//     Swiper,
+//     SwiperSlide,
+//   },
+//   setup() {
+//     return {
+//       modules: [Autoplay, Pagination, Navigation],
+//     };
+//   },
+// };
+</script>
+
+
+
 <template>
     <div>
+    <DefaultHeader header-title-zh="服務介紹" header-title-eng="Our Service" :bgi="banner_url" /> 
     <div class="wrapper service">
 
-        <div class="title">
+        <div class="title title_phone">
             <h1>方案介紹</h1>
         </div>
 
@@ -12,7 +49,7 @@
         <img src="../img/service/service_1.jpg" alt="">
         <p>適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
     </div>
-    <article>
+    <article class="service_article">
         <h2>浣安全室清潔</h2>
         <h3>基本清潔</h3>
         <h3>廚房簡易清潔</h3>
@@ -34,7 +71,7 @@
         <img src="../img/service/service_2.jpg" alt="">
         <p>適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
     </div>
-    <article>
+    <article class="service_article">
         <h2>浣內咖手－廚房徹底清潔</h2>
         <h3>廚房專業清潔</h3>
         <h3>加強油汙處理</h3>
@@ -56,7 +93,7 @@
         <img src="../img/service/service_3.jpg" alt="">
         <p>適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
     </div>
-    <article>
+    <article class="service_article">
         <h2>洗咧考喔！－浴室特攻清潔</h2>
         <h3>浴室專業清潔</h3>
         <h3>加強水垢處理</h3>
@@ -162,7 +199,7 @@
 
 <section class="service_icon">
 
-    <div class="title">
+    <div class="title title_phone">
         <h1>追加服務</h1>
     </div>
 
@@ -253,7 +290,7 @@
 
 <section>
 
-    <div class="title">
+    <div class="title title_phone">
         <h1>我們的特色</h1>
     </div>
 
@@ -332,7 +369,7 @@
 
 </section>
 
-<div class="title">
+<div class="title title_phone">
     <h1>服務地區</h1>
 </div>
 
@@ -358,36 +395,11 @@
 </section>
 
 </div>
+<DefaultFooter />
     </div>
 </template>
 
-<script>
-    
-  // Import Swiper Vue.js components
-  import { Swiper, SwiperSlide } from 'swiper/vue';
 
-// Import Swiper styles
-import 'swiper/css';
-
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-
-
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-
-export default {
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    return {
-      modules: [Autoplay, Pagination, Navigation],
-    };
-  },
-};
-</script>
 
 <style lang="scss">
 @import '@/sass/main.scss';

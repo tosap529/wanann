@@ -1,5 +1,39 @@
+<script setup>
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+    // Import Swiper Vue.js components
+    import { Swiper, SwiperSlide } from 'swiper/vue';
+
+    // Import Swiper styles
+    import 'swiper/css';
+
+    import 'swiper/css/pagination';
+    import 'swiper/css/navigation';
+
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+const modules = [Autoplay, Pagination, Navigation];
+// export default {
+//   components: {
+//     Swiper,
+//     SwiperSlide,
+//   },
+//   setup() {
+//     return {
+//       modules: [Autoplay, Pagination, Navigation],
+//     };
+//   },
+// };
+</script>
+
+
 <template>
   <div>
+    <DefaultHeader header-title-zh="案例分享" header-title-eng="Successful Case" :bgi="banner_url" /> 
     <swiper
         :spaceBetween="0"
         :centeredSlides="true"
@@ -75,10 +109,10 @@
             <h3>台北市信義區 黃小姐</h3>
             
             <p>我們家選擇了浣安，對於他們的專業態度和出色的清潔效果感到非常滿意。清潔人員非常細心，每一個角落都被仔細打理，讓整個家居散發著清新的氛圍。
-                <br>
+                <br><br>
                 清潔人員的服務態度十分親切，並且非常有耐心。他們充分了解客戶需求，根據我們的家居特點提供了有效的清潔方案。即使是家中複雜的區域，也能夠得到專業而細緻的處理。
                 他們的全室清潔服務讓我省去了不少操心，每次都能感受到家裡焕然一新的感覺。
-                <br>
+                <br><br>
                 最讓人滿意的是，公司提供了環保清潔選項，使用對環境友善的清潔劑，讓我們更放心地享受清新的居家生活。總的來說，居家清潔服務不僅滿足了我們的需求，更超越了預期，是一個值得信賴和推薦的清潔服務公司。
             </p>
         </div>
@@ -130,6 +164,7 @@
 
 </section>
     </div>
+    <DefaultFooter />
     </div>
 </template>
 
