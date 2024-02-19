@@ -1,12 +1,15 @@
 <script setup>
-
-import AboutHeader from '@/layouts/header.vue';
-import AboutFooter from '@/layouts/footer.vue'
+import DefaultHeader from '@/layouts/header.vue'; 
+import DefaultFooter from '@/layouts/footer.vue';
+import BannerUrl  from '@/img/member/member_banner.jpg'; 
+const banner_url = BannerUrl; 
+// import AboutHeader from '@/layouts/header.vue';
+// import AboutFooter from '@/layouts/footer.vue'
 
 
 </script>
 <template>
-     <AboutHeader/>
+       <DefaultHeader header-title-zh="會員中心" header-title-eng="Member" :bgi="banner_url" /> 
     <div>
       
         <div class="wrapper contact_wrapper">
@@ -81,7 +84,7 @@ import AboutFooter from '@/layouts/footer.vue'
 
             </form>
         </div>
-    <AboutFooter />
+        <DefaultFooter />
     </div>
 
 </template>
