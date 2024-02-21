@@ -2,42 +2,29 @@
 
 import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
 import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+import BannerUrl  from '@/img/service/service_banner.jpg'; // 更改成banner路徑
+import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
+
 
 const banner_url = BannerUrl; // banner路徑令變數(請照抄)
 
-  // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from 'swiper/vue';
-
-// Import Swiper styles
 import 'swiper/css';
-
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-
-// import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 const modules = [Autoplay, Pagination, Navigation];
-// export default {
-//   components: {
-//     Swiper,
-//     SwiperSlide,
-//   },
-//   setup() {
-//     return {
-//       modules: [Autoplay, Pagination, Navigation],
-//     };
-//   },
-// };
+
 </script>
 
 
 
 <template>
+    
     <div>
     <DefaultHeader header-title-zh="服務介紹" header-title-eng="Our Service" :bgi="banner_url" /> 
-    <div class="wrapper service">
+    <wrapper class="service">
 
         <div class="title title_phone">
             <h1>方案介紹</h1>
@@ -58,7 +45,7 @@ const modules = [Autoplay, Pagination, Navigation];
         <p>NTD4,000</p>
         <p class="new">適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
         <div>
-            <a href="" class="btn">詳細內容</a>
+            <router-link class="btn" :to="{ name: 'planA' }">詳細內容</router-link>  
             <a href="" class="btn">直接預約</a>
         </div>             
     </article>
@@ -80,7 +67,8 @@ const modules = [Autoplay, Pagination, Navigation];
         <p>NTD2,000</p>
         <p class="new">適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
         <div>
-            <a href="" class="btn">詳細內容</a>
+            <router-link class="btn" :to="{ name: 'planA' }">詳細內容</router-link>  
+            
             <a href="" class="btn">直接預約</a>
         </div>             
     </article>
@@ -102,12 +90,14 @@ const modules = [Autoplay, Pagination, Navigation];
         <p>NTD1,500</p>
         <p class="new">適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
         <div>
-            <a href="" class="btn">詳細內容</a>
+            <router-link class="btn" :to="{ name: 'planA' }">詳細內容</router-link>  
             <a href="" class="btn">直接預約</a>
         </div>             
     </article>
 
 </section>
+
+<!-- ---------------------Carousel---------------------- -->
 
 <swiper
         :spaceBetween="0"
@@ -122,7 +112,7 @@ const modules = [Autoplay, Pagination, Navigation];
         :navigation="true"
         :modules="modules"
         class="service_swiper"
-      >
+>
       <swiper-slide>
         <section class="service_plan">
     
@@ -394,7 +384,7 @@ const modules = [Autoplay, Pagination, Navigation];
 
 </section>
 
-</div>
+</wrapper>
 <DefaultFooter />
     </div>
 </template>

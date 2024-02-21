@@ -150,12 +150,14 @@
   }
 }
 
-.articles_buttom .-off{
-  display: none;
+.articles_buttom .-open{
+  font-weight: bold;
+  color: black;
 }
 
 .-close{
   display: none;
+  color:black
 }
 
 .articles_buttom .color{

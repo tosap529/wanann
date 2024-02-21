@@ -2,7 +2,7 @@
   background-image: url(../../img/service/service_banner.jpg);
 }
 
-.service_swiper{
+div.service_swiper{
   display: none;
 }
 
@@ -33,7 +33,7 @@
       display: flex;
       flex-direction: column;
       flex-basis: 270px;
-      padding: 62px 64px 56px 0;
+      padding: 62px 0px 56px 0;
       h2{
         font-weight: bold;
         margin-bottom: 80px;
@@ -54,6 +54,9 @@
             font-size: 18px;
             padding: 10px 20px;
           }
+          .btn{
+            margin-right: 0px;
+          }
       }
    }
 }
@@ -65,11 +68,12 @@
     article{
       margin: 0 auto;
       display: flex;
-      width: 890px;
-      height: 520px;
+      width: 1000px;
+      height: 540px;
       border-radius: 10px;
       background-color: $light-milktea;
       padding: 20px 70px 0 40px;
+      box-sizing: border-box;
       margin-bottom: 40px;
        h2{
         align-self: center;
@@ -208,7 +212,7 @@
       display: block;
       width: 100%;
       height: 400px;
-      padding-top: 20px;
+      margin-top: 20px;
       border-radius: 10px;
       border: 4px solid $dark-milktea ;
     }
@@ -241,9 +245,12 @@
   .wrapper{
     width:380px;
   }
-  .service_swiper{
+
+  div.service_swiper{
     display: block;
   }
+
+
 
   .title_phone{
     margin-bottom: 15px;
@@ -319,10 +326,9 @@
     
   }
 
-  .service_phone{
+  section.service_phone{
     display: none;
   }
-
 
  .service .title h1{
   margin-left: 0px;
@@ -483,7 +489,7 @@ display: flex;
       display: block;
       width: 100%;
       height: 240px;
-      padding-top: 20px;
+      padding-top: 0px;
       border-radius: 10px;
       margin-bottom: 42px;
       border: 4px solid $dark-milktea ;
@@ -512,12 +518,13 @@ display: flex;
   display: block;
 }
 
+
+
 :root{
-  --swiper-navigation-size: 22px;
+  --swiper-navigation-size: 24px !important;
 }
 
-.swiper-pagination-bullet{ 
+.swiper-pagination{
   display: none;
 }
-
 }

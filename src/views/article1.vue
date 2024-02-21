@@ -1,12 +1,35 @@
 <script setup>
-    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
-    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+ import { ref } from 'vue';
 
-    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
-    
+const firstParagraph = ref(null);
+const secondParagraph = ref(null);
+const firstVisible = ref(true);
+
+const showFirst = () => {
+  firstVisible.value = true;
+};
+
+const showSecond = () => {
+  firstVisible.value = false;
+};
 </script>
+
+
 <template>
+     <div>
+    <button @click="showFirst">顯示第一個</button>
+    <button @click="showSecond">顯示第二個</button>
+    <div v-if="firstVisible">
+      <p ref="firstParagraph">這是第一個段落元素</p>
+    </div>
+    <div v-else>
+      <p ref="secondParagraph">這是第二個段落元素</p>
+    </div>
+  </div>
+  </template>
+  
+
+<!-- <template>
     <DefaultHeader header-title-zh="關於我們" header-title-eng="About" :bgi="banner_url" /> 
     <div>
         
@@ -22,13 +45,7 @@
         </div>
         <DefaultFooter />
     </div>
-</template>
-
-<script>
-    export default {
-        
-    }
-</script>
+</template> -->
 
 <style lang="scss">
 

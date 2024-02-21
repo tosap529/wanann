@@ -6,6 +6,7 @@
 .wrapper > .planA{
     display: flex;
     margin: 0 auto;
+    line-height: 1.6;
       article{
         margin-right: 42px;
         //width: 380px;
@@ -17,7 +18,7 @@
         }
         p{
           margin-bottom: 12px;
-          line-height: 1.2;
+          
         }
         .rule{
           border-radius: 10px;
@@ -259,19 +260,21 @@
 }
 
 .rank{
-  width: 300px;
+  width: 400px;
   margin: 0 auto;
     li{
-      width: 300px;
+      width: 340px;
+      height: 250px;
       display: flex;
       flex-direction: column;
-      margin: 0px auto 100px auto;
+      margin: 0px auto 170px auto;
       
         img{
           display: block;
           align-self: center;
           width:120px;
           margin-right: 0px;
+          margin-bottom: 5px;
         }
         article{
           padding: 0px 0px;
@@ -280,11 +283,12 @@
 }
 
 .rank_top{
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-  width: 300px;
+  padding-bottom: 0px;
+  margin-bottom: 5px;
+  width: auto;
   position: relative;
   display: flex;
+  flex-direction: column;
   flex-grow: 1;
   &:before{
       display: none;
@@ -297,30 +301,34 @@
       height: 2px;
   }
     span{
-      font-size: $h3;
+      font-size: $p;
+      justify-content: center;
       display: flex;
       align-items: center;
       
-      // &:nth-child(2){
-      //   position: relative;
-      //   &:before{
-      //     content: "";
-      //     position: absolute;
-      //     top: -80%;
-      //     left: -280px;
-      //     background-color: $dark-grey ;
-      //     width: 2px;
-      //     height: 50px;
-      //   }
+      &:nth-child(2){
+        position: relative;
+        &:before{
+
+          content: "";
+          display: none;
+          position: absolute;
+          top: -80%;
+          left: -280px;
+          background-color: $dark-grey ;
+          width: 2px;
+          height: 50px;
+        }
         
-      // }
+      }
        
     }
     .right{
-      margin-left: 80px;
+      margin-left: 0px;
       display: flex;
-      justify-content: space-between;
-      flex-basis: 550px;
+      
+      //justify-content: space-between;
+      flex-basis: 100px;
     }
 
 }

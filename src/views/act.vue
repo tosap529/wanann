@@ -1,7 +1,9 @@
 <script setup>
+
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+    import BannerUrl  from '@/img/act/act_banner.jpg'; // 更改成banner路徑
+    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
     
@@ -10,7 +12,7 @@
 <template>
     <DefaultHeader header-title-zh="活動專區" header-title-eng="Activity" :bgi="banner_url" /> 
     <div>
-        <div class="wrapper">
+        <wrapper>
 
 <section class="act_tab">
 
@@ -78,7 +80,7 @@
         </div>
     </article>
 </section>
-</div>
+</wrapper>
 <DefaultFooter />
     </div>
 </template>
