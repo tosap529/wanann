@@ -1,7 +1,8 @@
 <script setup>
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+    import BannerUrl  from '@/img/case/case_banner.jpg'; // 更改成banner路徑
+    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
     // Import Swiper Vue.js components
@@ -13,23 +14,11 @@
     import 'swiper/css/pagination';
     import 'swiper/css/navigation';
 
+    // import required modules
+    import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+    const modules = [Autoplay, Pagination, Navigation];
 
-// import required modules
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-const modules = [Autoplay, Pagination, Navigation];
-// export default {
-//   components: {
-//     Swiper,
-//     SwiperSlide,
-//   },
-//   setup() {
-//     return {
-//       modules: [Autoplay, Pagination, Navigation],
-//     };
-//   },
-// };
 </script>
-
 
 <template>
   <div>
@@ -54,7 +43,7 @@ const modules = [Autoplay, Pagination, Navigation];
 
       </swiper>
 
-    <div class="wrapper case">
+    <wrapper class="case">
      
 
         <div class="case_phone">
@@ -163,12 +152,12 @@ const modules = [Autoplay, Pagination, Navigation];
     </div>
 
 </section>
-    </div>
+  </wrapper>
     <DefaultFooter />
     </div>
 </template>
 
-<script>
+<!-- <script>
 
   // Import Swiper Vue.js components
   import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -194,7 +183,7 @@ const modules = [Autoplay, Pagination, Navigation];
       };
     },
   };
-</script>
+</script> -->
 
 <style lang="scss">
 

@@ -1,21 +1,20 @@
 <script setup>
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+    import BannerUrl  from '@/img/planA/planA_banner.jpg'; // 更改成banner路徑
+    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
 
 </script>
 
-
-<template>
-    
+<template>    
     <div>
         <DefaultHeader header-title-zh="浣安全室清潔" header-title-eng="Cleaning Project" :bgi="banner_url" /> 
         
-        <div class="wrapper plan">
+        <wrapper class="plan">
             
-           <section class="planA">
+          <section class="planA">
 
              <article>
                <img src="@/img/planA/planA_1.jpg" alt=""> 
@@ -42,136 +41,137 @@
 
              <div class="right">
                <img src="@/img/planA/planA_1.jpg" alt="">
-               <a href="" class="btn next">我要預約</a>
+               <!-- <a href="" class="btn next">我要預約</a> -->
+               <router-link class="btn next" :to="{ name: 'reserve' }">我要預約</router-link>  
              </div>
 
 
-           </section>
+          </section>
 
-<section class="notice">
-        <div class="title">
-            <h1>預約須知</h1>
-        </div>
+          <section class="notice">
+            <div class="title">
+              <h1>預約須知</h1>
+            </div>
 
-    <div class="tab">
-        <ul class="tab_planA">
-            <li class="tab_on"><a href="#">優惠活動</a></li>
-            <li><a href="#">職人講座</a></li>
-            <li><a href="#">職人講座</a></li>
-        </ul>
-    </div>
-    <div class="text">
-    <ul >
-        <li>如有選購「特殊處理」之加購服務品項，浣安服務人員將在訂單成立後24小時內與您聯繫，敬請留意！「特殊處理」品項採人工估價，現場收費。</li>
-        <li>系統僅提供可服務日期、時段供您訂購時選擇，實際服務時間可能因人力調配異動，我們將於訂購完成後另由浣安服務人員與您聯絡確認。</li>
-        <li>若浣安服務人員無法與您取得聯絡，將會在次個工作日再次聯絡，請您於訂單付款成功後留意來電。如您持續無法與服務人員完成約時，請您聯絡通知客服。</li>
-    </ul>
-    </div>
+            <div class="tab">
+              <ul class="tab_planA">
+                <li class="tab_on"><a href="#">優惠活動</a></li>
+                <li><a href="#">職人講座</a></li>
+                <li><a href="#">職人講座</a></li>
+              </ul>
+            </div>
+            <div class="text">
+              <ul>
+                <li>如有選購「特殊處理」之加購服務品項，浣安服務人員將在訂單成立後24小時內與您聯繫，敬請留意！「特殊處理」品項採人工估價，現場收費。</li>
+                <li>系統僅提供可服務日期、時段供您訂購時選擇，實際服務時間可能因人力調配異動，我們將於訂購完成後另由浣安服務人員與您聯絡確認。</li>
+                <li>若浣安服務人員無法與您取得聯絡，將會在次個工作日再次聯絡，請您於訂單付款成功後留意來電。如您持續無法與服務人員完成約時，請您聯絡通知客服。</li>
+              </ul>
+            </div>
 
     
-    <div class="title">
-        <h1>服務評價</h1>
-    </div>
+            <div class="title">
+              <h1>服務評價</h1>
+            </div>
 
-</section>
-
-
-<section class="rank">
+          </section>
 
 
-    <ul>
-        <li>
-            <img src="../img/planA/planA_2.jpg" alt="">
-            <article>
-                <div class="rank_top">
+          <section class="rank">
+
+            <ul>
+              <li>
+                <img src="../img/planA/planA_2.jpg" alt="">
+                <article>
+                  <div class="rank_top">
                     <span>SilverLion42</span>
                     <div class="right">
-                    <span>服務態度</span>
-                    <span>
+                      <span>服務態度</span>
+                      <span>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                    </span>
-                    <span>服務品質
+                      </span>
+                      <span>服務品質</span>
+                      <span>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                    </span> 
+                      </span> 
                     </div>
-                </div>
-                <div class="buttom"><p>上次朋友推薦浣安居家清潔，剛開始覺得價格有些貴，但過程中覺得很不錯，方案選擇彈性，可以按照自家狀況選擇，清潔人員也很年輕有禮貌，清潔工具清潔劑也都自己帶，結束前還會請你檢查，突然覺得自己很像貴婦……哈哈哈~</p></div>
-            </article>
-        </li>
-        <li>
-            <img src="../img/planA/planA_3.jpg" alt="">
-            <article>
-                <div class="rank_top">
+                  </div>
+                  <div class="buttom"><p>上次朋友推薦浣安居家清潔，剛開始覺得價格有些貴，但過程中覺得很不錯，方案選擇彈性，可以按照自家狀況選擇，清潔人員也很年輕有禮貌，清潔工具清潔劑也都自己帶，結束前還會請你檢查，突然覺得自己很像貴婦……哈哈哈~</p></div>
+                </article>
+              </li>
+              <li>
+                <img src="../img/planA/planA_3.jpg" alt="">
+                <article>
+                  <div class="rank_top">
                     <span>StarDustin20</span>
                     <div class="right">
-                    <span>服務態度 
+                      <span>服務態度</span>
+                      <span> 
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                    </span>
-                    <span>服務品質
+                      </span>
+                      <span>服務品質</span>
+                      <span>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                    </span> 
+                      </span> 
                     </div>
-                </div>
-                <div class="buttom"><p>超乾淨專業～居家清潔首選！</p></div>
-            </article>
-        </li>
-        <li>
-            <img src="../img/planA/planA_4.jpg" alt="">
-            <article>
-                <div class="rank_top">
+                  </div>
+                  <div class="buttom"><p>超乾淨專業～居家清潔首選！</p></div>
+                </article>
+              </li>
+              <li>
+                <img src="../img/planA/planA_4.jpg" alt="">
+                <article>
+                  <div class="rank_top">
                     <span>Ji2wendy0rLu</span>
                     <div class="right">
-                    <span>服務態度 
+                      <span>服務態度</span>
+                      <span>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                    </span>
-                    <span>服務品質
+                      </span>
+                      <span>服務品質</span>
+                      <span>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
                         <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        
-                    </span> 
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>               
+                      </span> 
                     </div>
-                </div>
-                <div class="buttom"><P>我要特別稱讚這家公司的清潔人員。他們非常專業和友好，總是微笑著迎接我們。他們非常細心，總是確保一切都完美無瑕。這間公司的清潔服務給我留下了深刻的印象。他們的專業態度和出色的工作質量讓我感到非常滿意。我強烈推薦這家公司的清潔服務，給予他們五星評價！</p></div>
-            </article>
-        </li>
+                  </div>
+                  <div class="buttom"><P>我要特別稱讚這家公司的清潔人員。他們非常專業和友好，總是微笑著迎接我們。他們非常細心，總是確保一切都完美無瑕。這間公司的清潔服務給我留下了深刻的印象。他們的專業態度和出色的工作質量讓我感到非常滿意。我強烈推薦這家公司的清潔服務，給予他們五星評價！</p></div>
+                </article>
+              </li>
        
-    </ul>
+            </ul>
 
-</section>
+          </section>
 
-<section><a href="" class="btn next">看更多</a></section>
+          <section><a href="" class="btn next">看更多</a></section>
 
+        </wrapper>
 
-
-    </div>
         <DefaultFooter />
     </div>
 </template>
-
-
 
 <style lang="scss">
 

@@ -3,86 +3,101 @@
 
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
+    import BannerUrl  from '@/img/articles/articles_banner.jpg'; // 更改成banner路徑
+    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
     
-
-// export default {
-//     data(){
+    import { ref } from "vue";
     
-//     },
-//     methods:{
+    const activeContent = ref('content1');
 
-//     },
-//     mounted(){
-//     let btn_wanann_el = document.getElementById("btn_wanann");
-//         let btn_know_el = document.getElementById("btn_know");
-//         let btn_interview_el = document.getElementById("btn_interview");
+    const showContent = (content) => {
+    activeContent.value = content;
 
-//         let articles_wanann_el = document.getElementById("articles_wanann");
-//         let articles_know_el = document.getElementById("articles_know");
-//         let articles_interview_el = document.getElementById("articles_interview");
+};
 
-//         let wannan_top_el = document.getElementById("wannan_top");
-//         let know_top_el = document.getElementById("know_top");
-//         let interview_top_el = document.getElementById("interview_top");
+</script>
+
+<!-- <script>
+
+export default {
+    data(){
+    
+    },
+    methods:{
+
+    },
+    mounted(){
+    let btn_wanann_el = document.getElementById("btn_wanann");
+        let btn_know_el = document.getElementById("btn_know");
+        let btn_interview_el = document.getElementById("btn_interview");
+
+        let articles_wanann_el = document.getElementById("articles_wanann");
+        let articles_know_el = document.getElementById("articles_know");
+        let articles_interview_el = document.getElementById("articles_interview");
+
+        let wannan_top_el = document.getElementById("wannan_top");
+        let know_top_el = document.getElementById("know_top");
+        let interview_top_el = document.getElementById("interview_top");
        
         
 
 
-//         btn_wanann_el.addEventListener('click',function(){
-//             articles_wanann_el.classList.remove('-off');
-//             btn_wanann_el.classList.add('color');
-//             articles_know_el.classList.add('-off');
-//             articles_interview_el.classList.add('-off');
-//             btn_know_el.classList.remove('color');
-//             btn_interview_el.classList.remove('color');
-//             wannan_top_el.classList.remove('-close');
-//             know_top_el.classList.add('-close');
-//             interview_top_el.classList.add('-close');
-//         }
+        btn_wanann_el.addEventListener('click',function(){
+            articles_wanann_el.classList.remove('-off');
+            btn_wanann_el.classList.add('color');
+            articles_know_el.classList.add('-off');
+            articles_interview_el.classList.add('-off');
+            btn_know_el.classList.remove('color');
+            btn_interview_el.classList.remove('color');
+            wannan_top_el.classList.remove('-close');
+            know_top_el.classList.add('-close');
+            interview_top_el.classList.add('-close');
+        }
         
         
 
-//         )
+        )
 
-//         btn_know_el.addEventListener('click',function(){
-//             articles_know_el.classList.remove('-off');
-//             btn_know_el.classList.add('color');
-//             articles_wanann_el.classList.add('-off');
-//             articles_interview_el.classList.add('-off');
-//             btn_wanann_el.classList.remove('color');
-//             btn_interview_el.classList.remove('color');
-//             wannan_top_el.classList.add('-close');
-//             know_top_el.classList.remove('-close');
-//             interview_top_el.classList.add('-close');
-//         }
+        btn_know_el.addEventListener('click',function(){
+            articles_know_el.classList.remove('-off');
+            btn_know_el.classList.add('color');
+            articles_wanann_el.classList.add('-off');
+            articles_interview_el.classList.add('-off');
+            btn_wanann_el.classList.remove('color');
+            btn_interview_el.classList.remove('color');
+            wannan_top_el.classList.add('-close');
+            know_top_el.classList.remove('-close');
+            interview_top_el.classList.add('-close');
+        }
 
-//         )
+        )
 
-//         btn_interview_el.addEventListener('click',function(){
-//             articles_interview_el.classList.remove('-off');
-//             btn_interview_el.classList.toggle('color');
-//             articles_wanann_el.classList.add('-off');
-//             articles_know_el.classList.add('-off');
-//             btn_wanann_el.classList.remove('color');
-//             btn_know_el.classList.remove('color');
-//             wannan_top_el.classList.add('-close');
-//             know_top_el.classList.add('-close');
-//             interview_top_el.classList.remove('-close');
-//         }
+        btn_interview_el.addEventListener('click',function(){
+            articles_interview_el.classList.remove('-off');
+            btn_interview_el.classList.toggle('color');
+            articles_wanann_el.classList.add('-off');
+            articles_know_el.classList.add('-off');
+            btn_wanann_el.classList.remove('color');
+            btn_know_el.classList.remove('color');
+            wannan_top_el.classList.add('-close');
+            know_top_el.classList.add('-close');
+            interview_top_el.classList.remove('-close');
+        }
 
-//         )
-//     }
+        )
+    }
 
-// };
-</script>
+};
+
+
+</script> -->
 
 <template>
     <div>
         <DefaultHeader header-title-zh="專欄文章" header-title-eng="Articles" :bgi="banner_url" /> 
-        <div class="articles wrapper">
+        <wrapper class="articles"> 
         <div id="wannan_top">
         <section class="articles_top">
            
@@ -164,13 +179,13 @@
                 <ul>
                     <!-- class="color" -->
                     <li>
-                        <a href="#" id="btn_wanann" @click="add_color" :style="{ color: isActive1 ? 'green' : 'blue' }">浣安小品</a>
+                        <a href="#" id="btn_wanann"  @click="showContent('content1')" >浣安小品</a>
                     </li>
                     <li>
-                        <a href="#" id="btn_know" @click="add_color" :style="{ color: isActive2 ? 'green' : 'blue' }">清潔小知識</a>
+                        <a href="#" id="btn_know"  @click="showContent('content2')" >清潔小知識</a>
                     </li>
                     <li>
-                        <a href="#" id="btn_interview" @click="add_color" :style="{ color: isActive3 ? 'green' : 'blue' }">職人專訪</a>
+                        <a href="#" id="btn_interview" @click="showContent('content3')" >職人專訪</a>
                     </li>
                     <li>
                         <a href="">品牌聯名</a>
@@ -178,9 +193,9 @@
                 </ul>
             </aside>
 
-            <div class="articles_all" id="articles_wanann">
-
-                <section class="section_all">
+            <div class="articles_all" id="articles_wanann" v-if="activeContent === 'content1'">
+              
+                <section class="section_all" >
                     <img src="../img/articles/articles_2.jpg" alt="">
 
                     <article>
@@ -206,6 +221,7 @@
                         </p>
                         <a href="">Read More</a>
                     </article>
+                
                 </section>
 
                 <section class="section_all">
@@ -220,11 +236,11 @@
                     </article>
 
                 </section>
-
+        
             </div>
 
-            <div class="articles_all -off" id="articles_know">
-
+            <div class="articles_all " id="articles_know" v-else-if="activeContent === 'content2'">
+               
                 <section class="section_all">
                     <img src="../img/articles/articles_6.jpg" alt="">
 
@@ -277,10 +293,11 @@
                     </article>
 
                 </section>
-
-            </div>
-
-            <div class="articles_all -off" id="articles_interview">
+      
+            </div >
+            
+            <div class="articles_all" id="articles_interview" v-else-if="activeContent === 'content3'">
+               
 
                 <section class="section_all">
                     <img src="../img/articles/articles_10.jpg" alt="">
@@ -335,13 +352,13 @@
                     </article>
 
                 </section>
-
+           
             </div>
 
         </section>
 
 
-    </div>
+    </wrapper>
     <DefaultFooter />
     </div>
 </template>

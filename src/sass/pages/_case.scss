@@ -1,6 +1,3 @@
-.case_banner {
-  background-image: url(../../img/case/case_banner.jpg);
-}
 
 .case_phone{
   display: none;
@@ -211,15 +208,13 @@
 }
 // ----------------------Carousel--------------------------
 .case_swiper {
-  width: 1400px;
+  width: 100%;
   height: 600px;
-  margin-top: 70px;
- 
+  margin-top: 70px; 
 }
 
-.swiper-slide {
+.swiper .swiper-slide {
   text-align: center;
-  font-size: 18px;
   background: #fff;
   margin-right: 0px;
 
@@ -229,41 +224,52 @@
   align-items: center;
 }
 
-.swiper-slide img {
+.swiper .swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.swiper-button-prev{
+.swiper .swiper-button-prev{
   background-color: $dark-milktea;
   color: white;
-  width: 40px;
-  height: 40px;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   padding: 8px 11px 8px 7px;
       
 }
 
 
-.swiper-button-next{
+.swiper .swiper-button-next{
   background-color: $dark-milktea;
-  color: white;
-  width: 40px;
-  height: 40px;
+  color: white ;
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   padding: 8px 7px 8px 11px;
 
 }
 
-.swiper-pagination-bullet{
-  opacity: 1;
+// .swiper-pagination-bullet{
+//   opacity: 1;
+// }
+
+
+span.swiper-pagination-bullet{
+  background: $light-milktea;
 }
 
-:root {
-  --swiper-theme-color: $brown;
+span.swiper-pagination-bullet-active{
+  background: $brown;
 }
+
+:root{
+  --swiper-navigation-size: 30px !important;
+}
+
+
 
 
 
@@ -271,7 +277,7 @@
 
 @media screen and (max-width:430px){
 
-  .case_swiper{
+  div.case_swiper{
     display: none;
   }
 
