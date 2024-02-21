@@ -13,6 +13,7 @@ const hamburger = ()=>{
     isModalShow.value = !isModalShow.value;
     // console.log( isModalShow.value)
 };
+
 const handleScroll = () => {
   let scrollDistance = window.scrollY || document.documentElement.scrollTop;
 

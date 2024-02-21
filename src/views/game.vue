@@ -1,10 +1,19 @@
 <script setup>
 import gameFooter from '@/layouts/footer.vue'
+import Modal from '@/components/ModalHamburger.vue'; 
+import { ref } from 'vue';
 
+const isModalShow = ref(false);
+const hamburger = ()=>{
+    isModalShow.value = !isModalShow.value;
+    // console.log( isModalShow.value)
+};
 </script>
 
 <template>
     <div>
+        <Modal @hamburger="hamburger" v-show="isModalShow" />
+
         <header class="fixed">
             <nav>
             <div class="nav_left">
@@ -38,7 +47,7 @@ import gameFooter from '@/layouts/footer.vue'
                     <a href="#" class="fai"><font-awesome-icon icon="cart-shopping" /></a>
                 </div>
             </div>
-            <div class="hamburger">
+            <div class="hamburger" @click="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>

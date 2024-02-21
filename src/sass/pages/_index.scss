@@ -1,7 +1,11 @@
 a {
     text-decoration: none;
 }
-
+section{
+    @include m() {
+        max-width: 375px;
+    }
+}
 .index_header {
     height: 100vh;
     background-image: url(@/img/index/index_banner.jpg);
@@ -151,7 +155,7 @@ a {
     .index_intr_left {
         position: relative;
         margin-right: 60px;
-        width: 380px;
+        width: 370px;
 
         @include m() {
             width: 300px;
@@ -192,8 +196,8 @@ a {
             margin-bottom: 16px;
 
             @include m() {
-                width: 380px;
-
+                width: 360px;
+                margin: 16px auto;
             }
         }
 
@@ -226,13 +230,14 @@ a {
     ul {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
 
         li {
             margin: 0 40px;
             flex-grow: 1;
 
             @include m() {
-                margin: 0 15px;
+                margin: 0 10px;
                 flex-grow: 0;
                 margin-bottom: 56px;
             }
@@ -296,13 +301,14 @@ a {
     ul {
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
 
         li {
             margin: 0 40px;
             flex-grow: 1;
 
             @include m() {
-                margin: 0 15px;
+                margin: 0 10px;
                 flex-grow: 0;
                 margin-bottom: 56px;
             }
@@ -391,6 +397,8 @@ a {
 
     @include m() {
         height: 200px;
+        width: 370px;
+        margin: 0 auto;
     }
 
     .index_game_content {
