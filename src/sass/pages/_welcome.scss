@@ -15,6 +15,11 @@
         position: absolute;
         top: 50px;
         right: 32%;
+        transition: transform .3s ease;
+
+        &:hover {
+            transform: scale(1.10);
+        }
 
         @include m() {
             top: 350px;
@@ -35,6 +40,11 @@
         position: absolute;
         bottom: 50px;
         left: 26%;
+        transition: transform .3s ease;
+
+        &:hover {
+            transform: scale(1.10);
+        }
 
         @include m() {
             bottom: 50px;

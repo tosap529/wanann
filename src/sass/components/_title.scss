@@ -14,4 +14,25 @@
         background-image: url(@/img/logo_title.svg);
         margin-right: 8px;
     }
+
+
+    @include m() {
+
+        >h1 {
+            display: flex;
+            font-size: $h2;
+        }
+
+        >h1::before {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 21.63px;
+            background-image: url(@/img/logo_title.svg);
+            background-size: cover;
+            margin-right: 8px;
+        }
+
+    }
+
 }

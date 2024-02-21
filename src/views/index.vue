@@ -2,11 +2,17 @@
 
 import indexFooter from '@/layouts/footer.vue';
 import btt from '@/layouts/btt.vue';
+import Modal from '@/components/ModalHamburger.vue'; 
 
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const isHeaderFixed = ref(false);
 
+const isModalShow = ref(false);
+const hamburger = ()=>{
+    isModalShow.value = !isModalShow.value;
+    // console.log( isModalShow.value)
+};
 const handleScroll = () => {
   let scrollDistance = window.scrollY || document.documentElement.scrollTop;
 
@@ -36,6 +42,8 @@ onBeforeUnmount(() => {
 
 <template>
     <div>
+        <Modal @hamburger="hamburger" v-show="isModalShow" />
+
         <header class="index_header" :class="{ fixed: isHeaderFixed }"> 
         <nav>
             <div class="nav_left">
@@ -69,7 +77,7 @@ onBeforeUnmount(() => {
                     <a href="#" class="fai"><font-awesome-icon icon="cart-shopping" /></a>
                 </div>
             </div>
-            <div class="hamburger">
+            <div class="hamburger" @click="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>

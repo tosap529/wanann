@@ -1,69 +1,72 @@
 <script setup>
-
+defineEmits(['hamburger'])
 </script>
 
 <template>
     <div>
+        <div class="modal_mask ham_bgi" @click.self="$emit('hamburger')" >
 
-        <nav>
-            <div class="hamburger">
+        <nav class="modal_content ham">
+            <div class="hamburger cross_modal" @click="$emit('hamburger')">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
             <div class="nav_left">
-                <a href="#"><img src="@/img/logo_square.svg" alt="logo"></a>
+                <router-link :to="{ name: 'index' }"><img src="@/img/logo_square.svg" alt="logo"></router-link>
             </div>
 
             <div class="nav_right">
                 <ul>
-                    <li><a href="#">關於我們</a></li>
-                    <li class="h_li"><a href="#">最新消息</a>
+                    <li><router-link :to="{ name: 'about' }">關於我們</router-link></li>
+                    <li class="h_li"><router-link :to="{ name: 'articles' }">最新消息</router-link>
                         <ol>
-                            <li><a href="#">優惠活動</a></li>
-                            <li><a href="#" class="nav_last_a">專欄文章</a></li>
+                            <li><router-link :to="{ name: 'act' }">優惠活動</router-link></li>
+                            <li><router-link class="nav_last_a" :to="{ name: 'articles' }">專欄文章</router-link></li>
                         </ol>
                     </li>
 
-                    <li class="h_li"><a href="#">我們的服務</a>
+                    <li class="h_li"><router-link :to="{ name: 'service' }">我們的服務</router-link>
                         <ol>
-                            <li><a href="#">服務介紹</a></li>
-                            <li><a href="#">案例分享</a></li>
-                            <li><a href="#" class="nav_last_a">預約服務</a></li>
+                            <li><router-link :to="{ name: 'service' }">服務介紹</router-link></li>
+                            <li><router-link :to="{ name: 'case' }">案例分享</router-link></li>
+                            <li><router-link class="nav_last_a" :to="{ name: 'reserve' }">預約服務</router-link></li>
                         </ol>
                     </li>
-                    <li><a href="#">商城</a></li>
-                    <li><a href="#">聯絡我們</a></li>
-                    <li><a href="#">清潔人格測驗</a></li>
-                    <li><a href="#">會員中心</a></li>
+                    <li><router-link :to="{ name: 'mall' }">商城</router-link></li>
+                    <li><router-link :to="{ name: 'contact' }">聯絡我們</router-link></li>
+                    <li><router-link :to="{ name: 'game' }">清潔人格測驗</router-link></li>
+                    <li><router-link :to="{ name: 'member' }">會員中心</router-link></li>
                 </ul>
                 <div class="h_btns">
-                    <button class="btn"><img src="@/img/footer_calendar.svg" alt="calendar_icon">立即預約</button>
+                    <router-link class="btn" :to="{ name: 'reserve' }">
+                    <img src="@/img/footer_calendar.svg" alt="calendar_icon">立即預約
+                    </router-link>
                     <a href="#"><img src="@/img/icon_fb.svg" alt=""></a>
                     <a href="#"><img src="@/img/icon_line.svg" alt=""></a>
                 </div>
             </div>
 
         </nav>
-    </div>
+        </div>
+</div>
+
 </template>
 
 
 <style lang="scss">
 @import '@/sass/main.scss';
 
-body {
-    @include m() {
-        background-color: $dark-milktea;
-    }
-}
 
 @include m() {
-    a {
-        color: $black;
-    }
 
-    nav {
+    .ham_bgi{
+        background-color: $dark-milktea;
+    }
+    .ham{
+        a {
+        color: $black;
+        }
         position: relative;
 
         .hamburger {
@@ -74,20 +77,29 @@ body {
 
             .bar {
                 display: block;
-                background-color: $black;
+                background-color: $white;
                 width: 25px;
                 height: 2px;
                 margin: 5px auto;
-                transition: all 0.3s ease-in-out;
-
             }
+            .bar:nth-child(2) {
+                    opacity: 0;
+                }
+
+                .bar:nth-child(1) {
+                    transform: translateY(7px) rotate(45deg);
+                }
+
+                .bar:nth-child(3) {
+                    transform: translateY(-7px) rotate(-45deg);
+                }
         }
 
         .nav_left {
             position: absolute;
             top: -67px;
             left: 38%;
-
+            z-index: 1;
             img {
                 width: 100px;
             }
@@ -100,7 +112,6 @@ body {
             height: 670px;
             border-radius: 30px;
             position: relative;
-            z-index: -1;
 
             ul {
                 position: absolute;
@@ -142,7 +153,6 @@ body {
                     padding: 8px 12px;
                     margin-left: 45px;
                     margin-right: 24px;
-
                     img {
                         display: inline;
                         padding-right: 8px;
@@ -153,6 +163,7 @@ body {
                 a {
                     padding: 0 10px;
                     padding-top: 6px;
+                    color: $white;
                 }
 
             }

@@ -51,7 +51,7 @@ import gameFooter from '@/layouts/footer.vue'
                 <div class="game_text">
                     <h2>不同人格，對於居住環境的清潔有不同的要求和習慣</h2>
                     <h2>測驗看看你是哪種森林動物，找出你的清潔人格吧！</h2>
-                    <button class="btn">開始測驗</button>
+                    <button class="btn"><router-link :to="{ name: 'gameQ' }">開始測驗</router-link></button>
                 </div>
             </div>
 

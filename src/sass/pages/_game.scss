@@ -39,6 +39,10 @@
             font-size: $h2;
             padding: 14px 60px;
 
+            a {
+                color: $white;
+            }
+
             &:hover {
                 color: $white;
             }

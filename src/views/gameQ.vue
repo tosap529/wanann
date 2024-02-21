@@ -56,7 +56,7 @@ import gameFooter from '@/layouts/footer.vue'
                     <h4>看心情，心情好看什麼都順眼啦</h4>
                     <h4>看地方，對每個區域的要求不同</h4>
                     <h4>有潔癖，一定要保持乾淨整齊</h4>
-                    <button class="btn">下一題</button>
+                    <button class="btn"><router-link :to="{ name: 'gameR' }">下一題</router-link></button>
                 </div>
             </div>
 
