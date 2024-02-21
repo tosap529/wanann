@@ -1,7 +1,7 @@
 header {
     width: 100%;
     height: 300px;
-    background-image: url(@/img/contact/contact_banner.jpg); //請換成你的頁面的banner圖
+    // background-image: url(@/img/contact/contact_banner.jpg); //請換成你的頁面的banner圖
     background-size: cover;
     transition: height .7s ease;
     position: relative;
@@ -42,9 +42,19 @@ header {
     }
 
     nav {
+
         display: flex;
         justify-content: space-between;
         padding-top: 20px;
+
+        // 以下這幾行暫時嘗試用
+        // position: fixed;
+        // top: 0;
+        // left: 0;
+        // width: 100%;
+        // z-index: 10;
+        // background-image: url(@/img/nav_bgi.png);
+
 
         .nav_left {
             display: flex;
@@ -110,6 +120,11 @@ header {
                             color: $brown;
                             text-shadow: 0px 0px 3px $white;
                         }
+
+                    }
+
+                    .route_now {
+                        color: $dark-milktea;
                     }
 
                     ol {
@@ -139,6 +154,11 @@ header {
                                     background-color: $brown;
                                     text-shadow: none;
                                 }
+
+                            }
+
+                            .sub_route_now {
+                                background-color: $brown;
                             }
 
                             .nav_last_a {
@@ -165,6 +185,10 @@ header {
                         color: $brown;
                         text-shadow: 0px 0px 3px $white;
                     }
+                }
+
+                .route_now {
+                    color: $dark-milktea;
                 }
             }
         }
@@ -203,4 +227,5 @@ header {
         }
 
     }
+
 }

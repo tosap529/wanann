@@ -9,6 +9,22 @@
     }
 }
 
+// 錨點
+#scroll_anchor1 {
+    position: absolute;
+    top: $about_d+200;
+}
+
+#scroll_anchor2 {
+    position: absolute;
+    top: $about_d+2450;
+}
+
+#scroll_anchor3 {
+    position: absolute;
+    top: $about_d+5550;
+}
+
 .about_scroll {
     display: flex;
     justify-content: right;
@@ -95,7 +111,7 @@
         flex-direction: column;
         width: 30px;
         position: absolute;
-        left: 50%;
+        left: 52.5%;
 
         h1 {
             line-height: 1.3;
@@ -114,7 +130,7 @@
 
     img:nth-child(2) {
         top: 100px;
-        left: 20%;
+        left: 17%;
         width: 400px;
 
     }
@@ -225,7 +241,7 @@
 .about_charity {
     position: absolute;
     // top: 4500px;
-    top: $about_d+6700;
+    top: $about_d+5700;
     width: 100%;
 
     .title {
@@ -301,11 +317,11 @@
     }
 
     .about_bgc {
-        top: 350px;
+        top: $about_d_rwd;
 
         .title {
             position: absolute;
-            top: -50px;
+            top: -100px;
             margin-left: 25px;
         }
 
@@ -335,7 +351,6 @@
         }
 
         >h4 {
-            // width: 380px
             display: none;
         }
 
@@ -347,8 +362,8 @@
     }
 
     .about_art {
-        top: 900px;
-        left: 40px;
+        top: $about_d_rwd+550;
+        height: 600px;
 
         div {
             right: -50px;
@@ -367,17 +382,19 @@
         img:nth-child(2) {
             width: 150px;
             height: 250px;
+            left: 40px;
         }
 
         img:nth-child(3) {
             width: 250px;
             height: 150px;
-            left: 115px;
+            left: 150px;
+            top: 50%;
         }
     }
 
     .about_feature {
-        top: 1350px;
+        top: $about_d_rwd+1000;
         width: 380px;
         padding: 0;
         margin-left: 25px;
@@ -435,11 +452,14 @@
             }
         }
 
-
+        .about_scroll_btn {
+            display: none;
+        }
     }
 
     .about_bgc_img {
-        top: 2300px;
+        display: none;
+        top: $about_d_rwd+1950;
         height: 240px;
 
 
@@ -464,7 +484,7 @@
     }
 
     .about_charity {
-        top: 2550px;
+        top: $about_d_rwd+2000;
         width: 380px;
         margin-top: 40px;
         margin-left: 25px;

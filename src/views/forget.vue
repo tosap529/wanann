@@ -1,7 +1,7 @@
 <script setup>
 import {ref} from 'vue'
 // import Modal from '@/components/ModalAboutBelief.vue'; 
-import DefaultHeader from '@/layouts/header.vue'; 
+import FixedHeader from '@/layouts/headerFixed.vue'; 
 import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
 const banner_url = BannerUrl; 
@@ -14,9 +14,9 @@ const banner_url = BannerUrl;
 </script>
 <template>
     <div>
-        <DefaultHeader header-title-zh="重設密碼" header-title-eng="Forget" :bgi="banner_url" /> 
         <!-- <Modal @ModalAboutBelief="ModalAboutBelief" v-show="isModalShow"  /> -->
-    <div class="wrapper forget">
+        <FixedHeader header-title-zh="重設密碼" header-title-eng="Forget" :bgi="banner_url" />
+    <wrapper class="wrapper forget">
         
         <section class="forget_pwd">
             <div class="title">
@@ -35,7 +35,7 @@ const banner_url = BannerUrl;
                 <input type="submit" value="確認" class="btn">
             </form>
         </section>
-    </div>
+    </wrapper>
     <DefaultFooter />
     </div>
 </template>

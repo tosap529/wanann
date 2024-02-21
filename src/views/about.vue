@@ -73,15 +73,19 @@ const bgi_off = ref({
   'left':'0'}) ;
 function fullBgc(){
     const charity_pos = charity.value.getBoundingClientRect();
-       // console.log(charity_pos.top);
-    // console.log(window.scrollY);
-    if (charity_pos.top>3110 ||charity_pos.top-window.innerHeight<0){
+console.log(window.innerWidth)
+    // console.log(charity_pos.top);
+    // console.log(charity_pos.top-window.innerHeight);
+    if(window.innerWidth>500){
+      if (charity_pos.top>2520 ||charity_pos.top-window.innerHeight<-50){
       bgiShow.value = false;
               scroll_anchor3.value.style.display='block';
     }else{
       bgiShow.value = true;       
         scroll_anchor3.value.style.display='none';
     }
+    }
+    
 }
 document.addEventListener("scroll", addClassToVisibleElements);
 document.addEventListener("scroll", fullBgc);
@@ -96,6 +100,9 @@ document.addEventListener("scroll", fullBgc);
 
     <!-- ↓將原本的.wrapper div換成這個標籤，並加上本來有的class -->
     <wrapper class="about"> 
+      <span id="scroll_anchor1"></span>
+      <span id="scroll_anchor2"></span>
+      <span id="scroll_anchor3"></span>
         <section class="about_scroll ">
             <ul>
                 <li v-for="scrollItem in scrollItems" :key="scrollItem.name" >
@@ -108,7 +115,7 @@ document.addEventListener("scroll", fullBgc);
             <img src="@/img/about/about_main.jpg" alt="">
         </section>
         <section class="about_bgc">
-            <div class="title" ref="scroll_anchor1" id="scroll_anchor1">
+            <div class="title" ref="scroll_anchor1" >
                 <h1>企業理念</h1>
             </div>
             <div class="belief about_anime aboutSlideIn">
@@ -133,7 +140,7 @@ document.addEventListener("scroll", fullBgc);
             <img class="about_anime aboutSlideInRight" src="@/img/about/about_art2.jpg" alt="">
         </section>
         <section class="about_feature" >
-            <div class="title" ref="scroll_anchor2" id="scroll_anchor2">
+            <div class="title" ref="scroll_anchor2" >
                 <h1>企業特色</h1>
             </div>
             <div>
@@ -179,7 +186,7 @@ document.addEventListener("scroll", fullBgc);
         </section>
 
         <section class="about_charity" ref="charity" >
-            <div class="title" ref="scroll_anchor3" id="scroll_anchor3">
+            <div class="title" ref="scroll_anchor3" >
                 <h1>企業貢獻</h1>
             </div>
             <article class="about_anime aboutSlideIn">
@@ -204,15 +211,13 @@ document.addEventListener("scroll", fullBgc);
 
 <style lang="scss">
 @import '@/sass/main.scss';
-// @import '@/sass/base/_base.scss';
-// @import '@/sass/utils/_mixins.scss';
 div.about+div>footer {
     position: absolute;
     width: 100%;
     // top: 6100px;
-    top:$about_d+7800;
+    top:$about_d+6800;
     @include m(){
-        top: 3950px;
+        top: $about_d_rwd+3300;
     }
 }
 // 動畫

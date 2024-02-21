@@ -1,0 +1,87 @@
+<script setup>
+import { computed, ref } from "vue";
+const props = defineProps(['headerTitleZh','headerTitleEng','bgi','isBgi']);
+import { useRoute } from 'vue-router';
+const bgi_css = computed(() => {
+      return {
+        "background-image": `url('${props.bgi}')`
+      };
+    });
+// 取得當前頁面路徑
+const route = useRoute();
+</script>
+
+<template>
+    <div>
+        <header :style="bgi_css" >
+            <nav>
+            <div class="nav_left">
+                <router-link :to="{ name: 'index' }">
+                    <img src="@/img/logo_long.svg" alt="logo">
+                </router-link>
+                <h4>最安心的居家清潔服務</h4>
+            </div>
+            <div class="nav_right">
+                <i class="fa fa-bars" area-hidden="true"></i>
+                <i class="fa fa-solid fa-xmark" area-hidden="true"></i>
+                <ul>
+                    <li>
+                        <router-link  :to="{ name: 'about' }">關於我們</router-link>
+                    </li>
+                    <li>
+                        <router-link  :to="{ name: 'articles' }">最新消息</router-link>
+                        <ol class="header_news">
+                            <li>
+                                <router-link :to="{ name: 'act' }">優惠活動</router-link>
+                            </li>
+                            <li>
+                                <router-link class="nav_last_a" :to="{ name: 'articles' }">專欄文章</router-link>
+                            </li>
+                        </ol>
+                    </li>
+
+                    <li>
+                        <router-link :to="{ name: 'service' }">我們的服務</router-link>
+                        <ol class="header_ser">
+                            <li>
+                                <router-link :to="{ name: 'service' }">服務介紹</router-link>
+                            </li>
+                            <li>
+                                <router-link :to="{ name: 'case' }">案例分享</router-link>
+                            </li>
+                            <li>
+                                <router-link class="nav_last_a" :to="{ name: 'reserve' }">預約服務</router-link>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: 'mall' }">商城</router-link>
+                    </li>
+                    <li>
+                        <router-link :to="{ name: 'contact' }">聯絡我們</router-link>
+                    </li>
+                </ul>
+                <div class="nav_user">
+                    <router-link class="fai" :class="{'route_now':route.name=='member'}" :to="{ name: 'member' }">
+                        <font-awesome-icon  icon="user" />
+                    </router-link>
+                    <a href="#" class="fai">
+                        <font-awesome-icon icon="cart-shopping" />
+                    </a>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+        <div class="header_text">
+                <h1>{{headerTitleZh}}</h1>
+                <h1>{{headerTitleEng}}</h1>
+            </div>
+</header>
+    </div>
+</template>
+<style lang="scss">
+</style>

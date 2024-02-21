@@ -1,10 +1,10 @@
 <script setup>
-    defineEmits(['nextReserveStep'])
+    defineEmits(['nextReserveStep','lastReserveStep'])
 </script>
 
 <template>
-     <div class="wrapper reserve2">
-    <section class="subtitle">
+<wrapper class="wrapper reserve2">
+    <section class="subtitle" @click="$emit('lastReserveStep')">
         <h1>1</h1>
         <h1>選擇服務</h1>
      </section>
@@ -117,7 +117,7 @@
             <a class="btn" @click="$emit('nextReserveStep',$e)">下一步</a>
         </section>
 
-    </div>
+</wrapper>
 </template>
 
 
@@ -126,8 +126,7 @@
 .subtitle:nth-child(1){
     opacity: .5;
     margin-bottom: 0;
+    cursor: pointer;
 }
-.subtitle:nth-child(2){
-   
-}
+
 </style>

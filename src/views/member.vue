@@ -2,7 +2,7 @@
 import { ref } from "vue";
 import MemberTab from "@/components/MemberTab.vue"
 
-import DefaultHeader from '@/layouts/header.vue'; 
+import FixedHeader from '@/layouts/headerFixed.vue'; 
 import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
 const banner_url = BannerUrl; 
@@ -72,8 +72,8 @@ function infoSave(e){
 </script>
 <template>
     <div>
-        <DefaultHeader header-title-zh="會員中心" header-title-eng="Member" :bgi="banner_url" /> 
-    <div class="member wrapper">
+     <FixedHeader header-title-zh="會員中心"  header-title-eng="Member" :bgi="banner_url" />
+    <wrapper class="member wrapper">
         <section class="member_sidebar">
             <div>
                 <input type="file" id="profileMini">
@@ -393,7 +393,7 @@ function infoSave(e){
             </div>
         </section>
 
-    </div>
+    </wrapper>
     <DefaultFooter />
 </div>
 </template>
@@ -421,6 +421,6 @@ function infoSave(e){
 // 表示當前頁面的側邊欄樣式
 .member_sidebar_active {
     background-color: $light-milktea;
-    border-radius: 8px;
+    
 }
 </style>
