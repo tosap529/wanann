@@ -1,8 +1,8 @@
 <template>
     <div>
         <div class="welcome_wrapper">
-        <a href="#" class="welcome_back"><img src="@/img/welcome/welcome_back.png" alt="後台"></a>
-        <a href="#" class="welcome_front"><img src="@/img/welcome/welcome_front.png" alt="前台"></a>
+            <router-link :to="{ name: 'bMember' }" class="welcome_back"><img src="@/img/welcome/welcome_back.png" alt="後台"></router-link>
+        <router-link :to="{ name: 'index' }" class="welcome_front"><img src="@/img/welcome/welcome_front.png" alt="前台"></router-link>
     </div>
     </div>
 </template>
