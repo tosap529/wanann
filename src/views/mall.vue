@@ -55,8 +55,8 @@
                 <ul class="mall_products">
 
                     <li v-for="i in paginatedProducts" v-bind:key="i.productId">
-                        <!-- <router-link :to="{ name: 'mItem' }"><img v-bind:src="i.productSrc"></router-link> -->
-                        <img v-bind:src="i.productSrc">
+                        <router-link :to="{ name: 'mItem' }"><img v-bind:src="i.productSrc"></router-link>
+                        <!-- <img v-bind:src="i.productSrc"> -->
                         <h1>{{ i.productName }}</h1>
                         <p>{{ i.productPrice }}</p>
                         <input class="mall_add_to_cart" type="button" value="加入購物車">

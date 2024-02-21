@@ -1,17 +1,30 @@
 <script setup>
+    // 數量按鈕
+    import calBar from '@/components/cal.vue'; // 確保路徑正確
     // 設置header及footer
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import BannerUrl  from '@/img/mall/mall_banner.jpg'; // 更改成banner路徑
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+
+    // -----------------------------  數量按鈕  ------------------------
+    // 商品單價
+    // const pricePerUnit = 200;
+    
+    // const ItemTotalPrice = ref(pricePerUnit);
+
+    // const handleCountUpdate = (newCount) => {
+    //     ItemTotalPrice.value = pricePerUnit * newCount;
+    // };
+    // -----------------------------  數量按鈕  ------------------------
 </script>
 
 
 <template>
     <div>
         <DefaultHeader header-title-zh="商城" header-title-eng="Mall" :bgi="banner_url" />
-        <div class="mitem_wrapper wrapper">
+        <wrapper class="mitem_wrapper wrapper">
             <section class="mitem_sec">
 
                 <div class="mitem_main">
@@ -40,15 +53,18 @@
 
                         <h3>數量</h3>
 
-                        <div class="cal">
+                        <!-- <div class="cal">
                             <font-awesome-icon class="cal_btn" :icon="['fas', 'minus']" />
                             <div class="cal_count">1</div>
                             <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
-                        </div>
+                        </div> -->
+                        <!-- <calBar /> -->
+                        <calBar @updateCount="handleCountUpdate" />
 
                         <div class="mitem_btn">
                             <button class="btn mitem_btn"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
-                            <button class="btn mitem_btn">直接購買</button>
+                            <!-- <button class="btn mitem_btn">直接購買</button> -->
+                            <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }">直接購買</router-link>
                         </div>
                     </div>
 
@@ -75,7 +91,7 @@
                 </ol>
 
             </section>
-        </div>
+        </wrapper>
         <DefaultFooter />
     </div>
 </template>

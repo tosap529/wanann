@@ -1,16 +1,34 @@
 <script setup>
+    // 數量按鈕
+    import calBar from '@/components/cal.vue';
     // 設置header及footer
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import BannerUrl  from '@/img/pay/pay_banner.jpg'; // 更改成banner路徑
+    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+
+    import { ref } from 'vue';
+    
+    // -----------------------------  數量按鈕  ------------------------
+    // 商品單價
+    const pricePerUnit = 200;
+    
+    const ItemTotalPrice = ref(pricePerUnit);
+
+    const handleCountUpdate = (ddd) => {
+        ItemTotalPrice.value = pricePerUnit * ddd;
+        console.log(ddd)
+    };
+    // -----------------------------  數量按鈕  ------------------------
 </script>
+
 
 
 <template>
     <div>
         <DefaultHeader header-title-zh="商城結帳" header-title-eng="Checkout" :bgi="banner_url" />
-        <div class="wrapper mPay1_wrapper">
+        <wrapper class="wrapper mPay1_wrapper">
             <section class="mPay1">
 
                 <div class="mPay1_circle circle">
@@ -47,16 +65,22 @@
                                 </div>
                             </div>
 
-                            <div class="cal">
+                            <!-- <div class="cal">
                                 <font-awesome-icon class="cal_btn" :icon="['fas', 'minus']" />
                                 <div class="cal_count">1</div>
                                 <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
-                            </div>
+                            </div> -->
+                            <!-- 數量按鈕 -->
+                            <calBar @updateCount="handleCountUpdate" />
 
                         </div>
 
-                        <div class="mPay1_item_price">
+                        <!-- <div class="mPay1_item_price">
                             <h2>NTD200</h2>
+                            <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
+                        </div> -->
+                        <div class="mPay1_item_price">
+                            <h2>NTD{{ ItemTotalPrice }}</h2>
                             <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div>
 
@@ -80,6 +104,8 @@
                                 <div class="cal_count">1</div>
                                 <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
                             </div>
+                            
+                            <!-- <calBar @updateCount="handleCountUpdate" /> -->
 
                         </div>
 
@@ -88,6 +114,10 @@
                             <i class="fa-solid fa-trash"></i>
                             <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div>
+                        <!-- <div class="mPay1_item_price">
+                            <h2>NTD{{ ItemTotalPrice }}</h2>
+                            <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
+                        </div> -->
 
                     </div>
 
@@ -136,20 +166,23 @@
                     <h1>NTD400</h1>
                 </div>
 
-                <button class="btn mPay1_nextpage">下一步</button>
+                <!-- <button class="btn mPay1_nextpage">下一步</button> -->
+                <router-link class="btn mPay1_nextpage" :to="{ name: 'mPay2' }">下一步</router-link>
 
             </section>
         
-        </div>
+        </wrapper>
         <DefaultFooter />
     </div>
 </template>
 
-<script>
+<!-- <script>
     export default {
         
     }
-</script>
+</script> -->
+
+
 
 <style lang="scss">
 

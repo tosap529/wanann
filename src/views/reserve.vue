@@ -3,6 +3,7 @@ import {ref} from 'vue';
 import ReservePlan from '@/layouts/reserve1.vue';
 import ReserveExtra from '@/layouts/reserve2.vue';
 import ReserveDate from '@/layouts/reserve3.vue';
+
 import DefaultHeader from '@/layouts/header.vue'; 
 import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/reserve1/reserve1_banner.jpg'; 

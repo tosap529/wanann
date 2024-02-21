@@ -3,6 +3,7 @@
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import BannerUrl  from '@/img/pay/pay_banner.jpg'; // 更改成banner路徑
+    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
 </script>
 
@@ -10,7 +11,7 @@
 <template>
     <div>
         <DefaultHeader header-title-zh="商城結帳" header-title-eng="Checkout" :bgi="banner_url" />
-        <div class="wrapper mPay2_wrapper">
+        <wrapper class="wrapper mPay2_wrapper">
             <section class="mPay_2">
 
                 <div class="circle mPay2_circle">
@@ -168,13 +169,14 @@
 
                 </div>
 
-                <button class="btn mPay2_nextpage">下一步</button>
+                <!-- <button class="btn mPay2_nextpage">下一步</button> -->
+                <router-link class="btn mPay2_nextpage" :to="{ name: 'mPay3' }">下一步</router-link>
 
                 
             </section>
 
 
-        </div>
+        </wrapper>
         <DefaultFooter />
     </div>
 </template>

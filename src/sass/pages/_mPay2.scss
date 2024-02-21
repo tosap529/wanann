@@ -209,6 +209,7 @@ div.mPay2_info{
                 border: none;
 
                 border-radius: 8px;
+                padding: 10px;
 
                 &:focus{
                     outline: $brown;
@@ -335,9 +336,9 @@ div.mPay2_info{
 }
 
 
-button.mPay2_nextpage{
-    display: block;
+.mPay2_nextpage{
     margin: 0 auto;
+    width: 200px;
 }
 
 

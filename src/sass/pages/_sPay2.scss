@@ -233,6 +233,9 @@ div.sPay2_info{
                 background-color: $light-milktea;
                 border: none;
 
+                border-radius: 8px;
+                padding: 10px;
+
                 &:focus{
                     outline: $brown;
                 }
@@ -242,7 +245,6 @@ div.sPay2_info{
     }
 
     div.sPay2_payment{
-        
 
         border: 1px solid $grey;
         border-radius: 10px;
@@ -358,9 +360,9 @@ div.sPay2_info{
 }
 
 
-button.sPay2_nextpage{
-    display: block;
+.sPay2_nextpage{
     margin: 0 auto;
+    width: 200px;
 }
 
 
