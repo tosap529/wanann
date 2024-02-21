@@ -28,16 +28,24 @@
     box-sizing: border-box;
     padding: 10px;
     text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
 
     .star {
         margin-top: 10px;
         display: flex;
+    }
+
+    &:hover {
+        outline: 2px solid $brown;
     }
 }
 
 .week {
     display: flex;
     flex-wrap: wrap;
+    // outline: 3px solid purple;
+    padding: 10px;
 }
 
 .calendar_nav {
@@ -57,14 +65,20 @@
         margin-bottom: 10px;
 
 
-        i {
-            width: 30px;
-            height: 30px;
-            line-height: 30px;
+        svg {
+            width: 24px;
+            height: 24px;
+            // line-height: 30px;
             text-align: center;
             color: $white;
             background-color: $dark-milktea;
             border-radius: 50%;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $light_milktea;
+                color: $brown;
+            }
         }
     }
 
@@ -90,17 +104,14 @@
     }
 }
 
-.calendar_nav~section {
-    outline: 3px solid purple;
-    padding: 0 10px;
-}
+.calendar_nav~section {}
 
 .time_choice {
     background-color: $light_milktea;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-    width: 250px;
+    // width: 250px;
 
     >div,
     h2 {
@@ -134,10 +145,8 @@
         justify-content: space-between;
     }
 
-
-
     .reserve3 {
-        .subtitle+section {
+        .subtitle:nth-child(3)+section {
             flex-direction: column;
         }
     }

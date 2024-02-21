@@ -57,7 +57,7 @@ a {
     }
 }
 
-section {
+.fixed>section {
     margin-bottom: 72px;
 
     @include m() {

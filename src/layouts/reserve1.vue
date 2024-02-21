@@ -1,9 +1,9 @@
 <script setup>
-    defineEmits(['nextReserveStep'])
+    defineEmits(['nextReserveStep']);
 </script>
 
 <template>
-    <div class="wrapper reserve1">
+<wrapper class="wrapper reserve1">
    
 <section class="subtitle">
     <h1>1</h1>
@@ -63,7 +63,7 @@
     <a class="btn" @click="$emit('nextReserveStep',$e)">下一步</a>
 </section>
 
-</div>
+</wrapper>
 </template>
 
 

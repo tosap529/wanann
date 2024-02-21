@@ -1,16 +1,15 @@
-<script>
-    export default {
-        
-    }
+<script setup>
+import Calendar from '@/layouts/calendar.vue';
+    defineEmits(['lastReserveStep','firstReserveStep']);
 </script>
 
 <template>
-    <div class="wrapper reserve3">
-        <section class="subtitle">
+<wrapper class="wrapper reserve3">
+        <section class="subtitle" @click="$emit('firstReserveStep')">
         <h1>1</h1>
         <h1>選擇服務</h1>
      </section>
-        <section class="subtitle">
+        <section class="subtitle"  @click="$emit('lastReserveStep')">
         <h1>2</h1>
         <h1>選擇加購服務</h1>
      </section>
@@ -18,37 +17,9 @@
             <h1>3</h1>
             <h1>選擇預約日期&時段</h1>
         </section>
-        <section>
-            <div class="calendar">
-                <section class="calendar_nav">
-                    <h4>2024</h4>
-                    <div class="month">
-                        <i class="fa-solid fa-angle-left" id="minusMonth"></i>
-                        <h2>3月</h2>
-                        <i class="fa-solid fa-angle-right" id="addMonth"></i>
-                    </div>
-                    <ul class="day">
-                        <li>日</li>
-                        <li>一</li>
-                        <li>二</li>
-                        <li>三</li>
-                        <li>四</li>
-                        <li>五</li>
-                        <li>六</li>
-                    </ul>
-                </section>
-                <section class="week">
-                    <!-- <article class="single_day">
-                        <h2>1</h2>
-                        <div class="star">
-                            <img src="../img/reserve3/reserve3_star_on.svg" alt="">
-                            <img src="../img/reserve3/reserve3_star_on.svg" alt="">
-                            <img src="../img/reserve3/reserve3_star_on.svg" alt="">
-                        </div>
-                    </article> -->
-
-                </section>
-            </div>
+        <Calendar />
+        <!-- <section>
+            
             <div class="time_choice">
                 <div>
                     <h2>選擇日期及時段</h2>
@@ -63,11 +34,11 @@
                 </div>
             </div>
         </section>
-        <p>僅接受3日後的預約，具體施作時間交由浣安與您聯繫進一步討論</p>
+        <p>僅接受3日後的預約，具體施作時間交由浣安與您聯繫進一步討論</p> -->
         <section class="next_btn">
             <router-link class="btn" :to="{ name: 'sPay1' }">前往結帳</router-link>   
         </section>
-    </div>
+</wrapper>
 </template>
 
 
@@ -76,9 +47,11 @@
 .subtitle:nth-child(1){
     opacity: .25;
     margin-bottom: 0;
+    cursor: pointer;
 }
 .subtitle:nth-child(2){
     opacity: .5;
     margin-bottom: 0;
+    cursor: pointer;
 }
 </style>

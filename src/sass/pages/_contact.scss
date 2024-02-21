@@ -1,170 +1,368 @@
 .contact_wrapper {
 
-  section {
-    @include m() {
-      margin-bottom: 0;
-    }
+  .contact__banner {
+    background-image: url(@/img/contact/contact_banner.jpg);
+    background-size: contain;
   }
 
-  .cs_info {
 
-    .title {
-      margin-left: 19%;
 
-      @include m() {
-        margin-left: 0;
-        margin-bottom: 28px;
-      }
-    }
 
-    .contact_top {
-      display: flex;
-      justify-content: center;
+  .contact_wrapper h1 {
+    text-align: center;
+    width: 62%;
+    margin-bottom: 56px;
 
-      @include m() {
-        flex-direction: column;
-      }
-
-      ul {
-        margin: 0 80px;
-
-        @include m() {
-          margin: 0;
-          margin-left: 32px;
-        }
-
-        p {
-          line-height: 1.6;
-        }
-
-        li {
-          display: flex;
-          align-items: center;
-          margin-bottom: 48px;
-          max-width: 300px;
-
-          img {
-            width: 55px;
-            margin-right: 20px;
-          }
-        }
-      }
-    }
   }
 
+  .contact_wrapper h1::before {
+    content: "";
+    display: inline-block;
+    background-image: url(@/img/contact/contact_logo.png);
+    width: 46px;
+    height: 32.44px;
+    background-size: contain;
+    margin-right: 10px;
+    vertical-align: top;
+
+  }
+
+  .contact_container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+
+  }
+
+  .contact_container ul {
+    // display: flex;
+  }
+
+  .contact_container.left,
+  .contact_container.right {
+    width: 50%;
+
+  }
+
+  .left .contact_social li {
+    margin-bottom: 56px;
+    display: flex;
+    align-items: center;
+
+  }
+
+  .contact_social li img {
+    margin-right: 10px;
+    width: 55px;
+    height: 55px;
+  }
+
+  .contact_phone {
+    display: flex;
+    flex-direction: column;
+
+  }
+
+  .contact_social p {
+    line-height: 1.2;
+
+  }
+
+
+
+  .right .contact_social li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 56px;
+
+  }
+
+  //form表單
   .contact_form {
-    background-color: $light-milktea;
+    max-width: 1200px;
+    width: 60%;
+    margin: 0px auto;
+    padding: 20px;
+    background-color: #ECE7E1;
     border-radius: 10px;
+    margin-bottom: 50px;
 
-    @include m() {
-      background-color: transparent;
+  }
 
-    }
+  .contact_form form {
+    width: 60%;
+    margin: 0 auto;
+  }
 
-    .title {
-      margin-left: 19%;
-      padding-top: 44px;
+  .contact_form h1 {
 
-      @include m() {
-        margin-left: 0;
-        padding-top: 20px;
-        margin-bottom: 20px;
-      }
-    }
+    margin-bottom: 30px;
+  }
 
-    p {
-      width: 460px;
+  .contact_form h1::before {
+    content: "";
+    display: inline-block;
+    background-image: url(@/img/contact/contact_logo.png);
+    width: 46px;
+    height: 32.44px;
+    background-size: contain;
+    margin-right: 10px;
+    vertical-align: top;
+  }
+
+  .contact_input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .contact_input label {
+    margin-right: 10px;
+    margin-bottom: 8px;
+    // width: 24%;
+    flex-shrink: 0;
+  }
+
+  .contact_input:nth-child(4) {
+    display: flex;
+  }
+
+  .contact_input:nth-child(4) label {
+    flex-wrap: 0;
+    align-self: flex-start;
+    margin-top: 30px;
+  }
+
+  .contact_form p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    text-align: left;
+
+
+  }
+
+  .contact_form form input {
+    width: 470px;
+    height: 42px;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    background-color: white;
+  }
+
+
+
+  .contact_form form textarea {
+    margin-bottom: 30px;
+    margin-top: 20px;
+    width: 470px;
+    height: 270px;
+    flex: 1;
+    resize: vertical;
+  }
+
+
+
+
+  // input[type="text"],
+  // input[type="tel"],
+  // input[type="email"],
+  // textarea {
+  //   width: 100%;
+  //   padding: 10px;
+  //   margin-bottom: 15px;
+  //   border: 1px solid #ccc;
+  //   border-radius: 10px;
+  //   box-sizing: border-box;
+
+  // }
+
+
+
+  // .btn {
+
+  //   display: block;
+  //   margin: 0 auto;
+  // }
+
+  // .btn:hover {
+  //   background-color: #9B7B6C;
+  // }
+
+  //斷點430px//
+  @media screen and (max-width: 430px) {
+
+
+    .contact_wrapper h1 {
+      width: 100%;
+      margin-bottom: 30px;
+      font-size: 20px;
       text-align: left;
-      margin-left: 31%;
-
-      @include m() {
-        width: 380px;
-        margin-left: 0;
-
-      }
+      margin-left: 25px;
     }
 
-    form {
-      text-align: center;
-      margin-top: 28px;
-      padding-bottom: 88px;
-      position: relative;
+    .cs_info {
 
-      @include m() {
-        background-color: $light-milktea;
-        border-radius: 10px;
-        text-align: left;
-        padding-top: 4px;
-        font-size: $h4;
-      }
-
-      input {
-        background-color: $white;
-        width: 360px;
-        margin-left: 28px;
+      .title {
+        margin-left: 19%;
 
         @include m() {
-          width: 320px;
+          margin-left: 0;
+          margin-bottom: 28px;
         }
       }
 
-      input#name {
-        margin-left: 23px;
+      .contact_top {
+        display: flex;
+        justify-content: center;
 
         @include m() {
-          margin-left: 31px;
-
-        }
-      }
-
-      textarea {
-        border: none;
-        border-radius: 8px;
-        width: 360px;
-        height: 250px;
-        margin-left: 28px;
-        padding: 10px;
-        font-size: $p;
-        line-height: 1.6;
-
-        &:focus {
-          outline: 2px solid $brown;
+          flex-direction: column;
         }
 
-        @include m() {
-          width: 320px;
-          margin-left: 31px;
+        ul {
+          margin: 0 80px;
 
-        }
-      }
+          @include m() {
+            margin: 0;
+            margin-left: 32px;
+          }
 
-      .message {
-        vertical-align: top;
-      }
+          p {
+            line-height: 1.6;
+          }
 
-      .contact_input {
-        margin: 32px auto;
+          li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 48px;
+            max-width: 300px;
 
-        @include m() {
-          label {
-            margin-bottom: 14px;
-            margin-left: 31px;
+            img {
+              width: 55px;
+              margin-right: 20px;
+            }
           }
         }
       }
+    }
 
-      .btn {
-        padding: 8px 36px;
-        font-size: $h4;
-        position: absolute;
-        left: 49.5%;
+    .contact_form {
+      background-color: $light-milktea;
+      border-radius: 10px;
+
+      @include m() {
+        background-color: transparent;
+
+      }
+
+      .title {
+        margin-left: 19%;
+        padding-top: 44px;
 
         @include m() {
-          left: 36%;
-          margin-top: 8px;
+          margin-left: 0;
+          padding-top: 20px;
+          margin-bottom: 20px;
+        }
+      }
+
+      p {
+        width: 460px;
+        text-align: left;
+        margin-left: 31%;
+
+        @include m() {
+          width: 380px;
+          margin-left: 0;
+
+        }
+      }
+
+      form {
+        text-align: center;
+        margin-top: 28px;
+        padding-bottom: 88px;
+        position: relative;
+
+        @include m() {
+          background-color: $light-milktea;
+          border-radius: 10px;
+          text-align: left;
+          padding-top: 4px;
+          font-size: $h4;
+        }
+
+        input {
+          background-color: $white;
+          width: 360px;
+          margin-left: 28px;
+
+          @include m() {
+            width: 320px;
+          }
+        }
+
+        input#name {
+          margin-left: 23px;
+
+          @include m() {
+            margin-left: 31px;
+
+          }
+        }
+
+        textarea {
+          border: none;
+          border-radius: 8px;
+          width: 360px;
+          height: 250px;
+          margin-left: 28px;
+          padding: 10px;
+          font-size: $p;
+          line-height: 1.6;
+
+          &:focus {
+            outline: 2px solid $brown;
+          }
+
+          @include m() {
+            width: 320px;
+            margin-left: 31px;
+
+          }
+        }
+
+        .message {
+          vertical-align: top;
+        }
+
+        .contact_input {
+          margin: 32px auto;
+
+          @include m() {
+            label {
+              margin-bottom: 14px;
+              margin-left: 31px;
+            }
+          }
+        }
+
+        .btn {
+          padding: 8px 36px;
+          font-size: $h4;
+          position: absolute;
+          left: 49.5%;
+
+          @include m() {
+            left: 36%;
+            margin-top: 8px;
+          }
         }
       }
     }
-  }
 
-}
+  }

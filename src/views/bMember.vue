@@ -1,3 +1,7 @@
+<script setup>
+   const bMember_th = [ '會員ID','帳號','姓名','手機號碼','電子郵件','註冊日期','權限' ];
+   
+</script>
 <template>
     <div>
         <div class="bMember container-fluid">
@@ -61,6 +65,7 @@
             <!-- Main Content -->
             <div class="col-sm-9 main-content bMember_main-content">
                 <div class="bMember_data-table">
+                    <section>
                     <div class="bMember_logo">
                         <img src="@/img/bmember/bMember_logo.svg" alt="">
                     </div>
@@ -74,17 +79,20 @@
                             <input type="text" class="bMember_search-input" placeholder="帳號/姓名/手機號碼">
                         </div>
                     </div>
+                    </section>
+                     <section>
+                    <!-- 這裡以下是表格 -->
                     <table class="bMember_table table-striped">
                         <thead>
                             <tr>
-                                <th>會員ID</th>
+                                <th v-for="th in bMember_th" :key="th">{{th}}</th>
+                                <!-- <th>會員ID</th>
                                 <th>帳號</th>
                                 <th>姓名</th>
                                 <th>手機號碼</th>
                                 <th>電子郵件</th>
                                 <th>註冊日期</th>
-                                <th>權限</th>
-
+                                <th>權限</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -98,13 +106,19 @@
                                 <td>wang0206@email.com</td>
                                 <td>2024/2/6</td>
                                 <td>開放</td>
-                                <td>
+                                <!-- <td>
                                     <button class="edit-btn">編輯與查看</button>
-                                </td>
+                                </td> -->
+                            </tr>
+                            <tr v-for="tr_num in 18" :key="tr_num">
+                                <td v-for="td_num in 7" :key="td_num"></td>
                             </tr>
                         </tbody>
                     </table>
-                   
+                    <div class="back_btn_col">
+                        <button v-for="btn_num in 19" :key="btn_num" class="edit-btn">編輯與查看</button>
+                    </div>
+                    </section> 
                     <div class="bMember_pagination">
                         <a href="#" class="pagination-link">首頁</a>
                         <span class="pagination-separator">&lt;</span>
@@ -127,11 +141,7 @@
     </div>
 </template>
 
-<script>
-    export default {
-        
-    }
-</script>
+
 
 <style lang="scss">
 

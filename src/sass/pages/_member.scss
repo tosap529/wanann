@@ -52,6 +52,7 @@
     }
 
     li {
+        border-radius: 8px;
         margin-bottom: 20px;
         width: fit-content;
         padding: 10px 10px 10px 0;
@@ -67,6 +68,9 @@
             line-height: 30px;
         }
 
+        &:hover {
+            background-color: $light-milktea;
+        }
     }
 
 
@@ -360,14 +364,16 @@
     .member_sidebar {
         display: flex;
         flex-direction: column-reverse;
-        justify-content: flex-end;
+        // justify-content: flex-end;
         flex-basis: 0px;
+        margin: 0 auto;
         margin-bottom: 0;
 
         ul {
             display: flex;
             flex-wrap: wrap;
-            justify-content: flex-end;
+            justify-content: center;
+            margin-bottom: 20px;
 
             li {
                 margin-bottom: 0;
@@ -381,7 +387,8 @@
         }
 
         div {
-            margin-left: 40px;
+            // margin-left: 40px;
+            margin: 0 auto;
             margin-bottom: 20px;
 
             h2 {
@@ -448,6 +455,7 @@
 
     // 訂單分頁共通
     .tab ul {
+        justify-content: center;
         width: 320px;
         border-bottom: none;
         border-top: 1px solid $grey;

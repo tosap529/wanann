@@ -227,45 +227,73 @@
   //       cursor: pointer;
   //   }
 
+  .bMember_data-table>section:nth-child(2) {
+      //   background-color: red;
+      display: flex;
+  }
 
   .bMember_table {
       width: 100%;
   }
 
+  .bMember_data-table {
+      //   overflow-x: auto;
+      //   height: 36px;
+  }
+
+  .bMember_data-table th,
+  .bMember_data-table td {
+      font-size: $h3;
+      height: 40px;
+      line-height: 40px;
+  }
+
   .bMember_data-table th {
-      font-size: 18px;
-      height: 36px;
-      line-height: 36px;
-      text-align: center;
+      // text-align: center;
+      height: 40px;
+      line-height: 40px;
       background-color: #9B7B6C;
-      border: 1px solid #B69B85;
+      //   border: 1px solid #B69B85;
+      outline: 1px solid #B69B85;
       color: white;
   }
 
   .bMember_data-table td {
-      height: 36px;
       text-align: center;
-      border: 1px solid #B69B85;
+      //   border: 1px solid #B69B85;
+      outline: 1px solid #B69B85;
+      vertical-align: middle;
   }
 
-  .bMember_data-table td:last-child {
-      border-left: 1px solid #ddd;
-      border: none;
-      text-align: left;
+  //   .bMember_data-table td:last-child {
+  //       border-left: 1px solid #ddd;
+  //       border: none;
+
+  //       text-align: left;
+  //       width: 100px;
+  //   }
+  .back_btn_col {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+
   }
 
-  .bMember_data-table .edit-btn {
+  .edit-btn {
+      width: 100px;
+      height: 30px;
+      box-sizing: border-box;
       padding: 5px 10px;
-      margin: 5px;
+      margin: 5px 0 5px 5px;
       border: none;
       border-radius: 8px;
-      background-color: #B69B85;
+      background-color: $dark-milktea;
       color: white;
-      text-decoration: none;
+      //   text-decoration: none;
   }
 
 
-
+  //------以下換頁鍵--------
   .bMember_pagination {
       text-align: center;
       //   margin-top: 20px;
