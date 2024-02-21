@@ -1,5 +1,6 @@
 <script setup>
 import { computed, ref } from "vue";
+import ModalHamburger from '@/components/ModalHamburger.vue'; 
 const props = defineProps(['headerTitleZh','headerTitleEng','bgi','isBgi']);
 import { useRoute } from 'vue-router';
 const bgi_css = computed(() => {
@@ -7,12 +8,18 @@ const bgi_css = computed(() => {
         "background-image": `url('${props.bgi}')`
       };
     });
+    const isModalShow = ref(false);
+const hamburger = ()=>{
+isModalShow.value = !isModalShow.value;
+// console.log( isModalShow.value)
+};
 // 取得當前頁面路徑
 const route = useRoute();
 </script>
 
 <template>
     <div>
+        <ModalHamburger @hamburger="hamburger" v-show="isModalShow" />
         <header :style="bgi_css" >
             <nav>
             <div class="nav_left">
@@ -70,7 +77,7 @@ const route = useRoute();
                     </a>
                 </div>
             </div>
-            <div class="hamburger">
+            <div class="hamburger" @click="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
