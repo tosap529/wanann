@@ -60,7 +60,7 @@ defineEmits(['hamburger'])
 
 @include m() {
 
-    .ham_bgi{
+    div.ham_bgi{
         background-color: $dark-milktea;
     }
     .ham{
