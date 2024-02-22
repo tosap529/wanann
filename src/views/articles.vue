@@ -302,12 +302,44 @@
                         </p>
                         <a href="">Read More</a>
                     </article>
+                    
 
                 </section>
            
             </div>
-
+            
         </section>
+        <div class="mall_paginator articles_paginator">
+                <ul>
+                    <!-- 上一頁圖案 -->
+                    <!-- <li v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)"> -->
+                    <li>
+                        <!-- <span>&lt;</span> -->
+                        <div>
+                            <span>&lt;</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        1
+                    </li>
+                    <li>
+                        2
+                    </li>
+                    <li>
+                        3
+                    </li>
+
+                    <!-- 下一頁圖案 -->
+                    <!-- <li  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)"> -->
+                    <li>
+                        <!-- <span>&gt;</span> -->
+                        <div>
+                            <span>&gt;</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
 
     </wrapper>

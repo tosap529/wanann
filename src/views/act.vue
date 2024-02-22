@@ -1,5 +1,6 @@
 <script setup>
-    
+    import { ref } from "vue";
+
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import BannerUrl  from '@/img/act/act_banner.jpg'; // 更改成banner路徑
@@ -7,11 +8,9 @@
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
     
-    import { ref } from "vue";
+   
 
     const activeContent = ref('content1');
-
-
     const showContent = (e) => {
         activeContent.value = e;
     }
@@ -122,6 +121,37 @@
     </div>
 </article>
 </section>
+<div class="mall_paginator">
+                <ul>
+                    <!-- 上一頁圖案 -->
+                    <!-- <li v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)"> -->
+                    <li>
+                        <!-- <span>&lt;</span> -->
+                        <div>
+                            <span>&lt;</span>
+                        </div>
+                    </li>
+
+                    <li>
+                        1
+                    </li>
+                    <li>
+                        2
+                    </li>
+                    <li>
+                        3
+                    </li>
+
+                    <!-- 下一頁圖案 -->
+                    <!-- <li  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)"> -->
+                    <li>
+                        <!-- <span>&gt;</span> -->
+                        <div>
+                            <span>&gt;</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
 </wrapper>
 <DefaultFooter />
     </div>
