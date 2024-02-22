@@ -433,31 +433,14 @@ display: flex;
   width: 405px;
   overflow-x: auto;
   margin: 0 auto;
- 
   .phone{
     width: 1000px;
     tbody{
-      position: relative;
-      &:before{
-        content:"";
-        background-image: url(@/img/service_king.svg);
-        display: block;
-        position: absolute;
-        background-repeat: no-repeat;
-        background-position: center;
-        height: 40px;
-        width: 40px;
-        top: 31%;
-        background-size: cover;
-        left: 8%
-      }
-    }
       tr{
         border-bottom: 1px solid $grey;
         &:last-child{
           border-bottom: 0px;
         }
-
           td{
             text-align: center;
             vertical-align: middle;
@@ -470,7 +453,28 @@ display: flex;
                 margin: 0 auto;
               }
           }
+          .king{
+            position: relative;
+            div{
+            &:before{
+            content:"";
+            background-image: url(@/img/service_king.svg);
+            display: block;
+            position: absolute;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 40px;
+            width: 40px;
+            top: 0px;
+            background-size: cover;
+            left: 88px;
+            }
+            }
+          }
+        }
       }
+      
+      
   
   }
 }

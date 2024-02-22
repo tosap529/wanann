@@ -335,7 +335,7 @@ const modules = [Autoplay, Pagination, Navigation];
                     未必能活用</td>
             </tr>
             <tr>
-                <td><img src="@/img/logo_square.svg" alt=""></td>
+                <td class="king"><div><img src="@/img/logo_square.svg" alt=""></div></td>
                 <td>由浣安專業清潔人員服務</td>
                 <td>24小時隨時預約好方便 !</td>
                 <td>訂有清潔SOP，確保清潔品質</td>

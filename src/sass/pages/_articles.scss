@@ -165,7 +165,9 @@
   font-weight: bold;
 }
 
-
+.articles_paginator{
+  margin-left: 187px;
+}
 // ------------------------ RWD ------------------------
 
 
@@ -342,6 +344,10 @@
   
   .-close{
     display: none;
+  }
+
+  .articles_paginator{
+    margin-left: 0px;
   }
 }
 
