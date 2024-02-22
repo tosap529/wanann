@@ -1,7 +1,7 @@
 <script setup>
 import btt from '@/layouts/btt.vue';
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
-
+import ModalLogin from '@/components/ModalLogin.vue'; 
 // 購物車
 import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
@@ -15,12 +15,15 @@ const bgi_css = computed(() => {
       };
     });
 
-const isModalShow = ref(false);
+const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
-isModalShow.value = !isModalShow.value;
+    isHamburgerModalShow.value = !isHamburgerModalShow.value;
 // console.log( isModalShow.value)
 };
-
+const isLoginModalShow = ref(false);
+const goLogin = ()=>{
+    isLoginModalShow.value = !isLoginModalShow.value;
+};
 const isHeaderFixed = ref(false);
 const handleScroll = () => {
   let scrollDistance = window.scrollY || document.documentElement.scrollTop;
@@ -62,8 +65,8 @@ const toggleCart = function() {
 </script>
 <template>
     <div>
-        <ModalHamburger @hamburger="hamburger" v-show="isModalShow" />
-
+        <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
+        <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
         <header :style="bgi_css" :class="{ fixed: isHeaderFixed }">
           
         <nav ref="nav">
@@ -113,7 +116,8 @@ const toggleCart = function() {
                     </li>
                 </ul>
                 <div class="nav_user">
-                    <router-link  class="fai" :to="{ name: 'member' }"><font-awesome-icon icon="user" /></router-link> 
+                    <a href="#" class="fai" @click.prevent="goLogin"> <font-awesome-icon  icon="user" />
+                    </a> 
                     <a href="#" class="fai" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /></a>
                 </div>
             </div>
@@ -140,8 +144,7 @@ const toggleCart = function() {
 </template>
 
 
-<style lang="scss" >
-
+<style lang="scss" scoped>
 </style>
 
 
