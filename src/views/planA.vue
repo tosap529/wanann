@@ -6,6 +6,16 @@
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
 
+
+    import { ref } from "vue";
+
+    const activeContent = ref('content1');
+
+
+    const showContent = (e) => {
+        activeContent.value = e;
+    }
+
 </script>
 
 <template>    
@@ -55,16 +65,30 @@
 
             <div class="tab">
               <ul class="tab_planA">
-                <li class="tab_on"><a href="#">優惠活動</a></li>
-                <li><a href="#">職人講座</a></li>
-                <li><a href="#">職人講座</a></li>
+                <li :class="{ tab_on: activeContent === 'content1' }"><a href="#" @click.prevent="showContent('content1')">預約相關</a></li>
+                <li :class="{ tab_on: activeContent === 'content2' }"><a href="#" @click.prevent="showContent('content2')">訂單相關</a></li>
+                <li :class="{ tab_on: activeContent === 'content3' }"><a href="#" @click.prevent="showContent('content3')">服務相關</a></li>
               </ul>
             </div>
-            <div class="text">
+            <div class="text"  v-if="activeContent === 'content1'">
               <ul>
                 <li>如有選購「特殊處理」之加購服務品項，浣安服務人員將在訂單成立後24小時內與您聯繫，敬請留意！「特殊處理」品項採人工估價，現場收費。</li>
                 <li>系統僅提供可服務日期、時段供您訂購時選擇，實際服務時間可能因人力調配異動，我們將於訂購完成後另由浣安服務人員與您聯絡確認。</li>
                 <li>若浣安服務人員無法與您取得聯絡，將會在次個工作日再次聯絡，請您於訂單付款成功後留意來電。如您持續無法與服務人員完成約時，請您聯絡通知客服。</li>
+              </ul>
+            </div>
+            <div class="text"  v-else-if="activeContent === 'content2'">
+              <ul>
+                <li>僅接受信用卡支付。在您預約我們的服務時，您需要提供有效的信用卡信息以完成付款。我們接受主要的信用卡品牌，包括Visa、Mastercard、American Express等。請注意，我們不接受現金、支票或其他支付方式。</li>
+                <li>如果您需要取消預約，請在預定時間的最少 24 小時前通知我們。未能提前通知取消的預約將收取全額費用。</li>
+                <li>我們承諾保留客戶的反饋，這將有助於我們持續改進我們的服務質量。您的評論將被尊重並用於提高我們的服務水平。</li>
+              </ul>
+            </div>
+            <div class="text"  v-else-if="activeContent === 'content3'">
+              <ul>
+                <li>我們致力於提供高質量的清潔服務。如果您對我們的服務不滿意，請立即與我們聯絡。浣安團隊將竭盡所能解決您的問題，以確保您對我們的服務滿意。</li>
+                <li>我們為您提供了一個常見問題解答區域，這裡包含了關於浣安清潔服務的常見問題和相應答案。您可以在官方網站上找到這些資訊，亦可透過信箱、電話、官網向我們聯繫。</li>
+                
               </ul>
             </div>
 

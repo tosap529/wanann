@@ -11,13 +11,14 @@
 
 .act_main {
   margin-top: 70px;
+  line-height: 1.6;
 }
 
 
 .act_main article {
   display: flex;
   width: 788px;
-  height: 280px;
+  height: 300px;
   margin: 0 auto 50px;
   background-color: $light-milktea;
   border-radius: 10px;
@@ -27,7 +28,7 @@
   }
 
   .right {
-    padding: 35px 30px 25px;
+    padding: 25px 30px 25px;
     display: flex;
     flex-direction: column;
 
@@ -37,7 +38,7 @@
     }
 
     h4 {
-      margin-bottom: 36px;
+      margin-bottom: 20px;
     }
 
     .coupon_container {
@@ -79,6 +80,26 @@
   display: none;
 }
 
+li.tab_on {
+  background-color: $dark-milktea;
+
+  a {
+      color: $white;
+
+  }
+}
+
+
+.act_main2{
+  article{
+    
+      h3{
+      flex-grow: 1;
+      margin-top: 45px;
+    }
+  }
+}
+
 // ------------------------ RWD ------------------------
 
 
@@ -92,17 +113,25 @@
     border-top: 0px;
     border-bottom: 1px solid $grey;
     width: 360px;
+    ul{
+      
+      li{
+        margin-right: 10px;
+      }
+    }
+
     a{
       font-size: $h4;
       width: 85px;
     }
   }
   
+
   .act_main article {
     display: flex;
     flex-direction: column;
     width: 380px;
-    height: 500px;
+    height: 560px;
     margin: 0 auto 28px;
     background-color: $light-milktea;
     border-radius: 10px;
@@ -115,10 +144,12 @@
     }
     img {
       display: block;
-      height: 200px;
+      height: 250px;
       width: 250px;
       margin: 0 auto 16px;
-    }
+      border-radius: 10px;
+      background-size: contain;    
+      }
   
     .right {
       padding: 0px 30px;
@@ -172,4 +203,11 @@
     }
   }
 
+
+  .act_tab .tab ul li{
+    margin-right: 10px;
+    &:nth-child(2){
+      margin-left: 10px;
+    }
+  }
 }

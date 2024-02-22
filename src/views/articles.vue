@@ -11,94 +11,46 @@
     import { ref } from "vue";
     
     const activeContent = ref('content1');
+    const isVisible1 = ref(true);
+    const isVisible2 = ref(false);
+    const isVisible3 = ref(false);
 
-    const showContent = (content) => {
-    activeContent.value = content;
+    const showContent = (e) => {
+        activeContent.value = e;
+        if(activeContent.value === 'content1'){
+            isVisible1.value = true;
+            isVisible2.value = false;
+            isVisible3.value = false;
+            
+        }else if(activeContent.value === 'content2'){
+            isVisible2.value = true;
+            isVisible1.value = false;
+            isVisible3.value = false;
+        }else if(activeContent.value === 'content3'){
+            isVisible3.value = true;
+            isVisible1.value = false;
+            isVisible2.value = false;
+        }
+    }
+    
+    // const showContent = (e) => {
+    //     activeContent.value = e;
+    
+    //     for (let i = 1; i <= 3; i++) {
+    //         const isVisible = activeContent.value === `content${i}` ;
+    //         [`isVisible${i}`].value = isVisible;
+    //     }
 
-};
+    // };
 
 </script>
 
-<!-- <script>
-
-export default {
-    data(){
-    
-    },
-    methods:{
-
-    },
-    mounted(){
-    let btn_wanann_el = document.getElementById("btn_wanann");
-        let btn_know_el = document.getElementById("btn_know");
-        let btn_interview_el = document.getElementById("btn_interview");
-
-        let articles_wanann_el = document.getElementById("articles_wanann");
-        let articles_know_el = document.getElementById("articles_know");
-        let articles_interview_el = document.getElementById("articles_interview");
-
-        let wannan_top_el = document.getElementById("wannan_top");
-        let know_top_el = document.getElementById("know_top");
-        let interview_top_el = document.getElementById("interview_top");
-       
-        
-
-
-        btn_wanann_el.addEventListener('click',function(){
-            articles_wanann_el.classList.remove('-off');
-            btn_wanann_el.classList.add('color');
-            articles_know_el.classList.add('-off');
-            articles_interview_el.classList.add('-off');
-            btn_know_el.classList.remove('color');
-            btn_interview_el.classList.remove('color');
-            wannan_top_el.classList.remove('-close');
-            know_top_el.classList.add('-close');
-            interview_top_el.classList.add('-close');
-        }
-        
-        
-
-        )
-
-        btn_know_el.addEventListener('click',function(){
-            articles_know_el.classList.remove('-off');
-            btn_know_el.classList.add('color');
-            articles_wanann_el.classList.add('-off');
-            articles_interview_el.classList.add('-off');
-            btn_wanann_el.classList.remove('color');
-            btn_interview_el.classList.remove('color');
-            wannan_top_el.classList.add('-close');
-            know_top_el.classList.remove('-close');
-            interview_top_el.classList.add('-close');
-        }
-
-        )
-
-        btn_interview_el.addEventListener('click',function(){
-            articles_interview_el.classList.remove('-off');
-            btn_interview_el.classList.toggle('color');
-            articles_wanann_el.classList.add('-off');
-            articles_know_el.classList.add('-off');
-            btn_wanann_el.classList.remove('color');
-            btn_know_el.classList.remove('color');
-            wannan_top_el.classList.add('-close');
-            know_top_el.classList.add('-close');
-            interview_top_el.classList.remove('-close');
-        }
-
-        )
-    }
-
-};
-
-
-</script> -->
 
 <template>
     <div>
         <DefaultHeader header-title-zh="專欄文章" header-title-eng="Articles" :bgi="banner_url" /> 
         <wrapper class="articles"> 
-        <div id="wannan_top">
+        <div id="wannan_top"  v-show="isVisible1">
         <section class="articles_top">
            
             <article class="left">
@@ -120,7 +72,7 @@ export default {
             
         </section>
         </div>
-        <div class="-close" id="know_top">
+        <div id="know_top" v-show="isVisible2">
         <section class="articles_top">
 
             <article class="left">
@@ -146,7 +98,7 @@ export default {
 
         </section>
         </div>
-        <div class="-close" id="interview_top">
+        <div id="interview_top" v-show="isVisible3">
         <section class="articles_top">
 
             <article class="left">
@@ -179,13 +131,13 @@ export default {
                 <ul>
                     <!-- class="color" -->
                     <li>
-                        <a href="#" id="btn_wanann"  @click="showContent('content1')" >浣安小品</a>
+                        <a href="#" id="btn_wanann"  @click.prevent="showContent('content1')" :class="{ color: activeContent === 'content1' }">浣安小品</a>
                     </li>
                     <li>
-                        <a href="#" id="btn_know"  @click="showContent('content2')" >清潔小知識</a>
+                        <a href="#" id="btn_know"  @click.prevent="showContent('content2')" :class="{ color: activeContent === 'content2' }">清潔小知識</a>
                     </li>
                     <li>
-                        <a href="#" id="btn_interview" @click="showContent('content3')" >職人專訪</a>
+                        <a href="#" id="btn_interview" @click.prevent="showContent('content3')" :class="{ color: activeContent === 'content3' }">職人專訪</a>
                     </li>
                     <li>
                         <a href="">品牌聯名</a>
@@ -363,5 +315,7 @@ export default {
     </div>
 </template>
 
-<style lang="scss" >
+<style lang="scss">
+
+
 </style>
