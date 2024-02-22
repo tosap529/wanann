@@ -3,11 +3,11 @@
 import indexFooter from '@/layouts/footer.vue';
 import btt from '@/layouts/btt.vue';
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
-import ModalLogin from '@/components/ModalLogin.vue'; 
+// import ModalLogin from '@/components/ModalLogin.vue'; 
 
 // 購物車
-import { useCartStore } from '@/stores/cartStore.js';
-import shoppingCart from '@/components/shoppingCart.vue';
+// import { useCartStore } from '@/stores/cartStore.js';
+// import shoppingCart from '@/components/shoppingCart.vue';
 
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
@@ -18,10 +18,12 @@ const hamburger = ()=>{
     isHamburgerModalShow.value = !isHamburgerModalShow.value;
     // console.log( isModalShow.value)
 };
-const isLoginModalShow = ref(false);
-const goLogin = ()=>{
-    isLoginModalShow.value = !isLoginModalShow.value;
-};
+
+// const isLoginModalShow = ref(false);
+// const goLogin = ()=>{
+//     isLoginModalShow.value = !isLoginModalShow.value;
+// };
+
 const handleScroll = () => {
   let scrollDistance = window.scrollY || document.documentElement.scrollTop;
 
@@ -48,17 +50,17 @@ onBeforeUnmount(() => {
 });
 
 // 購物車
-const cartStore = useCartStore();
-const toggleCart = function() {
-  cartStore.toggleCart();
-};
+// const cartStore = useCartStore();
+// const toggleCart = function() {
+//   cartStore.toggleCart();
+// };
 
 </script>
 
 <template>
     <div>
         <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
-        <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
+        <!-- <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" /> -->
         <header class="index_header" :class="{ fixed: isHeaderFixed }"> 
         <nav>
             <div class="nav_left">
@@ -108,7 +110,7 @@ const toggleCart = function() {
 
     </header>
     <!-- 購物車 -->
-    <shoppingCart />
+    <!-- <shoppingCart /> -->
 
         <div class="wrapper" :class="{ fixed: isHeaderFixed }">
 
