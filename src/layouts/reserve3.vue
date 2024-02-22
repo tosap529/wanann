@@ -5,7 +5,7 @@ import Calendar from '@/layouts/calendar.vue';
 </script>
 
 <template>
-<wrapper class="wrapper reserve3">
+<div class="wrapper reserve3">
         <section class="subtitle" @click="$emit('firstReserveStep')">
         <h1>1</h1>
         <h1>選擇服務</h1>
@@ -39,7 +39,7 @@ import Calendar from '@/layouts/calendar.vue';
         <section class="next_btn">
             <router-link class="btn" :to="{ name: 'sPay1' }">前往結帳</router-link>   
         </section>
-</wrapper>
+    </div>
 </template>
 
 

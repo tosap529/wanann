@@ -4,7 +4,7 @@ import wrapper from '@/layouts/wrapper.vue';
 </script>
 
 <template>
-<wrapper class="wrapper reserve2">
+<div class="wrapper reserve2">
     <section class="subtitle" @click="$emit('lastReserveStep')">
         <h1>1</h1>
         <h1>選擇服務</h1>
@@ -118,7 +118,7 @@ import wrapper from '@/layouts/wrapper.vue';
             <a class="btn" @click="$emit('nextReserveStep',$e)">下一步</a>
         </section>
 
-</wrapper>
+    </div>
 </template>
 
 

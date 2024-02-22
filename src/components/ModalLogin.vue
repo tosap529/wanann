@@ -50,11 +50,12 @@ const eyeOnPWD=(e)=>{
             <h1>登入</h1>
         </div>
         <form class="login_form">
-            <label for="account">帳號<br><input type="text" id="account"></label>
+            <label for="username">帳號<br><input type="text" id="username"></label>
             <br>
-            <label for="pwd">密碼<br><input type="text" id="pwd"></label>
+            <label for="pwd">密碼<br><input type="password" id="pwd"></label>
             <br>
-            <a href="#">忘記密碼？</a>
+            <router-link  :to="{ name: 'forget' }">忘記密碼？</router-link>
+            <!-- <a href="#">忘記密碼？</a> -->
             <router-link class="btn" :to="{ name: 'member' }">登入</router-link>
         </form>
         <div>
@@ -182,20 +183,14 @@ const eyeOnPWD=(e)=>{
         }
         a.btn {
                 width: 150px;
-                height: auto;
+                height: 50px;
+                line-height: 30px;
                 margin: 0 auto;
                 color: $white;
                 text-align: center;
                 font-size: $h2;
                 margin-top: 30px;
             }
-        // div {
-        //     display: flex;
-        //     justify-content: center;
-        //     
-
-           
-        // }
     }
 
     div:nth-child(4) {
@@ -257,7 +252,9 @@ const eyeOnPWD=(e)=>{
         width: 150px;
         margin-top: 120px;
     }
-
+    #changeLoginBox{
+    opacity: 1;
+    }
 }
 
 // 註冊表單
