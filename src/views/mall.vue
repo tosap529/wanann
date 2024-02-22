@@ -59,8 +59,10 @@
                         <!-- <img v-bind:src="i.productSrc"> -->
                         <h1>{{ i.productName }}</h1>
                         <p>{{ i.productPrice }}</p>
-                        <input class="mall_add_to_cart" type="button" value="加入購物車">
-
+                        <input 
+                            class="mall_add_to_cart" 
+                            type="button" 
+                            value="加入購物車">
                     </li>
                 </ul>
                 
@@ -70,9 +72,12 @@
             <div class="mall_paginator">
                 <ul>
                     <!-- 上一頁圖案 -->
-                    <li v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)">
-                        <!-- <i class="fa-solid fa-angle-left arrow"></i> -->
-                        <span>&lt;</span>
+                    <!-- <li v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)"> -->
+                    <li>
+                        <!-- <span>&lt;</span> -->
+                        <div v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)">
+                            <span>&lt;</span>
+                        </div>
                     </li>
 
                     <li v-for="n in totalPages" v-bind:key="n" v-on:click="setPage(n)" v-bind:class="{'mall_paginator_on' : n == currentPage}">
@@ -80,9 +85,12 @@
                     </li>
 
                     <!-- 下一頁圖案 -->
-                    <li v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)">
-                        <!-- <i class="fa-solid fa-angle-right arrow"></i> -->
-                        <span>&gt;</span>
+                    <!-- <li  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)"> -->
+                    <li>
+                        <!-- <span>&gt;</span> -->
+                        <div  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)">
+                            <span>&gt;</span>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -93,93 +101,47 @@
         <!----------------- cart ------------------>
 
         <!-- 購物車清單 -->
-        <div class="cart" v-bind:class="{'toggle' : cartOpen}" v-on:click="cartToggle">
-            <div class="cart-menu">
+        <!-- <div class="cart" v-bind:class="{'toggle' : cartOpen}" v-on:click="cartToggle"> -->
+            <!-- <div class="cart-menu"> -->
 
-                <div class="cart-top">
+                <!-- <div class="cart-top">
                     <h1 class="text-h1">購物車</h1>
                     <i id="close-btn" class="fas fa-times cart-menu-close-btn"></i>
-                </div>
+                    <font-awesome-icon class="cart-menu-close-btn" :icon="['fas', 'xmark']" />
+                </div> -->
 
                 <!-- 商品新增處 -->
-                <div class="product-rows">
+                <!-- <div class="product-rows">
 
-                    <div class="product-row">
+                    <div 
+                        v-for="i in cartProducts" 
+                        v-bind:key="i.productId"
+                        class="product-row">
 
-                        <img  class="cart-image" src="@/img/mall/mall_product1_1.jpg">
+                        <img  class="cart-image" v-bind:src="i.productSrc">
 
                         <div class="product-row-inner">
-                            <h2>浣安手工香皂</h2>
+                            <h2>{{ i.productName }}</h2>
 
                             <div class="cart_design">
                                 <h4>經典款</h4>
                             </div>
 
                             <div class="cal">
-                                <i class="fa-solid fa-minus cal_btn"></i>
+                                <font-awesome-icon class="cal_btn" :icon="['fas', 'minus']" />
                                 <div class="cal_count">1</div>
-                                <i class="fa-solid fa-plus cal_btn"></i>
+                                <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
                             </div>
 
                         </div>
 
                         <div class="product-row-price">
-                            <span class ="cart-price">NT$200</span>
+                            <span class ="cart-price">{{ i.productPrice }}</span>
                             <i class="fa-solid fa-trash cart-item-remove-btn"></i>
+                            <font-awesome-icon class="cart-item-remove-btn" :icon="['fas', 'trash']" />
                         </div>
                     </div>
-
-                    <div class="product-row">
-                        
-                        <img  class="cart-image" src="@/img/mall/mall_product1_1.jpg">
-
-                        <div class="product-row-inner">
-                            <h2>浣安手工香皂</h2>
-
-                            <div class="cart_design">
-                                <h4>經典款</h4>
-                            </div>
-
-                            <div class="cal">
-                                <i class="fa-solid fa-minus cal_btn"></i>
-                                <div class="cal_count">1</div>
-                                <i class="fa-solid fa-plus cal_btn"></i>
-                            </div>
-
-                        </div>
-
-                        <div class="product-row-price">
-                            <span class ="cart-price">NT$200</span>
-                            <i class="fa-solid fa-trash cart-item-remove-btn"></i>
-                        </div>
-                    </div>
-
-                    <div class="product-row">
-                        
-                        <img  class="cart-image" src="@/img/mall/mall_product1_1.jpg">
-
-                        <div class="product-row-inner">
-                            <h2>浣安手工香皂</h2>
-
-                            <div class="cart_design">
-                                <h4>經典款</h4>
-                            </div>
-
-                            <div class="cal">
-                                <i class="fa-solid fa-minus cal_btn"></i>
-                                <div class="cal_count">1</div>
-                                <i class="fa-solid fa-plus cal_btn"></i>
-                            </div>
-
-                        </div>
-
-                        <div class="product-row-price">
-                            <span class ="cart-price">NT$200</span>
-                            <i class="fa-solid fa-trash cart-item-remove-btn"></i>
-                        </div>
-                    </div>
-
-
+                    
                 </div>
 
                 <div class="cart-footer">
@@ -188,9 +150,9 @@
                         <span class="total-price">$600</span>
                     </div>
                     <button class="btn purchase-btn">結帳去</button>
-                </div>
-            </div>
-        </div>
+                </div> -->
+            <!-- </div> -->
+        <!-- </div> -->
         <!-- 購物車清單結束 -->
         <DefaultFooter />
     </div>
@@ -200,9 +162,6 @@
     export default {
         data() {
             return {
-                // 臨時購物車按鈕
-                cartOpen: false,
-
                 // 分類tab
                 currentCategory: '所有商品',
 
@@ -218,6 +177,7 @@
                         productPrice: "NT$200",
                         productSrc : "./src/img/mall/mall_product1_1.jpg",
                         productStyle : '清潔工具',
+                        quantity : 1,
                     },
 
                     {
@@ -426,7 +386,7 @@
                 if(e.target.classList.contains('cart')){
                     this.cartOpen = !this.cartOpen
                 };
-            }
+            },
         }
     }
 </script>

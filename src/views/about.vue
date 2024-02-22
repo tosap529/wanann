@@ -4,13 +4,13 @@ import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
 import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
 import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
-import Modal from '@/components/ModalAboutBelief.vue'; 
+import ModalAboutBelief from '@/components/ModalAboutBelief.vue'; 
 
 const banner_url = BannerUrl; // banner路徑令變數(請照抄)
-const isModalShow = ref(false);
-const ModalAboutBelief = ()=>{
-    isModalShow.value = !isModalShow.value;
-    console.log( isModalShow.value)
+const isBeliefModalShow = ref(false);
+const goBelief = ()=>{
+  isBeliefModalShow.value = !isBeliefModalShow.value;
+    console.log( isBeliefModalShow.value)
 };
 const bgi =ref(null);
 const charity =ref(null);
@@ -71,9 +71,9 @@ const bgi_off = ref({
   'position':'absolute',
   'top':'4200px',
   'left':'0'}) ;
-function fullBgc(){
-    const charity_pos = charity.value.getBoundingClientRect();
-console.log(window.innerWidth)
+const fullBgc=()=>{
+    let charity_pos = charity.value.getBoundingClientRect();
+    console.log(window.innerWidth)
     // console.log(charity_pos.top);
     // console.log(charity_pos.top-window.innerHeight);
     if(window.innerWidth>500){
@@ -94,7 +94,7 @@ document.addEventListener("scroll", fullBgc);
 </script>
 <template>
     <div>
-      <Modal @ModalAboutBelief="ModalAboutBelief" v-show="isModalShow"  />
+      <ModalAboutBelief @ModalAboutBelief="goBelief" v-show="isBeliefModalShow"  />
     <!-- 貼上以下這行(footer一樣不多贅述) 並更改成需要的標題，:bgi照貼即可 -->
     <DefaultHeader header-title-zh="關於我們" header-title-eng="About" :bgi="banner_url" /> 
 
@@ -128,7 +128,7 @@ document.addEventListener("scroll", fullBgc);
             </div>
             <h4 class="about_anime aboutSlideIn">在現代快節奏的生活中，夫妻雙方皆投入工作，繁忙的生活使得居家清潔成為一項負擔。<br><br>與此同時，高齡化社會的蔓延也讓家中的長輩需要更多的關懷和照顧。<br><br>在這樣的狀況下，「浣安」懷著企業社會責任的理念，為您締造輕鬆、愜意的家居環境，讓您專注於工作，同時讓長輩和家人享受更好的居住品質。<br><br>我們了解，工作繁忙的上班族往往無暇顧及居家清潔，而家中的長輩亦需要更多關懷。因此，「浣安」提供專業的居家清潔服務，讓您不再為家務瑣事而煩惱。我們的清潔團隊不僅注重細節，更兼顧家人的安全和健康，使用環保、對身體無害的清潔用品，為您打造一個乾淨又舒適的家。<br><br>「浣安」不只是清潔服務，更是您家中的幸福保姆。我們的使命是為您減輕生活負擔，讓您回到一個清新整潔的家，感受家的溫馨和幸福。同時，透過對高齡社會的關懷，我們希望為長輩帶來更多的關愛和舒適。<br><br>「浣安」努力實現環保和永續經營，成為一個為社會帶來正面影響的品牌。讓我們攜手，為您的家庭和社區創造一個更美好的生活環境。<br><br>輕鬆愜意，家的幸福保姆，「浣安」陪伴您共創美好未來。
             </h4>
-            <button class="btn"  @click="ModalAboutBelief">了解更多</button>
+            <button class="btn"  @click="goBelief">了解更多</button>
             
         </section>
         <section class="about_art">

@@ -1,9 +1,10 @@
 <script setup>
+import wrapper from '@/layouts/wrapper.vue';
     defineEmits(['nextReserveStep']);
 </script>
 
 <template>
-<wrapper class="wrapper reserve1">
+<div class="wrapper reserve1">
    
 <section class="subtitle">
     <h1>1</h1>
@@ -63,7 +64,7 @@
     <a class="btn" @click="$emit('nextReserveStep',$e)">下一步</a>
 </section>
 
-</wrapper>
+</div>
 </template>
 
 

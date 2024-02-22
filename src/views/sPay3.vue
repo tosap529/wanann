@@ -11,7 +11,7 @@
     <div>
         <DefaultHeader header-title-zh="服務結帳" header-title-eng="Checkout" :bgi="banner_url" />
         <!-- sPay3正式開始 -->
-        <wrapper class="wrapper mPay3_wrapper">
+        <wrapper class="wrapper sPay3_wrapper">
             <section class="sPay3">
 
                 <div class="circle sPay3_circle">

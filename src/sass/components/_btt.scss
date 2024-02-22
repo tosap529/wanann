@@ -16,4 +16,12 @@
     &:hover {
         background-color: $brown;
     }
+
+    @include m() {
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+
+        right: 20px;
+    }
 }

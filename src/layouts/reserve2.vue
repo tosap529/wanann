@@ -1,9 +1,10 @@
 <script setup>
+import wrapper from '@/layouts/wrapper.vue';
     defineEmits(['nextReserveStep','lastReserveStep'])
 </script>
 
 <template>
-<wrapper class="wrapper reserve2">
+<div class="wrapper reserve2">
     <section class="subtitle" @click="$emit('lastReserveStep')">
         <h1>1</h1>
         <h1>選擇服務</h1>
@@ -20,49 +21,49 @@
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox1">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox1">
                 <label for="checkbox1" name="">窗簾清潔</label>
                 </div>
                 <p>NTD500</p>
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox2">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox2">
                 <label for="checkbox2" name="">布件除蟎</label>
                 </div>
                 <p>NTD500</p>
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox3">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox3">
                 <label for="checkbox3" name="">冷氣機清理</label>
                 </div>
                 <p>NTD500</p>
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox4">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox4">
                 <label for="checkbox4" name="">冰箱清理</label>
                 </div>
                 <p>NTD500</p>
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox5">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox5">
                 <label for="checkbox5" name="">洗衣機清理</label>
                 </div>
                 <p>NTD500</p>
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox6">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox6">
                 <label for="checkbox6" name="">陽台清潔</label>
                 </div>
                 <p>NTD500</p>
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox7">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox7">
                 <label for="checkbox7" name="">簡易消毒</label>
                 </div>
                 <p>NTD500</p>
@@ -75,21 +76,21 @@
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox8">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox8">
                 <label for="checkbox8" name="">簡易消毒</label>
                 </div>
                 <p>若屋況為空屋，則可減免價格</p>
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox9">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox9">
                 <label for="checkbox9" name="">毛孩服務</label>
                 </div>
                 <p>若家中有飼養狗、貓等寵物，請勾選此項</p>
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox10">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox10">
                 <label for="checkbox10" name="">大坪數</label>
                 </div>
                 <p>室內坪數超過25坪，請勾選此項
@@ -97,7 +98,7 @@
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox11">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox11">
                 <label for="checkbox11" name="">樓中樓</label>
                 </div>
                 <p>室內空間若有樓中樓，請勾選此項
@@ -105,7 +106,7 @@
             </div>
             <div class="checkbox_bar">
                 <div>
-                <input type="checkbox" name="" class="service_checkbox" id="checkbox12">
+                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox12">
                 <label for="checkbox12" name="">局部加強</label>
                 </div>
                 <p>如房屋有特殊格局：深窄的空間、地下室等，請勾選此項</p>
@@ -117,7 +118,7 @@
             <a class="btn" @click="$emit('nextReserveStep',$e)">下一步</a>
         </section>
 
-</wrapper>
+    </div>
 </template>
 
 
