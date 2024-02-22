@@ -1,4 +1,5 @@
 <script setup>
+import wrapper from '@/layouts/wrapper.vue';
     defineEmits(['nextReserveStep']);
 </script>
 

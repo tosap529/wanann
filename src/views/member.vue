@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import MemberTab from "@/components/MemberTab.vue"
-
+// import wrapper from '@/layouts/wrapper.vue';
 import FixedHeader from '@/layouts/headerFixed.vue'; 
 import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
@@ -73,7 +73,7 @@ function infoSave(e){
 <template>
     <div>
      <FixedHeader header-title-zh="會員中心"  header-title-eng="Member" :bgi="banner_url" />
-    <wrapper class="member wrapper">
+    <div class="member wrapper">
         <section class="member_sidebar">
             <div>
                 <input type="file" id="profileMini">
@@ -393,7 +393,7 @@ function infoSave(e){
             </div>
         </section>
 
-    </wrapper>
+    </div>
     <DefaultFooter />
 </div>
 </template>

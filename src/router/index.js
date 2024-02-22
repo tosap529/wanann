@@ -32,9 +32,9 @@ const router = createRouter({
       component: () => import('@/views/articles.vue')
     },
     {
-      path: '/bMember',
-      name: 'bMember',
-      component: () => import('@/views/bMember.vue')
+      path: '/cms',
+      name: 'cms',
+      component: () => import('@/views/cms.vue')
     },
     {
       path: '/case',
@@ -132,17 +132,17 @@ const router = createRouter({
       component: () => import('@/views/welcome.vue')
     },
     //展示頁面先放
-    {
-      path: '/bMember',
-      name: 'bMember',
-      component: () => import('@/views/bMember.vue')
-    },
+    // {
+    //   path: '/bMember',
+    //   name: 'bMember',
+    //   component: () => import('@/views/bMember.vue')
+    // },
     // 暫時放，做漢堡選單用，做好會刪除
-    {
-      path: '/hamburger',
-      name: 'hamburger',
-      component: () => import('@/components/ModalHamburger.vue')
-    },
+    // {
+    //   path: '/hamburger',
+    //   name: 'hamburger',
+    //   component: () => import('@/components/ModalHamburger.vue')
+    // },
 
   ]
 })

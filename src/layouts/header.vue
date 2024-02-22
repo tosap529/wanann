@@ -11,9 +11,9 @@ const bgi_css = computed(() => {
       };
     });
 
-const isModalShow = ref(false);
+const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
-isModalShow.value = !isModalShow.value;
+    isHamburgerModalShow.value = !isHamburgerModalShow.value;
 // console.log( isModalShow.value)
 };
 
@@ -46,11 +46,10 @@ onBeforeUnmount(() => {
 // document.addEventListener("scroll", aa);
 // 取得當前頁面路徑
 const route = useRoute();
-// console.log(route.name);
 </script>
 <template>
     <div>
-        <ModalHamburger @hamburger="hamburger" v-show="isModalShow" />
+        <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
 
         <header :style="bgi_css" :class="{ fixed: isHeaderFixed }">
           
