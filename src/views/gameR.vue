@@ -2,6 +2,15 @@
 
 import gameFooter from '@/layouts/footer.vue'
 
+// 購物車
+import { useCartStore } from '@/stores/cartStore.js';
+import shoppingCart from '@/components/shoppingCart.vue';
+
+const cartStore = useCartStore();
+const toggleCart = function() {
+  cartStore.toggleCart();
+};
+
 </script>
 
 <template>
@@ -36,7 +45,7 @@ import gameFooter from '@/layouts/footer.vue'
                 </ul>
                 <div class="nav_user">
                     <router-link class="fai" :to="{ name: 'member' }"><font-awesome-icon icon="user" /></router-link>
-                    <a href="#" class="fai"><font-awesome-icon icon="cart-shopping" /></a>
+                    <a href="#" class="fai" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /></a>
                 </div>
             </div>
             <div class="hamburger">
@@ -46,6 +55,7 @@ import gameFooter from '@/layouts/footer.vue'
             </div>
         </nav>
 </header>
+<shoppingCart />
 
     <div class="wrapper">
         <section>

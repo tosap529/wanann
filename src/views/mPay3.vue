@@ -13,113 +13,6 @@
         <DefaultHeader header-title-zh="商城結帳" header-title-eng="Checkout" :bgi="banner_url" />
         <wrapper class="wrapper mPay3_wrapper">
 
-            <!----------------- cart ------------------>
-
-            <!-- 購物車清單 -->
-            <div class="cart">
-                <div class="cart-menu">
-
-                    <div class="cart-top">
-                        <h1 class="text-h1">購物車</h1>
-                        <i id="close-btn" class="fas fa-times cart-menu-close-btn"></i>
-                    </div>
-
-                    <!-- 商品新增處 -->
-                    <div class="product-rows">
-
-                        <div class="product-row">
-
-                            <img  class="cart-image" src="@/img/mall/mall_product1_1.jpg">
-
-                            <div class="product-row-inner">
-                                <h2>浣安手工香皂</h2>
-
-                                <div class="cart_design">
-                                    <h4>經典款</h4>
-                                </div>
-
-                                <div class="cal">
-                                    <i class="fa-solid fa-minus cal_btn"></i>
-                                    <div class="cal_count">1</div>
-                                    <i class="fa-solid fa-plus cal_btn"></i>
-                                </div>
-
-                            </div>
-
-                            <div class="product-row-price">
-                                <span class ="cart-price">NT$200</span>
-                                <i class="fa-solid fa-trash cart-item-remove-btn"></i>
-                            </div>
-                        </div>
-
-                        <div class="product-row">
-                            
-                            <img  class="cart-image" src="@/img/mall/mall_product1_1.jpg">
-
-                            <div class="product-row-inner">
-                                <h2>浣安手工香皂</h2>
-
-                                <div class="cart_design">
-                                    <h4>經典款</h4>
-                                </div>
-
-                                <div class="cal">
-                                    <i class="fa-solid fa-minus cal_btn"></i>
-                                    <div class="cal_count">1</div>
-                                    <i class="fa-solid fa-plus cal_btn"></i>
-                                </div>
-
-                            </div>
-
-                            <div class="product-row-price">
-                                <span class ="cart-price">NT$200</span>
-                                <i class="fa-solid fa-trash cart-item-remove-btn"></i>
-                            </div>
-                        </div>
-
-                        <div class="product-row">
-                            
-                            <img  class="cart-image" src="@/img/mall/mall_product1_1.jpg">
-
-                            <div class="product-row-inner">
-                                <h2>浣安手工香皂</h2>
-
-                                <div class="cart_design">
-                                    <h4>經典款</h4>
-                                </div>
-
-                                <div class="cal">
-                                    <i class="fa-solid fa-minus cal_btn"></i>
-                                    <div class="cal_count">1</div>
-                                    <i class="fa-solid fa-plus cal_btn"></i>
-                                </div>
-
-                            </div>
-
-                            <div class="product-row-price">
-                                <span class ="cart-price">NT$200</span>
-                                <i class="fa-solid fa-trash cart-item-remove-btn"></i>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-                    <div class="cart-footer">
-                        <div class="cart-menu-total">
-                            <h2 class="cart-total">小計</h2>
-                            <span class="total-price">$600</span>
-                        </div>
-                        <button class="btn purchase-btn">結帳去</button>
-                    </div>
-                </div>
-            </div>
-            <!-- 購物車清單結束 -->
-
-
-
-
-            <!-- mPay3正式開始 -->
             <section class="mPay3">
 
                 <div class="circle mPay3_circle">
@@ -157,8 +50,6 @@
 
 
             </section>
-
-
         </wrapper>
         <DefaultFooter />
     </div>

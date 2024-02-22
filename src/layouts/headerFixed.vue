@@ -3,6 +3,14 @@ import { computed, ref } from "vue";
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 const props = defineProps(['headerTitleZh','headerTitleEng','bgi','isBgi']);
 import { useRoute } from 'vue-router';
+// 購物車
+import { useCartStore } from '@/stores/cartStore.js';
+import shoppingCart from '@/components/shoppingCart.vue';
+const cartStore = useCartStore();
+const toggleCart = function() {
+  cartStore.toggleCart();
+};
+
 const bgi_css = computed(() => {
       return {
         "background-image": `url('${props.bgi}')`
@@ -72,7 +80,7 @@ const route = useRoute();
                     <router-link class="fai" :class="{'route_now':route.name=='member'}" :to="{ name: 'member' }">
                         <font-awesome-icon  icon="user" />
                     </router-link>
-                    <a href="#" class="fai">
+                    <a href="#" class="fai" @click.prevent="toggleCart">
                         <font-awesome-icon icon="cart-shopping" />
                     </a>
                 </div>
@@ -86,8 +94,10 @@ const route = useRoute();
         <div class="header_text">
                 <h1>{{headerTitleZh}}</h1>
                 <h1>{{headerTitleEng}}</h1>
-            </div>
+            </div>   
 </header>
+<!-- 購物車 -->
+<shoppingCart />
     </div>
 </template>
 <style lang="scss">
