@@ -138,11 +138,11 @@ const router = createRouter({
       component: () => import('@/views/bMember.vue')
     },
     // 暫時放，做漢堡選單用，做好會刪除
-    {
-      path: '/hamburger',
-      name: 'hamburger',
-      component: () => import('@/components/ModalHamburger.vue')
-    },
+    // {
+    //   path: '/hamburger',
+    //   name: 'hamburger',
+    //   component: () => import('@/components/ModalHamburger.vue')
+    // },
 
   ]
 })

@@ -1,20 +1,21 @@
 <script setup>
 
 import gameFooter from '@/layouts/footer.vue'
+import Modal from '@/components/ModalHamburger.vue'; 
+import { ref } from 'vue';
 
-// 購物車
-import { useCartStore } from '@/stores/cartStore.js';
-import shoppingCart from '@/components/shoppingCart.vue';
 
-const cartStore = useCartStore();
-const toggleCart = function() {
-  cartStore.toggleCart();
+const isModalShow = ref(false);
+const hamburger = ()=>{
+    isModalShow.value = !isModalShow.value;
+    // console.log( isModalShow.value)
 };
-
 </script>
 
 <template>
     <div>
+        <Modal @hamburger="hamburger" v-show="isModalShow" />
+
         <header class="fixed">
             <nav>
             <div class="nav_left">
@@ -48,7 +49,7 @@ const toggleCart = function() {
                     <a href="#" class="fai" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /></a>
                 </div>
             </div>
-            <div class="hamburger">
+            <div class="hamburger" @click="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
