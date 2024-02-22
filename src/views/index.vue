@@ -4,6 +4,7 @@ import indexFooter from '@/layouts/footer.vue';
 import btt from '@/layouts/btt.vue';
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 import ModalLogin from '@/components/ModalLogin.vue'; 
+import ModalIndexFirst from '@/components/ModalIndexFirst.vue'; 
 
 // 購物車
 import { useCartStore } from '@/stores/cartStore.js';
@@ -16,12 +17,16 @@ const isHeaderFixed = ref(false);
 const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
     isHamburgerModalShow.value = !isHamburgerModalShow.value;
-    // console.log( isModalShow.value)
 };
 
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
     isLoginModalShow.value = !isLoginModalShow.value;
+};
+
+const isFirstShow = ref(false);
+const first = ()=>{
+    isFirstShow.value = !isFirstShow.value;
 };
 
 const handleScroll = () => {
@@ -40,6 +45,11 @@ function scrollTo(){
         behavior: 'smooth'
     });
 } 
+
+const isShown = ref(false);
+const toggleContent = () => {
+  isShown.value = !isShown.value;
+};
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
@@ -61,6 +71,8 @@ const toggleCart = function() {
     <div>
         <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
         <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
+        <ModalIndexFirst @first="first" v-show="isFirstShow" />
+
         <header class="index_header" :class="{ fixed: isHeaderFixed }"> 
         <nav>
             <div class="nav_left">
@@ -118,10 +130,10 @@ const toggleCart = function() {
         <div class="wrapper" :class="{ fixed: isHeaderFixed }">
 
             <section>
-                <a class="index_first" href="#">
+                <div class="index_first" @click="first">
                     <h2>第一次來？歡迎點此快速了解網站使用說明！</h2>
                     <h2>還有初次消費的優惠碼喔！</h2>
-                </a>
+                </div>
 
                 <div class="index_rolling">
                     <div class="view">
@@ -266,20 +278,25 @@ const toggleCart = function() {
                 </div>
                 <div class="index_qa">
                     <ul>
-                        <li>
-                            <h2>有哪些服務內容？如何計費？</h2>
+                        <li class="qli" @click="toggleContent" :class="{ 'moved': isShown }">
+                            <h2 :class="{ 'qh2': isShown }">有哪些服務內容？如何計費？</h2>
+                            <p class="hidden_content" :class="{ 'hidden': isShown }">您可以參考服務總覽的內容，浣安的服務除了以不同方案區分，還有自選加購的選項。</p>
                         </li>
                         <li>
                             <h2>清潔用品由誰提供？須另外付費嗎？</h2>
+                            <!-- <p>原則上由浣安提供，若您另有慣用品牌，也可自行提供，並告知現場人員。</p> -->
                         </li>
                         <li>
                             <h2>變更或取消預約的相關規定為何？</h2>
+                            <!-- <p>請於原定預約日七天前來電告知，若小於七天，將不會全額退費，扣除部分金額作為違約金。</p> -->
                         </li>
                         <li>
                             <h2>打掃時屋主一定要在現場嗎？</h2>
+                            <!-- <p>建議初次施作時全程在場，可即時告知施作人員須注意的事項。非初次只需在施作人員到場時及驗收時在場即可。</p> -->
                         </li>
                         <li>
                             <h2>如何預估清潔所需時間？</h2>
+                            <!-- <p>若無追加服務項目，通常會在一個預約時段內完成。其他視房屋坪數與追加服務項目、現場狀況而定。</p> -->
                         </li>
                     </ul>
                 </div>

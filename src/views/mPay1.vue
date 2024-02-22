@@ -80,7 +80,7 @@
                             <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div> -->
                         <div class="mPay1_item_price">
-                            <h2>NTD{{ ItemTotalPrice }}</h2>
+                            <h2>NTD {{ ItemTotalPrice }}</h2>
                             <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div>
 
@@ -110,7 +110,7 @@
                         </div>
 
                         <div class="mPay1_item_price">
-                            <h2>NTD200</h2>
+                            <h2>NTD 200</h2>
                             <i class="fa-solid fa-trash"></i>
                             <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div>

@@ -80,6 +80,7 @@ section {
     padding: 40px;
     margin-bottom: 64px;
     transition: background-color .6s ease;
+    cursor: pointer;
 
     @include m() {
         width: 290px;
@@ -352,7 +353,6 @@ section {
 .index_qa {
     ul {
         li {
-            height: 100px;
             padding-left: 54px;
             border-radius: 10px;
             cursor: pointer;
@@ -388,6 +388,28 @@ section {
                     margin-right: 12px;
                 }
             }
+
+            .qh2::after {
+                background-image: url(@/img/index/index_up.svg);
+            }
+
+            p {
+                padding-bottom: 50px;
+                padding-right: 8px;
+            }
+        }
+
+        .hidden_content {
+            display: none;
+        }
+
+        .hidden {
+            display: block;
+        }
+
+        .moved {
+            background-color: $light-milktea;
+
         }
     }
 }

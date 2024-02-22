@@ -52,7 +52,7 @@
                         </div>
 
                         <div class="mPay2_item_price">
-                            <h2>NTD200</h2>
+                            <h2>NTD 200</h2>
                             <p>X2</p>
                         </div>
 
@@ -74,7 +74,7 @@
                         </div>
 
                         <div class="mPay2_item_price">
-                            <h2>NTD200</h2>
+                            <h2>NTD 200</h2>
                             <p>X2</p>
                         </div>
 
@@ -94,7 +94,7 @@
 
                 <div class="mPay2_total">
                     <h2>總金額</h2>
-                    <h1>NTD800</h1>
+                    <h1>NTD 800</h1>
                 </div>
 
                 <div class="mPay2_info">

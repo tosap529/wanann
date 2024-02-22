@@ -131,12 +131,12 @@ const router = createRouter({
       name: 'welcome',
       component: () => import('@/views/welcome.vue')
     },
-    //展示頁面先放
-    // {
-    //   path: '/bMember',
-    //   name: 'bMember',
-    //   component: () => import('@/views/bMember.vue')
-    // }
+    //後台展示頁面先放
+    {
+      path: '/cms',
+      name: 'cms',
+      component: () => import('@/views/cms.vue')
+    }
 
   ]
 })

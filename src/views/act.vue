@@ -103,7 +103,7 @@
     </div>
 </article>
 <article>
-    <h2 class=" new -none">王叔叔的清潔秘訣：讓家居焕然一新！</h2>
+    <h2 class=" new -none">王叔叔的清潔秘訣：讓家居煥然一新！</h2>
     <img src="@/img/act/lec_2.jpg" alt="">
     <div class="right">
         <h2>王叔叔的清潔秘訣：讓家居煥然一新！</h2>

@@ -57,7 +57,7 @@
                                 <h4>適合坪數：室內25坪</h4>
                             </div>
                             <div class="sPay2_item_descript_price">
-                                <h2>NTD4,000</h2>
+                                <h2>NTD 4,000</h2>
                             </div>
 
                         </div>
@@ -76,7 +76,7 @@
                                 <h4>濾網清理、散熱鋁鰭片清理</h4>
                             </div>
                             <div class="sPay2_item_descript_price">
-                                <h2>NTD500</h2>
+                                <h2>NTD 500</h2>
                             </div>
                         </div>
 
@@ -108,7 +108,7 @@
 
                 <div class="sPay2_total">
                     <h2>總金額</h2>
-                    <h1>NTD4,400</h1>
+                    <h1>NTD 4,400</h1>
                 </div>
 
                 <div class="sPay2_info">
