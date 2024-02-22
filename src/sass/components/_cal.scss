@@ -9,12 +9,15 @@
     background-color: $light-milktea;
     padding: 0 5px;
     box-sizing: border-box;
+
     .cal_btn {
         font-size: 30px;
         color: $brown;
         cursor: pointer;
     }
+
     .cal_count {
         font-size: $h3;
+        line-height: 35px;
     }
 }

@@ -1,21 +1,36 @@
 <script setup>
 
 import gameFooter from '@/layouts/footer.vue'
-import Modal from '@/components/ModalHamburger.vue'; 
+import ModalHamburger from '@/components/ModalHamburger.vue'; 
+import ModalLogin from '@/components/ModalLogin.vue'; 
 import { ref } from 'vue';
 
+// 購物車
+import { useCartStore } from '@/stores/cartStore.js';
+import shoppingCart from '@/components/shoppingCart.vue';
 
-const isModalShow = ref(false);
+
+const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
-    isModalShow.value = !isModalShow.value;
+    isHamburgerModalShow.value = !isHamburgerModalShow.value;
     // console.log( isModalShow.value)
+};
+const isLoginModalShow = ref(false);
+const goLogin = ()=>{
+    isLoginModalShow.value = !isLoginModalShow.value;
+};
+
+// 購物車
+const cartStore = useCartStore();
+const toggleCart = function() {
+  cartStore.toggleCart();
 };
 </script>
 
 <template>
     <div>
-        <Modal @hamburger="hamburger" v-show="isModalShow" />
-
+        <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
+        <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
         <header class="fixed">
             <nav>
             <div class="nav_left">
@@ -45,8 +60,9 @@ const hamburger = ()=>{
                     <li><router-link :to="{ name: 'contact' }">聯絡我們</router-link></li>
                 </ul>
                 <div class="nav_user">
-                    <router-link class="fai" :to="{ name: 'member' }"><font-awesome-icon icon="user" /></router-link>
-                    <a href="#" class="fai"><font-awesome-icon icon="cart-shopping" /></a>
+                    <a href="#" class="fai" @click.prevent="goLogin"> <font-awesome-icon  icon="user" />
+                    </a>
+                    <a href="#" class="fai" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /></a>
                 </div>
             </div>
             <div class="hamburger" @click="hamburger">
@@ -56,6 +72,7 @@ const hamburger = ()=>{
             </div>
         </nav>
 </header>
+<shoppingCart />
 
     <div class="wrapper">
         <section>

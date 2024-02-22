@@ -1,17 +1,30 @@
 <script setup>
 import { computed, ref } from "vue";
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
+import ModalLogin from '@/components/ModalLogin.vue'; 
 const props = defineProps(['headerTitleZh','headerTitleEng','bgi','isBgi']);
 import { useRoute } from 'vue-router';
+// 購物車
+import { useCartStore } from '@/stores/cartStore.js';
+import shoppingCart from '@/components/shoppingCart.vue';
+const cartStore = useCartStore();
+const toggleCart = function() {
+  cartStore.toggleCart();
+};
+
 const bgi_css = computed(() => {
       return {
         "background-image": `url('${props.bgi}')`
       };
     });
-    const isModalShow = ref(false);
+
+const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
-isModalShow.value = !isModalShow.value;
-// console.log( isModalShow.value)
+    isHamburgerModalShow.value = !isHamburgerModalShow.value;
+};
+const isLoginModalShow = ref(false);
+const goLogin = ()=>{
+    isLoginModalShow.value = !isLoginModalShow.value;
 };
 // 取得當前頁面路徑
 const route = useRoute();
@@ -19,7 +32,8 @@ const route = useRoute();
 
 <template>
     <div>
-        <ModalHamburger @hamburger="hamburger" v-show="isModalShow" />
+        <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
+        <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
         <header :style="bgi_css" >
             <nav>
             <div class="nav_left">
@@ -69,10 +83,9 @@ const route = useRoute();
                     </li>
                 </ul>
                 <div class="nav_user">
-                    <router-link class="fai" :class="{'route_now':route.name=='member'}" :to="{ name: 'member' }">
-                        <font-awesome-icon  icon="user" />
-                    </router-link>
-                    <a href="#" class="fai">
+                    <a href="#" class="fai" @click.prevent="goLogin"> <font-awesome-icon  icon="user" />
+                    </a>
+                    <a href="#" class="fai" @click.prevent="toggleCart">
                         <font-awesome-icon icon="cart-shopping" />
                     </a>
                 </div>
@@ -86,9 +99,15 @@ const route = useRoute();
         <div class="header_text">
                 <h1>{{headerTitleZh}}</h1>
                 <h1>{{headerTitleEng}}</h1>
-            </div>
+            </div>   
 </header>
+<!-- 購物車 -->
+<shoppingCart />
     </div>
 </template>
-<style lang="scss">
+<style lang="scss" scoped>
+header nav .nav_right .nav_user{
+    line-height: 35px;
+    height: 35px;
+}
 </style>
