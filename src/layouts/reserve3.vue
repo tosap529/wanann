@@ -1,4 +1,5 @@
 <script setup>
+import wrapper from '@/layouts/wrapper.vue';
 import Calendar from '@/layouts/calendar.vue';
     defineEmits(['lastReserveStep','firstReserveStep']);
 </script>

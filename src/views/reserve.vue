@@ -36,7 +36,6 @@ function lastReserveStep(){
 <template>
 <div>
     <FixedHeader header-title-zh="預約服務"  header-title-eng="Schedule Your Cleaning" :bgi="banner_url" />
-    <!-- <DefaultHeader header-title-zh="預約服務" header-title-eng="Schedule Your Cleaning" :bgi="banner_url"/>  -->
     <ReservePlan  v-if="reserve_step_now=='reserve_plan'" @nextReserveStep="nextReserveStep"/>
     <ReserveExtra  v-if="reserve_step_now=='reserve_extra'" @nextReserveStep="nextReserveStep"  @lastReserveStep="lastReserveStep" />
     <ReserveDate  v-if="reserve_step_now=='reserve_date'" 

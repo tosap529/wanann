@@ -22,7 +22,7 @@ defineEmits([''])
         <img class="cross_modal" @click="$emit('')" src="@/img/about/about_lightbox_cross.svg" alt="">
         <!-- 這是關閉的按鈕，如需要請自行保留 -->
         <!-- 這裡改事件名即可 -->
-        <button class="btn" @click="$emit('ModalAboutBelief')">關閉</button>
+        <button class="btn" @click="$emit('')">關閉</button>
     </div>
 </div>
 </template>
@@ -45,3 +45,4 @@ button.btn{
 </style>
 
 <!-- 如何掛到頁面上？ -->
+<!-- 可先自行參考about頁面，看不懂可問我 -->

@@ -7,10 +7,10 @@ import BannerUrl  from '@/img/about/about_banner.jpg'; // 更改成banner路徑
 import Modal from '@/components/ModalAboutBelief.vue'; 
 
 const banner_url = BannerUrl; // banner路徑令變數(請照抄)
-const isModalShow = ref(false);
+const isBeliefModalShow = ref(false);
 const ModalAboutBelief = ()=>{
-    isModalShow.value = !isModalShow.value;
-    console.log( isModalShow.value)
+  isBeliefModalShow.value = !isBeliefModalShow.value;
+    console.log( isBeliefModalShow.value)
 };
 const bgi =ref(null);
 const charity =ref(null);
@@ -71,9 +71,9 @@ const bgi_off = ref({
   'position':'absolute',
   'top':'4200px',
   'left':'0'}) ;
-function fullBgc(){
-    const charity_pos = charity.value.getBoundingClientRect();
-console.log(window.innerWidth)
+const fullBgc=()=>{
+    let charity_pos = charity.value.getBoundingClientRect();
+    console.log(window.innerWidth)
     // console.log(charity_pos.top);
     // console.log(charity_pos.top-window.innerHeight);
     if(window.innerWidth>500){
@@ -94,7 +94,7 @@ document.addEventListener("scroll", fullBgc);
 </script>
 <template>
     <div>
-      <Modal @ModalAboutBelief="ModalAboutBelief" v-show="isModalShow"  />
+      <Modal @ModalAboutBelief="ModalAboutBelief" v-show="isBeliefModalShow"  />
     <!-- 貼上以下這行(footer一樣不多贅述) 並更改成需要的標題，:bgi照貼即可 -->
     <DefaultHeader header-title-zh="關於我們" header-title-eng="About" :bgi="banner_url" /> 
 
