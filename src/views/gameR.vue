@@ -4,11 +4,21 @@ import gameFooter from '@/layouts/footer.vue'
 import Modal from '@/components/ModalHamburger.vue'; 
 import { ref } from 'vue';
 
+// 購物車
+import { useCartStore } from '@/stores/cartStore.js';
+import shoppingCart from '@/components/shoppingCart.vue';
+
 
 const isModalShow = ref(false);
 const hamburger = ()=>{
     isModalShow.value = !isModalShow.value;
     // console.log( isModalShow.value)
+};
+
+// 購物車
+const cartStore = useCartStore();
+const toggleCart = function() {
+  cartStore.toggleCart();
 };
 </script>
 
