@@ -1,13 +1,3 @@
-<script setup>
-    // 設置header及footer
-    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
-    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
-    import BannerUrl  from '@/img/mall/mall_banner.jpg'; // 更改成banner路徑
-    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
-</script>
-
-
 
 <template>
     <div>
@@ -389,6 +379,186 @@
             },
         }
     }
+</script>
+
+
+<script setup>
+    // import { ref } from "vue";
+    // 設置header及footer
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
+    import BannerUrl  from '@/img/mall/mall_banner.jpg'; // 更改成banner路徑
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+
+
+    // 分類tab
+    // const currentCategory = ref('所有商品')
+    // // 搜尋內容
+    // const searchBar = ref('')
+
+    // const currentPage = ref(1)
+
+    // const pageSize = ref(12)
+
+    // const products = ref([
+    //                 {
+    //                     productId   : 1,
+    //                     productName : '浣安手工香皂',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔工具',
+    //                     quantity : 1,
+    //                 },
+
+    //                 {
+    //                     productId   : 2,
+    //                     productName : '浣安手工香皂2',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔工具',
+                        
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂3',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔工具',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂4',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔工具',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂5',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔工具',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂6',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔工具',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂7',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔工具',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂8',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔工具',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂9',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔工具',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂10',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂11',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂12',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂13',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂14',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂15',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂16',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂17',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂18',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+
+    //                 {
+    //                     productId   : 3,
+    //                     productName : '浣安手工香皂19',
+    //                     productPrice: "NT$200",
+    //                     productSrc : "./src/img/mall/mall_product1_1.jpg",
+    //                     productStyle : '清潔劑',
+    //                 },
+    //             ])
+
+
+
 </script>
 
 <style lang="scss">
