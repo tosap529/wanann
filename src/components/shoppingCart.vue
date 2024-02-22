@@ -140,6 +140,7 @@
             > .cart-menu-close-btn{
                 font-size: 25px;
                 color: $dark-milktea;
+                cursor: pointer;
             }
 
             > .cart-menu-close-btn:hover{
@@ -239,6 +240,7 @@
             display: block;
             font-size: 24px;
             color: $dark-milktea;
+            cursor: pointer;
 
         }
 

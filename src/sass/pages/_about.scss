@@ -3,10 +3,18 @@
     width: auto;
     position: relative;
 
-    .title {
+    >.title {
         padding-top: 50px;
         margin: 320px 0 40px 225px;
     }
+
+    .about_bgc h1,
+    .about_feature h1,
+    .about_charity h1 {
+        padding-top: 50px;
+        margin: 320px 0 40px 225px;
+    }
+
 }
 
 // 錨點
