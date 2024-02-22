@@ -1,5 +1,4 @@
-
-div.mPay1_wrappe{
+div.mPay1_wrappe {
     max-width: 100%;
 }
 
@@ -12,7 +11,7 @@ div.mPay1_title {
     margin-bottom: 30px;
 }
 
-div.mPay1_items{
+div.mPay1_items {
     margin-bottom: 50px;
 }
 
@@ -30,10 +29,10 @@ div.mPay1_item {
         width: 120px;
     }
 
-    div.mPay1_item_product{
+    div.mPay1_item_product {
         display: flex;
         align-items: center;
-        gap: 140px; 
+        gap: 140px;
         margin-left: 2%;
         margin-right: auto;
 
@@ -83,10 +82,11 @@ div.mPay1_design {
     margin-bottom: 16px;
 }
 
-div.mPay1_des{
+div.mPay1_des {
     display: flex;
     justify-content: space-between;
     padding: 0 4.58%;
+
     div.mPay1_coupon_number {
         display: flex;
         align-items: center;
@@ -129,7 +129,7 @@ div.mPay1_des{
         }
 
         >p.mPay1_coupon_success {
-            color: green;
+            color: $brown;
         }
 
         // 兌換失敗的樣式
@@ -166,7 +166,7 @@ div.mPay1_des{
         align-items: center;
         height: 40px;
         margin-bottom: 28px;
-    
+
         & h3:first-child {
             background-color: $light-milktea;
             margin-right: 9.1%;
@@ -179,8 +179,9 @@ div.mPay1_des{
         }
     }
 
-    div.mPay1_des_price{
+    div.mPay1_des_price {
         line-height: 43px;
+
         div.mPay1_coupon_discount {
             width: 214px;
             max-width: 100%;
@@ -188,7 +189,7 @@ div.mPay1_des{
             align-items: center;
             justify-content: space-between;
 
-            >h2{
+            >h2 {
                 margin-bottom: 23px;
             }
 
@@ -210,6 +211,7 @@ div.mPay1_total {
     align-items: center;
     padding: 0 4.58%;
     margin-bottom: 75px;
+
     & :first-child {
         margin-right: 4.4%;
         text-align: center;
@@ -223,65 +225,71 @@ div.mPay1_total {
 
 
 @media(max-width:431px) {
-    div.mPay1_wrapper{
+    div.mPay1_wrapper {
         width: 400px;
     }
 
-    div.mPay1_title{
+    div.mPay1_title {
         padding-left: 10px;
     }
 
-    div.mPay1_circle{
+    div.mPay1_circle {
         width: 340px;
 
-        >div.circle_step{
+        >div.circle_step {
             width: 80px;
             height: 80px;
 
-            >h1{
+            >h1 {
                 font-size: $h4;
             }
         }
     }
 
-    div.mPay1_items{
+    div.mPay1_items {
         width: 380px;
         margin: 0 auto;
-        div.mPay1_item{
-            > div.mPay1_item_product{
+
+        div.mPay1_item {
+            >div.mPay1_item_product {
                 flex-direction: column;
                 align-items: start;
                 gap: 5px;
-                >div.mPay1_item_name{
+
+                >div.mPay1_item_name {
                     align-items: start;
                 }
             }
         }
     }
 
-    div.mPay1_des{
+    div.mPay1_des {
         width: 380px;
         flex-direction: column;
         margin: 0 auto;
         margin-bottom: 25px;
         border-bottom: 2px solid $dark-grey;
 
-        >div.mPay1_des_step{
-            h3{
+        >div.mPay1_des_step {
+            h3 {
                 font-size: $h4;
             }
-            >div.mPay1_coupon_number{
+
+            >div.mPay1_coupon_number {
                 width: 380px;
                 margin-bottom: 20px;
                 flex-wrap: wrap;
-                >h3{
+
+                >h3 {
                     margin-right: 20px;
                 }
-                >input.mPay1_coupon_input{
+
+                >input.mPay1_coupon_input {
                     width: 120px;
                     margin-right: auto;
                 }
-                >p{
+
+                >p {
                     margin-left: 40%;
                     margin-top: 10px;
                 }
@@ -289,30 +297,32 @@ div.mPay1_total {
 
         }
 
-        >div.mPay1_des_price{
+        >div.mPay1_des_price {
             margin-left: auto;
 
-            h2{
+            h2 {
                 font-size: $h4;
             }
 
-            >div.mPay1_coupon_discount{
-                >h2{
+            >div.mPay1_coupon_discount {
+                >h2 {
                     margin-bottom: 0;
                 }
             }
         }
     }
 
-    div.mPay1_total{
+    div.mPay1_total {
         padding-right: 11%;
-        >h2{
+
+        >h2 {
             font-size: $h3;
         }
-        >h1{
+
+        >h1 {
             font-size: $h2;
             margin-left: 61px;
         }
     }
-    
+
 }

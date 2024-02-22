@@ -74,7 +74,7 @@
                     <h2 class="cart-total">小計</h2>
                     <span class="total-price">$200</span>
                 </div>
-                <button class="btn purchase-btn">結帳去</button>
+                <router-link :to="{ name: 'mPay1' }"><button class="btn purchase-btn">結帳去</button></router-link>
             </div>
         
         </div>
@@ -92,7 +92,7 @@
     };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
     @import '@/sass/main.scss';
 
     /* 購物車彈出頁 */
@@ -174,6 +174,11 @@
             width: 150px;
             max-width: 100%;
             height: 50px;
+            
+                &:hover {
+                    background-color: $brown;
+                    color: $white;
+                }
         }
     }
 

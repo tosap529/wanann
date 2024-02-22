@@ -95,7 +95,7 @@ const toggleCart = function() {
                     </div>
                     <div class="gameR_share">
                         <button class="btn">分享給朋友</button>
-                        <button class="btn">再測一次</button>
+                        <router-link :to="{ name: 'game' }"><button class="btn">再測一次</button></router-link>
                     </div>
                 </div>
             </div>

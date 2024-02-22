@@ -108,7 +108,7 @@ const eyeOnPWD=(e)=>{
 </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '@/sass/main.scss';
 
 .login_box {

@@ -94,6 +94,10 @@
                 margin-left: 16px;
                 background-color: $brown;
 
+                a {
+                    color: $white;
+                }
+
                 &:hover {
                     background-color: $dark-milktea;
                     color: $white;

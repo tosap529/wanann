@@ -131,7 +131,7 @@
                             <h3>優惠代碼</h3>
                             <input class="mPay1_coupon_input" type="text" placeholder="請輸入優惠代碼">
                             <button class="btn mPay1_btn">兌換</button>
-                            <p class="mPay1_coupon_success">兌換成功</p>
+                            <p class="mPay1_coupon_success">兌換成功！</p>
                         </div>
 
                         <div class="mPay1_shipping_methods">
@@ -163,7 +163,7 @@
 
                 <div class="mPay1_total">
                     <h2>總金額</h2>
-                    <h1>NTD400</h1>
+                    <h1>NTD 400</h1>
                 </div>
 
                 <!-- <button class="btn mPay1_nextpage">下一步</button> -->

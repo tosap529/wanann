@@ -193,6 +193,17 @@ header {
             }
         }
 
+        .cart_m {
+            display: none;
+
+            @include m() {
+                display: block;
+                color: $brown;
+                margin-left: 40px;
+                padding-top: 5px;
+            }
+        }
+
         .hamburger {
             display: none;
 

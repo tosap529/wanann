@@ -122,6 +122,8 @@ const toggleCart = function() {
                 </div>
             </div>
 
+            <a href="#" class="fai cart_m" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /></a>
+
             <div class="hamburger" @click="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>

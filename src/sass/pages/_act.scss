@@ -1,11 +1,9 @@
-
-
-.act_wrapper{
+.act_wrapper {
   margin: 80px auto;
   width: 1200px;
 }
 
-.act_tab .tab ul{
+.act_tab .tab ul {
   margin: 0 auto;
 }
 
@@ -35,6 +33,7 @@
     h2 {
       font-weight: $bold;
       margin-bottom: 20px;
+      color: $brown;
     }
 
     h4 {
@@ -47,7 +46,7 @@
       border-radius: 10px;
       width: 218px;
       display: flex;
-      
+
 
       input {
         background-color: $white;
@@ -76,7 +75,7 @@
   }
 }
 
-.-none{
+.-none {
   display: none;
 }
 
@@ -84,16 +83,16 @@ li.tab_on {
   background-color: $dark-milktea;
 
   a {
-      color: $white;
+    color: $white;
 
   }
 }
 
 
-.act_main2{
-  article{
-    
-      h3{
+.act_main2 {
+  article {
+
+    h3 {
       flex-grow: 1;
       margin-top: 45px;
     }
@@ -105,29 +104,30 @@ li.tab_on {
 // ------------------------ RWD ------------------------
 
 
-@media screen and (max-width:430px){
+@media screen and (max-width:430px) {
 
   .act_main {
     margin-top: 26px;
   }
-  
-  .tab .tab_act_phone{
+
+  .tab .tab_act_phone {
     border-top: 0px;
     border-bottom: 1px solid $grey;
     width: 360px;
-    ul{
-      
-      li{
+
+    ul {
+
+      li {
         margin-right: 10px;
       }
     }
 
-    a{
+    a {
       font-size: $h4;
       width: 85px;
     }
   }
-  
+
 
   .act_main article {
     display: flex;
@@ -137,37 +137,39 @@ li.tab_on {
     margin: 0 auto 28px;
     background-color: $light-milktea;
     border-radius: 10px;
-    .new{
+
+    .new {
       display: block;
       padding: 20px 30px 12px;
       font-size: $h3;
       font-weight: bold;
       color: $brown;
     }
+
     img {
       display: block;
       height: 250px;
       width: 250px;
       margin: 0 auto 16px;
       border-radius: 10px;
-      background-size: contain;    
-      }
-  
+      background-size: contain;
+    }
+
     .right {
       padding: 0px 30px;
       display: flex;
       flex-direction: column;
-  
+
       h2 {
         display: none;
       }
-  
+
       h4 {
         height: 100px;
         margin-bottom: 30px;
         line-height: 1.2;
       }
-  
+
       .coupon_container {
 
         margin: 0 auto 20px;
@@ -175,8 +177,8 @@ li.tab_on {
         border-radius: 10px;
         width: 218px;
         display: flex;
-        
-  
+
+
         input {
           background-color: $white;
           width: 148px;
@@ -184,7 +186,7 @@ li.tab_on {
           outline: 0;
           padding-left: 20px;
         }
-  
+
         .copy_button {
           text-align: center;
           font-size: $h4;
@@ -196,19 +198,20 @@ li.tab_on {
           cursor: pointer;
         }
       }
-  
+
       h3 {
         font-size: $p;
         align-self: center;
-    
+
       }
     }
   }
 
 
-  .act_tab .tab ul li{
+  .act_tab .tab ul li {
     margin-right: 10px;
-    &:nth-child(2){
+
+    &:nth-child(2) {
       margin-left: 10px;
     }
   }
