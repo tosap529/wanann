@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import MemberTab from "@/components/MemberTab.vue"
+import ModalComment from '@/components/ModalComment.vue'; 
 // import wrapper from '@/layouts/wrapper.vue';
 import FixedHeader from '@/layouts/headerFixed.vue'; 
 import DefaultFooter from '@/layouts/footer.vue';
@@ -67,11 +68,16 @@ function infoSave(e){
         input.focus();
     }
 }
+const isCommentModalShow = ref(false);
+const goComment = ()=>{
+    isCommentModalShow.value = !isCommentModalShow.value;
+};
 
 
 </script>
 <template>
     <div>
+    <ModalComment @ModalComment="goComment" v-show="isCommentModalShow" />
      <FixedHeader header-title-zh="會員中心"  header-title-eng="Member" :bgi="banner_url" />
     <div class="member wrapper">
         <section class="member_sidebar">
@@ -285,7 +291,7 @@ function infoSave(e){
                     </article>
                 </div>
                 <div>
-                    <button class="btn">評價訂單</button>
+                    <button class="btn" @click="goComment">評價訂單</button>
                     <div>
                         <h2>總金額</h2>
                         <h2>NTD4,400</h2>

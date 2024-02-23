@@ -416,8 +416,14 @@ section.userData {
     }
 
     // 個人資料分頁(預設)
+    section.userData {
+        margin-left: 0px;
+        min-width: 100%;
+    }
+
     .userData {
         padding: 0 30px;
+
 
         h2 {
             font-size: $h3;

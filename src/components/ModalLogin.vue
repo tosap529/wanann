@@ -46,7 +46,7 @@ const eyeOnPWD=(e)=>{
      <!-- 左方登入頁面 -->
     <section class="login" v-if="byeLogin">
         <img src="@/img/about/about_lightbox_cross.svg" alt="" @click="$emit('ModalLogin')">
-        <div class="login_title">
+        <div class="modal_title">
             <h1>登入</h1>
         </div>
         <form class="login_form">
@@ -127,23 +127,7 @@ const eyeOnPWD=(e)=>{
         position: absolute;
         top: 0;
     }
-    .login_title {
-        margin-bottom: 20px;
-        >h1{
-            display: flex;
-        }
-        >h1::before{
-        content: '';
-        display: block;
-        width: 45px;
-        height: 32.44px;
-        background-image: url(@/img/logo_title.svg);
-        // background-repeat: no-repeat;
-        background-position: center center;
-        background-size: contain;
-        margin-right: 8px;
-        }
-    }
+    
 
     label {
         font-size: $h2;
@@ -180,6 +164,9 @@ const eyeOnPWD=(e)=>{
             font-size: $p;
             display: block;
             text-align: right;
+            &:hover{
+                font-weight: bold;
+            }
         }
         a.btn {
                 width: 150px;
