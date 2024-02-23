@@ -8,7 +8,11 @@ export default defineConfig({
   plugins: [
     vue(),
   ],
-  base: '/thd104/g1/',
+
+  // 原先的沒有刪除
+  //base: '/thd104/g1/',
+  
+  base: "./",
   // server: {
   //   host: '0.0.0.0'
   // },
