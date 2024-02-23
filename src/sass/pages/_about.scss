@@ -3,17 +3,22 @@
     width: auto;
     position: relative;
 
-    >.title {
+    .title {
         padding-top: 50px;
         margin: 320px 0 40px 225px;
     }
 
-    .about_bgc h1,
-    .about_feature h1,
-    .about_charity h1 {
-        padding-top: 50px;
-        margin: 320px 0 40px 225px;
-    }
+    // .about_bgc h1,
+    // .about_feature h1,
+    // .about_charity h1 {
+    //     padding-top: 50px;
+    //     margin: 320px 0 40px 225px;
+
+    //     @include m() {
+    //         background-color: red;
+    //         margin: 320px 0 40px 25px;
+    //     }
+    // }
 
 }
 
@@ -290,6 +295,7 @@
 @media screen and (max-width:$m) {
     .about {
         width: auto !important;
+        // width: 100%;
 
         .title {
             margin: 0;
@@ -326,6 +332,9 @@
 
     .about_bgc {
         top: $about_d_rwd;
+        // margin-left: 25px;
+        min-width: 100%;
+        // padding-left: 25px;
 
         .title {
             position: absolute;
@@ -372,6 +381,9 @@
     .about_art {
         top: $about_d_rwd+550;
         height: 600px;
+        min-width: 100%;
+        // background-color: red;
+        // margin-left: 25px;
 
         div {
             right: -50px;
@@ -405,10 +417,12 @@
         top: $about_d_rwd+1000;
         width: 380px;
         padding: 0;
-        margin-left: 25px;
+        // margin-left: 25px;
+        min-width: 100%;
 
         .title {
             margin-bottom: 25px;
+            margin-left: 25px;
         }
 
         // position: relative;
@@ -496,6 +510,7 @@
         width: 380px;
         margin-top: 40px;
         margin-left: 25px;
+        // min-width: 100%;
 
         article:nth-child(2),
         article:nth-child(3) {

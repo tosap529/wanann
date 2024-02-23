@@ -25,7 +25,7 @@ const toggleCart = function() {
 
 <template>
     <div>
-        <ModalHamburger @hamburger="hamburger" v-show="isModalShow" />
+        <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
         <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
         <header class="fixed">
             <nav>

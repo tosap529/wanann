@@ -1,5 +1,9 @@
 <script setup>
-defineEmits(['hamburger'])
+import { useRoute } from 'vue-router';
+defineEmits(['hamburger']);
+// 取得當前頁面路徑
+const route = useRoute();
+// console.log(route.name);
 </script>
 
 <template>
@@ -18,25 +22,25 @@ defineEmits(['hamburger'])
 
             <div class="nav_right">
                 <ul>
-                    <li><router-link :to="{ name: 'about' }">關於我們</router-link></li>
+                    <li><router-link :class="{'route_now_ham':route.name=='about'}" :to="{ name: 'about' }">關於我們</router-link></li>
                     <li class="h_li"><router-link :to="{ name: 'articles' }">最新消息</router-link>
                         <ol>
-                            <li><router-link :to="{ name: 'act' }">優惠活動</router-link></li>
-                            <li><router-link class="nav_last_a" :to="{ name: 'articles' }">專欄文章</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='act'}" :to="{ name: 'act' }">優惠活動</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='articles'}" class="nav_last_a" :to="{ name: 'articles' }">專欄文章</router-link></li>
                         </ol>
                     </li>
 
                     <li class="h_li"><router-link :to="{ name: 'service' }">我們的服務</router-link>
                         <ol>
-                            <li><router-link :to="{ name: 'service' }">服務介紹</router-link></li>
-                            <li><router-link :to="{ name: 'case' }">案例分享</router-link></li>
-                            <li><router-link class="nav_last_a" :to="{ name: 'reserve' }">預約服務</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='service'}" :to="{ name: 'service' }">服務介紹</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='case'}" :to="{ name: 'case' }">案例分享</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='reserve'}" class="nav_last_a" :to="{ name: 'reserve' }">預約服務</router-link></li>
                         </ol>
                     </li>
-                    <li><router-link :to="{ name: 'mall' }">商城</router-link></li>
-                    <li><router-link :to="{ name: 'contact' }">聯絡我們</router-link></li>
-                    <li><router-link :to="{ name: 'game' }">清潔人格測驗</router-link></li>
-                    <li><router-link :to="{ name: 'member' }">會員中心</router-link></li>
+                    <li><router-link :class="{'route_now_ham':route.name=='mall'}" :to="{ name: 'mall' }">商城</router-link></li>
+                    <li><router-link :class="{'route_now_ham':route.name=='contact'}" :to="{ name: 'contact' }">聯絡我們</router-link></li>
+                    <li><router-link :class="{'route_now_ham':route.name=='game'||route.name=='gameQ'||route.name=='gameR'}" :to="{ name: 'game' }">清潔人格測驗</router-link></li>
+                    <li><router-link :class="{'route_now_ham':route.name=='member'}" :to="{ name: 'member' }">會員中心</router-link></li>
                 </ul>
                 <div class="h_btns">
                     <router-link class="btn" :to="{ name: 'reserve' }">
@@ -56,7 +60,11 @@ defineEmits(['hamburger'])
 
 <style lang="scss">
 @import '@/sass/main.scss';
-
+.ham .nav_right .route_now_ham{
+    color: $dark-milktea;
+    // color: $brown;
+    font-weight: bold;
+}
 
 @include m() {
 
