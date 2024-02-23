@@ -24,7 +24,7 @@ header {
             font-size: $h1;
             font-family: $fontFamily;
             font-weight: bold;
-            text-shadow: 0px 0px 5px $white;
+            
         }
 
         h1:first-child {
@@ -114,11 +114,10 @@ header {
                         font-family: $fontFamily;
                         font-weight: bold;
                         display: block;
-                        text-shadow: 0px 0px 5px $white;
+                      
 
                         &:hover {
                             color: $brown;
-                            text-shadow: 0px 0px 3px $white;
                         }
 
                     }
@@ -134,7 +133,6 @@ header {
                         left: 0;
                         display: none;
 
-
                         li {
                             // width: 100%;
                             text-align: center;
@@ -147,12 +145,11 @@ header {
                                 background-color: $dark-milktea;
                                 border-bottom: 1px solid $white;
                                 font-weight: normal;
-                                text-shadow: none;
 
                                 &:hover {
                                     color: $white;
                                     background-color: $brown;
-                                    text-shadow: none;
+
                                 }
 
                             }
@@ -179,11 +176,11 @@ header {
                 .fai {
                     padding: 10px;
                     color: $black;
-                    text-shadow: 0px 0px 5px $white;
+
 
                     &:hover {
                         color: $brown;
-                        text-shadow: 0px 0px 3px $white;
+
                     }
                 }
 
@@ -218,7 +215,6 @@ header {
                 width: 25px;
                 height: 2px;
                 margin: 5px auto;
-                transition: all 0.3s ease-in-out;
 
             }
 
