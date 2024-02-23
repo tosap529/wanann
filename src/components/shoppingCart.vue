@@ -99,7 +99,7 @@
     div.cart{
         position: fixed;
         top: 0;
-        right: -100%;
+        right: -100rem;
 
         z-index: 71;
 

@@ -2,13 +2,6 @@
 <template>
     <div>
         <DefaultHeader header-title-zh="商城" header-title-eng="Mall" :bgi="banner_url" />
-        <!-- 臨時的購物車按鈕 -->
-        <!-- <h1 
-            style="border: 1px solid black; width: 100px;"
-            v-on:click="cartToggle"
-            class="cartBtn">購物車</h1> -->
-        <!-- 臨時的購物車按鈕 -->
-
 
         <wrapper class="mall_wrapper wrapper">
             <!-----------------------------  類別tap ----------------------------------------->
@@ -62,7 +55,6 @@
             <div class="mall_paginator">
                 <ul>
                     <!-- 上一頁圖案 -->
-                    <!-- <li v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)"> -->
                     <li>
                         <!-- <span>&lt;</span> -->
                         <div v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)">
@@ -75,7 +67,6 @@
                     </li>
 
                     <!-- 下一頁圖案 -->
-                    <!-- <li  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)"> -->
                     <li>
                         <!-- <span>&gt;</span> -->
                         <div  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)">
@@ -86,70 +77,17 @@
             </div>
         
         </wrapper>
-
-
-        <!----------------- cart ------------------>
-
-        <!-- 購物車清單 -->
-        <!-- <div class="cart" v-bind:class="{'toggle' : cartOpen}" v-on:click="cartToggle"> -->
-            <!-- <div class="cart-menu"> -->
-
-                <!-- <div class="cart-top">
-                    <h1 class="text-h1">購物車</h1>
-                    <i id="close-btn" class="fas fa-times cart-menu-close-btn"></i>
-                    <font-awesome-icon class="cart-menu-close-btn" :icon="['fas', 'xmark']" />
-                </div> -->
-
-                <!-- 商品新增處 -->
-                <!-- <div class="product-rows">
-
-                    <div 
-                        v-for="i in cartProducts" 
-                        v-bind:key="i.productId"
-                        class="product-row">
-
-                        <img  class="cart-image" v-bind:src="i.productSrc">
-
-                        <div class="product-row-inner">
-                            <h2>{{ i.productName }}</h2>
-
-                            <div class="cart_design">
-                                <h4>經典款</h4>
-                            </div>
-
-                            <div class="cal">
-                                <font-awesome-icon class="cal_btn" :icon="['fas', 'minus']" />
-                                <div class="cal_count">1</div>
-                                <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
-                            </div>
-
-                        </div>
-
-                        <div class="product-row-price">
-                            <span class ="cart-price">{{ i.productPrice }}</span>
-                            <i class="fa-solid fa-trash cart-item-remove-btn"></i>
-                            <font-awesome-icon class="cart-item-remove-btn" :icon="['fas', 'trash']" />
-                        </div>
-                    </div>
-                    
-                </div>
-
-                <div class="cart-footer">
-                    <div class="cart-menu-total">
-                        <h2 class="cart-total">小計</h2>
-                        <span class="total-price">$600</span>
-                    </div>
-                    <button class="btn purchase-btn">結帳去</button>
-                </div> -->
-            <!-- </div> -->
-        <!-- </div> -->
-        <!-- 購物車清單結束 -->
         <DefaultFooter />
     </div>
 </template>
 
 <script setup>
     import { ref, computed } from "vue";
+
+    
+    import { useCartStore } from '@/stores/cartStore.js';
+    const cartStore = useCartStore();
+
     // 設置header及footer
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)

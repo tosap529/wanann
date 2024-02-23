@@ -17,8 +17,16 @@ export const useCartStore = defineStore('cart', {
     },
 
     // 購物車商品增減
-    addTocart(item) {
-      this.cartItems.push(item);
+    // addTocart(item) {
+    //   this.cartItems.push(item);
+    // },
+    addToCart(product) {
+      const existingProduct = this.cartItems.find(item => item.productId === product.productId);
+      if (existingProduct) {
+        existingProduct.quantity += 1;
+      } else {
+        this.cartItems.push({ ...product, quantity: 1 });
+      }
     },
     removeFromCart(index){
       this.cartItems.splice(index, 1)
