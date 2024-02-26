@@ -83,7 +83,7 @@ const eyeOnPWD=(e)=>{
 <transition  name="slide-fade-left">
     <section class="create" v-if="byeCreate">
         <img src="@/img/about/about_lightbox_cross.svg" alt="" @click="$emit('ModalLogin')">
-        <div class="title">
+        <div class="modal_title">
             <h1>會員註冊</h1>
         </div>
         <form class="create_form">
