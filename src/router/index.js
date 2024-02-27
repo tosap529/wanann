@@ -81,7 +81,7 @@ const router = createRouter({
       component: () => import('@/views/member.vue')
     },
     {
-      path: '/mItem',
+      path: '/mItem/:productId',
       name: 'mItem',
       component: () => import('@/views/mItem.vue')
     },
