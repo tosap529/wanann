@@ -1,5 +1,14 @@
 import { defineStore } from 'pinia';
 
+function getSavedCartItems() {
+  const savedCartItems = localStorage.getItem('cartItems');
+  if (savedCartItems) {
+      return JSON.parse(savedCartItems);
+  } else {
+    return [];
+  }
+}
+
 export const useCartStore = defineStore('cart', {
 
   state: () => ({
@@ -7,7 +16,7 @@ export const useCartStore = defineStore('cart', {
     isCartOpen: false,
 
     // 商品新增處
-    cartItems: [],
+    cartItems: getSavedCartItems(),
   }),
 
   actions: {
@@ -17,19 +26,40 @@ export const useCartStore = defineStore('cart', {
     },
 
     // 購物車商品增減
-    // addTocart(item) {
-    //   this.cartItems.push(item);
-    // },
     addToCart(product) {
       const existingProduct = this.cartItems.find(item => item.productId === product.productId);
       if (existingProduct) {
         existingProduct.quantity += 1;
       } else {
-        this.cartItems.push({ ...product, quantity: 1 });
+        const productWithQuantity = { ...product, quantity: 1 };
+        this.cartItems.push(productWithQuantity);
       }
+
+      this.updateLocalStorage(this.cartItems);
     },
+
+    // mItem頁用的加入購物車
+    addToCartMitem(product, productQuantity) {
+      const existingProduct = this.cartItems.find(item => item.productId === product.productId);
+      if (existingProduct) {
+        existingProduct.quantity += productQuantity;
+      } else {
+        const productWithQuantity = { ...product, quantity: productQuantity };
+        this.cartItems.push(productWithQuantity);
+      }
+
+      this.updateLocalStorage(this.cartItems);
+    },
+
     removeFromCart(index){
       this.cartItems.splice(index, 1)
+
+      this.updateLocalStorage(this.cartItems);
+    },
+
+    // localStorage
+    updateLocalStorage(cartItems) {
+      localStorage.setItem('cartItems', JSON.stringify(cartItems));
     },
   }
 });

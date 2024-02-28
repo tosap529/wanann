@@ -38,14 +38,25 @@
                 <ul class="mall_products">
 
                     <li v-for="i in paginatedProducts" v-bind:key="i.productId">
-                        <router-link :to="{ name: 'mItem' }"><img v-bind:src="i.productSrc"></router-link>
+                        <!-- <router-link :to="{ name: 'mItem' }"><img v-bind:src="i.productSrc"></router-link> -->
+
+                        <!-- 為了設置router -->
+                        <router-link :to="{ name: 'mItem', params: { productId: i.productId }}"><img v-bind:src="i.productSrc1"></router-link>
+
                         <!-- <img v-bind:src="i.productSrc"> -->
                         <h1>{{ i.productName }}</h1>
-                        <p>{{ i.productPrice }}</p>
+                        <p>NTD {{ i.productPrice }}</p>
                         <input 
                             class="mall_add_to_cart" 
                             type="button" 
-                            value="加入購物車">
+                            value="加入購物車"
+                            @click="cartStore.addToCart(i)">
+
+                        <!-- <router-link :to="{ name: 'mItem', params: { productId: i.productId }}">
+                            <img :src="i.productSrc">
+                            <h1>{{ i.productName }}</h1>
+                            <p>NTD {{ i.productPrice }}</p>
+                        </router-link> -->
                     </li>
                 </ul>
                 
@@ -87,7 +98,7 @@
     
     import { useCartStore } from '@/stores/cartStore.js';
     const cartStore = useCartStore();
-
+    
     // 設置header及footer
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
@@ -109,156 +120,287 @@
     const products = ref([
                     {
                         productId   : 1,
-                        productName : '浣安手工香皂123',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productName : '浣安手工香皂1',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
                         productStyle : '清潔工具',
-                        quantity : 1,
                     },
 
                     {
                         productId   : 2,
                         productName : '浣安手工香皂2',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
                         productStyle : '清潔工具',
-                        
                     },
 
                     {
                         productId   : 3,
                         productName : '浣安手工香皂3',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
                         productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 4,
                         productName : '浣安手工香皂4',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
                         productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 5,
                         productName : '浣安手工香皂5',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
                         productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 6,
                         productName : '浣安手工香皂6',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
                         productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 7,
                         productName : '浣安手工香皂7',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
                         productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 8,
                         productName : '浣安手工香皂8',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
                         productStyle : '清潔工具',
                     },
-
+                    
                     {
-                        productId   : 3,
+                        productId   : 9,
                         productName : '浣安手工香皂9',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
                         productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 10,
                         productName : '浣安手工香皂10',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 11,
                         productName : '浣安手工香皂11',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 12,
                         productName : '浣安手工香皂12',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 13,
                         productName : '浣安手工香皂13',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 14,
                         productName : '浣安手工香皂14',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 15,
                         productName : '浣安手工香皂15',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 16,
                         productName : '浣安手工香皂16',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 17,
                         productName : '浣安手工香皂17',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 18,
                         productName : '浣安手工香皂18',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
 
                     {
-                        productId   : 3,
+                        productId   : 19,
                         productName : '浣安手工香皂19',
-                        productPrice: "NT$200",
-                        productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
-                        productStyle : '清潔劑',
+                        productPrice: 200,
+                        productSrc1 : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
+                        productSrc2 : new URL("@/img/mall/mall_product1_2.jpg", import.meta.url).href,
+                        productSrc3 : new URL("@/img/mall/mall_product1_3.jpg", import.meta.url).href,
+                        productSlogan1 : '天然香潔，親手愛呵護。',
+                        productSlogan2 : '淨化心靈，手工皂香。',
+                        productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
+                        productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
+                        productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
+                        productStyle : '清潔工具',
                     },
     ])
 
@@ -307,6 +449,8 @@
         currentPage.value = 1;
     }
 
+    
+
 </script>
 
 
@@ -326,7 +470,7 @@
                     {
                         productId   : 1,
                         productName : '浣安手工香皂',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔工具',
                         quantity : 1,
@@ -335,7 +479,7 @@
                     {
                         productId   : 2,
                         productName : '浣安手工香皂2',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔工具',
                         
@@ -344,7 +488,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂3',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔工具',
                     },
@@ -352,7 +496,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂4',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔工具',
                     },
@@ -360,7 +504,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂5',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔工具',
                     },
@@ -368,7 +512,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂6',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔工具',
                     },
@@ -376,7 +520,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂7',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔工具',
                     },
@@ -384,7 +528,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂8',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔工具',
                     },
@@ -392,7 +536,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂9',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔工具',
                     },
@@ -400,7 +544,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂10',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
@@ -408,7 +552,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂11',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
@@ -416,7 +560,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂12',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
@@ -424,7 +568,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂13',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
@@ -432,7 +576,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂14',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
@@ -440,7 +584,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂15',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
@@ -448,7 +592,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂16',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
@@ -456,7 +600,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂17',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
@@ -464,7 +608,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂18',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
@@ -472,7 +616,7 @@
                     {
                         productId   : 3,
                         productName : '浣安手工香皂19',
-                        productPrice: "NT$200",
+                        productPrice: 200,
                         productSrc : new URL("@/img/mall/mall_product1_1.jpg", import.meta.url).href,
                         productStyle : '清潔劑',
                     },
