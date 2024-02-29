@@ -1,5 +1,6 @@
 <script setup>
 import bTable from '@/layouts/bTable.vue'
+import{ref} from 'vue';
 const back_sidebar = [{
                         title:'會員管理',
                         subtitle: ['會員註冊資料']},
@@ -12,12 +13,13 @@ const back_sidebar = [{
                         {title:'營運分析',
                         subtitle:['成交量統計表(月)']},
                         {title:'客服',
-                        subtitle:['聯絡表單']}]
+                        subtitle:['聯絡表單']}];
 
-let back_now = '會員註冊資料';
+let back_now = ref('會員註冊資料');
 const getBackNow= (e)=>{
+    e.preventDefault();
     console.log(e.target.innerText);
-    back_now = e.target.innerText;
+    back_now.value = e.target.innerText;
 }
 </script>
 <template>
@@ -75,12 +77,12 @@ const getBackNow= (e)=>{
                                 <li class="tab_on"><a href="#">會員註冊資料</a></li>                             
                             </ul>
                         </div> -->
-                        <div class="cms_search-container">
+                        <div class="cms_search-container" v-if="back_now=='會員註冊資料'">
                             <input type="text" class="cms_search-input" placeholder="帳號/姓名/手機號碼">
                         </div>
                         <div class="cms_logo">
-                        <img src="@/img/cms/cms_logo.svg" alt="">
-                    </div>
+                            <img src="@/img/cms/cms_logo.svg" alt="">
+                        </div>
                     </div>
                     </section>
                      <section>

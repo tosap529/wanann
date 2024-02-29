@@ -1,6 +1,30 @@
 <script setup>
-import wrapper from '@/layouts/wrapper.vue';
-    defineEmits(['nextReserveStep']);
+import {ref,onBeforeMount} from 'vue';
+defineEmits(['nextReserveStep']);
+onBeforeMount(()=>{
+    //進入服務預約流程前先清掉localStorage
+    localStorage.removeItem("my_service_order");
+    //以下兩行防止未選擇主方案就按下一步的bug出現
+    my_service_order.main_plan = '浣安全室清潔';
+    localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
+})
+
+let dropdownNow = ref('浣安全室清潔'); //預設是什麼方案也不選
+const my_service_order = {
+    service_order_ID:'',
+    main_plan:'',
+    additional_plan:[],
+    special_plan:[],
+    service_date:'',
+    service_time_range:''
+};
+localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
+const reserveDropdown = (e)=>{
+    dropdownNow.value = e.target.innerText;
+    my_service_order.main_plan = e.target.innerText;
+    localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
+}
+
 </script>
 
 <template>
@@ -13,36 +37,33 @@ import wrapper from '@/layouts/wrapper.vue';
 
 <section class="reserve_choose">
     <aside>
-        <button class="dropdown btn">浣安全室清潔</button>
-        
-        <button class="dropdown btn">廚房特攻清潔</button>
-        
-        <button class="dropdown btn">浴室徹底清潔</button>
-        <div class="dropdown_container -on">
-     
-            <section>
-                <p>基本清潔</p>
-                <p>廚房簡易清潔</p>
-                <p>浴室簡易清潔</p>
-                <p>臥室及客房清潔</p>
-            </section>  
-                <p>NTD4,000</p>
-            
-        
+        <section>
+        <button class="dropdown btn" @click="reserveDropdown" :class="{dropdown_on:dropdownNow=='浣安全室清潔'}">浣安全室清潔</button>
+        <div class="dropdown_container" :class="{fold:dropdownNow!='浣安全室清潔'}">
+        <section>
+            <p>基本清潔</p>
+            <p>廚房簡易清潔</p>
+            <p>浴室簡易清潔</p>
+            <p>臥室及客房清潔</p>
+        </section>  
+            <p>NTD4,000</p>      
         </div>
-        <div class="dropdown_container">
-           
+    </section>
+    <section>
+        <button class="dropdown btn" @click="reserveDropdown" :class="{dropdown_on:dropdownNow=='廚房特攻清潔'}">廚房特攻清潔</button>
+         <div class="dropdown_container" :class="{fold:dropdownNow!='廚房特攻清潔'}">            
            <section>
                <p>廚房專業清潔</p>
                <p>加強油汙處理</p>
                <p>廚具汰洗</p>
                <p>水槽疏通</p>
             </section>  
-               <p>NTD2,000</p>
-          
+               <p>NTD2,000</p>          
        </div>
-        <div class="dropdown_container">
-            
+    </section>
+       <section>
+        <button class="dropdown btn" @click="reserveDropdown" :class="{dropdown_on:dropdownNow=='浴室徹底清潔'}">浴室徹底清潔</button>     
+        <div class="dropdown_container" :class="{fold:dropdownNow!='浴室徹底清潔'}">            
             <section>
                 <p>浴室專業清潔</p>
                 <p>加強水垢處理</p>
@@ -50,18 +71,23 @@ import wrapper from '@/layouts/wrapper.vue';
                 <p>馬桶清潔</p>
             </section>  
                 <p>NTD1,500</p>
-
         </div>
+    </section>
     </aside>
+
     <div class="pic">
-        <img src="../img/reserve1/reserve1.jpg" alt="">
+        <!-- <img src="@/img/reserve1/reserve1_1.jpg" v-if="dropdownNow=='浣安全室清潔'" alt="">
+        <img src="@/img/reserve1/reserve1_2.jpg" v-if="dropdownNow=='廚房特攻清潔'" alt="">
+        <img src="@/img/reserve1/reserve1_3.jpg" v-if="dropdownNow=='浴室徹底清潔'" alt=""> -->
+        <img src="@/img/reserve1/reserve1_1.jpg"  :class="{onTheTop:dropdownNow=='浣安全室清潔'}" alt="">
+        <img src="@/img/reserve1/reserve1_2.jpg" :class="{onTheTop:dropdownNow=='廚房特攻清潔'}" alt="">
+        <img src="@/img/reserve1/reserve1_3.jpg"  :class="{onTheTop:dropdownNow=='浴室徹底清潔'}" alt="">
     </div>
 
 </section>
 
 <section class="next_btn">
-    <!-- <router-link class="btn" :to="{ name: 'reserve2' }">下一步</router-link>    -->
-    <a class="btn" @click="$emit('nextReserveStep',$e)">下一步</a>
+    <a class="btn" @click="$emit('nextReserveStep',$e)" >下一步</a>
 </section>
 
 </div>

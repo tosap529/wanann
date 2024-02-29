@@ -591,3 +591,44 @@ section.userData {
 
 
 }
+
+//----------------燈箱們(ModalMemberAll)-----------------
+.member_all {
+    position: relative;
+    background-color: $white;
+    width: 350px;
+    height: 300px;
+    border-radius: 8px;
+    margin: 80px auto 0;
+    padding: 40px;
+
+    >section {
+        // width: 300px;
+        margin: 0 auto 80px;
+        text-align: center;
+
+        h2 {
+            margin: 20px 0;
+        }
+    }
+
+    >div {
+        display: flex;
+        justify-content: center;
+
+        button {
+            width: 120px;
+            height: 50px;
+        }
+
+        button:first-child {
+            margin-right: 20px;
+        }
+    }
+
+    .cross_modal {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+    }
+}
