@@ -5,3 +5,11 @@
         @content;
     }
 }
+
+//header斷點
+@mixin header_r() {
+    @media screen and (max-width: $header_r) {
+        // 內容
+        @content;
+    }
+}

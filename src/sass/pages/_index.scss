@@ -110,7 +110,7 @@ section {
     padding: 50px 0;
     width: 100%;
 
-    @include m() {
+    @media screen and (max-width: 1250px) {
         padding: 20px 0;
         display: none;
     }
@@ -149,6 +149,7 @@ section {
 .index_intr {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 
     @include m() {
         display: block;
@@ -422,6 +423,12 @@ section {
     background-size: cover;
     position: relative;
     border-radius: 10px;
+    margin: 0 auto;
+
+    @media screen and (max-width: 1230px) {
+        width: 900px;
+        height: 260px;
+    }
 
     @include m() {
         height: 200px;
@@ -434,32 +441,22 @@ section {
         top: 30%;
         left: 392px;
 
+        @media screen and (max-width: 1230px) {
+            top: 30%;
+            left: 250px;
+        }
+
         @include m() {
             top: 30%;
             left: 64px;
         }
 
         h1 {
-
             margin-bottom: 32px;
             animation: sparkle 2.5s infinite;
 
             @include m() {
                 font-size: $h2;
-            }
-        }
-
-        @keyframes sparkle {
-            0% {
-                text-shadow: 0 0 2px $white;
-            }
-
-            50% {
-                text-shadow: 0 0 8px $white;
-            }
-
-            100% {
-                text-shadow: 0 0 2px $white;
             }
         }
 

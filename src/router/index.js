@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  
+
   // 原先的沒有刪除
   //history: createWebHistory(import.meta.env.BASE_URL),
 
@@ -140,7 +140,8 @@ const router = createRouter({
       path: '/cms',
       name: 'cms',
       component: () => import('@/views/cms.vue')
-    }
+    },
+
 
   ]
 })
