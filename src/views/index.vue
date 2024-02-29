@@ -12,23 +12,26 @@ import shoppingCart from '@/components/shoppingCart.vue';
 
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
-const isHeaderFixed = ref(false);
-
+//漢堡
 const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
     isHamburgerModalShow.value = !isHamburgerModalShow.value;
 };
 
+//會員登入燈箱
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
     isLoginModalShow.value = !isLoginModalShow.value;
 };
 
+//初次使用燈箱
 const isFirstShow = ref(false);
 const first = ()=>{
     isFirstShow.value = !isFirstShow.value;
 };
 
+//滑動到頁首
+const isHeaderFixed = ref(false);
 const handleScroll = () => {
   let scrollDistance = window.scrollY || document.documentElement.scrollTop;
 
@@ -39,6 +42,7 @@ const handleScroll = () => {
   }
 };
 
+//滑動到頁面中間
 function scrollTo(){
     window.scrollTo({
         top: 51,
@@ -46,11 +50,20 @@ function scrollTo(){
     });
 } 
 
-const isShown = ref(false);
-const toggleContent = () => {
-  isShown.value = !isShown.value;
+//QA
+const questions = ref([
+  { title: '有哪些服務內容？如何計費？', content: '您可以參考服務總覽的內容，浣安的服務除了以不同方案區分，還有自選加購的選項。', isShown: false },
+  { title: '清潔用品由誰提供？須另外付費嗎？', content: '原則上由浣安提供，若您另有慣用品牌，也可自行提供，並告知現場人員。', isShown: false },
+  { title: '變更或取消預約的相關規定為何？', content: '請於原定預約日七天前來電告知，若小於七天，將不會全額退費，扣除部分金額作為違約金。', isShown: false },
+  { title: '打掃時屋主一定要在現場嗎？', content: '建議初次施作時全程在場，可即時告知施作人員須注意的事項。非初次只需在施作人員到場時及驗收時在場即可。', isShown: false },
+  { title: '如何預估清潔所需時間？', content: '若無追加服務項目，通常會在一個預約時段內完成。其他視房屋坪數與追加服務項目、現場狀況而定。', isShown: false }
+]);
+
+const toggleContent = (index) => {
+  questions.value[index].isShown = !questions.value[index].isShown;
 };
 
+//-----------------------------------------------------------
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
 });
@@ -76,7 +89,7 @@ const toggleCart = function() {
         <header class="index_header" :class="{ fixed: isHeaderFixed }"> 
         <nav>
             <div class="nav_left">
-                <router-link :to="{ name: 'index' }"><img src="@/img/logo_long.svg" alt="logo"></router-link>
+                <router-link :to="{ name: 'home' }"><img src="@/img/logo_long.svg" alt="logo"></router-link>
                 <h4>最安心的居家清潔服務</h4>
             </div>
             <div class="nav_right">
@@ -278,25 +291,9 @@ const toggleCart = function() {
                 </div>
                 <div class="index_qa">
                     <ul>
-                        <li class="qli" @click="toggleContent" :class="{ 'moved': isShown }">
-                            <h2 :class="{ 'qh2': isShown }">有哪些服務內容？如何計費？</h2>
-                            <p class="hidden_content" :class="{ 'hidden': isShown }">您可以參考服務總覽的內容，浣安的服務除了以不同方案區分，還有自選加購的選項。</p>
-                        </li>
-                        <li>
-                            <h2>清潔用品由誰提供？須另外付費嗎？</h2>
-                            <!-- <p>原則上由浣安提供，若您另有慣用品牌，也可自行提供，並告知現場人員。</p> -->
-                        </li>
-                        <li>
-                            <h2>變更或取消預約的相關規定為何？</h2>
-                            <!-- <p>請於原定預約日七天前來電告知，若小於七天，將不會全額退費，扣除部分金額作為違約金。</p> -->
-                        </li>
-                        <li>
-                            <h2>打掃時屋主一定要在現場嗎？</h2>
-                            <!-- <p>建議初次施作時全程在場，可即時告知施作人員須注意的事項。非初次只需在施作人員到場時及驗收時在場即可。</p> -->
-                        </li>
-                        <li>
-                            <h2>如何預估清潔所需時間？</h2>
-                            <!-- <p>若無追加服務項目，通常會在一個預約時段內完成。其他視房屋坪數與追加服務項目、現場狀況而定。</p> -->
+                        <li v-for="(question, index) in questions" :key="index" class="qli" @click="toggleContent(index)" :class="{ 'moved': question.isShown }">
+                        <h2 :class="{ 'qh2': question.isShown }">{{ question.title }}</h2>
+                        <p class="hidden_content" :class="{ 'hidden': question.isShown }">{{ question.content }}</p>
                         </li>
                     </ul>
                 </div>

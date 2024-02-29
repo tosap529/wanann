@@ -32,7 +32,7 @@ const toggleCart = function() {
         <header class="fixed">
             <nav>
             <div class="nav_left">
-                <router-link :to="{ name: 'index' }"><img src="@/img/logo_long.svg" alt="logo"></router-link>
+                <router-link :to="{ name: 'home' }"><img src="@/img/logo_long.svg" alt="logo"></router-link>
                 <h4>最安心的居家清潔服務</h4>
             </div>
             <div class="nav_right">

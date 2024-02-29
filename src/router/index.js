@@ -3,6 +3,9 @@ import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router
 const router = createRouter({
 
   // 原先的沒有刪除
+  //history: createWebHistory(import.meta.env.BASE_URL),
+
+  // 原先的沒有刪除
   history: createWebHistory(import.meta.env.BASE_URL),
 
   // history: createWebHashHistory(),
@@ -143,7 +146,8 @@ const router = createRouter({
       name: 'cms',
       meta: { title: '浣安 | 後台' },
       component: () => import('@/views/cms.vue')
-    }
+    },
+
 
   ]
 })

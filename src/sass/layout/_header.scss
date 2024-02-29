@@ -1,13 +1,14 @@
 header {
     width: 100%;
     height: 300px;
-    // background-image: url(@/img/contact/contact_banner.jpg); //請換成你的頁面的banner圖
     background-size: cover;
     transition: height .7s ease;
     position: relative;
 
-    @include m() {
+
+    @include header_r() {
         height: 150px;
+
     }
 
     .header_text {
@@ -15,7 +16,7 @@ header {
         left: 45px;
         bottom: 28px;
 
-        @include m() {
+        @include header_r() {
             left: 16px;
             bottom: 16px;
         }
@@ -24,17 +25,17 @@ header {
             font-size: $h1;
             font-family: $fontFamily;
             font-weight: bold;
-            text-shadow: 0px 0px 5px $white;
+
         }
 
         h1:first-child {
-            @include m() {
+            @include header_r() {
                 font-size: $h2;
             }
         }
 
         h1:last-child {
-            @include m() {
+            @include header_r() {
                 font-size: $h4;
             }
         }
@@ -46,7 +47,7 @@ header {
         display: flex;
         justify-content: space-between;
         padding-top: 20px;
-
+        position: relative;
         // 以下這幾行暫時嘗試用
         // position: fixed;
         // top: 0;
@@ -60,14 +61,14 @@ header {
             display: flex;
             margin-left: 45px;
 
-            @include m() {
+            @include header_r() {
                 margin-left: 25px;
             }
 
             img {
                 width: 150px;
 
-                @include m() {
+                @include header_r() {
                     width: 100px;
                 }
             }
@@ -78,7 +79,7 @@ header {
                 font-family: $fontFamily;
                 font-weight: bold;
 
-                @include m() {
+                @include header_r() {
                     margin-left: 12px;
                     font-size: $p;
                 }
@@ -88,7 +89,8 @@ header {
         .nav_right {
             display: flex;
 
-            @include m() {
+
+            @include header_r() {
                 display: none;
             }
 
@@ -114,11 +116,10 @@ header {
                         font-family: $fontFamily;
                         font-weight: bold;
                         display: block;
-                        text-shadow: 0px 0px 5px $white;
+
 
                         &:hover {
                             color: $brown;
-                            text-shadow: 0px 0px 3px $white;
                         }
 
                     }
@@ -134,7 +135,6 @@ header {
                         left: 0;
                         display: none;
 
-
                         li {
                             // width: 100%;
                             text-align: center;
@@ -147,12 +147,11 @@ header {
                                 background-color: $dark-milktea;
                                 border-bottom: 1px solid $white;
                                 font-weight: normal;
-                                text-shadow: none;
 
                                 &:hover {
                                     color: $white;
                                     background-color: $brown;
-                                    text-shadow: none;
+
                                 }
 
                             }
@@ -179,11 +178,11 @@ header {
                 .fai {
                     padding: 10px;
                     color: $black;
-                    text-shadow: 0px 0px 5px $white;
+
 
                     &:hover {
                         color: $brown;
-                        text-shadow: 0px 0px 3px $white;
+
                     }
                 }
 
@@ -196,10 +195,11 @@ header {
         .cart_m {
             display: none;
 
-            @include m() {
+            @include header_r() {
                 display: block;
                 color: $brown;
-                margin-left: 40px;
+                position: absolute;
+                right: 65px;
                 padding-top: 5px;
             }
         }
@@ -207,7 +207,7 @@ header {
         .hamburger {
             display: none;
 
-            @include m() {
+            @include header_r() {
                 display: block;
                 margin-right: 25px;
             }
@@ -218,7 +218,6 @@ header {
                 width: 25px;
                 height: 2px;
                 margin: 5px auto;
-                transition: all 0.3s ease-in-out;
 
             }
 
