@@ -6,9 +6,32 @@
     }
 }
 
-//header斷點
+//header共用斷點
 @mixin header_r() {
     @media screen and (max-width: $header_r) {
+        // 內容
+        @content;
+    }
+}
+
+//footer共用斷點
+@mixin footer_r() {
+    @media screen and (max-width: $footer_r) {
+        // 內容
+        @content;
+    }
+}
+
+@mixin footer_r2() {
+    @media screen and (max-width: $footer_r2) {
+        // 內容
+        @content;
+    }
+}
+
+//首頁共用斷點
+@mixin index_r() {
+    @media screen and (max-width: $index_r) {
         // 內容
         @content;
     }
