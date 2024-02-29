@@ -39,6 +39,11 @@
     &:hover {
         outline: 2px solid $brown;
     }
+
+}
+
+.selected_day {
+    outline: 2px solid $brown;
 }
 
 .week {
@@ -142,7 +147,7 @@
 
     .day,
     .week {
-        justify-content: space-between;
+        justify-content: flex-start;
     }
 
     .reserve3 {
@@ -153,7 +158,7 @@
     }
 
     .calendar {
-        width: 380px;
+        width: 320px;
         margin-right: 0;
         margin-bottom: 60px;
 
@@ -178,7 +183,7 @@
     }
 
     .time_choice {
-        width: 380px;
+        width: 320px;
         box-sizing: border-box;
         padding: 20px 40px;
 
