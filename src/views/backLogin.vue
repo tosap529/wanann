@@ -18,7 +18,7 @@
                 <input type="text">
                 <h4>密碼</h4>
                 <input type="password">
-                <button class="btn">登入</button>
+                <router-link :to="{ name: 'cms' }"><button class="btn">登入</button></router-link>
             </div>
 
         </div>
@@ -60,6 +60,7 @@
             margin: 10px 0 50px 75px;
             width: 125px;
             padding: 8px;
+
         }
     }
 }
