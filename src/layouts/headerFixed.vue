@@ -37,7 +37,7 @@ const route = useRoute();
         <header :style="bgi_css" >
             <nav>
             <div class="nav_left">
-                <router-link :to="{ name: 'index' }">
+                <router-link :to="{ name: 'home' }">
                     <img src="@/img/logo_long.svg" alt="logo">
                 </router-link>
                 <h4>最安心的居家清潔服務</h4>

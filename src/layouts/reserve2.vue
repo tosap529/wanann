@@ -1,6 +1,76 @@
 <script setup>
-import wrapper from '@/layouts/wrapper.vue';
+import {ref} from 'vue';
     defineEmits(['nextReserveStep','lastReserveStep'])
+    let my_service_order = JSON.parse(localStorage.getItem("my_service_order"));
+    console.log(my_service_order);
+
+    const notAllRoom = ref(false);
+    if(my_service_order.main_plan != '浣安全室清潔'){
+        notAllRoom.value = true;
+        console.log(notAllRoom.value);
+    };
+    const additionals = ['窗簾清潔','布件除蟎','冷氣機清理','冰箱清理','洗衣機清理','陽台清潔','簡易消毒'];
+    const specials = [
+        {name:'空屋',
+        disabled:false,
+        info:`<p>若屋況為空屋，則可減免價格</p>`
+        },
+        {name:'毛孩服務',
+        disabled:false,
+        info:`<p>若家中有飼養狗、貓等寵物，請勾選此項</p>`
+        },
+        {name:'大坪數',
+        disabled:true,
+        info:`<p>室內坪數超過25坪，請勾選此項
+            <br>(僅適用於「浣安全室清潔」方案)</p>`
+        },
+        {name:'樓中樓',
+        disabled:true,
+        info:`<p>室內空間若有樓中樓，請勾選此項
+            <br>(僅適用於「浣安全室清潔」方案)</p>`
+        },
+        {name:'局部加強',
+        disabled:false,
+        info:`<p>如房屋有特殊格局：深窄的空間、地下室等，<br>請勾選此項</p>`
+        },
+    ]
+    const checkAdditional =(e)=>{
+        // console.log(e.target.nextElementSibling.innerText);
+        // console.log(document.querySelectorAll('.service_checkbox'));
+        let service_checkbox = document.querySelectorAll('.service_checkbox_ad');
+        let additional_plan_selected = [];
+        for(let i =0;i<service_checkbox.length;i++){
+            // console.log(service_checkbox[i])
+            
+            if(service_checkbox[i].checked==true){
+
+                // console.log(service_checkbox[i].nextElementSibling.innerText);
+                additional_plan_selected.push(service_checkbox[i].nextElementSibling.innerText);
+                console.log(additional_plan_selected);
+            }
+        }
+        my_service_order.additional_plan = additional_plan_selected;
+        localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
+    }
+    const checkSpecial =(e)=>{
+        // console.log(e.target.nextElementSibling.innerText);
+        // console.log(document.querySelectorAll('.service_checkbox'));
+        let service_checkbox = document.querySelectorAll('.service_checkbox_sp');
+        let special_plan_selected = [];
+        for(let i =0;i<service_checkbox.length;i++){
+            // console.log(service_checkbox[i])
+            
+            if(service_checkbox[i].checked==true){
+
+                // console.log(service_checkbox[i].nextElementSibling.innerText);
+                special_plan_selected.push(service_checkbox[i].nextElementSibling.innerText);
+                console.log(special_plan_selected);
+            }
+        }
+        my_service_order.special_plan = special_plan_selected;
+        localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
+    }
+
 </script>
 
 <template>
@@ -19,52 +89,10 @@ import wrapper from '@/layouts/wrapper.vue';
                 <h2>延伸服務</h2>
                 <p>找找看有沒有你需要的</p>
             </div>
-            <div class="checkbox_bar">
+            <div class="checkbox_bar" v-for="(additional,i) in additionals"  :key="additional">
                 <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox1">
-                <label for="checkbox1" name="">窗簾清潔</label>
-                </div>
-                <p>NTD500</p>
-            </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox2">
-                <label for="checkbox2" name="">布件除蟎</label>
-                </div>
-                <p>NTD500</p>
-            </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox3">
-                <label for="checkbox3" name="">冷氣機清理</label>
-                </div>
-                <p>NTD500</p>
-            </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox4">
-                <label for="checkbox4" name="">冰箱清理</label>
-                </div>
-                <p>NTD500</p>
-            </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox5">
-                <label for="checkbox5" name="">洗衣機清理</label>
-                </div>
-                <p>NTD500</p>
-            </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox6">
-                <label for="checkbox6" name="">陽台清潔</label>
-                </div>
-                <p>NTD500</p>
-            </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox7">
-                <label for="checkbox7" name="">簡易消毒</label>
+                    <input type="checkbox" name="checkbox" class="service_checkbox_ad" :id="'checkbox'+(i+1)"  @click.self="checkAdditional">
+                    <label :for="'checkbox'+(i+1)">{{ additional }}</label>
                 </div>
                 <p>NTD500</p>
             </div>
@@ -74,42 +102,12 @@ import wrapper from '@/layouts/wrapper.vue';
                 <h2>特殊處理</h2>
                 <p>浣安無所不包！讓浣安聯絡您以了解真實情況！</p>
             </div>
-            <div class="checkbox_bar">
+            <div class="checkbox_bar" v-for="(special,i) in specials" :key="special">
                 <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox8">
-                <label for="checkbox8" name="">簡易消毒</label>
-                </div>
-                <p>若屋況為空屋，則可減免價格</p>
+                <input type="checkbox" name="checkbox" class="service_checkbox_sp" :id="'checkbox'+(i+8)" :disabled="special.disabled ? notAllRoom: false" @click.self="checkSpecial">
+                <label :for="'checkbox'+(i+8)">{{ special.name }}</label>
             </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox9">
-                <label for="checkbox9" name="">毛孩服務</label>
-                </div>
-                <p>若家中有飼養狗、貓等寵物，請勾選此項</p>
-            </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox10">
-                <label for="checkbox10" name="">大坪數</label>
-                </div>
-                <p>室內坪數超過25坪，請勾選此項
-                    <br>(僅適用於「浣安全室清潔」方案)</p>
-            </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox11">
-                <label for="checkbox11" name="">樓中樓</label>
-                </div>
-                <p>室內空間若有樓中樓，請勾選此項
-                    <br>(僅適用於「浣安全室清潔」方案)</p>
-            </div>
-            <div class="checkbox_bar">
-                <div>
-                <input type="checkbox" name="checkbox" class="service_checkbox" id="checkbox12">
-                <label for="checkbox12" name="">局部加強</label>
-                </div>
-                <p>如房屋有特殊格局：深窄的空間、地下室等，請勾選此項</p>
+            <div v-html="special.info"></div>
             </div>
         </article>
     </section>

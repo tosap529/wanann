@@ -1,5 +1,4 @@
 footer {
-    // width: 100%;
     background-color: $light-milktea;
 
     ul {
@@ -8,9 +7,13 @@ footer {
         display: flex;
         justify-content: center;
 
-        @include m() {
+        @include footer_r() {
             flex-direction: column;
-            width: 100vw;
+            position: relative;
+        }
+
+        @include index_r(){
+            flex-direction: column;
             position: relative;
         }
 
@@ -20,7 +23,7 @@ footer {
             color: $brown;
             margin-bottom: 12px;
 
-            @include m() {
+            @include footer_r() {
                 margin-bottom: 8px;
 
             }
@@ -35,10 +38,18 @@ footer {
             margin-left: 80px;
             margin-right: 40px;
 
-            @include m() {
-                margin-left: 60px;
+            @include footer_r() {
+                margin-left: 30%;
                 padding-top: 24px;
 
+            }
+
+            @include footer_r2() {
+                margin-left: 20%;
+            }
+
+            @include index_r(){
+                margin-left: 60px;
             }
         }
 
@@ -47,10 +58,17 @@ footer {
             padding-top: 44px;
             margin: 0 28px;
 
-
-            @include m() {
-                margin-left: 60px;
+            @include footer_r() {
+                margin-left: 30%;
                 padding-top: 24px;
+            }
+
+            @include footer_r2() {
+                margin-left: 20%;
+            }
+
+            @include index_r(){
+                margin-left: 60px;
             }
 
             .btn {
@@ -64,10 +82,19 @@ footer {
                     color: $white;
                 }
 
-                @include m() {
+                @include footer_r() {
                     position: absolute;
                     top: 40px;
+                    left: 30%;
+                }
+
+                @include footer_r2() {
+                    left: 20%;
+                }
+
+                @include index_r(){
                     font-size: $p;
+                    left: 60px;
                     padding: 8px;
                     width: 100px;
                 }
@@ -85,7 +112,7 @@ footer {
             padding-top: 36px;
             margin: 0 20px;
 
-            @include m() {
+            @include footer_r() {
                 margin: 0 auto;
                 order: -1;
             }
@@ -93,7 +120,7 @@ footer {
             img {
                 width: 110px;
 
-                @include m() {
+                @include footer_r() {
                     width: 70px;
                     margin-left: 36px;
                 }
@@ -105,9 +132,17 @@ footer {
             margin-left: 36px;
             margin-right: 10px;
 
-            @include m() {
-                margin-left: 60px;
+            @include footer_r() {
+                margin-left: 30%;
                 padding-top: 24px;
+            }
+
+            @include footer_r2() {
+                margin-left: 20%;
+            }
+
+            @include index_r(){
+                margin-left: 60px;
 
             }
         }
@@ -117,9 +152,18 @@ footer {
             display: flex;
             margin-left: 20px;
 
-            @include m() {
+            @include footer_r() {
                 order: -1;
                 position: absolute;
+                right: 30%;
+                top: 16px;
+            }
+
+            @include footer_r2() {
+                right: 20%;
+            }
+
+            @include index_r(){
                 right: 5%;
                 top: 24px;
             }
@@ -127,7 +171,7 @@ footer {
             a {
                 padding: 8px;
 
-                @include m() {
+                @include index_r(){
                     padding: 0;
                     padding-right: 20px;
                 }
@@ -152,7 +196,11 @@ footer {
         margin: 0 auto;
         margin-top: 40px;
 
-        @include m() {
+        @include footer_r() {
+            margin-top: 32px;
+        }
+
+        @include index_r(){
             margin-top: 32px;
         }
 
@@ -161,7 +209,11 @@ footer {
             font-size: 12px;
             padding: 4px 0;
 
-            @include m() {
+            @include footer_r() {
+                font-size: 10px;
+            }
+
+            @include index_r(){
                 font-size: 10px;
             }
 

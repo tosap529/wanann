@@ -23,10 +23,13 @@ import { RouterLink, RouterView } from 'vue-router'
 @import './sass/main.scss';
 
 #app.gameR{
+  background-image: url(@/img/game/gameR_bgi.jpg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 1px;
+
     @include m() {
-        background-image: url(@/img/game/gameR_bgi_mb.jpg);
-        background-size: contain;
-        background-repeat: no-repeat;
+  background-image: url(@/img/game/gameR_bgi_mb.jpg);
         padding-top: 40px;
     }
 }

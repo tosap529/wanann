@@ -17,7 +17,7 @@ const route = useRoute();
                 <span class="bar"></span>
             </div>
             <div class="nav_left">
-                <router-link :to="{ name: 'index' }"><img src="@/img/logo_square.svg" alt="logo"></router-link>
+                <router-link :to="{ name: 'home' }"><img src="@/img/logo_square.svg" alt="logo"></router-link>
             </div>
 
             <div class="nav_right">
@@ -66,7 +66,7 @@ const route = useRoute();
     font-weight: bold;
 }
 
-@include m() {
+@include header_r() {
 
     div.ham_bgi{
         background-color: $dark-milktea;

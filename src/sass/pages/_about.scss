@@ -291,6 +291,218 @@
     }
 }
 
+@media screen and (max-width:1300px) {
+    .about_bgc_img {
+        display: none;
+    }
+
+    .about_scroll_btn {
+        display: none;
+    }
+
+    .about_charity {
+        top: 3850px;
+    }
+}
+
+@media screen and (max-width:1150px) {
+    .about .title {
+        margin-left: 150px;
+        margin-top: 250px;
+    }
+
+    .about_art {
+        div {
+            left: 50%;
+            flex-direction: row;
+
+            h1 {
+                // font-size: $h2;
+
+                &:last-child {
+                    margin-top: 50px;
+                    margin-left: 20px;
+                }
+            }
+
+        }
+
+        img:nth-child(2) {
+            width: 300px;
+        }
+
+        img:nth-child(3) {
+            height: 300px;
+            top: 450px;
+        }
+    }
+
+    .about_charity {
+
+        top: 3400px;
+
+        article:nth-child(2),
+        article:nth-child(3) {
+            flex-direction: column-reverse;
+            width: 80%;
+            margin-top: 0;
+
+            img {
+                width: 100%;
+                margin: 20px 0;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1000px) {
+    .about .title {
+        margin-left: 50px;
+        margin-top: 150px;
+    }
+
+    .about_art {
+        top: 1600px;
+
+        img:nth-child(2) {
+            left: 10%;
+        }
+    }
+
+    .about_feature {
+        top: 2300px;
+        padding: 0;
+
+        article:first-child,
+        article:nth-child(2),
+        article:nth-child(3) {
+            width: auto;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 60px;
+            margin-bottom: 40px;
+
+            img {
+                margin: 0;
+                width: 100%;
+            }
+
+            div {
+                align-self: flex-start;
+                margin-top: 20px;
+                // width: 400px;
+            }
+        }
+    }
+
+    .about_charity {
+        top: 3900px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .about_scroll {
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
+
+        ul {
+            margin-right: 0;
+            display: flex;
+
+            li {
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .about_bgc {
+        .belief {
+            width: 600px;
+        }
+
+        h4 {
+            width: 600px;
+        }
+    }
+
+    .about_art {
+        div {
+            left: 60%;
+            flex-direction: row;
+
+            h1 {
+
+                &:last-child {
+                    margin-top: 50px;
+                    margin-left: 20px;
+                }
+            }
+        }
+
+        img:nth-child(2) {
+            width: 250px;
+        }
+
+        img:nth-child(3) {
+            height: 250px;
+            left: 25%;
+            top: 450px;
+        }
+    }
+
+    .about_charity {
+        top: 3500px;
+    }
+}
+
+@media screen and (max-width:600px) {
+
+    .about_bgc {
+        .belief {
+            width: 400px;
+            flex-direction: column;
+            align-items: center;
+
+            div {
+                width: 100%;
+            }
+        }
+
+        h4 {
+            width: 400px;
+        }
+    }
+
+    .about_art {
+        top: 2000px;
+
+        img:nth-child(2) {
+            width: 200px;
+        }
+
+        img:nth-child(3) {
+            height: 200px;
+            top: 400px;
+        }
+    }
+
+    .about_feature {
+        top: 2700px;
+    }
+
+
+    .about_charity {
+        top: 3900px;
+
+        >h2 {
+            width: 400px;
+        }
+    }
+}
 
 @media screen and (max-width:$m) {
     .about {
@@ -321,7 +533,7 @@
 
 
         img {
-            width: auto;
+            // width: auto;
 
         }
 
@@ -332,9 +544,7 @@
 
     .about_bgc {
         top: $about_d_rwd;
-        // margin-left: 25px;
         min-width: 100%;
-        // padding-left: 25px;
 
         .title {
             position: absolute;
@@ -382,12 +592,9 @@
         top: $about_d_rwd+550;
         height: 600px;
         min-width: 100%;
-        // background-color: red;
-        // margin-left: 25px;
 
         div {
             right: -50px;
-            flex-direction: row;
 
             h1 {
                 font-size: $h2;
@@ -408,7 +615,7 @@
         img:nth-child(3) {
             width: 250px;
             height: 150px;
-            left: 150px;
+            left: 100px;
             top: 50%;
         }
     }
@@ -417,7 +624,6 @@
         top: $about_d_rwd+1000;
         width: 380px;
         padding: 0;
-        // margin-left: 25px;
         min-width: 100%;
 
         .title {
@@ -447,6 +653,7 @@
                     width: 300px;
                     margin-top: 10px;
                     margin-bottom: 40px;
+                    align-self: center;
 
                     h2 {
                         display: flex;
@@ -473,14 +680,9 @@
 
             }
         }
-
-        .about_scroll_btn {
-            display: none;
-        }
     }
 
     .about_bgc_img {
-        display: none;
         top: $about_d_rwd+1950;
         height: 240px;
 
@@ -507,7 +709,7 @@
 
     .about_charity {
         top: $about_d_rwd+2000;
-        width: 380px;
+        // width: 380px;
         margin-top: 40px;
         margin-left: 25px;
         // min-width: 100%;
@@ -535,11 +737,42 @@
             font-size: $h4;
             text-align: left;
         }
-
-
-
-
     }
 
 
+}
+
+@media screen and (max-width:370px) {
+    .about .title {
+        margin-left: 10px;
+    }
+
+    .about_scroll {
+        width: 320px;
+    }
+
+    .about_feature {
+        width: 320px;
+    }
+
+    .about_art img:nth-child(3) {
+        left: 100px;
+    }
+
+    .about_charity {
+        margin: 0;
+
+        article:nth-child(2),
+        article:nth-child(3) {
+            width: 320px;
+            align-items: center;
+        }
+
+        >h2 {
+            width: 320px;
+            margin: 20px auto;
+        }
+
+
+    }
 }

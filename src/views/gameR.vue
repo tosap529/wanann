@@ -34,7 +34,7 @@ const toggleCart = function() {
         <header class="fixed">
             <nav>
             <div class="nav_left">
-                <router-link :to="{ name: 'index' }"><img src="@/img/logo_long.svg" alt="logo"></router-link>
+                <router-link :to="{ name: 'home' }"><img src="@/img/logo_long.svg" alt="logo"></router-link>
                 <h4>最安心的居家清潔服務</h4>
             </div>
             <div class="nav_right">
@@ -78,8 +78,9 @@ const toggleCart = function() {
         <section>
             <div class="gameR_contect">
                 <div class="gameR_text">
+                    <img src="@/img/game/gameR_name.svg" alt="gamename">
                     <h3>你的清潔人格是...</h3>
-                    <img src="@/img/game/gameR_bear.png" alt="bear">
+                    <img src="@/img/game/gameR_bear.png" alt="bear" class="animal">
                     <h2>熊型清潔人格</h2>
                     <p>你是個比較隨興的人，對於居住環境的整潔比較沒有要求，即使環境不太整潔也可以接受，除非已經影響到生活機能或是有時間、有清理的心情才會去做。
                         平時的你看上去有些慵懶，遇到問題可能偏向以「船到橋頭自然直」的態度去面對。</p>

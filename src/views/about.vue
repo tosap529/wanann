@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted  } from "vue";
 import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
 import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
@@ -71,9 +71,13 @@ const bgi_off = ref({
   'position':'absolute',
   'top':'4200px',
   'left':'0'}) ;
-const fullBgc=()=>{
+
+  onMounted (()=>{
+    // console.log(charity.value);
+    const fullBgc=()=>{
     let charity_pos = charity.value.getBoundingClientRect();
-    console.log(window.innerWidth)
+    // console.log(charity.value.getBoundingClientRect())
+    // console.log(window.innerWidth)
     // console.log(charity_pos.top);
     // console.log(charity_pos.top-window.innerHeight);
     if(window.innerWidth>500){
@@ -85,11 +89,11 @@ const fullBgc=()=>{
         scroll_anchor3.value.style.display='none';
     }
     }
-    
-}
-document.addEventListener("scroll", addClassToVisibleElements);
+  }
+  document.addEventListener("scroll", addClassToVisibleElements);
 document.addEventListener("scroll", fullBgc);
-
+  })
+ 
 
 </script>
 <template>

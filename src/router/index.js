@@ -1,15 +1,25 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
 
 const router = createRouter({
-  
+
   // 原先的沒有刪除
   //history: createWebHistory(import.meta.env.BASE_URL),
 
-  history: createWebHashHistory(),
+  // 原先的沒有刪除
+  history: createWebHistory(import.meta.env.BASE_URL),
+
+  // history: createWebHashHistory(),
   routes: [
     {
       path: '/',
       name: 'index',
+      meta: { title: 'hiiiiiiiii' },
+      component: () => import('@/views/welcome.vue'),
+    },
+    {
+      path: '/home',
+      name: 'home',
+      meta: { title: 'hiiiiiiiii' },
       component: () => import('@/views/index.vue')
     },
     {
@@ -130,19 +140,21 @@ const router = createRouter({
       name: 'sPay3',
       component: () => import('@/views/sPay3.vue')
     },
-    {
-      path: '/welcome',
-      name: 'welcome',
-      component: () => import('@/views/welcome.vue')
-    },
     //後台展示頁面先放
     {
       path: '/cms',
       name: 'cms',
+      meta: { title: '浣安 | 後台' },
       component: () => import('@/views/cms.vue')
-    }
+    },
+
 
   ]
 })
 
 export default router
+router.beforeEach((to, from, next) => {
+  // console.log(to);
+  document.title = to.meta.title;
+  next();
+});

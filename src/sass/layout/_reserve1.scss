@@ -25,11 +25,13 @@
   }
 
   .pic {
+    position: relative;
     width: 700px;
     height: 500px;
     margin-left: 28px;
 
     img {
+      position: absolute;
       width: 100%;
       border-radius: 10px;
     }
@@ -38,7 +40,7 @@
 
 
 .dropdown_container {
-  display: none;
+  transition: 1s;
   text-align: left;
   background-color: $light-milktea;
   border-radius: 10px;
@@ -63,28 +65,37 @@
 
 }
 
-.-on {
-  display: block;
-  margin-top: 10px;
+.onTheTop {
+  z-index: 3;
 }
 
-.reserve_choose .-bgc {
+.reserve_choose .dropdown_on {
   background-color: $dark-milktea;
-  color: white;
+  color: $white;
 }
 
-.reserve_choose .color {
-  background-color: $dark-milktea;
-  color: white;
+.fold {
+  // transition: 1s;
+  height: 0;
+  opacity: 0;
+  padding: 0;
+
+  section {
+    display: none;
+  }
+
+  p {
+    display: none;
+  }
 }
 
 //-----------reserve 三頁面共通class-------------
 section.next_btn a {
-  width: 120px;
-  height: 40px;
+  width: 150px;
+  height: 50px;
   padding: 0;
   margin: 0 auto;
-  line-height: 40px;
+  line-height: 50px;
   text-align: center;
   font-size: $h3;
 }
@@ -143,7 +154,7 @@ section.next_btn a {
 
     .pic {
       width: 380px;
-      height: auto;
+      height: 250px;
       margin: 16px 0;
 
     }
@@ -153,43 +164,29 @@ section.next_btn a {
       flex-wrap: wrap;
       width: 380px;
       justify-content: space-between;
+
+      section {
+        display: flex;
+      }
     }
 
     .dropdown {
       box-sizing: border-box;
-      width: 120px;
+      width: 100px;
       padding: 10px;
-      border-radius: 10px 10px 0 0;
       font-size: $h4;
+      margin-bottom: 20px;
     }
 
     .dropdown_container {
-      width: 380px;
+      width: 250px;
+      margin-left: 20px;
 
+      >section {
+        flex-direction: column;
+      }
     }
 
-    .-on {
-      display: flex;
-      flex-direction: column;
-
-      section {
-        display: flex;
-        flex-wrap: wrap;
-
-        p {
-          margin-right: 8px;
-          width: fit-content;
-
-        }
-
-      }
-
-      section+p {
-        align-self: flex-end;
-      }
-
-
-    }
   }
 
 
