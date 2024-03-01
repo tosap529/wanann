@@ -1,11 +1,12 @@
 
 <template>
     <div>
-        <DefaultHeader header-title-zh="商城" header-title-eng="Mall" :bgi="banner_url" />
+        <!-- <DefaultHeader header-title-zh="商城" header-title-eng="Mall" :bgi="banner_url" /> -->
 
         <wrapper class="mall_wrapper wrapper">
             <!-----------------------------  類別tap ----------------------------------------->
             <nav class="mall_nav">
+
                 <div class="tab mall_tab">
 
                     <ul class="nav_products">
@@ -23,8 +24,7 @@
                     </ul>
 
                 </div>
-
-                
+     
             </nav>
 
             <ul class="mall_search_rwd">
@@ -43,7 +43,6 @@
                         <!-- 為了設置router -->
                         <router-link :to="{ name: 'mItem', params: { productId: i.productId }}"><img v-bind:src="i.productSrc1"></router-link>
 
-                        <!-- <img v-bind:src="i.productSrc"> -->
                         <h1>{{ i.productName }}</h1>
                         <p>NTD {{ i.productPrice }}</p>
                         <input 
@@ -52,11 +51,6 @@
                             value="加入購物車"
                             @click="cartStore.addToCart(i)">
 
-                        <!-- <router-link :to="{ name: 'mItem', params: { productId: i.productId }}">
-                            <img :src="i.productSrc">
-                            <h1>{{ i.productName }}</h1>
-                            <p>NTD {{ i.productPrice }}</p>
-                        </router-link> -->
                     </li>
                 </ul>
                 
@@ -88,7 +82,7 @@
             </div>
         
         </wrapper>
-        <DefaultFooter />
+        <!-- <DefaultFooter /> -->
     </div>
 </template>
 
@@ -280,7 +274,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -295,7 +289,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -310,7 +304,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -325,7 +319,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -340,7 +334,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -355,7 +349,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -370,7 +364,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -385,7 +379,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -400,7 +394,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
     ])
 

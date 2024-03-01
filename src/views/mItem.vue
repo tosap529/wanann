@@ -39,7 +39,7 @@
                         <div class="mitem_btn">
                             <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(productItem, quantity)"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
                             <!-- <button class="btn mitem_btn">直接購買</button> -->
-                            <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }">直接購買</router-link>
+                            <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(productItem, quantity)">直接購買</router-link>
                         </div>
                     </div>
 
@@ -253,7 +253,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -268,7 +268,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -283,7 +283,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -298,7 +298,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -313,7 +313,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -328,7 +328,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -343,7 +343,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -358,7 +358,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
 
                     {
@@ -373,7 +373,7 @@
                         productDes1 : `純天然成分，呵護您的肌膚，賦予自然清新香氣。`,
                         productDes2 : `手工製作，每塊香皂獨一無二，富含滋潤護膚精華。`,
                         productCategory: '經典款香皂融合薰衣草與迷迭香精油，結合滋養橄欖油，帶來舒緩放鬆的沐浴體驗。',
-                        productStyle : '清潔工具',
+                        productStyle : '清潔劑',
                     },
     ])
 
@@ -412,8 +412,6 @@
     const bigPhotoChange =function(e){
         bigPhotoSrc.value = e.target.src
 
-        console.log(productItem.value.productSrc1);
-        console.log(getSingleProduct(1));
     }
 
     onMounted(() => {
@@ -422,6 +420,7 @@
         bigPhotoSrc.value = productItem.value.productSrc1
     });
 
+    // 把商城過來的商品資料放入陣列
     onBeforeMount(() => {
         const productId = route.params.productId;
         productItem.value = getSingleProduct(productId);

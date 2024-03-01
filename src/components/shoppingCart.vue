@@ -78,7 +78,14 @@
                         <h3 class="cart-total">小計</h3>
                         <h2 class="total-price">NTD {{ calCartTotal }}</h2>
                     </div>
-                    <router-link @click="closeCart" :to="{ name: 'mPay1' }"><button class="btn purchase-btn">結帳去</button></router-link>
+                    <router-link 
+                        v-if=" cartStore.cartItems.length > 0 " 
+                        @click="closeCart" :to="{ name: 'mPay1' }">
+
+                            <button class="btn purchase-btn">結帳去</button>
+
+                    </router-link>
+                    <button v-else @click="cartEmpty" class="btn purchase-btn">結帳去</button>
                 </div>
             
             <!-- </div> -->
@@ -115,6 +122,11 @@
             return total + (item.productPrice * item.quantity);
         }, 0);
     })
+
+    // 購物車空的無法轉跳到結帳
+    const cartEmpty = function(){
+        alert('沒有選擇任何商品喔')
+    }
 </script>
 
 <style lang="scss">

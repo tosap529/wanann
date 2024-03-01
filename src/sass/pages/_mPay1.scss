@@ -15,6 +15,8 @@ div.mPay1_items {
     margin-bottom: 50px;
 }
 
+
+
 div.mPay1_item {
     width: 1085px;
     max-width: 100%;
@@ -65,6 +67,21 @@ div.mPay1_item {
                 color: $brown;
             }
         }
+    }
+}
+
+// 沒有商品時的樣式
+div.mPay1_noItem{
+    height: 10rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    >img{
+        width: 120px;
+        height: auto;
     }
 }
 

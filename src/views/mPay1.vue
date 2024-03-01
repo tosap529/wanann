@@ -1,30 +1,3 @@
-<script setup>
-    // 數量按鈕
-    import calBar from '@/components/cal.vue';
-    // 設置header及footer
-    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
-    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/pay/pay_banner.jpg'; // 更改成banner路徑
-    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
-    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
-
-    import { ref } from 'vue';
-    
-    // -----------------------------  數量按鈕  ------------------------
-    // 商品單價
-    const pricePerUnit = 200;
-    
-    const ItemTotalPrice = ref(pricePerUnit);
-
-    const handleCountUpdate = (ddd) => {
-        ItemTotalPrice.value = pricePerUnit * ddd;
-        console.log(ddd)
-    };
-    // -----------------------------  數量按鈕  ------------------------
-</script>
-
-
-
 <template>
     <div>
         <DefaultHeader header-title-zh="商城結帳" header-title-eng="Checkout" :bgi="banner_url" />
@@ -52,41 +25,46 @@
 
                 <div class="mPay1_items">
 
-                    <div class="mPay1_item">
+                    <div class="mPay1_noItem"
+                         v-if=" cartStore.cartItems.length == 0 ">
+                        <img src="@/img/logo_title.svg">
+                        <h1>沒有選擇任何商品喔</h1>
+                        <router-link class="btn" :to="{ name: 'mall' }">去商城逛逛</router-link>
+                    </div>
 
-                        <img src="@/img/mall/mall_product1_1.jpg">
+                    <div 
+                        class="mPay1_item"
+                        v-for="(i, index) in cartStore.cartItems">
+
+                        <img v-bind:src="i.productSrc1">
 
                         <div class="mPay1_item_product">
 
                             <div class="mPay1_item_name">
-                                <h2>浣安手工香皂</h2>
+                                <h2>{{ i.productName }}</h2>
                                 <div class="mPay1_design">
                                     <h4>經典款</h4>
                                 </div>
                             </div>
 
-                            <!-- <div class="cal">
-                                <font-awesome-icon class="cal_btn" :icon="['fas', 'minus']" />
-                                <div class="cal_count">1</div>
-                                <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
-                            </div> -->
-                            <!-- 數量按鈕 -->
-                            <calBar @updateCount="handleCountUpdate" />
+                            <div class="cal">
+                                <font-awesome-icon @click="quantityMinus(index)"  class="cal_btn" :icon="['fas', 'minus']" />
+                                <div class="cal_count">{{ i.quantity }}</div>
+                                <font-awesome-icon @click="quantityPlus(index)" class="cal_btn" :icon="['fas', 'plus']" />
+                            </div>
+
 
                         </div>
 
-                        <!-- <div class="mPay1_item_price">
-                            <h2>NTD200</h2>
-                            <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
-                        </div> -->
                         <div class="mPay1_item_price">
-                            <h2>NTD {{ ItemTotalPrice }}</h2>
-                            <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
+                            <h2>NTD{{ i.productPrice * i.quantity }}</h2>
+                            <font-awesome-icon @click="cartStore.removeFromCart(index)" class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div>
+
 
                     </div>
 
-                    <div class="mPay1_item">
+                    <!-- <div class="mPay1_item">
 
                         <img src="@/img/mall/mall_product1_1.jpg">
 
@@ -104,8 +82,7 @@
                                 <div class="cal_count">1</div>
                                 <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
                             </div>
-                            
-                            <!-- <calBar @updateCount="handleCountUpdate" /> -->
+
 
                         </div>
 
@@ -114,12 +91,9 @@
                             <i class="fa-solid fa-trash"></i>
                             <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div>
-                        <!-- <div class="mPay1_item_price">
-                            <h2>NTD{{ ItemTotalPrice }}</h2>
-                            <font-awesome-icon class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
-                        </div> -->
 
-                    </div>
+
+                    </div> -->
 
                 </div>
 
@@ -163,7 +137,7 @@
 
                 <div class="mPay1_total">
                     <h2>總金額</h2>
-                    <h1>NTD 400</h1>
+                    <h1>NTD {{ calCartTotal }}</h1>
                 </div>
 
                 <!-- <button class="btn mPay1_nextpage">下一步</button> -->
@@ -177,6 +151,44 @@
 </template>
 
 
+
+<script setup>
+    // 數量按鈕
+    // import calBar from '@/components/cal.vue';
+    // 設置header及footer
+    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
+    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
+    import BannerUrl  from '@/img/pay/pay_banner.jpg'; // 更改成banner路徑
+    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
+    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+
+    import { useCartStore } from '@/stores/cartStore.js';
+    const cartStore = useCartStore();
+
+    import { ref, computed } from 'vue';
+    
+    const quantityPlus = function(index) {
+        cartStore.cartItems[index].quantity += 1
+
+        cartStore.updateLocalStorage(cartStore.cartItems);
+    }
+
+    const quantityMinus = function(index) {
+        if( cartStore.cartItems[index].quantity > 1 ){
+            cartStore.cartItems[index].quantity -= 1
+            cartStore.updateLocalStorage(cartStore.cartItems);
+        }
+    }
+
+
+    // 總價還沒有算到運費及優惠碼
+    const calCartTotal = computed(function() {
+        return cartStore.cartItems.reduce((total, item) => {
+            return total + (item.productPrice * item.quantity);
+        }, 0);
+    })
+
+</script>
 
 
 <style lang="scss">

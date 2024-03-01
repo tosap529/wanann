@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 function getSavedCartItems() {
   const savedCartItems = localStorage.getItem('cartItems');
   if (savedCartItems) {
-      return JSON.parse(savedCartItems);
+    return JSON.parse(savedCartItems);
   } else {
     return [];
   }
