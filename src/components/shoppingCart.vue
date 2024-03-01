@@ -3,13 +3,13 @@
         <!-- <div class="cart_outside" v-bind:class="{ 'toggle': cartStore.isCartOpen }"> -->
             <div class="cart" v-bind:class="{ 'toggle': cartStore.isCartOpen }">        
 
-                <div class="cart-top">
-                    <h1 class="text-h1">購物車</h1>
-                    <font-awesome-icon @click="closeCart" class="cart-menu-close-btn" :icon="['fas', 'xmark']"/>
+                <div class="cart_top">
+                    <h1 class="text_h1">購物車</h1>
+                    <font-awesome-icon @click="closeCart" class="cart_menu_close_btn" :icon="['fas', 'xmark']"/>
                 </div>
 
                 <!-- 商品新增處 -->
-                <div class="product-rows">
+                <div class="product_rows">
                     <div class="cart_rows_empty" v-if=" cartStore.cartItems.length == 0 ">
                         <img src="@/img/logo_title.svg">
                         <h2>目前沒有任何商品喔</h2>
@@ -20,9 +20,9 @@
                         v-bind:key="i.productId"
                         class="product-row">
 
-                        <img  class="cart-image" v-bind:src="i.productSrc1">
+                        <img  class="cart_image" v-bind:src="i.productSrc1">
 
-                        <div class="product-row-inner">
+                        <div class="product_row_inner">
                             <h3>{{ i.productName }}</h3>
 
                             <div class="cart_design">
@@ -37,18 +37,17 @@
 
                         </div>
 
-                        <div class="product-row-price">
-                            <span class ="cart-price">NTD {{ i.productPrice * i.quantity }}</span>
-                            <i class="fa-solid fa-trash cart-item-remove-btn"></i>
-                            <font-awesome-icon class="cart-item-remove-btn" :icon="['fas', 'trash']" @click="cartStore.removeFromCart(index)" />
+                        <div class="product_row_price">
+                            <span class ="cart_price">NTD {{ i.productPrice * i.quantity }}</span>
+                            <font-awesome-icon class="cart_item_remove_btn" :icon="['fas', 'trash']" @click="cartStore.removeFromCart(index)" />
                         </div>
                     </div>
 
                     <!-- <div class="product-row">
 
-                        <img  class="cart-image" src="@/img/mall/mall_product1_1.jpg">
+                        <img  class="cart_image" src="@/img/mall/mall_product1_1.jpg">
 
-                        <div class="product-row-inner">
+                        <div class="product_row_inner">
                             <h2>浣安手工香皂</h2>
 
                             <div class="cart_design">
@@ -63,29 +62,29 @@
 
                         </div>
 
-                        <div class="product-row-price">
-                            <span class ="cart-price">NT$200</span>
-                            <i class="fa-solid fa-trash cart-item-remove-btn"></i>
-                            <font-awesome-icon class="cart-item-remove-btn" :icon="['fas', 'trash']" />
+                        <div class="product_row_price">
+                            <span class ="cart_price">NT$200</span>
+                            <i class="fa-solid fa-trash cart_item_remove_btn"></i>
+                            <font-awesome-icon class="cart_item_remove_btn" :icon="['fas', 'trash']" />
                         </div>
                     </div> -->
                     
 
                 </div>
 
-                <div class="cart-footer">
-                    <div class="cart-menu-total">
-                        <h3 class="cart-total">小計</h3>
-                        <h2 class="total-price">NTD {{ calCartTotal }}</h2>
+                <div class="cart_footer">
+                    <div class="cart_menu_total">
+                        <h3 class="cart_total">小計</h3>
+                        <h2 class="total_price">NTD {{ calCartTotal }}</h2>
                     </div>
                     <router-link 
                         v-if=" cartStore.cartItems.length > 0 " 
                         @click="closeCart" :to="{ name: 'mPay1' }">
 
-                            <button class="btn purchase-btn">結帳去</button>
+                            <button class="btn purchase_btn">結帳去</button>
 
                     </router-link>
-                    <button v-else @click="cartEmpty" class="btn purchase-btn">結帳去</button>
+                    <button v-else @click="cartEmpty" class="btn purchase_btn">結帳去</button>
                 </div>
             
             <!-- </div> -->
@@ -148,6 +147,7 @@
 
         height: 100%;
         width: 450px;
+        max-width: 100%;
 
         padding: 20px 50px;
 
@@ -160,7 +160,7 @@
         flex-direction: column;
         justify-content: space-between;
 
-        .cart-top{
+        .cart_top{
             display: flex;
             justify-content: space-between;
 
@@ -173,25 +173,25 @@
                 color: $brown;
             }
 
-            > .cart-menu-close-btn{
+            > .cart_menu_close_btn{
                 font-size: 20px;
                 color: $dark-milktea;
                 cursor: pointer;
             }
 
-            > .cart-menu-close-btn:hover{
+            > .cart_menu_close_btn:hover{
                 color: $brown;
             }
 
         }
 
-        div.cart-footer{
+        div.cart_footer{
             padding-bottom: 20px;
 
 
         }
 
-        div.cart-menu-total{
+        div.cart_menu_total{
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -207,7 +207,7 @@
             }
         }
 
-        button.purchase-btn{
+        button.purchase_btn{
             margin: 0 auto;
             width: 150px;
             max-width: 100%;
@@ -225,7 +225,7 @@
     }
 
     /* 加入購物車的品項 */
-    div.product-rows{
+    div.product_rows{
         margin-bottom: auto;
         >.cart_rows_empty{
             display: flex;
@@ -258,7 +258,7 @@
         }
     }
 
-    div.product-row-inner{
+    div.product_row_inner{
         margin-right: auto;
 
         > h3{
@@ -290,7 +290,7 @@
         }
     }
 
-    div.product-row-price{
+    div.product_row_price{
         display: flex;
         flex-direction: column;
         align-items: end;
@@ -299,19 +299,19 @@
         height: 100px;
         min-height: 100%;
 
-        > .cart-item-remove-btn{
+        > .cart_item_remove_btn{
             display: block;
             font-size: 20px;
             color: $dark-milktea;
             cursor: pointer;
         }
 
-        > .cart-item-remove-btn:hover{
+        > .cart_item_remove_btn:hover{
             color: $brown;
         }
     }
 
-    @media(max-width:431px){
+    @media(max-width:430px){
         div.cart{
             width: 430px;
         }
@@ -323,7 +323,7 @@
                 margin-right: 10px;
             }
 
-            >div.product-row-inner{
+            >div.product_row_inner{
                 >h2{
                     font-size: $h4;
                 }
@@ -333,11 +333,15 @@
                 }
 
                 >.cal{
-                    width: 120px;
+                    width: 80px;
                     >.cal_btn{
                         font-size: 20px;
                     }
                 }
+            }
+
+            >div.product_row_price{
+                align-items: center;
             }
 
         }

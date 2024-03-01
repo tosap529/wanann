@@ -1,7 +1,7 @@
 
 <template>
     <div>
-        <!-- <DefaultHeader header-title-zh="商城" header-title-eng="Mall" :bgi="banner_url" /> -->
+        <DefaultHeader header-title-zh="商城" header-title-eng="Mall" :bgi="banner_url" />
 
         <wrapper class="mall_wrapper wrapper">
             <!-----------------------------  類別tap ----------------------------------------->
@@ -82,7 +82,7 @@
             </div>
         
         </wrapper>
-        <!-- <DefaultFooter /> -->
+        <DefaultFooter />
     </div>
 </template>
 

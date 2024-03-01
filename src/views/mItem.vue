@@ -45,7 +45,36 @@
 
                 </div>
 
-                <div class="mitem_tab tab">
+
+                <div class="mitem_product_des">
+                    <div class="mitem_tab tab">
+                        <ul>
+                            <li v-on:click.prevent="tab_change" v-bind:class="{'tab_on': aboutProduct == '商品敘述'}"><a href="#">商品敘述</a></li>
+                            <li v-on:click.prevent="tab_change" v-bind:class="{'tab_on': aboutProduct == '款式說明'}"><a href="#">款式說明</a></li>
+                            <li v-on:click.prevent="tab_change" v-bind:class="{'tab_on': aboutProduct == '運送方式'}"><a href="#">運送方式</a></li>
+                        </ul>
+                    </div>
+
+                    <ol v-if="aboutProduct == '商品敘述'" class="mitem_text">
+                        <li><p>{{ productItem.productDes1 }}</p></li>
+                        <li><p>{{ productItem.productDes2 }}</p></li>
+                    </ol>
+
+                    <ol v-if="aboutProduct == '款式說明'" class="mitem_text">
+                        <li><p>{{ productItem.productCategory }}</p></li>
+                    </ol>
+
+                    <ol v-if="aboutProduct == '運送方式'" class="mitem_text">
+                        <li><p>宅配到府</p></li>
+                    </ol>
+
+                </div>
+
+
+
+
+
+                <!-- <div class="mitem_tab tab">
                     <ul>
                         <li v-on:click.prevent="tab_change" v-bind:class="{'tab_on': aboutProduct == '商品敘述'}"><a href="#">商品敘述</a></li>
                         <li v-on:click.prevent="tab_change" v-bind:class="{'tab_on': aboutProduct == '款式說明'}"><a href="#">款式說明</a></li>
@@ -63,7 +92,7 @@
 
                 <ol v-if="aboutProduct == '運送方式'" class="mitem_text">
                     <li><p>宅配到府</p></li>
-                </ol>
+                </ol> -->
 
             </section>
         </wrapper>
