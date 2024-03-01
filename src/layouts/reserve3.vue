@@ -1,7 +1,24 @@
 <script setup>
 import wrapper from '@/layouts/wrapper.vue';
 import Calendar from '@/layouts/calendar.vue';
-    defineEmits(['lastReserveStep','firstReserveStep']);
+import {ref, onBeforeMount} from 'vue';
+defineEmits(['lastReserveStep','firstReserveStep']);
+// 一進服務預約三就先清掉日期+時間範圍
+onBeforeMount(()=>{
+let my_service_order = JSON.parse(localStorage.getItem("my_service_order"));
+my_service_order.service_date = '';
+my_service_order.service_time_range = '';
+localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
+})
+
+const isNext = ref(false);
+document.addEventListener('click',function(){
+    let my_service_order_new = JSON.parse(localStorage.getItem("my_service_order"));
+    if(my_service_order_new.service_date!=''&&my_service_order_new.service_time_range!=''){
+        isNext.value = true;
+    }
+})
+
 </script>
 
 <template>
@@ -37,7 +54,7 @@ import Calendar from '@/layouts/calendar.vue';
         </section>
         <p>僅接受3日後的預約，具體施作時間交由浣安與您聯繫進一步討論</p> -->
         <section class="next_btn">
-            <router-link class="btn" :to="{ name: 'sPay1' }">前往結帳</router-link>   
+            <router-link class="btn" :class="{ disabled: !isNext }" :to="{ name: 'sPay1' }">前往結帳</router-link>   
         </section>
     </div>
 </template>
@@ -45,6 +62,10 @@ import Calendar from '@/layouts/calendar.vue';
 
 
 <style lang="scss" scoped>
+.btn.disabled{
+   background-color: rgba(0,0,0,.8);
+   color:white;
+}
 .subtitle:nth-child(1){
     opacity: .25;
     margin-bottom: 0;

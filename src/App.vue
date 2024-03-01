@@ -1,6 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
+ import { RouterLink, RouterView } from 'vue-router'
+  // import HelloWorld from './components/HelloWorld.vue'
+
 
 </script>
 
@@ -11,7 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/about">About</RouterLink> -->
 
 
-        <RouterView />
+        <RouterView/>
 
         
 
@@ -30,7 +31,5 @@ import { RouterLink, RouterView } from 'vue-router'
         padding-top: 40px;
     }
 }
-
-
 
 </style>

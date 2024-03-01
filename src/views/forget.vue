@@ -1,21 +1,14 @@
 <script setup>
 import {ref} from 'vue'
-// import Modal from '@/components/ModalAboutBelief.vue'; 
 // import wrapper from '@/layouts/wrapper.vue';
 import FixedHeader from '@/layouts/headerFixed.vue'; 
 import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
 const banner_url = BannerUrl; 
 
-// const isModalShow = ref(false);
-// const ModalAboutBelief = ()=>{
-//     isModalShow.value = !isModalShow.value;
-//     console.log( isModalShow.value)
-// }
 </script>
 <template>
     <div>
-        <!-- <Modal @ModalAboutBelief="ModalAboutBelief" v-show="isModalShow"  /> -->
         <FixedHeader header-title-zh="重設密碼" header-title-eng="Forget" :bgi="banner_url" />
     <div class="wrapper forget">
         

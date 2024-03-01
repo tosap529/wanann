@@ -118,7 +118,7 @@
     text-align: center;
     // width: 250px;
 
-    >div,
+    >div:first-child,
     h2 {
         margin-bottom: 20px;
         border-radius: 10px;
@@ -138,6 +138,7 @@
     div:last-child {
         h2 {
             width: auto;
+            cursor: pointer;
         }
     }
 
