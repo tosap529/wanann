@@ -147,7 +147,13 @@ const router = createRouter({
       meta: { title: '浣安 | 後台' },
       component: () => import('@/views/cms.vue')
     },
-
+    //後台登入頁
+    {
+      path: '/backLogin',
+      name: 'backLogin',
+      meta: { title: '浣安 | 後台' },
+      component: () => import('@/views/backLogin.vue')
+    },
 
   ]
 })

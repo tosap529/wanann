@@ -24,16 +24,20 @@ import { RouterLink, RouterView } from 'vue-router'
 
 #app.gameR{
   background-image: url(@/img/game/gameR_bgi.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding-top: 1px;
+  background-size: cover;
+  overflow: hidden;
 
     @include m() {
-  background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-size: contain;
         padding-top: 40px;
     }
 }
 
-
+#app.backLogin{
+  background-color: $light-milktea;
+  height: 100vh;
+  overflow: hidden;
+}
 
 </style>

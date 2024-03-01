@@ -62,7 +62,6 @@ const route = useRoute();
 @import '@/sass/main.scss';
 .ham .nav_right .route_now_ham{
     color: $dark-milktea;
-    // color: $brown;
     font-weight: bold;
 }
 
