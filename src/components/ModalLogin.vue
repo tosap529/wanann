@@ -4,9 +4,16 @@ defineEmits(['ModalLogin']);
 
 const byeLogin = ref(true);
 const byeCreate = ref(false);
+// const LoginRWD = ref(true);
+// const CreateRWD = ref(false);
 
 const goCreate=(e)=>{
+    // LoginRWD.value = !LoginRWD.value
+    
+    // CreateRWD.value= !CreateRWD.value;
+
     byeLogin.value= !byeLogin.value;
+
     byeCreate.value= !byeCreate.value;
 
     let bgcImg = e.target.closest('section');
@@ -27,6 +34,11 @@ const goCreate=(e)=>{
     }
     
 }
+const goCreateRWD=(e)=>{
+    byeLogin.value= !byeLogin.value;
+    byeCreate.value= !byeCreate.value;
+
+}
 
 let pwdStatusNew = 'password';
 let pwdStatusConfirm = 'password';
@@ -38,9 +50,58 @@ const eyeOnPWD=(e)=>{
             e.target.previousElementSibling.type='password';
         }
 }
+
+
+
+const RegisterData = {
+    name:'',
+    phone:'',
+    email: '',
+    send_address:'',
+    service_address:'',
+    username: '',
+    password: '',
+    // member_pic:'',
+    };
+
+const submitForm = () => {
+    const url = 'http://localhost/wanann/public/php/register.php';
+    
+    fetch(url, {
+        method: 'POST',
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        body: JSON.stringify(RegisterData)
+    })
+    .then(response => response.text())
+    .then(response => {
+        // console.log('註冊成功 js');
+        // console.log(response);
+
+        alert('註冊成功')
+    }).catch(error => {
+        console.error('Error:', error);
+    });
+};
+
+
+
+
 </script>
 <template>
 <div class="modal_mask" @click.self="$emit('ModalLogin')" >
+<div class="tab">
+        <ul>
+            <li :class="{'tab_on':byeLogin}">
+                <a href="#" @click="goCreateRWD">登入</a>
+            </li> 
+            <li :class="{'tab_on':byeCreate}">
+                <a href="#"  @click="goCreateRWD">註冊</a>
+            </li>
+            
+        </ul>
+</div>
 <div class="modal_content login_box">
     <transition  name="slide-fade-right">
      <!-- 左方登入頁面 -->
@@ -51,11 +112,10 @@ const eyeOnPWD=(e)=>{
         </div>
         <form class="login_form">
             <label for="username">帳號<br><input type="text" id="username"></label>
-            <br>
+            <!-- <br> -->
             <label for="pwd">密碼<br><input type="password" id="pwd"></label>
-            <br>
+            <!-- <br> -->
             <router-link  :to="{ name: 'forget' }">忘記密碼？</router-link>
-            <!-- <a href="#">忘記密碼？</a> -->
             <router-link class="btn" :to="{ name: 'member' }">登入</router-link>
         </form>
         <div>
@@ -86,21 +146,22 @@ const eyeOnPWD=(e)=>{
         <div class="modal_title">
             <h1>會員註冊</h1>
         </div>
-        <form class="create_form">
-            <label for="createAccount">*帳號<br><input type="text" id="createAccount"></label>
-            <br>
+        <form class="create_form" @submit.prevent="submitForm">
+            <label for="createAccount">*帳號<br><input type="text" id="createAccount" name="username" v-model="RegisterData.username"></label>
+            <!-- <br> -->
             <label for="pwdNew">*密碼<br>
-                <input type="password" id="pwdNew">
+                <input type="password" id="pwdNew" name="password" v-model="RegisterData.password">
                 <img src="@/img/login/login_icon_eye.png" @click="eyeOnPWD" alt="">
             </label>
-            <br>
+            <!-- <br> -->
             <label for="pwdConfirm">*確認密碼<br>
                 <input type="password" id="pwdConfirm">
                 <img src="@/img/login/login_icon_eye.png"  @click="eyeOnPWD" alt="">
             </label>
-            <br>
-            <label for="createEmail">*電子信箱<br><input type="email" id="createEmail"></label>
-            <input type="submit" value="加入會員" class="btn">
+            <!-- <br> -->
+            <label for="createEmail">*電子信箱<br><input type="email" id="createEmail" name="email" v-model="RegisterData.email"></label>
+            <input type="submit" value="加入會員" class="btn" >
+            <!-- <button type="submit" class="btn">送出</button> -->
         </form>
     </section>
 </transition>
@@ -110,20 +171,22 @@ const eyeOnPWD=(e)=>{
 
 <style lang="scss">
 @import '@/sass/main.scss';
-
+.modal_mask>div.tab{
+    display: none;
+}
 .login_box {
     // border-radius: 10px;
     margin: 0 auto;
     margin-top: 80px;
-    width: 1000px;
-    height: 600px;
+    width: 800px;
+    height: 550px;
     position: relative;
 
     .login,
     .login_bgc_img,
     .create {
-        width: 500px;
-        height: 600px;
+        width: 400px;
+        height: 550px;
         position: absolute;
         top: 0;
     }
@@ -149,7 +212,7 @@ const eyeOnPWD=(e)=>{
 .login {
     box-sizing: border-box;
     background-color: $white;
-    padding: 40px 70px 70px;
+    padding: 40px 70px 20px;
     border-radius: 10px 0 0 10px;
 >img{
     position: absolute;
@@ -181,8 +244,8 @@ const eyeOnPWD=(e)=>{
     }
 
     div:nth-child(4) {
-        margin-top: 30px;
-        margin-bottom: 30px;
+        margin-top: 20px;
+        margin-bottom: 20px;
         display: flex;
         justify-content: space-around;
 
@@ -194,7 +257,7 @@ const eyeOnPWD=(e)=>{
     }
 
     >.btn {
-        width: 300px;
+        width: 250px;
         background-color: $light-milktea;
         color: $brown;
         margin: 0 auto;
@@ -219,7 +282,7 @@ const eyeOnPWD=(e)=>{
     z-index: 10;
     background-image: url('@/img/login/login_main.jpg');
     background-size: cover;
-    padding: 100px 100px 180px 100px;
+    padding: 60px 40px 160px 40px;
     border-radius: 0 10px 10px 0;
     transition: 1s;
 
@@ -235,9 +298,8 @@ const eyeOnPWD=(e)=>{
     }
 
     .btn {
-        margin: 0 auto;
+        margin: 160px auto 0;
         width: 150px;
-        margin-top: 120px;
     }
     #changeLoginBox{
     opacity: 1;
@@ -246,9 +308,9 @@ const eyeOnPWD=(e)=>{
 
 // 註冊表單
 .create {
-    left: 500px;
+    left: 400px;
     background-color: $white;
-    padding: 40px 75px 0px;
+    padding: 40px 70px 20px;
     border-radius: 0 10px 10px 0;
     >img{
     position: absolute;
@@ -273,10 +335,10 @@ const eyeOnPWD=(e)=>{
         }
 
         .btn {
-            width: 300px;
+            width: 250px;
             height: auto;
             margin: 0 auto;
-            margin-top: 20px;
+            margin-top: 10px;
         }
     }
 
@@ -286,7 +348,7 @@ const eyeOnPWD=(e)=>{
     left: 0px;
 }
 .login_box_right {
-    left: 500px;
+    left: 400px;
 }
 .slide-fade-right-enter-active,.slide-fade-left-enter-active {
   transition: all 0.3s ease-out;
@@ -307,4 +369,113 @@ const eyeOnPWD=(e)=>{
     transform: translateX(-20px);
   opacity: 0;
 }
+@media screen and (max-width:1050px) {
+    .modal_mask>div.tab {
+    display: block;
+    margin-top: 80px;
+    
+  ul{
+    padding: 0;
+    border: none;
+    width: 355px;
+    margin: 0 auto;
+    justify-content: flex-start;
+    li{
+        margin: 0;
+        a{
+            width: 100px;
+        }
+    }
+  }
+}
+    .login_box{
+        margin-top: 0;
+        height: 450px;
+        width: 355px;
+        background-color: $dark-milktea;
+        padding: 0px 10px;
+        border-radius:0px 10px 10px 10px;
+        .modal_title{
+            display: none;
+        }
+        .login_form{
+           display: flex;
+           flex-direction: column;
+           align-items: center;
+           padding-top: 20px;
+           >a{
+            align-self: flex-end;
+            margin-right: 20px;
+           }
+           a.btn{
+            margin-top: 10px;
+            width: 120px;
+            height: 40px;
+            line-height: 20px;
+            font-size: $h4;
+           }
+        }
+        .login,.create{
+            border-radius:10px;
+            height: auto;
+             width: 335px;
+             margin: 20px auto;
+             padding: 0;
+    }
+    .login{
+       >img{
+        // display: none;
+        left: auto;
+        right: 8px;
+        top: 8px;
+        border-radius:50%;
+        background-color: $light-milktea;
+        
+    } 
+    button{
+        margin-bottom: 20px;
+        font-size: $h4;
+    }
+    }
+    .create{
+        left: 0;
+        padding-top: 20px;
+        margin-left: 10px;
+        >img{
+            left: auto;
+        right: 8px;
+        top: 8px;
+        border-radius:50%;
+        background-color: $light-milktea;
+        }
+    .create_form {
+       display: flex;
+       flex-direction: column;
+        label{
+        margin: 0 auto;
+            img{
+                 top: 30%;
+             }
+         }
+    .btn{
+        margin-top: 10px;
+        width: 200px;
+        height: 40px;
+        line-height: 20px;
+        font-size: $h4;
+    }}
+    
+    }
+    label{
+        width: 90%; 
+        font-size: $h4;
+       
+    }
+    }
+    
+    .login_bgc_img{
+        display: none;
+    }
+}
+
 </style>
