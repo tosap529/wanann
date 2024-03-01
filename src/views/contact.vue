@@ -14,15 +14,8 @@ const banner_url = BannerUrl;
     message: ''
     };
 
-    // const formData = {
-    // name: 'Test1',
-    // phone: '3333',
-    // email: 'xxxx@gmail.com',
-    // message: 'ssss'
-    // };
-
     const submitForm = () => {
-        const url = 'php/test.php';
+        const url = 'http://localhost/thd104/public/wanann.php';
         
         fetch(url, {
             method: 'POST',

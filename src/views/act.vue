@@ -1,27 +1,68 @@
 <script setup>
+
     import { ref } from "vue";
 
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import BannerUrl  from '@/img/act/act_banner.jpg'; // 更改成banner路徑
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
+    import lecture from '@/components/Lecture.vue'; //引入職人講座
+    import discount from '@/components/Discount.vue'; //引入優惠活動
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
     
-   
-
     const activeContent = ref('content1');
     const showContent = (e) => {
         activeContent.value = e;
     }
 
+    const items = ref([]);
+    
+    const url = 'http://localhost/thd104/public/act.php';
+    
+        
+    fetch(url)
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+        items.value = response;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    
+
+    const currentPage = ref(1)
+
+    const pageSize = ref(4)
+
+        // 分頁器
+        const paginatedProducts = computed(function(){
+        let start = (currentPage.value - 1) * pageSize.value;
+        let end = start + pageSize.value;
+        return filteredProducts.value.slice(start, end);
+    });
+    const totalPages = computed(function() {
+        return Math.ceil(filteredProducts.value.length / pageSize.value)
+    })
+
+    function setPage(n) {
+        currentPage.value = n;
+    }
+    function setCategory(category) {
+        currentCategory.value = category;
+        currentPage.value = 1;
+    }
+
+            
 
 </script>
 
 <template>
-    <DefaultHeader header-title-zh="活動專區" header-title-eng="Activity" :bgi="banner_url" /> 
     <div>
-        <wrapper>
+    <DefaultHeader header-title-zh="活動專區" header-title-eng="Activity" :bgi="banner_url" /> 
+    
+        <wrapper class="act_wrapper">
 
 <section class="act_tab">
 
@@ -32,106 +73,57 @@
         </ul>
     </div>
 </section>
+<!-- ------------------優惠活動--------------------- -->
 
-<section class="act_main" v-if="activeContent === 'content1'">
+<discount v-if="activeContent === 'content1'" :items="items"/>
 
-    <article>
-        <h2 class=" new -none">除舊佈新迎新春，優惠搶先看</h2>
-        <img src="../img/act/act_1.jpg" alt="">
-        <div class="right">
-            <h2>除舊佈新迎新春，優惠搶先看</h2>
-            <h4>新的一年到了，是時候給家居進行一番除舊佈新的大改變了！我們為您提供了獨家的優惠活動，只需在購物時輸入優惠碼，即可立即享受100元折扣。這是一個難得的機會，讓您以更實惠的價格，更新您家中的各種家居用品以及獲得我們的折扣服務。
-            </h4>
-            <div class="coupon_container">
-                <input type="text" value="G1d96PT32f147" class="coupon_input" readonly="readonly">
-                <button class="copy_button" id="copy_btn">複製</button>
-            </div>
-            <h3>使用期限至 2024-02-07 </h3>
-        </div>
-    </article>
-    <article>
-        <h2 class=" new -none">歡慶5週年，折扣大放送 </h2>
-        <img src="../img/act/act_2.jpg" alt="">
-        <div class="right">
-            <h2>歡慶5週年，折扣大放送 </h2>
-            <h4>親愛的顧客，感謝您在過去五年來的一路相伴與支持，我們的五週年慶典終於來臨了！為了回饋您的支持與信任，我們決定推出一場盛大的折扣大放送！有消費紀錄的會員皆可獲得200元大禮包~</h4>
-            <div class="coupon_container">
-                <input type="text" value="Z896tg321q21" class="coupon_input" readonly="readonly">                <button class="copy_button">複製</button>
-            </div>
-            <h3>使用期限至 2024-01-20 </h3>
-        </div>
-    </article>
-    <article>
-        <h2 class=" new -none">聖誕節快樂！獨家折扣驚喜等您！</h2>
-        <img src="../img/act/act_3.jpg" alt="">
-        <div class="right">
-            <h2>聖誕節快樂！獨家折扣驚喜等您！</h2>
-            <h4>沒事就來瀏覽我們的商城，不時你會發現許多驚喜的折扣跟商品優惠，讓您的聖誕購物之旅能更加有趣且又經濟實惠。這個聖誕節，讓我們一同分享愛與喜悅，盡情享受購物的樂趣吧！祝您聖誕快樂！</h4>
-            <div class="coupon_container">
-                <input type="text" value="G81PT123d2824" class="coupon_input" readonly="readonly">
-                <button class="copy_button">複製</button>
-            </div>
-            <h3>使用期限至 2023-12-31 </h3>
-        </div>
-    </article>
-    <article>
-        <h2 class=" new -none">感恩父愛，歡慶父親節特別活動！</h2>
-        <img src="../img/act/act_4.jpg" alt="">
-        <div class="right">
-            <h2>感恩父愛，歡慶父親節特別活動！</h2>
-            <h4>我們為您挑選了一系列精心設計的禮物，涵蓋了從cp值極高的服務內容到實用家居用品的多個品類。所有商品將在活動期間享有特別優惠價格，折扣88元，讓您可以用心選擇一份特別的禮物，為父親帶來驚喜。
-            </h4>
-            <div class="coupon_container">
-                <input type="text" value="A835TW321193" class="coupon_input" readonly="readonly">
-                <button class="copy_button">複製</button>
-            </div>
-            <h3>使用期限至 2023-08-11 </h3>
-        </div>
-    </article>
-</section>
-<section class="act_main2 act_main" v-else-if="activeContent === 'content2'">
+<!-- ------------------職人講座--------------------- -->
 
-<article>
-    <h2 class=" new -none">盧小姐的職人精神</h2>
-    <img src="@/img/act/lec_1.jpg" alt="">
-    <div class="right">
-        <h2>盧小姐的職人精神</h2>
-        <h4>當您參加這個講座時，您將不僅僅獲得知識，更是一份珍貴的經驗。我們將深入探討清潔行業的核心價值，以及職人在其中扮演的重要角色。您將了解到清潔不僅僅是一份工作，更是一種對環境和健康的重要貢獻。
-        </h4>
-        
-        <h3>活動日期 2024-02-07 </h3>
-    </div>
-</article>
-<article>
-    <h2 class=" new -none">王叔叔的清潔秘訣：讓家居煥然一新！</h2>
-    <img src="@/img/act/lec_2.jpg" alt="">
-    <div class="right">
-        <h2>王叔叔的清潔秘訣：讓家居煥然一新！</h2>
-        <h4>清潔不僅僅是一種工作，更是一種藝術。這位資深清潔專家分享了他的獨家秘訣，從家居角落到每個細節，讓您的空間焕然一新。跟隨他的指導，讓您的家居煥然一新，焕發出嶄新的活力和舒適。</h4>
-        <h3>活動日期 2024-01-20 </h3>
-    </div>
-</article>
-<article>
-    <h2 class=" new -none">鄭阿姨的家居清潔心法</h2>
-    <img src="@/img/act/lec_3.jpg" alt="">
-    <div class="right">
-        <h2>鄭阿姨的家居清潔心法</h2>
-        <h4>獨特的家居清潔心法將為您帶來焕然一新的居家環境。從細節處理到整體布置，鄭阿姨將分享她的實用技巧和寶貴經驗，讓您的家居始終保持舒適整潔。讓我們一同跟隨鄭阿姨的步伐，為家居帶來清新舒適的氛圍，讓每一個角落都散發著溫馨和愛。</h4>
-        <h3>活動日期 2023-12-31 </h3>
-    </div>
-</article>
-</section>
-<div class="mall_paginator">
+<lecture v-else-if="activeContent === 'content2'"/>
+
+
+<!-- ------------------ 分頁器--------------------- -->
+
+        <div class="mall_paginator">
+
                 <ul>
                     <!-- 上一頁圖案 -->
                     <!-- <li v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)"> -->
                     <li>
                         <!-- <span>&lt;</span> -->
-                        <div>
+                        <div v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)">
                             <span>&lt;</span>
                         </div>
                     </li>
 
+                    <li v-for="n in totalPages" v-bind:key="n" v-on:click="setPage(n)" v-bind:class="{'mall_paginator_on' : n == currentPage}">
+                        {{ n }}
+                    </li>
+
+                    <!-- 下一頁圖案 -->
+                    <!-- <li  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)"> -->
+                    <li>
+                        <!-- <span>&gt;</span> -->
+                        <div  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)">
+                            <span>&gt;</span>
+                        </div>
+                    </li>
+                </ul>
+        </div>
+
+
+
+
+<!-- <div class="mall_paginator">
+                <ul>
+                    <!- 上一頁圖案 -->
+                    <!-- <li v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)"> 
+                    <li>
+                        <span>&lt;</span> 
+                        <div>
+                            <span>&lt;</span>
+                        </div>
+                    </li>
                     <li>
                         1
                     </li>
@@ -140,18 +132,17 @@
                     </li>
                     <li>
                         3
-                    </li>
-
+                    </li> -->
                     <!-- 下一頁圖案 -->
-                    <!-- <li  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)"> -->
+                    <!-- <li  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)">
                     <li>
-                        <!-- <span>&gt;</span> -->
+                        <span>&gt;</span>
                         <div>
                             <span>&gt;</span>
                         </div>
                     </li>
-                </ul>
-            </div>
+                </ul> -->
+            <!-- </div>  -->
 </wrapper>
 <DefaultFooter />
     </div>
@@ -165,13 +156,14 @@
         },
         mounted(){
             let coupon_input_el = document.getElementsByClassName("coupon_input");
-    let copy_btns = document.getElementsByClassName("copy_button");
+            let copy_btns = document.getElementsByClassName("copy_button");
 
-    for(let i = 0; i < copy_btns.length; i++){
+        for(let i = 0; i < copy_btns.length; i++){
         
-        copy_btns[i].addEventListener("click", function(){
+          copy_btns[i].addEventListener("click", function(){
           coupon_input_el[i].select();
           document.execCommand('copy');
+          
         });
     }
         }
