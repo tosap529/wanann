@@ -4,6 +4,16 @@ import { defineProps } from 'vue';
 
 defineProps({items: Array});
 
+
+ // --------------------複製功能----------------------->
+ 
+const copy_value = (value) => {
+  const inputElement = document.querySelector('.coupon_input');
+  inputElement.select();
+  document.execCommand('copy');
+}
+
+
 </script>
 
 <template>
@@ -14,12 +24,13 @@ defineProps({items: Array});
         <article>
             <h2 class=" new -none"></h2>
             <img :src= "item.PIC" alt="">
+            <!-- <img src="../../public/img/act/act_2.jpg" alt=""> -->
             <div class="right">
                 <h2>{{item.TITLE}}</h2>
                 <h4>{{item.TITLE}}</h4>
                 <div class="coupon_container">
                     <input type="text" value="G1d96PT32f147" class="coupon_input" readonly="readonly">
-                    <button class="copy_button" id="copy_btn">複製</button>
+                    <button class="copy_button" id="copy_btn" @click="copy_value">複製</button>
                 </div>
                 <h3>使用期限至 2024-02-07 </h3>
             </div>
