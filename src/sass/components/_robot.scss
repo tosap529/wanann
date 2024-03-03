@@ -165,38 +165,39 @@
 
 @media screen and (max-width:490px) {
     .robot .talk {
-        position: fixed;
-        right: 0;
-        top: 0;
-        height: 92vh;
-        width: 100vw;
-        z-index: 99;
-        border-radius: 0;
+        // position: fixed;
+        // right: 0;
+        // top: 0;
+        // height: 400px;
+        // width: 100vw;
+        // z-index: 99;
+        // border-radius: 0;
+        bottom: 56px;
+
     }
 
-    .robot .talk .cross_modal {
-        display: inline-block;
-        position: absolute;
-        width: 24px;
-        top: 2px;
-        right: 10px;
-    }
+    // .robot .talk .cross_modal {
+    //     display: inline-block;
+    //     position: absolute;
+    //     width: 24px;
+    //     top: 2px;
+    //     right: 10px;
+    // }
 
-    .robot .talk .info {
-        height: 77vh;
-    }
+    // .robot .talk .info {
+    //     height: 77vh;
+    // }
 
-    .robot .talk .fa-paper-plane {
-        right: 20px;
-        bottom: 2%;
-        font-size: 24px;
-        z-index: 100;
-    }
+    // .robot .talk .fa-paper-plane {
+    //     right: 20px;
+    //     bottom: 2%;
+    //     font-size: 24px;
+    //     z-index: 100;
+    // }
 
     .bot img {
         right: 48px;
-        bottom: 10%;
+        bottom: 14px;
         width: 60px;
-
     }
 }

@@ -31,7 +31,7 @@ const first = ()=>{
     isFirstShow.value = !isFirstShow.value;
 };
 
-//滑動到頁首
+//滑動頁首變化
 const isHeaderFixed = ref(false);
 const handleScroll = () => {
   let scrollDistance = window.scrollY || document.documentElement.scrollTop;
@@ -42,7 +42,6 @@ const handleScroll = () => {
     isHeaderFixed.value = false;
   }
 };
-
 //滑動到頁面中間
 function scrollTo(){
     window.scrollTo({

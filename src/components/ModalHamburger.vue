@@ -22,11 +22,9 @@ const goLogin = ()=>{
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <div class="nav_left">
-                <router-link :to="{ name: 'home' }"><img src="@/img/logo_square.svg" alt="logo"></router-link>
-            </div>
 
             <div class="nav_right">
+                <router-link :to="{ name: 'home' }"><img src="@/img/logo_square.svg" alt="logo" class="hamlogo"></router-link>
                 <ul>
                     <li><router-link :class="{'route_now_ham':route.name=='about'}" :to="{ name: 'about' }">關於我們</router-link></li>
                     <li class="h_li"><router-link :to="{ name: 'articles' }">最新消息</router-link>
@@ -88,8 +86,8 @@ const goLogin = ()=>{
         .hamburger {
             padding-top: 8px;
             position: absolute;
-            top: -92px;
-            right: 25px;
+            top: -48px;
+            right: 26px;
 
             .bar {
                 display: block;
@@ -111,38 +109,34 @@ const goLogin = ()=>{
                 }
         }
 
-        .nav_left {
-            position: fixed;
-            top: 36px;
-            left: 38%;
-            z-index: 1;
-            img {
-                width: 100px;
-            }
-        }
-
         .nav_right {
-            margin: 104px auto;
+            margin: 60px auto;
             background-color: $light-milktea;
-            width: 380px;
-            height: 670px;
+            max-width: 350px;
             border-radius: 30px;
             position: relative;
-
-            ul {
+            .hamlogo {
                 position: absolute;
-                top: 52px;
-                left: 20%;
+                top: -43px;
+                left: 43%;
+                z-index: 1;
+                width: 64px;
+            }
+            ul {
+                padding-top: 20px;
+                padding-left: 60px;
 
                 li {
-                    margin-bottom: 24px;
+                    margin-bottom: 18px;
                     padding-left: 15px;
                 }
 
                 .h_li {
                     background-color: $white;
-                    padding: 15px 20px 1px 15px;
+                    padding: 15px 0px 1px 15px;
                     border-radius: 10px;
+                    margin-right: 50px;
+
                 }
 
                 ol {
@@ -151,8 +145,8 @@ const goLogin = ()=>{
                     margin-top: 16px;
                     border-left: 4px solid $brown;
                     border-radius: 4px;
-                }
 
+                }
 
             }
 
@@ -160,11 +154,9 @@ const goLogin = ()=>{
                 display: flex;
                 width: 320px;
                 border-top: 1px dashed $brown;
-                position: absolute;
-                bottom: 20px;
-                left: 8%;
+                margin: 0 auto;
                 padding-top: 16px;
-
+                padding-bottom: 20px;
                 .btn {
                     padding: 8px 12px;
                     margin-left: 45px;
@@ -180,6 +172,7 @@ const goLogin = ()=>{
                     padding: 0 10px;
                     padding-top: 6px;
                     color: $white;
+                    font-size:$p ;
                 }
 
             }

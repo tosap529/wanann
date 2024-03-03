@@ -4,7 +4,7 @@
 
     @include m() {
         margin: 40px auto;
-        max-width: 375px !important;
+        max-width: 360px !important;
     }
 }
 
@@ -12,6 +12,6 @@
     margin-top: 280px;
 
     @include m() {
-        max-width: 375px;
+        max-width: 360px;
     }
 }
