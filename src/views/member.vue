@@ -38,12 +38,6 @@ function  sidebarClick(e){
     // console.log(memberSubPage.value);
 }
 
-const profileMiniClick=(e)=>{
-    profileMini.click()
-}
-
-
-
 
 </script>
 <template>
@@ -53,9 +47,10 @@ const profileMiniClick=(e)=>{
     <div class="member wrapper">
         <section class="member_sidebar">
             <div @click="profileMiniClick">
-            <div >
+            <!-- <div >
                 <input type="file" id="profileMini">
-            </div>
+            </div> -->
+            <img src="@/img/member/member_icon_profileMini.png" alt="" > <input type="file" id="profileMini" >
                 <h2>thd104</h2>
             </div>
             <ul ref="sidebar">
@@ -91,13 +86,7 @@ const profileMiniClick=(e)=>{
 .member_pageNow{
     display: block;
 }
-.alert_input{
-    background-color: $white;
-    background-image: url(@/img/member/member_icon_alertInput.svg);
-    background-repeat: no-repeat;
-    background-position: 95% 40%;
-    outline: 2px solid $brown;
-}
+
 // 表示當前頁面的側邊欄樣式
 .member_sidebar_active {
     background-color: $light-milktea;
