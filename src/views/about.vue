@@ -229,10 +229,45 @@ div.about+div>footer {
     width: 100%;
     // top: 6100px;
     top:$about_d+6800;
-    @include m(){
-        top: $about_d_rwd+3300;
-    }
+
 }
+@media screen and (max-width:1300px) {
+  div.about+div>footer {
+    top:5000px;
+
+}}
+@media screen and (max-width:1150px) {
+  div.about+div>footer {
+    top:5600px;
+
+}
+
+}
+
+@media screen and (max-width:1000px) {
+  div.about+div>footer {
+    top:5900px;
+}}
+@media screen and (max-width:900px) {
+  div.about+div>footer {
+    top:5500px;
+
+}}
+@media screen and (max-width:700px) {
+  div.about+div>footer {
+    top:5400px;
+
+}}
+@media screen and (max-width:600px) {
+  div.about+div>footer {
+    top:5700px;
+
+}}
+@media screen and (max-width:$m) {
+  div.about+div>footer {
+    top: $about_d_rwd+3300;
+
+}}
 // 動畫
 .about_anime{
   opacity: 0;
