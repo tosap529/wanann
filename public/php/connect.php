@@ -23,11 +23,17 @@ $reqBody = json_decode(file_get_contents("php://input"), true);
 
 function getPDO(){
 
+
+    // 正式連線在使用
+
     //MySQL相關資訊
     // $db_host = "127.0.0.1";
     // $db_user = "tibamefe_since2021";
     // $db_pass = "vwRBSb.j&K#E";
     // $db_select = "tibamefe_thd104g1";
+
+
+    // 測次使用
 
     $db_host = "127.0.0.1";
     $db_user = "tibamefe_since2021";
@@ -43,15 +49,5 @@ function getPDO(){
     return $pdo;
 
 }
-
-$pdo = getPDO();
-$statement = $pdo->prepare("select * from ACTIVITY");
-$statement ->execute();
-$act = $statement->fetchAll();
-
-// print_r($statement);
-
-// echo "接收成功";
-echo json_encode($act);
 
 ?>

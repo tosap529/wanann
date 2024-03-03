@@ -22,7 +22,7 @@ const banner_url = BannerUrl;
     // };
 
     const submitForm = () => {
-        const url = 'http://localhost/thd104/public/wanann.php';
+        const url = 'http://localhost/thd104/public/php/contact.php';
         
         fetch(url, {
             method: 'POST',

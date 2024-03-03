@@ -16,15 +16,15 @@ defineEmits(['ModalComment'])
         </div>
         <section>
             <article>
-                <img src="../img/member/member_sOrder_product1.png" alt="">
+                <img src="@/img/member/member_sOrder_product1.png" alt="">
                 <h2>浣安全室清潔</h2>
             </article>
             <article>
-                <img src="../img/member/member_sOrder_product2.png" alt="">
+                <img src="@/img/member/member_sOrder_product2.png" alt="">
                 <h2>冷氣機清理</h2>
             </article>
             <article>
-                <img src="../img/member/member_sOrder_product3.png" alt="">
+                <img src="@/img/member/member_sOrder_product3.png" alt="">
                 <h2>毛孩服務</h2>
             </article>
         </section>
@@ -90,8 +90,8 @@ img.cross_modal{
 .comment_box{
     position: relative;
     background-color: $white;
-    width: 900px;
-    height: 650px;
+    width: 700px;
+    height: 500px;
     margin: 60px auto 0;
     border-radius: 10px;
     padding:40px;
@@ -115,13 +115,13 @@ img.cross_modal{
         justify-content: space-between;
         article{
             display: flex;
-            flex-basis: 350px;
+            flex-basis: 300px;
             padding-bottom: 15px;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             border-bottom: 2px dashed $grey;
             img{
-                width: 120px;
-                margin-right: 50px;
+                width: 60px;
+                margin-right: 20px;
             }
             h2{
                 align-self: center;
@@ -148,7 +148,7 @@ img.cross_modal{
             border-radius: 10px;
             padding-left: 10px; 
             padding-top: 10px;
-            width: 450px;
+            width: 300px;
             height: 60px;
             outline: none;
             resize: none;
@@ -179,6 +179,63 @@ img.cross_modal{
         width: 24px;
         margin-left: 10px;
     }
+}
+
+@media screen and (max-width:750px) {
+.comment_box{
+    width: 320px;
+    padding: 25px;
+    .modal_title{
+    h1{
+        font-size:$h2 ;
+        &::before{
+            display: none;
+        }
+    }
+}
+
+>div:nth-child(2){
+    margin-bottom: 20px;
+   h2{
+    margin-right: 10px;
+    font-size: $h4;
+} 
+} 
+>section:nth-child(3){
+    padding: 10px;
+    height: 150px;
+    overflow-y: scroll;
+    margin-bottom: 10px;
+}
+>section:nth-child(4){
+    flex-direction: column; 
+    div{
+        align-items: center;
+        article{
+        h2{
+            font-size: $h4 ;
+            margin-right: 0;
+        }
+    } 
+    
+}
+textarea{
+        width: auto;
+
+    }
+}
+>div:nth-child(5){
+    button:first-child{
+        margin-right: 40px;
+    }
+    button.btn{
+        width: 100px;
+        height: 40px;
+        line-height: 20px;
+    }
+}
+}
+
 }
 
 </style>

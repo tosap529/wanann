@@ -1,15 +1,21 @@
 <script setup>
+import{ref} from 'vue';
 import { useRoute } from 'vue-router';
+import ModalLogin from '@/components/ModalLogin.vue'; 
 defineEmits(['hamburger']);
 // 取得當前頁面路徑
 const route = useRoute();
 // console.log(route.name);
+const isLoginModalShow = ref(false);
+const goLogin = ()=>{
+    isLoginModalShow.value = !isLoginModalShow.value;
+};
 </script>
 
 <template>
     <div>
         <div class="modal_mask ham_bgi" @click.self="$emit('hamburger')" >
-
+        <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
         <nav class="modal_content ham">
             <div class="hamburger cross_modal" @click="$emit('hamburger')">
                 <span class="bar"></span>
@@ -40,7 +46,10 @@ const route = useRoute();
                     <li><router-link :class="{'route_now_ham':route.name=='mall'}" :to="{ name: 'mall' }">商城</router-link></li>
                     <li><router-link :class="{'route_now_ham':route.name=='contact'}" :to="{ name: 'contact' }">聯絡我們</router-link></li>
                     <li><router-link :class="{'route_now_ham':route.name=='game'||route.name=='gameQ'||route.name=='gameR'}" :to="{ name: 'game' }">清潔人格測驗</router-link></li>
-                    <li><router-link :class="{'route_now_ham':route.name=='member'}" :to="{ name: 'member' }">會員中心</router-link></li>
+                    <!-- <li><router-link :class="{'route_now_ham':route.name=='member'}" :to="{ name: 'member' }">會員中心</router-link></li> 
+                    -->
+                    <li><a href="#" class="fai" @click.prevent="goLogin"> 
+                    會員中心</a> </li> 
                 </ul>
                 <div class="h_btns">
                     <router-link class="btn" :to="{ name: 'reserve' }">

@@ -4,6 +4,7 @@
     >h1 {
         display: flex;
         font-size: $h1;
+        align-items: center;
     }
 
     >h1::before {
