@@ -1,5 +1,5 @@
 <script setup>
-
+import { ref } from 'vue';
 import wrapper from '@/layouts/wrapper.vue'; 
 import DefaultHeader from '@/layouts/header.vue'; 
 import DefaultFooter from '@/layouts/footer.vue'; 
@@ -7,12 +7,12 @@ import BannerUrl  from '@/img/contact/contact_banner.jpg';
 const banner_url = BannerUrl;
 
 
-    const formData = {
+    const formData =ref({
     name: '',
     phone: '',
     email: '',
     message: ''
-    };
+    });
 
     // const formData = {
     // name: 'Test1',
@@ -22,23 +22,30 @@ const banner_url = BannerUrl;
     // };
 
     const submitForm = () => {
-        const url = 'http://localhost/thd104/public/php/contact.php';
+    const url = 'http://localhost/WANANN/public/php/contact.php';
+    
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData.value) // 注意這裡使用了 formData.value
+    })
+    .then(response => response.text())
+    .then(response => {
+        alert("傳送成功")
+        console.log(response);
         
-        fetch(url, {
-            method: 'POST',
-            // headers: {
-            //     'Content-Type': 'application/json'
-            // },
-            body: JSON.stringify(formData)
-        })
-        .then(response => response.text())
-        .then(response => {
-            // console.log('註冊成功 js');
-            console.log(response);
-        }).catch(error => {
-            console.error('Error:', error);
-        });
-    };
+        // 清空表單數據
+        formData.value.name = '';
+        formData.value.phone = '';
+        formData.value.email = '';
+        formData.value.message = '';
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+};
 
 </script>
 <template>
@@ -104,19 +111,19 @@ const banner_url = BannerUrl;
                 <form @submit.prevent="submitForm">
                     <div class="contact_input">
                         <label for="name">姓名/單位</label>
-                        <input v-model="formData.name" type="text" id="name" name="name">
+                        <input v-model="formData.name" type="text" id="name" name="name" required>
                     </div>
                     <div class="contact_input">
                         <label for="phone">手機號碼</label>
-                        <input v-model="formData.phone" type="tel" id="phone" name="phone">
+                        <input v-model="formData.phone" type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="請輸入10位數字" required>
                     </div>
                     <div class="contact_input">
                         <label for="email">電子信箱</label>
-                        <input v-model="formData.email" type="email" id="email" name="email">
+                        <input v-model="formData.email" type="email" id="email" name="email" required>
                     </div>
                     <div class="contact_input ">
                         <label for="message" class="message">問題描述</label>
-                        <textarea v-model="formData.message" id="message" name="message"></textarea>
+                        <textarea v-model="formData.message" id="message" name="message" required></textarea >
                     </div>
                     <button type="submit" class="btn">送出</button>
                 </form>
