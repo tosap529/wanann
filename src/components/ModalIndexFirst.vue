@@ -71,8 +71,11 @@ defineEmits(['first'])
     border-radius: 10px;
     background-color: $white;
     padding: 28px;
-    @include m() {
-    max-width: 370px;
+    @media screen and (max-width: 725px) {
+        max-width: 500px;
+    }
+    @media screen and (max-width: 530px) {
+    max-width: 360px;
     padding: 20px;
     }
     .title{
@@ -113,6 +116,7 @@ defineEmits(['first'])
                 color: $brown;
                 font-weight: bold;
                 cursor: pointer;
+                line-height: 1.4;
                 &:hover{
                 color: $dark-milktea ;
                 }
@@ -133,12 +137,12 @@ defineEmits(['first'])
     .first_coupon{
         display: flex;
         align-items: center;
-        @include m() {
+        @media screen and (max-width: 530px) {
         display: block;
         position: relative;
         }
         .coupon_btn{
-            @include m() {
+            @media screen and (max-width: 530px) {
                    margin-top: 16px;
                 }
             input {
@@ -149,7 +153,7 @@ defineEmits(['first'])
                 padding-left: 20px;
                 border-radius: 10px 0 0 10px;
                 margin-left: 10px;
-                @include m() {
+                @media screen and (max-width: 530px) {
                     margin-left: 0;
                 }
             }
@@ -169,7 +173,7 @@ defineEmits(['first'])
         }
 
         h4{
-            @include m() {
+            @media screen and (max-width: 725px)  {
                    font-size: $h4;
                    position: absolute;
                    right: 36px;

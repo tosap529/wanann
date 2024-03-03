@@ -23,7 +23,43 @@
 
 @import './sass/main.scss';
 
-#app.gameR{
+#app.gameRb{
+  background-image: url(@/img/game/gameR_bgi.jpg);
+  background-size: cover;
+  overflow: hidden;
+
+    @include m() {
+        background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-size: contain;
+        padding-top: 40px;
+    }
+}
+
+#app.gameRf{
+  background-image: url(@/img/game/gameR_bgi.jpg);
+  background-size: cover;
+  overflow: hidden;
+
+    @include m() {
+        background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-size: contain;
+        padding-top: 40px;
+    }
+}
+
+#app.gameRj{
+  background-image: url(@/img/game/gameR_bgi.jpg);
+  background-size: cover;
+  overflow: hidden;
+
+    @include m() {
+        background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-size: contain;
+        padding-top: 40px;
+    }
+}
+
+#app.gameRt{
   background-image: url(@/img/game/gameR_bgi.jpg);
   background-size: cover;
   overflow: hidden;

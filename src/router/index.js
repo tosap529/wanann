@@ -3,9 +3,6 @@ import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router
 const router = createRouter({
 
   // 原先的沒有刪除
-  //history: createWebHistory(import.meta.env.BASE_URL),
-
-  // 原先的沒有刪除
   history: createWebHistory(import.meta.env.BASE_URL),
 
   // history: createWebHashHistory(),
@@ -76,9 +73,24 @@ const router = createRouter({
       component: () => import('@/views/gameQ.vue')
     },
     {
-      path: '/gameR',
-      name: 'gameR',
-      component: () => import('@/views/gameR.vue')
+      path: '/gameRb',
+      name: 'gameRb',
+      component: () => import('@/views/gameRb.vue')
+    },
+    {
+      path: '/gameRf',
+      name: 'gameRf',
+      component: () => import('@/views/gameRf.vue')
+    },
+    {
+      path: '/gameRj',
+      name: 'gameRj',
+      component: () => import('@/views/gameRj.vue')
+    },
+    {
+      path: '/gameRt',
+      name: 'gameRt',
+      component: () => import('@/views/gameRt.vue')
     },
     {
       path: '/mall',
@@ -161,6 +173,9 @@ const router = createRouter({
 export default router
 router.beforeEach((to, from, next) => {
   // console.log(to);
-  document.title = to.meta.title;
+  if (to && to.meta && to.meta.title) {
+    document.title = to.meta.title;
+
+  }
   next();
 });

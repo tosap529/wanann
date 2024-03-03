@@ -32,28 +32,7 @@
             });
     
 
-    const currentPage = ref(1)
-
-    const pageSize = ref(4)
-
-        // 分頁器
-        const paginatedProducts = computed(function(){
-        let start = (currentPage.value - 1) * pageSize.value;
-        let end = start + pageSize.value;
-        return filteredProducts.value.slice(start, end);
-    });
-    const totalPages = computed(function() {
-        return Math.ceil(filteredProducts.value.length / pageSize.value)
-    })
-
-    function setPage(n) {
-        currentPage.value = n;
-    }
-    function setCategory(category) {
-        currentCategory.value = category;
-        currentPage.value = 1;
-    }
-
+    
             
 
 </script>

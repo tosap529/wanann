@@ -103,8 +103,8 @@ const route = useRoute();
         }
 
         .nav_left {
-            position: absolute;
-            top: -67px;
+            position: fixed;
+            top: 36px;
             left: 38%;
             z-index: 1;
             img {

@@ -17,11 +17,11 @@
         background-color: $brown;
     }
 
-    @include m() {
+    @media screen and (max-width:490px) {
         width: 18px;
         height: 18px;
         line-height: 18px;
-
-        right: 20px;
+        right: 12px;
+        bottom: 2%;
     }
 }

@@ -2,6 +2,7 @@
 
 import indexFooter from '@/layouts/footer.vue';
 import btt from '@/layouts/btt.vue';
+import robot from '@/layouts/robot.vue';
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 import ModalLogin from '@/components/ModalLogin.vue'; 
 import ModalIndexFirst from '@/components/ModalIndexFirst.vue'; 
@@ -85,6 +86,7 @@ const toggleCart = function() {
         <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
         <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
         <ModalIndexFirst @first="first" v-show="isFirstShow" />
+        <robot />
 
         <header class="index_header" :class="{ fixed: isHeaderFixed }"> 
         <nav>

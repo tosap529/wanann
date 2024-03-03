@@ -39,11 +39,13 @@
         }
 
         .animal {
-            width: 360px;
+            max-width: 360px;
+            max-height: 300px;
             margin: 0 auto;
 
-            @include m() {
-                width: 280px;
+            @media screen and (max-width: 470px) {
+                max-width: 280px;
+                max-height: 220px;
             }
 
         }

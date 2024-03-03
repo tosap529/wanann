@@ -43,6 +43,15 @@
             border-radius: 8px;
             cursor: pointer;
 
+            &:hover {
+                outline: 5px solid $dark-milktea;
+            }
+
+            // 新增的.active樣式
+            &.active {
+                outline: 5px solid $dark-milktea;
+            }
+
             @include m() {
                 width: 300px;
                 margin: 32px auto;
@@ -73,3 +82,4 @@
     }
 
 }
+
