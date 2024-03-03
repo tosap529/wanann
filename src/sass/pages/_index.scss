@@ -230,7 +230,7 @@ section {
             margin-bottom: 16px;
 
             @include index_r() {
-                max-width: 360px;
+                max-width: 330px;
                 margin: 16px auto;
             }
         }
@@ -411,6 +411,7 @@ section {
 
             @include index_r() {
                 padding-left: 8px;
+                border-radius: 0px;
             }
 
             &:hover {
@@ -425,6 +426,7 @@ section {
 
                 @include index_r() {
                     font-size: $h4;
+                    margin-right: 10px;
                 }
             }
 

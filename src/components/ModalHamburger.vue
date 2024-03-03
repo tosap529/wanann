@@ -1,26 +1,30 @@
 <script setup>
+import{ref} from 'vue';
 import { useRoute } from 'vue-router';
+import ModalLogin from '@/components/ModalLogin.vue'; 
 defineEmits(['hamburger']);
 // 取得當前頁面路徑
 const route = useRoute();
 // console.log(route.name);
+const isLoginModalShow = ref(false);
+const goLogin = ()=>{
+    isLoginModalShow.value = !isLoginModalShow.value;
+};
 </script>
 
 <template>
     <div>
         <div class="modal_mask ham_bgi" @click.self="$emit('hamburger')" >
-
+        <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
         <nav class="modal_content ham">
             <div class="hamburger cross_modal" @click="$emit('hamburger')">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <div class="nav_left">
-                <router-link :to="{ name: 'home' }"><img src="@/img/logo_square.svg" alt="logo"></router-link>
-            </div>
 
             <div class="nav_right">
+                <router-link :to="{ name: 'home' }"><img src="@/img/logo_square.svg" alt="logo" class="hamlogo"></router-link>
                 <ul>
                     <li><router-link :class="{'route_now_ham':route.name=='about'}" :to="{ name: 'about' }">關於我們</router-link></li>
                     <li class="h_li"><router-link :to="{ name: 'articles' }">最新消息</router-link>
@@ -40,7 +44,10 @@ const route = useRoute();
                     <li><router-link :class="{'route_now_ham':route.name=='mall'}" :to="{ name: 'mall' }">商城</router-link></li>
                     <li><router-link :class="{'route_now_ham':route.name=='contact'}" :to="{ name: 'contact' }">聯絡我們</router-link></li>
                     <li><router-link :class="{'route_now_ham':route.name=='game'||route.name=='gameQ'||route.name=='gameR'}" :to="{ name: 'game' }">清潔人格測驗</router-link></li>
-                    <li><router-link :class="{'route_now_ham':route.name=='member'}" :to="{ name: 'member' }">會員中心</router-link></li>
+                    <!-- <li><router-link :class="{'route_now_ham':route.name=='member'}" :to="{ name: 'member' }">會員中心</router-link></li> 
+                    -->
+                    <li><a href="#" class="fai" @click.prevent="goLogin"> 
+                    會員中心</a> </li> 
                 </ul>
                 <div class="h_btns">
                     <router-link class="btn" :to="{ name: 'reserve' }">
@@ -62,7 +69,6 @@ const route = useRoute();
 @import '@/sass/main.scss';
 .ham .nav_right .route_now_ham{
     color: $dark-milktea;
-    // color: $brown;
     font-weight: bold;
 }
 
@@ -80,8 +86,8 @@ const route = useRoute();
         .hamburger {
             padding-top: 8px;
             position: absolute;
-            top: -92px;
-            right: 25px;
+            top: -48px;
+            right: 26px;
 
             .bar {
                 display: block;
@@ -103,38 +109,34 @@ const route = useRoute();
                 }
         }
 
-        .nav_left {
-            position: absolute;
-            top: -67px;
-            left: 38%;
-            z-index: 1;
-            img {
-                width: 100px;
-            }
-        }
-
         .nav_right {
-            margin: 104px auto;
+            margin: 60px auto;
             background-color: $light-milktea;
-            width: 380px;
-            height: 670px;
+            max-width: 350px;
             border-radius: 30px;
             position: relative;
-
-            ul {
+            .hamlogo {
                 position: absolute;
-                top: 52px;
-                left: 20%;
+                top: -43px;
+                left: 43%;
+                z-index: 1;
+                width: 64px;
+            }
+            ul {
+                padding-top: 20px;
+                padding-left: 60px;
 
                 li {
-                    margin-bottom: 24px;
+                    margin-bottom: 18px;
                     padding-left: 15px;
                 }
 
                 .h_li {
                     background-color: $white;
-                    padding: 15px 20px 1px 15px;
+                    padding: 15px 0px 1px 15px;
                     border-radius: 10px;
+                    margin-right: 50px;
+
                 }
 
                 ol {
@@ -143,8 +145,8 @@ const route = useRoute();
                     margin-top: 16px;
                     border-left: 4px solid $brown;
                     border-radius: 4px;
-                }
 
+                }
 
             }
 
@@ -152,11 +154,9 @@ const route = useRoute();
                 display: flex;
                 width: 320px;
                 border-top: 1px dashed $brown;
-                position: absolute;
-                bottom: 20px;
-                left: 8%;
+                margin: 0 auto;
                 padding-top: 16px;
-
+                padding-bottom: 20px;
                 .btn {
                     padding: 8px 12px;
                     margin-left: 45px;
@@ -172,6 +172,7 @@ const route = useRoute();
                     padding: 0 10px;
                     padding-top: 6px;
                     color: $white;
+                    font-size:$p ;
                 }
 
             }

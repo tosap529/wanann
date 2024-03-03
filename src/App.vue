@@ -1,6 +1,7 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-// import HelloWorld from './components/HelloWorld.vue'
+ import { RouterLink, RouterView } from 'vue-router'
+  // import HelloWorld from './components/HelloWorld.vue'
+
 
 </script>
 
@@ -11,7 +12,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <RouterLink to="/about">About</RouterLink> -->
 
 
-        <RouterView />
+        <RouterView/>
 
         
 
@@ -22,18 +23,58 @@ import { RouterLink, RouterView } from 'vue-router'
 
 @import './sass/main.scss';
 
-#app.gameR{
+#app.gameRb{
   background-image: url(@/img/game/gameR_bgi.jpg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding-top: 1px;
+  background-size: cover;
+  overflow: hidden;
 
     @include m() {
-  background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-size: contain;
         padding-top: 40px;
     }
 }
 
+#app.gameRf{
+  background-image: url(@/img/game/gameR_bgi.jpg);
+  background-size: cover;
+  overflow: hidden;
 
+    @include m() {
+        background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-size: contain;
+        padding-top: 40px;
+    }
+}
+
+#app.gameRj{
+  background-image: url(@/img/game/gameR_bgi.jpg);
+  background-size: cover;
+  overflow: hidden;
+
+    @include m() {
+        background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-size: contain;
+        padding-top: 40px;
+    }
+}
+
+#app.gameRt{
+  background-image: url(@/img/game/gameR_bgi.jpg);
+  background-size: cover;
+  overflow: hidden;
+
+    @include m() {
+        background-image: url(@/img/game/gameR_bgi_mb.jpg);
+        background-size: contain;
+        padding-top: 40px;
+    }
+}
+
+#app.backLogin{
+  background-color: $light-milktea;
+  height: 100vh;
+  overflow: hidden;
+}
 
 </style>

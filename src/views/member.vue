@@ -15,8 +15,6 @@ const sidebar = ref(null);
 
 let memberSubPage = ref('userData');
 
-// let memberTabPage = ref('incomplete');
-// let county = ref('');
 function  sidebarClick(e){
     e.preventDefault();
     // sidebar切換
@@ -40,7 +38,9 @@ function  sidebarClick(e){
     // console.log(memberSubPage.value);
 }
 
-
+const profileMiniClick=(e)=>{
+    profileMini.click()
+}
 
 
 
@@ -52,8 +52,10 @@ function  sidebarClick(e){
      <FixedHeader header-title-zh="會員中心"  header-title-eng="Member" :bgi="banner_url" />
     <div class="member wrapper">
         <section class="member_sidebar">
-            <div>
+            <div @click="profileMiniClick">
+            <div >
                 <input type="file" id="profileMini">
+            </div>
                 <h2>thd104</h2>
             </div>
             <ul ref="sidebar">

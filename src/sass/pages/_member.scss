@@ -1,6 +1,7 @@
 .wrapper.member {
     display: flex;
-    // justify-content: center;
+    //解決RWD溢出問題
+    width: 100vw;
 }
 
 // -----------------萬年不動側邊欄------------------
@@ -13,23 +14,17 @@
         display: flex;
         margin-bottom: 40px;
 
-        input {
+        >div {
+            margin: 0;
+            background-image: url(@/img/member/member_icon_profileMini.png);
+            background-repeat: no-repeat;
+            background-size: cover;
             width: 70px;
             height: 70px;
-            border-radius: 50%;
-            position: relative;
+        }
 
-            &::before {
-                content: '';
-                background-image: url(@/img/member/member_icon_profileMini.png);
-                background-repeat: no-repeat;
-                background-size: cover;
-                position: absolute;
-                left: 0;
-                width: 70px;
-                height: 70px;
-
-            }
+        input {
+            display: none;
         }
 
         h2 {
@@ -81,12 +76,17 @@ section.userData {
     margin-left: 60px;
 }
 
+input.needToFill {
+    outline: 2px solid $brown;
+}
+
 .userData {
 
     svg {
         font-size: 25px;
         color: $dark-milktea;
         margin-left: 10px;
+        align-self: center;
     }
 
     h2 {
@@ -103,24 +103,29 @@ section.userData {
         margin-bottom: 45px;
         display: flex;
 
+        ~div {
+            display: flex;
+            margin-bottom: 30px;
 
-        input {
+            div {
+
+                margin-bottom: 0;
+                display: flex;
+            }
+        }
+
+        >div {
+            margin-left: 0;
+            margin-bottom: 0;
+            background-image: url(@/img/member/member_icon_profile.png);
+            background-repeat: no-repeat;
+            background-size: cover;
             width: 150px;
             height: 150px;
-            border-radius: 50%;
-            position: relative;
+        }
 
-            &::before {
-                content: '';
-                background-image: url(@/img/member/member_icon_profile.png);
-                background-repeat: no-repeat;
-                background-size: cover;
-                position: absolute;
-                left: 0;
-                width: 150px;
-                height: 150px;
-
-            }
+        input {
+            display: none;
         }
 
         svg {
@@ -137,9 +142,9 @@ section.userData {
                 // border-radius: 8px;
                 // border-bottom: 1px solid $grey;
 
-                &:focus {
-                    background-color: $light-milktea;
-                }
+                // &:focus {
+                //     background-color: $light-milktea;
+                // }
             }
         }
     }
@@ -177,10 +182,7 @@ section.userData {
         }
     }
 
-    :first-child~div {
-        display: flex;
-        margin-bottom: 30px;
-    }
+
 }
 
 // 訂單分頁共通
@@ -357,8 +359,103 @@ section.userData {
 
 }
 
+@media screen and (max-width:1150px) {
+    .member_sidebar {
+        flex-basis: 200px;
+    }
 
-@media screen and (max-width:430px) {
+
+
+    section.userData {
+        margin-left: 20px;
+
+        div:first-child {
+            margin-left: 0px;
+            justify-content: center;
+        }
+
+        :first-child~div {}
+
+        input {
+            width: 200px;
+        }
+
+        .mAddress input {
+            width: 300px;
+        }
+    }
+
+
+
+    // 服務 &會員訂單
+    .member_main {
+        .tab ul {
+            width: 400px;
+            margin-bottom: 20px;
+        }
+    }
+
+    .sOrder_data,
+    .mOrder_data {
+        padding: 30px;
+    }
+
+    .sOrder_data article,
+    .mOrder_data article {
+        img {
+            width: 60px;
+            // height: 60px;
+        }
+    }
+
+    .mOrder_data article {
+        img {
+            margin-right: 20px;
+            margin-bottom: 10px;
+            width: 80px;
+            height: 80px;
+        }
+
+        section {
+            div {
+                margin-top: 10px;
+
+                ~h2 {
+                    margin-left: 40px;
+                }
+
+                ~h3 {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+
+    .sOrder_data>div:last-child,
+    .mOrder_data>div:last-child {
+        flex-wrap: wrap;
+        // justify-content: flex-end;
+
+        .btn {
+            // flex-basis: 40%;
+        }
+
+        p {
+            // display: none;
+            text-align: right;
+            flex-basis: 60%;
+            margin: 0;
+        }
+
+        div {
+            margin-left: auto;
+        }
+    }
+
+}
+
+
+@media screen and (max-width:900px) {
 
     // -----------------萬年不動側邊欄------------------
     .member {
@@ -423,7 +520,9 @@ section.userData {
 
     .userData {
         padding: 0 30px;
-
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
         h2 {
             font-size: $h3;
@@ -435,27 +534,43 @@ section.userData {
 
         @for $i from 2 through 8 {
             div:nth-child(#{$i}) {
-                flex-wrap: wrap;
 
-                h2 {
-                    flex-basis: 100%;
+                flex-direction: column;
+                width: 300px;
+
+
+                div {
+                    margin-top: 10px;
+                    margin-right: 20px;
+                    flex-direction: row;
+                    width: fit-content;
+                    align-self: flex-end;
                 }
 
-                select {
-                    flex-basis: 30%;
-                    margin-bottom: 10px;
-                    font-size: $p;
-                    padding: 8px 0 8px 10px;
-                }
 
-                select+input {
-                    width: 250px;
-                }
+
+
             }
         }
 
         .mAddress input {
             width: 250px;
+        }
+
+        div.sAddress div:nth-child(2) {
+            align-self: flex-start;
+            width: 200px;
+
+            select {
+                flex-basis: 40%;
+                margin-bottom: 10px;
+                font-size: $p;
+                padding: 8px 0 8px 10px;
+            }
+
+            select+input {
+                width: 250px;
+            }
         }
     }
 
@@ -464,7 +579,7 @@ section.userData {
     }
 
     // 訂單分頁共通
-    .tab ul {
+    .member_main .tab ul {
         justify-content: center;
         width: 320px;
         border-bottom: none;
@@ -523,8 +638,12 @@ section.userData {
         }
 
         article {
+
+
             img {
                 margin-right: 30px;
+                margin-bottom: 20px;
+
             }
         }
     }
@@ -537,6 +656,11 @@ section.userData {
 
         >div:nth-child(4) article>div {
             margin-top: 0px;
+            margin-bottom: 20px;
+
+            h2:first-child {
+                margin-bottom: 15px;
+            }
         }
 
         article {
@@ -565,6 +689,9 @@ section.userData {
     // 商城訂單分頁
     .mOrder_data {
         article {
+            img {
+                align-self: center;
+            }
 
             section {
                 flex-direction: column;
@@ -574,10 +701,14 @@ section.userData {
                 }
 
                 h2:last-child,
-                h3 {
+                div~h3 {
                     margin: 0;
                     font-size: $h4;
                     align-self: flex-start;
+                }
+
+                div~h3 {
+                    margin: 5px 0;
                 }
 
             }

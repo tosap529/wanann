@@ -1,4 +1,15 @@
 .gameR_contect {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    max-width: 700px;
+    margin: 0 auto;
+    margin-top: 120px;
+
+    @media screen and (max-width: 750px) {
+        margin: 0 25px;
+        margin-top: 110px;
+
+    }
 
     @include m() {
         background-color: rgba(255, 255, 255, 0.37);
@@ -12,9 +23,15 @@
         margin: 0 auto;
         position: relative;
 
+        @media screen and (max-width: 750px) {
+            margin: 0 28px;
+            padding-top: 32px;
+        }
+
         @include m() {
+            margin: 0 16px;
             max-width: 330px;
-            padding-top: 64px;
+            padding-top: 30px;
         }
 
         h3 {
@@ -22,11 +39,13 @@
         }
 
         .animal {
-            width: 360px;
+            max-width: 360px;
+            max-height: 300px;
             margin: 0 auto;
 
-            @include m() {
-                width: 280px;
+            @media screen and (max-width: 470px) {
+                max-width: 280px;
+                max-height: 220px;
             }
 
         }
@@ -56,6 +75,7 @@
         .gameR_recomm {
             display: flex;
             margin-top: 8px;
+            padding-bottom: 80px;
 
             a {
                 margin-right: 32px;
@@ -76,11 +96,11 @@
             display: flex;
             justify-content: end;
             position: absolute;
-            bottom: 0;
+            bottom: 30px;
             right: 0;
 
             @include m() {
-                bottom: -60px;
+                bottom: 20px;
             }
 
             .btn {

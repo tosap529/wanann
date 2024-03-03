@@ -1,13 +1,14 @@
 <script setup>
 // 把選擇的月份&日期印在畫面上，還沒寫
 defineProps(['monthSelect','daySelect']);
+
 import {ref} from 'vue';
 import CalendarDay from '@/components/calendarDay.vue';
 
     // 閏年(今年)
     let month_olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let myYear = 2024;
-    let myMonth = 2;
+    let myMonth = 3;
     let days_pool =ref([]);
 
     let testDate = new Date(myYear, myMonth, 1); 
@@ -57,6 +58,10 @@ const selectDay_el=(e)=>{
     selectedDate_panel.value.innerText = '預約日期：'+selectedDate;
     my_service_order.service_date = selectedDate;
     localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
+
+//     if(my_service_order.service_date!='' || my_service_order.service_time_range!=''){
+//     isNext.value = true;
+// }
 }
 
 let selectedTime_panel = ref(null);
@@ -77,6 +82,8 @@ const selectedTime_el = (e)=>{
     my_service_order.service_time_range = selectedTime;
     localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
 }
+
+
 
 </script>
 
@@ -111,8 +118,8 @@ const selectedTime_el = (e)=>{
                     <h2>選擇日期及時段</h2>
                     <p>找找看有沒有你需要的</p>
                 </div>
-                <h2 ref="selectedDate_panel">預約日期：3月21日</h2>
-                <h2 ref="selectedTime_panel">預約時段：下午</h2>
+                <h2 ref="selectedDate_panel">預約日期：</h2>
+                <h2 ref="selectedTime_panel">預約時段：</h2>
                 <div>
                     <h2 @click="selectedTime_el">上午時段 (09:00開始)</h2>
                     <h2 @click="selectedTime_el">下午時段 (12:00開始)</h2>

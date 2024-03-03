@@ -2,6 +2,8 @@
 import btt from '@/layouts/btt.vue';
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 import ModalLogin from '@/components/ModalLogin.vue'; 
+import robot from '@/layouts/robot.vue';
+
 // 購物車
 import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
@@ -15,15 +17,20 @@ const bgi_css = computed(() => {
       };
     });
 
+//漢堡
 const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
     isHamburgerModalShow.value = !isHamburgerModalShow.value;
 // console.log( isModalShow.value)
 };
+
+//會員
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
     isLoginModalShow.value = !isLoginModalShow.value;
 };
+
+//主選單列
 const isHeaderFixed = ref(false);
 const handleScroll = () => {
   let scrollDistance = window.scrollY || document.documentElement.scrollTop;
@@ -68,6 +75,7 @@ const toggleCart = function() {
         <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
         <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
         <header :style="bgi_css" :class="{ fixed: isHeaderFixed }">
+        <robot />
           
         <nav ref="nav">
             
@@ -140,7 +148,7 @@ const toggleCart = function() {
     <!-- 購物車 -->
     <shoppingCart />
     
-    <!-- <btt /> -->
+    <btt />
 
     </div>
 </template>

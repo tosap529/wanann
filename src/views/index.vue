@@ -2,6 +2,7 @@
 
 import indexFooter from '@/layouts/footer.vue';
 import btt from '@/layouts/btt.vue';
+import robot from '@/layouts/robot.vue';
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 import ModalLogin from '@/components/ModalLogin.vue'; 
 import ModalIndexFirst from '@/components/ModalIndexFirst.vue'; 
@@ -30,7 +31,7 @@ const first = ()=>{
     isFirstShow.value = !isFirstShow.value;
 };
 
-//滑動到頁首
+//滑動頁首變化
 const isHeaderFixed = ref(false);
 const handleScroll = () => {
   let scrollDistance = window.scrollY || document.documentElement.scrollTop;
@@ -41,7 +42,6 @@ const handleScroll = () => {
     isHeaderFixed.value = false;
   }
 };
-
 //滑動到頁面中間
 function scrollTo(){
     window.scrollTo({
@@ -85,6 +85,7 @@ const toggleCart = function() {
         <ModalHamburger @hamburger="hamburger" v-show="isHamburgerModalShow" />
         <ModalLogin @ModalLogin="goLogin" v-show="isLoginModalShow" />
         <ModalIndexFirst @first="first" v-show="isFirstShow" />
+        <robot />
 
         <header class="index_header" :class="{ fixed: isHeaderFixed }"> 
         <nav>

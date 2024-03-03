@@ -1,4 +1,8 @@
 // 關於我們頁面特殊滿版，取消wrapper1200px
+.about.wrapper {
+    max-width: 100vw;
+}
+
 .about {
     width: auto;
     position: relative;
@@ -353,6 +357,10 @@
             }
         }
     }
+
+    div.about+div>footer {
+        top: 3900px;
+    }
 }
 
 @media screen and (max-width:1000px) {
@@ -398,6 +406,8 @@
     .about_charity {
         top: 3900px;
     }
+
+
 }
 
 @media screen and (max-width:900px) {
@@ -505,12 +515,14 @@
 }
 
 @media screen and (max-width:$m) {
-    .about {
+    .wrapper.about {
         width: auto !important;
+        min-width: 100%;
         // width: 100%;
 
         .title {
             margin: 0;
+            margin-left: 20px;
 
 
             h1 {
@@ -533,8 +545,7 @@
 
 
         img {
-            // width: auto;
-
+            width: 350px;
         }
 
         ul {
@@ -553,7 +564,7 @@
         }
 
         .belief {
-            width: 380px;
+            width: 340px;
             flex-direction: column;
             align-items: center;
             margin-bottom: 10px;
@@ -709,15 +720,13 @@
 
     .about_charity {
         top: $about_d_rwd+2000;
-        // width: 380px;
         margin-top: 40px;
-        margin-left: 25px;
-        // min-width: 100%;
+        margin-left: 0px;
 
         article:nth-child(2),
         article:nth-child(3) {
             flex-direction: column-reverse;
-            width: 100%;
+            width: 95%;
             margin-top: 0;
 
             img {
@@ -734,6 +743,7 @@
         >h2 {
             width: 100%;
             margin: 20px 0;
+            padding: 0 20px;
             font-size: $h4;
             text-align: left;
         }
@@ -742,7 +752,7 @@
 
 }
 
-@media screen and (max-width:370px) {
+@media screen and (max-width:390px) {
     .about .title {
         margin-left: 10px;
     }

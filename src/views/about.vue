@@ -1,5 +1,5 @@
 <script setup>
-import { ref,onMounted  } from "vue";
+import { ref,onMounted, onBeforeUnmount  } from "vue";
 import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
 import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
@@ -49,32 +49,7 @@ function isElementInViewport(el) {
   return rect.bottom < 0 || rect.top > window.innerHeight;
 }
 
-function addClassToVisibleElements() {
-  let aosElements = document.querySelectorAll(".about_anime");
-  aosElements.forEach(function (aosElement) {
-    if (!isElementInViewport(aosElement)){ //元素一出現就remove
-        aosElement.classList.add("ed");
-    } else{ //元素不在全加ed控制
-        aosElement.classList.remove("ed");
-    } 
-  });
-}
-let bgiShow = ref(false);
-const bgi_on =ref({
-  'height':'100vh',
-  'position':'fixed',
-  'top':'0',
-  'left':'0'
-    })
-const bgi_off = ref({
-  'height':'700px',
-  'position':'absolute',
-  'top':'4200px',
-  'left':'0'}) ;
-
-  onMounted (()=>{
-    // console.log(charity.value);
-    const fullBgc=()=>{
+const fullBgc=()=>{
     let charity_pos = charity.value.getBoundingClientRect();
     // console.log(charity.value.getBoundingClientRect())
     // console.log(window.innerWidth)
@@ -90,14 +65,44 @@ const bgi_off = ref({
     }
     }
   }
+function addClassToVisibleElements() {
+  let aosElements = document.querySelectorAll(".about_anime");
+  aosElements.forEach(function (aosElement) {
+    if (!isElementInViewport(aosElement)){ //元素一出現就remove
+        aosElement.classList.add("ed");
+    } else{ //元素不在全加ed控制
+        aosElement.classList.remove("ed");
+    } 
+  });
+}
+
+let bgiShow = ref(false);
+const bgi_on =ref({
+  'height':'100vh',
+  'position':'fixed',
+  'top':'0',
+  'left':'0'
+    })
+const bgi_off = ref({
+  'height':'700px',
+  'position':'absolute',
+  'top':'4200px',
+  'left':'0'}) ;
+
+  onMounted (()=>{
+    // console.log(charity.value);
+
   document.addEventListener("scroll", addClassToVisibleElements);
 document.addEventListener("scroll", fullBgc);
   })
- 
+  onBeforeUnmount(()=>{
+    // fullBgc=null;
+    document.removeEventListener("scroll", fullBgc);
+  })
 
 </script>
 <template>
-    <div>
+    <div >
       <ModalAboutBelief @ModalAboutBelief="goBelief" v-show="isBeliefModalShow"  />
     <!-- 貼上以下這行(footer一樣不多贅述) 並更改成需要的標題，:bgi照貼即可 -->
     <DefaultHeader header-title-zh="關於我們" header-title-eng="About" :bgi="banner_url" /> 
@@ -215,15 +220,54 @@ document.addEventListener("scroll", fullBgc);
 
 <style lang="scss">
 @import '@/sass/main.scss';
+// .scroll{
+//   overflow: scroll;
+//   height: 100vh;
+// }
 div.about+div>footer {
     position: absolute;
     width: 100%;
     // top: 6100px;
     top:$about_d+6800;
-    @include m(){
-        top: $about_d_rwd+3300;
-    }
+
 }
+@media screen and (max-width:1300px) {
+  div.about+div>footer {
+    top:5000px;
+
+}}
+@media screen and (max-width:1150px) {
+  div.about+div>footer {
+    top:5600px;
+
+}
+
+}
+
+@media screen and (max-width:1000px) {
+  div.about+div>footer {
+    top:5900px;
+}}
+@media screen and (max-width:900px) {
+  div.about+div>footer {
+    top:5500px;
+
+}}
+@media screen and (max-width:700px) {
+  div.about+div>footer {
+    top:5400px;
+
+}}
+@media screen and (max-width:600px) {
+  div.about+div>footer {
+    top:5700px;
+
+}}
+@media screen and (max-width:$m) {
+  div.about+div>footer {
+    top: $about_d_rwd+3300;
+
+}}
 // 動畫
 .about_anime{
   opacity: 0;
