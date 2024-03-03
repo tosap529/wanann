@@ -1,8 +1,9 @@
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
+defineEmits(['getProfileURL'])
 let county = ref('');
 function infoEdit(e){
-console.log(e.target.closest('div').parentElement.querySelector('input'))
+// console.log(e.target.closest('div').parentElement.querySelector('input'))
 let input = e.target.closest('div').parentElement.querySelector('input');
 input.disabled=false;
 input.focus();
@@ -18,11 +19,15 @@ const infoEdit_sa=(e)=>{
     input.disabled = false;
     if(input.disabled==false){
     input.classList.add('needToFill');
+    if(e.target.closest('.sAddress').querySelectorAll('div select')[1]){
+        e.target.closest('.sAddress').querySelectorAll('div select')[1].disabled = false;
+    }
 }
 }
 function infoSave(e){
 let input = e.target.closest('div').parentElement.querySelector('input')
-if(input.value!=''){  
+if (input.disabled==false){
+    if(input.value!=''){  
     if(input.classList.contains('alert_input')){
         input.classList.remove('alert_input')
     }
@@ -35,22 +40,68 @@ if(input.value!=''){
     input.focus();
 }
 }
+
+}
+const infoSave_sa=(e)=>{
+    let dropdown = e.target.closest('.sAddress').querySelector('div select')
+    let dropdown_sub = e.target.closest('.sAddress').querySelector('div select:nth-child(2)')
+    let input = e.target.closest('.sAddress').querySelector('input')
+    if (input.disabled==false){
+        if(input.value!=''&&dropdown.value!=''&&dropdown_sub.value!=='區'){
+            if(input.classList.contains('alert_input')){
+            input.classList.remove('alert_input')
+            dropdown.classList.remove('alert_input')
+            dropdown_sub.classList.remove('alert_input')
+            }
+            dropdown.disabled=true; 
+            dropdown_sub.disabled=true; 
+            input.disabled=true; 
+            input.classList.remove('needToFill');
+        }else{
+            alert("請輸入完整地址！")
+        input.classList.add('alert_input');
+        dropdown.classList.add('alert_input')
+        dropdown_sub.classList.add('alert_input')
+        input.focus();
+        }
+    }
+}
+const profile = ref(null)
+const profile_pic = ref(null)
 const profileClick=(e)=>{
-    profile.click()
+profile.value.click()
+}
+onMounted(()=>{
+
+profile.value.addEventListener('change',fileChange );
+
+})
+
+function fileChange(){
+    let file = document.getElementById('profile').files[0]
+
+    let readFile = new FileReader()
+    readFile.readAsDataURL(file)
+    readFile.addEventListener('load', () => {
+    profile_pic.value.src = readFile.result
+    document.querySelector('section.member_sidebar div:first-child>img').src = readFile.result;
+    document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${readFile.result}" >`;
+    })
 }
 const newTaipei = ['區','三峽區','三重區','中和區','五股區','板橋區','新店區','永和區','汐止區','新莊區','淡水區','深坑區','蘆洲區','林口區','泰山區','土城區'];
-const taipai = ['區','中正區','大同區','中山區','松山區','大安區','萬華區','信義區','士林區','北投區','內湖區','南港區','文山區'];
+const taipei = ['區','中正區','大同區','中山區','松山區','大安區','萬華區','信義區','士林區','北投區','內湖區','南港區','文山區'];
 const taoyuan = ['區','桃園區','八德區','龜山區'];
 </script>
 <template>
-
+<!-- <img src="" alt=""> -->
 <div>
         <section class="member_main userData" >
             <div @click="profileClick">
-                <div>
-                <input type="file" id="profile">
-            </div>
-                <font-awesome-icon :icon="['fas', 'pen']" @click.self="profileClick" />
+                <!-- <div ref="profile_pic">
+                    <input type="file" id="profile">
+                 </div> -->
+                 <img src="@/img/member/member_icon_profile.png" alt="" ref="profile_pic"> <input type="file" id="profile" ref="profile" @change="$emit('getProfileURL')">
+                <font-awesome-icon :icon="['fas', 'pen']"  />
             </div>
             <div>
                 <h2>帳號</h2>
@@ -99,7 +150,7 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
                     <option value="taoyuan">桃園市</option>
                 </select>
                 <select name="dNewTaipei" id="" v-if="county=='newTaipei'" >
-                    <option value="" v-for="dist in newTaipei" :key="dist">{{ dist }}</option>
+                    <option :value="dist" v-for="dist in newTaipei" :key="dist">{{ dist }}</option>
                     <!-- <option value="">區</option>
                     <option value="">三峽區</option>
                     <option value="">三重區</option>
@@ -119,7 +170,7 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
 
                 </select>
                 <select name="dTaipei" id="" v-if="county=='taipei'">
-                    <option value="" v-for="dist in taipei" :key="dist">{{ dist }}</option>
+                    <option :value="dist" v-for="dist in taipei" :key="dist">{{ dist }}</option>
                     <!-- <option value="">區</option>
                     <option value="">中正區</option>
                     <option value="">大同區</option>
@@ -136,7 +187,7 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
 
                 </select>
                 <select name="dTaoyuan" id="" v-if="county=='taoyuan'">
-                    <option value="" v-for="dist in taoyuan" :key="dist">{{ dist }}</option>
+                    <option :value="dist" v-for="dist in taoyuan" :key="dist">{{ dist }}</option>
                     <!-- <option value="">區</option>
                     <option value="">桃園區</option>
                     <option value="">八德區</option>
@@ -146,7 +197,7 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
                 <input type="text" disabled>
                 <div>
                      <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit_sa" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']"  />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="infoSave_sa" />
                 </div>
             </div>
             <div class="mAddress">

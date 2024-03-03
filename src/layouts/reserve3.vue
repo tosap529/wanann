@@ -1,7 +1,7 @@
 <script setup>
 import wrapper from '@/layouts/wrapper.vue';
 import Calendar from '@/layouts/calendar.vue';
-import {ref, onBeforeMount} from 'vue';
+import {ref, onBeforeMount, onBeforeUnmount} from 'vue';
 defineEmits(['lastReserveStep','firstReserveStep']);
 // 一進服務預約三就先清掉日期+時間範圍
 onBeforeMount(()=>{
@@ -10,13 +10,17 @@ my_service_order.service_date = '';
 my_service_order.service_time_range = '';
 localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
 })
-
-const isNext = ref(false);
-document.addEventListener('click',function(){
+const isNext_el = (e)=>{
     let my_service_order_new = JSON.parse(localStorage.getItem("my_service_order"));
     if(my_service_order_new.service_date!=''&&my_service_order_new.service_time_range!=''){
         isNext.value = true;
     }
+}
+
+const isNext = ref(false);
+document.addEventListener('click',isNext_el);
+onBeforeUnmount(()=>{
+    document.removeEventListener('click',isNext_el)
 })
 
 </script>
@@ -62,10 +66,7 @@ document.addEventListener('click',function(){
 
 
 <style lang="scss" scoped>
-.btn.disabled{
-   background-color: rgba(0,0,0,.8);
-   color:white;
-}
+
 .subtitle:nth-child(1){
     opacity: .25;
     margin-bottom: 0;

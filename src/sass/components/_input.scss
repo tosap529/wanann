@@ -10,4 +10,27 @@ input {
     &:focus {
         outline: 2px solid $brown;
     }
+
+
+}
+
+.alert_input {
+    background-color: $white;
+    background-image: url(@/img/member/member_icon_alertInput.svg);
+    background-repeat: no-repeat;
+    background-position: 95% 40%;
+    outline: 2px solid $brown;
+}
+
+.userData .sAddress select.alert_input {
+    outline: 2px solid $warning;
+    background-color: $white;
+}
+
+.alert_inputWeye {
+    background-color: $white;
+    background-image: url(@/img/member/member_icon_alertInput.svg);
+    background-repeat: no-repeat;
+    background-position: 80% 50%;
+    outline: 2px solid $brown;
 }
