@@ -31,7 +31,7 @@ import {ref} from 'vue';
         },
         {name:'局部加強',
         disabled:false,
-        info:`<p>如房屋有特殊格局：深窄的空間、地下室等，<br>請勾選此項</p>`
+        info:`<p>如房屋有特殊格局：深窄的空間、地下室等，請勾選此項</p>`
         },
     ]
     const checkAdditional =(e)=>{

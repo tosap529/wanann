@@ -7,11 +7,12 @@ const byeCreate = ref(false);
 // const LoginRWD = ref(true);
 // const CreateRWD = ref(false);
 
+let box = document.getElementById('changeLoginBox');
 const goCreate=(e)=>{
     // LoginRWD.value = !LoginRWD.value
     
     // CreateRWD.value= !CreateRWD.value;
-
+    
     byeLogin.value= !byeLogin.value;
 
     byeCreate.value= !byeCreate.value;
@@ -20,17 +21,18 @@ const goCreate=(e)=>{
     if(bgcImg.classList.contains('login_box_right')){
         bgcImg.classList.remove("login_box_right");
         bgcImg.classList.add("login_box_left");
-        bgcImg.style.borderRadius = "10px 0 0 10px"
-        changeLoginBox.innerText = "登入";
-        changeLoginBox.previousElementSibling.previousElementSibling.innerText = "歡迎回來";
-        changeLoginBox.previousElementSibling.innerText = "登入預約方便安心的服務吧！";
+        bgcImg.style.borderRadius = "10px 0 0 10px";
+
+        e.target.innerText = "登入";
+        e.target.previousElementSibling.previousElementSibling.innerText = "歡迎回來";
+        e.target.previousElementSibling.innerText = "登入預約方便安心的服務吧！";
     }else{
         bgcImg.classList.remove("login_box_left");
         bgcImg.classList.add("login_box_right");
         bgcImg.style.borderRadius = "0 10px 10px 0"
-        changeLoginBox.innerText = "註冊";
-        changeLoginBox.previousElementSibling.previousElementSibling.innerText = "還不是會員嗎？";
-        changeLoginBox.previousElementSibling.innerText = "創建帳號預約方便安心的服務吧！";
+        e.target.innerText = "註冊";
+        e.target.previousElementSibling.previousElementSibling.innerText = "還不是會員嗎？";
+        e.target.previousElementSibling.innerText = "創建帳號預約方便安心的服務吧！";
     }
     
 }
@@ -61,7 +63,7 @@ const RegisterData = {
     service_address:'',
     username: '',
     password: '',
-    // member_pic:'',
+    member_pic:'',
     };
 
 const submitForm = () => {
@@ -86,6 +88,14 @@ const submitForm = () => {
 };
 
 
+const pwdValidation = (e)=>{
+    console.log(pwdNew.value);
+    if(pwdNew.value != pwdConfirm.value){
+        pwdConfirm.style.backgroundColor = 'red';
+    }else{
+        pwdConfirm.style.backgroundColor = '$light-milktea';
+    }
+}
 
 
 </script>
@@ -134,7 +144,6 @@ const submitForm = () => {
         <img src="" alt="">
         <h1>還不是會員嗎？</h1>
         <h2>創建帳號預約方便安心的服務吧！</h2>
-        <!--  @click="goCreate" -->
         <button class="btn" id="changeLoginBox" @click="goCreate">註冊</button>
     </section>
 
@@ -155,7 +164,7 @@ const submitForm = () => {
             </label>
             <!-- <br> -->
             <label for="pwdConfirm">*確認密碼<br>
-                <input type="password" id="pwdConfirm">
+                <input type="password" id="pwdConfirm" @keyup="pwdValidation">
                 <img src="@/img/login/login_icon_eye.png"  @click="eyeOnPWD" alt="">
             </label>
             <!-- <br> -->
@@ -335,7 +344,7 @@ const submitForm = () => {
         }
 
         .btn {
-            width: 250px;
+            width: 150px;
             height: auto;
             margin: 0 auto;
             margin-top: 10px;

@@ -122,7 +122,10 @@ section.next_btn a {
   }
 }
 
-@include m() {
+@include m() {}
+
+
+@media screen and (max-width:1010px) {
   .subtitle {
     width: 380px;
 
@@ -137,10 +140,7 @@ section.next_btn a {
       margin-right: 10px;
     }
   }
-}
 
-
-@media screen and (max-width:430px) {
   .reserve1 {
     .subtitle {
       margin-bottom: 0;

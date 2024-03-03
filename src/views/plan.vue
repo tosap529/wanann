@@ -1,7 +1,7 @@
 <script setup>
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/planA/planA_banner.jpg'; // 更改成banner路徑
+    import BannerUrl  from '@/img/plan/plan_banner.jpg'; // 更改成banner路徑
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
@@ -15,6 +15,8 @@
     const showContent = (e) => {
         activeContent.value = e;
     }
+    const plan_now =  ref(localStorage.getItem("plan_want_to_see"));
+ 
 
 </script>
 
@@ -23,11 +25,8 @@
         <DefaultHeader header-title-zh="浣安全室清潔" header-title-eng="Cleaning Project" :bgi="banner_url" /> 
         
         <wrapper class="plan">
-            
-          <section class="planA">
-
-             <article>
-               <img src="@/img/planA/planA_1.jpg" alt=""> 
+          <section class="plans" v-if="plan_now=='浣安全室清潔'">
+              <article>
                <div class="title">
                  <h1>浣安全室清潔</h1>
                </div>
@@ -38,25 +37,78 @@
 
                <div class="rule">
                   <p>1. 基本清潔</p>
-                  <p>地板清潔與消毒、家具表面清潔、玻璃窗清潔、開放式空間除塵</p>
+                  <p class="indent">地板清潔與消毒、家具表面清潔、玻璃窗清潔、開放式空間除塵</p>
                   <p>2. 廚房簡易清潔</p>
-                  <p>擦拭廚具表面、清潔爐灶與抽油煙機、消毒廚房台面、清理廚房地板</p>
+                  <p class="indent">擦拭廚具表面、清潔爐灶與抽油煙機、消毒廚房台面、清理廚房地板</p>
                   <p>3. 浴室簡易清潔</p>
-                  <p>清潔馬桶&浴缸&淋浴區、擦拭梳妝區表面、更換毛巾與浴巾、消毒浴室地板</p>
+                  <p class="indent">清潔馬桶&浴缸&淋浴區、擦拭梳妝區表面、更換毛巾與浴巾、消毒浴室地板</p>
                   <p>4. 臥室及客房清潔</p>
-                  <p>更換床單與枕套、擦拭家具表面、地板吸塵、整理書桌與衣櫥</p>    
+                  <p class="indent">更換床單與枕套、擦拭家具表面、地板吸塵、整理書桌與衣櫥</p>    
                </div>
 
              </article>
 
              <div class="right">
-               <img src="@/img/planA/planA_1.jpg" alt="">
-               <!-- <a href="" class="btn next">我要預約</a> -->
+               <img src="@/img/plan/plan_1-1.jpg" alt="">
                <router-link class="btn next" :to="{ name: 'reserve' }">我要預約</router-link>  
              </div>
+            </section>
+            <section class="plans" v-if="plan_now=='廚房徹底清潔'">
+              <article>
+               <div class="title">
+                 <h1>廚房徹底清潔</h1>
+               </div>
+               <h3>包括客廳、臥室、餐廳等全室清潔，讓您的家居環境清新宜人。</h3>
+               <p>所需時長：4小時</p>
+               <p>適合坪數：室內25坪內</p>
+               <p>方案費用：$ 4000起</p>
 
+               <ol class="rule">
+                  <p>1. 基本清潔</p>
+                  <p class="indent">地板清潔與消毒、家具表面清潔、玻璃窗清潔、開放式空間除塵</p>
+                  <p>2. 廚房簡易清潔</p>
+                  <p class="indent">擦拭廚具表面、清潔爐灶與抽油煙機、消毒廚房台面、清理廚房地板</p>
+                  <p>3. 浴室簡易清潔</p>
+                  <p class="indent">清潔馬桶&浴缸&淋浴區、擦拭梳妝區表面、更換毛巾與浴巾、消毒浴室地板</p>
+                  <p>4. 臥室及客房清潔</p>
+                  <p class="indent">更換床單與枕套、擦拭家具表面、地板吸塵、整理書桌與衣櫥</p>    
+               </ol>
 
-          </section>
+             </article>
+
+             <div class="right">
+               <img src="@/img/plan/plan_1-2.jpg" alt="">
+               <router-link class="btn next" :to="{ name: 'reserve' }">我要預約</router-link>  
+             </div>
+            </section>
+            <section class="plans" v-if="plan_now=='浴室特攻清潔'">
+              <article>
+               <div class="title">
+                 <h1>浴室特攻清潔</h1>
+               </div>
+               <h3>包括客廳、臥室、餐廳等全室清潔，讓您的家居環境清新宜人。</h3>
+               <p>所需時長：4小時</p>
+               <p>適合坪數：室內25坪內</p>
+               <p>方案費用：$ 4000起</p>
+
+               <div class="rule">
+                  <p>1. 基本清潔</p>
+                  <p class="indent">地板清潔與消毒、家具表面清潔、玻璃窗清潔、開放式空間除塵</p>
+                  <p>2. 廚房簡易清潔</p>
+                  <p class="indent">擦拭廚具表面、清潔爐灶與抽油煙機、消毒廚房台面、清理廚房地板</p>
+                  <p>3. 浴室簡易清潔</p>
+                  <p class="indent">清潔馬桶&浴缸&淋浴區、擦拭梳妝區表面、更換毛巾與浴巾、消毒浴室地板</p>
+                  <p>4. 臥室及客房清潔</p>
+                  <p class="indent">更換床單與枕套、擦拭家具表面、地板吸塵、整理書桌與衣櫥</p>    
+               </div>
+
+             </article>
+
+             <div class="right">
+               <img src="@/img/plan/plan_1-3.jpg" alt="">
+               <router-link class="btn next" :to="{ name: 'reserve' }">我要預約</router-link>  
+             </div>
+            </section>
 
           <section class="notice">
             <div class="title">
@@ -64,7 +116,7 @@
             </div>
 
             <div class="tab">
-              <ul class="tab_planA">
+              <ul class="tab_plans">
                 <li :class="{ tab_on: activeContent === 'content1' }"><a href="#" @click.prevent="showContent('content1')">預約相關</a></li>
                 <li :class="{ tab_on: activeContent === 'content2' }"><a href="#" @click.prevent="showContent('content2')">訂單相關</a></li>
                 <li :class="{ tab_on: activeContent === 'content3' }"><a href="#" @click.prevent="showContent('content3')">服務相關</a></li>
@@ -79,15 +131,20 @@
             </div>
             <div class="text"  v-else-if="activeContent === 'content2'">
               <ul>
-                <li>僅接受信用卡支付。在您預約我們的服務時，您需要提供有效的信用卡信息以完成付款。我們接受主要的信用卡品牌，包括Visa、Mastercard、American Express等。請注意，我們不接受現金、支票或其他支付方式。</li>
-                <li>如果您需要取消預約，請在預定時間的最少 24 小時前通知我們。未能提前通知取消的預約將收取全額費用。</li>
-                <li>我們承諾保留客戶的反饋，這將有助於我們持續改進我們的服務質量。您的評論將被尊重並用於提高我們的服務水平。</li>
+                <li>僅接受信用卡支付。在您預約我們的服務時，您需要提供有效的信用卡訊息以完成付款。我們接受主要的信用卡品牌，包括Visa、Mastercard、American Express等。請注意，我們不接受現金、支票或其他支付方式。</li>
+                <li>若訂單成立後即無法更改內容、亦無法換購或補差額等方式，如需要變更訂購內容，建議您取消原訂單後，再重新選購。</li>
+                <li>取消訂單最晚須於服務日期七天前提出。若服務時間為3/24，則最晚取消時間為3/17的23:59。</li>
+                <li>我們承諾保留客戶的反饋，這將有助於我們持續改進我們的服務品質。您的評論將被尊重並用於提高我們的服務水準。</li>
               </ul>
             </div>
             <div class="text"  v-else-if="activeContent === 'content3'">
               <ul>
-                <li>我們致力於提供高質量的清潔服務。如果您對我們的服務不滿意，請立即與我們聯絡。浣安團隊將竭盡所能解決您的問題，以確保您對我們的服務滿意。</li>
-                <li>我們為您提供了一個常見問題解答區域，這裡包含了關於浣安清潔服務的常見問題和相應答案。您可以在官方網站上找到這些資訊，亦可透過信箱、電話、官網向我們聯繫。</li>
+                <li>浣安清潔同仁會自行攜帶清潔用具及不插電用具提供服務，且全程使用環保清潔劑，皆無需額外支付費用，亦無需自行事前準備。</li>
+                <li>浣安無義務代為保管鑰匙，同時到府清潔屬於安全、財產較敏感之服務型態，因此建議您清潔開始與結束時，至少在場開、關門，或請交由第三方（例：大樓警衛）開、關門。也建議您於服務開始與結束前10分鐘在場，才能與當天的清潔同仁溝通、檢查當天清潔後狀況。</li>
+                <li>服務完成時，服務人員會請您驗收確認服務品質無誤後再退場，若因服務過程造成損毀物件，我們將依狀況進行相關責任歸屬判定，理賠金額最高為新台幣2萬元。
+部分家電產品因無法於洗後立即發現問題，因此保固期為一個月，且責任歸屬須由原廠判定。</li>
+                <li>我們致力於提供高品質的清潔服務。如果您對我們的服務不滿意，請立即與我們聯絡。浣安團隊將竭盡所能解決您的問題，以確保您對我們的服務滿意。</li>
+                <li>浣安官網首頁有常見問題解答區域，您可以參閱這些資訊，亦可透過「聯絡我們」向我們聯繫。</li>
                 
               </ul>
             </div>
@@ -104,7 +161,7 @@
 
             <ul>
               <li>
-                <img src="../img/planA/planA_2.jpg" alt="">
+                <img src="@/img/plan/plan_2.jpg" alt="">
                 <article>
                   <div class="rank_top">
                     <span>SilverLion42</span>
@@ -131,7 +188,7 @@
                 </article>
               </li>
               <li>
-                <img src="../img/planA/planA_3.jpg" alt="">
+                <img src="@/img/plan/plan_3.jpg" alt="">
                 <article>
                   <div class="rank_top">
                     <span>StarDustin20</span>
@@ -158,7 +215,7 @@
                 </article>
               </li>
               <li>
-                <img src="../img/planA/planA_4.jpg" alt="">
+                <img src="@/img/plan/plan_4.jpg" alt="">
                 <article>
                   <div class="rank_top">
                     <span>Ji2wendy0rLu</span>
