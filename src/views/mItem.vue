@@ -36,7 +36,7 @@
                             <font-awesome-icon @click="quantityPlus" class="cal_btn" :icon="['fas', 'plus']" />
                         </div>
 
-                        <div class="mitem_btn">
+                        <div class="mitem_btns">
                             <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(productItem, quantity)"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
                             <!-- <button class="btn mitem_btn">直接購買</button> -->
                             <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(productItem, quantity)">直接購買</router-link>
@@ -546,7 +546,7 @@
                             <font-awesome-icon class="cal_btn" :icon="['fas', 'plus']" />
                         </div>
 
-                        <div class="mitem_btn">
+                        <div class="mitem_btns">
                             <button class="btn mitem_btn"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
                             <button class="btn mitem_btn">直接購買</button>
                             <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }">直接購買</router-link>
