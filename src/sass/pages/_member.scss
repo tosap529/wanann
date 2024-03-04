@@ -14,13 +14,14 @@
         display: flex;
         margin-bottom: 40px;
 
-        >div {
+        >img {
             margin: 0;
-            background-image: url(@/img/member/member_icon_profileMini.png);
-            background-repeat: no-repeat;
-            background-size: cover;
+            // background-image: url(@/img/member/member_icon_profileMini.png);
+            // background-repeat: no-repeat;
+            // background-size: cover;
             width: 70px;
             height: 70px;
+            border-radius: 50%;
         }
 
         input {
@@ -108,20 +109,20 @@ input.needToFill {
             margin-bottom: 30px;
 
             div {
-
                 margin-bottom: 0;
                 display: flex;
             }
         }
 
-        >div {
+        >img {
             margin-left: 0;
             margin-bottom: 0;
-            background-image: url(@/img/member/member_icon_profile.png);
-            background-repeat: no-repeat;
-            background-size: cover;
+            // background-image: url(@/img/member/member_icon_profile.png);
+            // background-repeat: no-repeat;
+            // background-size: cover;
             width: 150px;
             height: 150px;
+            border-radius: 50%;
         }
 
         input {
@@ -575,7 +576,7 @@ input.needToFill {
     }
 
     .userData>div:first-child {
-        display: none;
+        // opacity: 0;
     }
 
     // 訂單分頁共通

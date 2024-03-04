@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref,onBeforeUnmount } from "vue";
 defineEmits(['ModalLogin']);
 
 const byeLogin = ref(true);
@@ -91,11 +91,27 @@ const submitForm = () => {
 const pwdValidation = (e)=>{
     console.log(pwdNew.value);
     if(pwdNew.value != pwdConfirm.value){
-        pwdConfirm.style.backgroundColor = 'red';
+        // pwdConfirm.style.backgroundColor = 'white';
+        pwdConfirm.classList.add('alert_inputWeye');
     }else{
-        pwdConfirm.style.backgroundColor = '$light-milktea';
+        // pwdConfirm.style.backgroundColor = '#ECE7E1';
+        pwdConfirm.classList.remove('alert_inputWeye');
+    }
+
+}
+
+const isNext_el = (e)=>{
+    if(RegisterData.username&&RegisterData.email!=''&&pwdNew.value==pwdConfirm.value){
+        isRegister.value=true;
+    }else{
+        isRegister.value=false;
     }
 }
+const isRegister = ref(false)
+document.addEventListener('input',isNext_el);
+onBeforeUnmount(()=>{
+    document.removeEventListener('keyup',isNext_el)
+})
 
 
 </script>
@@ -156,20 +172,20 @@ const pwdValidation = (e)=>{
             <h1>會員註冊</h1>
         </div>
         <form class="create_form" @submit.prevent="submitForm">
-            <label for="createAccount">*帳號<br><input type="text" id="createAccount" name="username" v-model="RegisterData.username"></label>
+            <label for="createAccount">*帳號<br><input type="text" id="createAccount" name="username" v-model="RegisterData.username" required></label>
             <!-- <br> -->
             <label for="pwdNew">*密碼<br>
-                <input type="password" id="pwdNew" name="password" v-model="RegisterData.password">
+                <input type="password" id="pwdNew" name="password" v-model="RegisterData.password" @input="pwdValidation" required>
                 <img src="@/img/login/login_icon_eye.png" @click="eyeOnPWD" alt="">
             </label>
             <!-- <br> -->
             <label for="pwdConfirm">*確認密碼<br>
-                <input type="password" id="pwdConfirm" @keyup="pwdValidation">
+                <input type="password" id="pwdConfirm" @input="pwdValidation" required>
                 <img src="@/img/login/login_icon_eye.png"  @click="eyeOnPWD" alt="">
             </label>
             <!-- <br> -->
-            <label for="createEmail">*電子信箱<br><input type="email" id="createEmail" name="email" v-model="RegisterData.email"></label>
-            <input type="submit" value="加入會員" class="btn" >
+            <label for="createEmail">*電子信箱<br><input type="email" id="createEmail" name="email" v-model="RegisterData.email" required></label>
+            <input type="submit" value="加入會員" class="btn" :class="{ disabled: !isRegister }">
             <!-- <button type="submit" class="btn">送出</button> -->
         </form>
     </section>
@@ -235,7 +251,8 @@ const pwdValidation = (e)=>{
             color: $black;
             font-size: $p;
             display: block;
-            text-align: right;
+            width: fit-content;
+            margin-left: auto;
             &:hover{
                 font-weight: bold;
             }
