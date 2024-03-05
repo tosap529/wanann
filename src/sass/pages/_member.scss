@@ -125,7 +125,8 @@ input.needToFill {
             border-radius: 50%;
         }
 
-        input {
+        input,
+        button {
             display: none;
         }
 
@@ -206,7 +207,6 @@ input.needToFill {
 
     @for $i from 1 through 3 {
         >div:nth-child(#{$i}) {
-            // background-color: aqua;
             display: flex;
 
             h2 {
@@ -371,8 +371,7 @@ input.needToFill {
         margin-left: 20px;
 
         div:first-child {
-            margin-left: 0px;
-            justify-content: center;
+            margin-left: 150px;
         }
 
         :first-child~div {}
@@ -478,7 +477,7 @@ input.needToFill {
             margin-bottom: 20px;
 
             li {
-                margin-bottom: 0;
+                margin: 0 10px;
             }
 
             a {
@@ -489,6 +488,7 @@ input.needToFill {
         }
 
         div {
+            display: none;
             // margin-left: 40px;
             margin: 0 auto;
             margin-bottom: 20px;
@@ -516,14 +516,29 @@ input.needToFill {
     // 個人資料分頁(預設)
     section.userData {
         margin-left: 0px;
-        min-width: 100%;
+        // min-width: 100%;
+        width: 360px;
+        margin: 0 auto;
+        outline: 4px solid $dark-milktea;
+        border-radius: 10px;
+
+        >div:first-child {
+            margin-left: 50px;
+            margin-bottom: 10px;
+        }
+
+        // div:first-child {
+        //     display: none;
+        // }
     }
 
-    .userData {
-        padding: 0 30px;
+    section.userData {
+        padding: 10px 30px;
         display: flex;
         flex-direction: column;
         align-items: center;
+
+
 
         h2 {
             font-size: $h3;
@@ -539,24 +554,27 @@ input.needToFill {
                 flex-direction: column;
                 width: 300px;
 
+                h2,
+                input,
+                select {
+                    margin-left: 40px;
+                }
 
                 div {
                     margin-top: 10px;
-                    margin-right: 20px;
+                    margin-right: 60px;
                     flex-direction: row;
                     width: fit-content;
                     align-self: flex-end;
                 }
 
-
-
-
             }
         }
 
         .mAddress input {
-            width: 250px;
+            width: 230px;
         }
+
 
         div.sAddress div:nth-child(2) {
             align-self: flex-start;
@@ -575,9 +593,6 @@ input.needToFill {
         }
     }
 
-    .userData>div:first-child {
-        // opacity: 0;
-    }
 
     // 訂單分頁共通
     .member_main .tab ul {
