@@ -166,19 +166,19 @@
 
     // 把商城過來的商品資料放入陣列
     onBeforeMount(() => {
-        const url = 'http://localhost/projectg1/public/php/mall.php';
+        const url = 'http://localhost/projectg1/public/php/mall_select.php';
     
         
-        fetch(url)
-            .then(response => response.json())
-            .then(response => {
-                // console.log('註冊成功 js');
-            // items.value = response;
-            allProducts.value = response;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(response => {
+        //         // console.log('註冊成功 js');
+        //     // items.value = response;
+        //     allProducts.value = response;
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error);
+        //         });
         
         fetch(url)
             .then(response => response.json())

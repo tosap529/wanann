@@ -178,6 +178,28 @@
     import BannerUrl  from '@/img/pay/pay_banner.jpg'; // 更改成banner路徑
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+
+
+
+    // API
+
+    // const couponNumber = ref();
+
+    const url = 'http://localhost/projectg1/public/php/mPay2_select.php';
+    
+        
+    // fetch(url)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         // console.log('註冊成功 js');
+    //         // items.value = response;
+    //         couponNumber.value = response;
+    //         })
+    //         .catch(error => {
+    //             console.error('Error:', error);
+    //         });
+
+    
 </script>
 
 <style lang="scss">

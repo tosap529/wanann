@@ -230,7 +230,7 @@
 
     const items = ref();
 
-    const url = 'http://localhost/projectg1/public/php/mall.php';
+    const url = 'http://localhost/projectg1/public/php/mall_select.php';
     
         
     fetch(url)
