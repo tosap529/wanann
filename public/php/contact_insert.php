@@ -1,6 +1,6 @@
 <?php
 
-include("connect.php");
+include("connect_test.php");
 
 
 $pdo = getPDO();
