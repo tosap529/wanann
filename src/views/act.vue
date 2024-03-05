@@ -1,13 +1,13 @@
 <script setup>
 
-    import { ref, computed } from "vue";
+    import { ref, computed, onMounted } from "vue";
 
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import BannerUrl  from '@/img/act/act_banner.jpg'; // 更改成banner路徑
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
-    import lecture from '@/components/Lecture.vue'; //引入職人講座
-    import discount from '@/components/Discount.vue'; //引入優惠活動
+    import lecture from '@/layouts/Lecture.vue'; //引入職人講座
+    import discount from '@/layouts/Discount.vue'; //引入優惠活動
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
     
@@ -16,42 +16,76 @@
         activeContent.value = e;
     }
 
-    const items = ref([]);
-    
-    // const changeStatus = computed (() => {
-    //     for()
-    // }) 
+    const discountItems = ref([]);
+    const lectureItems = ref([]);
 
 
-    const url = 'http://localhost/thd104/public/php/act.php';
+    onMounted(() => {
+
+    const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
     
         
-    fetch(url)
+    fetch(url_discount)
         .then(response => response.json())
         .then(response => {
             // console.log('註冊成功 js');
-        items.value = response;
+        discountItems.value = response;
             })
             .catch(error => {
                 console.error('Error:', error);
             });
 
-    // --------------------分頁器----------------------->
-    
-    const currentPage = ref(1)
-    const pageSize = ref(4)
 
-    const Items = computed(() => {
-    const startIndex = (currentPage.value - 1) * pageSize.value;
-    const endIndex = startIndex + pageSize.value;
-    return items.value.slice(startIndex, endIndex);
+    const url_lecture = 'http://localhost/thd104/public/php/actLecture_select.php';
+    
+        
+    fetch(url_lecture)
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+        lectureItems.value = response;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
     });
 
-    const totalPages = computed(() => Math.ceil(items.value.length / pageSize.value));
 
-    const setPage = (page) => {
-        if (page >= 1 && page <= totalPages.value) {
-            currentPage.value = page;
+
+    // --------------------分頁器----------------------->
+    
+    const dcurrentPage = ref(1)
+    const dpageSize = ref(4)
+
+    const dItems = computed(() => {
+    const dstartIndex = (dcurrentPage.value - 1) * dpageSize.value;
+    const dendIndex = dstartIndex + dpageSize.value;
+    return discountItems.value.slice(dstartIndex, dendIndex);
+    });
+
+    const dtotalPages = computed(() => Math.ceil(discountItems.value.length / dpageSize.value));
+
+    const dsetPage = (dpage) => {
+        if (dpage >= 1 && dpage <= dtotalPages.value) {
+            dcurrentPage.value = dpage;
+        }
+    };
+
+    const lcurrentPage = ref(1)
+    const lpageSize = ref(4)
+
+    const lItems = computed(() => {
+    const lstartIndex = (lcurrentPage.value - 1) * lpageSize.value;
+    const lendIndex = lstartIndex + lpageSize.value;
+    return lectureItems.value.slice(lstartIndex, lendIndex);
+    });
+
+    const ltotalPages = computed(() => Math.ceil(lectureItems.value.length / lpageSize.value));
+
+    const lsetPage = (lpage) => {
+        if (lpage >= 1 && lpage <= ltotalPages.value) {
+            lcurrentPage.value = lpage;
         }
     };
         
@@ -79,35 +113,56 @@
 
     <!--------------------優惠活動----------------------->
 
-        <discount v-if="activeContent === 'content1'" :items="Items"/>
+        <discount v-if="activeContent === 'content1'" :discountItems="dItems"/>
 
     <!--------------------  職人講座  ----------------------->
 
-        <lecture v-else-if="activeContent === 'content2'"/>
+        <lecture v-else-if="activeContent === 'content2'" :lectureItems="lItems"/>
 
     <!---------------------  分頁器   --------------------->
     
-        <div class="mall_paginator">
+        <div class="mall_paginator"  v-if="activeContent === 'content1'">
 
             <ul>
                     <!-- 上一頁圖案 -->
                 <li>                    
-                    <div v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)">
+                    <div v-if="dcurrentPage != 1" v-on:click="dsetPage(dcurrentPage - 1)">
                         <span>&lt;</span>
                     </div>
                 </li>
-                <li v-for="n in totalPages" v-bind:key="n" v-on:click="setPage(n)" v-bind:class="{'mall_paginator_on' : n == currentPage}">
+                <li v-for="n in dtotalPages" v-bind:key="n" v-on:click="dsetPage(n)" v-bind:class="{'mall_paginator_on' : n == dcurrentPage}">
                         {{ n }}
                 </li>
                     <!-- 下一頁圖案 -->
                 <li>                     
-                    <div  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)">
+                    <div  v-if="dcurrentPage != dtotalPages" v-on:click="dsetPage(dcurrentPage + 1)">
                         <span>&gt;</span>
                     </div>
                 </li>
             </ul>
 
         </div>
+        <div class="mall_paginator" v-else-if="activeContent === 'content2'">
+
+<ul>
+        <!-- 上一頁圖案 -->
+    <li>                    
+        <div v-if="lcurrentPage != 1" v-on:click="lsetPage(lcurrentPage - 1)">
+            <span>&lt;</span>
+        </div>
+    </li>
+    <li v-for="n in ltotalPages" v-bind:key="n" v-on:click="lsetPage(n)" v-bind:class="{'mall_paginator_on' : n == lcurrentPage}">
+            {{ n }}
+    </li>
+        <!-- 下一頁圖案 -->
+    <li>                     
+        <div  v-if="lcurrentPage != ltotalPages" v-on:click="lsetPage(lcurrentPage + 1)">
+            <span>&gt;</span>
+        </div>
+    </li>
+</ul>
+
+</div>
 
     </wrapper>
 
