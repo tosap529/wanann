@@ -17,13 +17,13 @@
 
                     <div 
                         v-for="(i, index) in cartStore.cartItems" 
-                        v-bind:key="i.productId"
+                        v-bind:key="i.ID"
                         class="product-row">
 
-                        <img  class="cart_image" v-bind:src="i.productSrc1">
+                        <img  class="cart_image" v-bind:src="i.PRODUCT_PIC1">
 
                         <div class="product_row_inner">
-                            <h3>{{ i.productName }}</h3>
+                            <h3>{{ i.PRODUCT_NAME }}</h3>
 
                             <div class="cart_design">
                                 <h4>經典款</h4>
@@ -38,7 +38,7 @@
                         </div>
 
                         <div class="product_row_price">
-                            <span class ="cart_price">NTD {{ i.productPrice * i.quantity }}</span>
+                            <span class ="cart_price">NTD {{ i.PRODUCT_PRICE * i.quantity }}</span>
                             <font-awesome-icon class="cart_item_remove_btn" :icon="['fas', 'trash']" @click="cartStore.removeFromCart(index)" />
                         </div>
                     </div>
@@ -118,7 +118,7 @@
 
     const calCartTotal = computed(function() {
         return cartStore.cartItems.reduce((total, item) => {
-            return total + (item.productPrice * item.quantity);
+            return total + (item.PRODUCT_PRICE * item.quantity);
         }, 0);
     })
 
