@@ -1,7 +1,7 @@
 <?php
 
-// include("connect_test.php");
-include("connect.php");
+include("connect_test.php");
+// include("connect.php");
 
 $pdo = getPDO();
 $statement = $pdo->prepare("select * from MEMBER where ID=1");

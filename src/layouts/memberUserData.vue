@@ -4,18 +4,50 @@ defineEmits(['getProfileURL']);
 
 const props = defineProps({member:Object});
 
+const newTaipei = ref(['區','三峽區','三重區','中和區','五股區','板橋區','新店區','永和區','汐止區','新莊區','淡水區','深坑區','蘆洲區','林口區','泰山區','土城區'])
+const taipei = ref(['區','中正區','大同區','中山區','松山區','大安區','萬華區','信義區','士林區','北投區','內湖區','南港區','文山區'])
+const taoyuan = ref(['區','桃園區','八德區','龜山區'])
+
+let county = ref('');
+
 onMounted(()=>{
     profile.value.addEventListener('change',fileChange );
+
+    console.log(countySelector.value);
+
 })
 onBeforeUpdate(()=>{
     console.log(props.member.ID);
     console.log(props.member.MEMBER_PIC);
+    // console.log(document.querySelector('#countySelector'))
     document.querySelector('.member_sidebar div:first-child img').src = props.member.MEMBER_PIC;
     document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${props.member.MEMBER_PIC}" >`;
+
+    if(props.member.COUNTY == '新北市'){
+        county.value = 'newTaipei';
+    }else if(props.member.COUNTY =='台北市'){
+        county.value = 'taipei';
+    }else{
+        county.value = 'taoyuan';
+    }
+
+let countySelector = document.getElementById('countySelector');
+countySelector.addEventListener('change',function(){
+    // console.log(countySelector.value)
+    console.log(county.value)
+    if(countySelector.value =='newTaipei' ){
+        county.value = 'newTaipei';
+    }else if(countySelector.value=='taipei'){
+        county.value = 'taipei';
+    }else{
+        county.value = 'taoyuan';
+    }
 })
 
- 
-let county = ref('');
+})
+
+
+
 function infoEdit(e){
     let input = e.target.closest('div').parentElement.querySelector('input');
     input.disabled=false;
@@ -28,6 +60,7 @@ function infoEdit(e){
 const infoEdit_sa=(e)=>{
     let dropdown = e.target.closest('.sAddress').querySelector('div select')
     let input = e.target.closest('.sAddress').querySelector('input')
+
     dropdown.disabled = false;
     input.disabled = false;
     if(input.disabled==false){
@@ -101,16 +134,20 @@ const fileUpload=()=>{
     let formdata  = new FormData();
     formdata.append("profile_pic", file);
 
-    fetch('php/member_pic_update.php', {
+    // fetch('php/member_pic_update.php', {
+    //         method: 'POST',
+    //         body: formdata
+    //     })
+    fetch('http://localhost/thd104/g1/public/php/member_pic_update.php', {
             method: 'POST',
             body: formdata
         })
         .then(response => {
             console.log(response);})
 }
-const newTaipei = ['區','三峽區','三重區','中和區','五股區','板橋區','新店區','永和區','汐止區','新莊區','淡水區','深坑區','蘆洲區','林口區','泰山區','土城區'];
-const taipei = ['區','中正區','大同區','中山區','松山區','大安區','萬華區','信義區','士林區','北投區','內湖區','南港區','文山區'];
-const taoyuan = ['區','桃園區','八德區','龜山區'];
+
+
+
 
 
 
@@ -165,8 +202,8 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
         <div class="sAddress">
             <h2>服務地址</h2>
           <div>
-            <select name="county" id="" value=""  v-model="county" disabled >
-                <option value="">{{ member.COUNTY }}</option>
+            <select name="county" id="countySelector"   >
+                <option value="" selected disabled hidden>{{member.COUNTY}}</option>
                 <option value="newTaipei">新北市</option>
                 <option value="taipei">台北市</option>
                 <option value="taoyuan">桃園市</option>
@@ -191,7 +228,7 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
                 <option value="">土城區</option> -->
 
             </select>
-            <select name="dTaipei" id="" v-if="county=='taipei'">
+            <select name="dTaipei" id="" v-if="county=='taipei' " >
                 <option :value="dist" v-for="dist in taipei" :key="dist">{{ dist }}</option>
                 <!-- <option value="">區</option>
                 <option value="">中正區</option>
@@ -208,7 +245,7 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
                 <option value="">文山區</option> -->
 
             </select>
-            <select name="dTaoyuan" id="" v-if="county=='taoyuan'">
+            <select name="dTaoyuan" id="" v-if="county=='taoyuan'" >
                 <option :value="dist" v-for="dist in taoyuan" :key="dist">{{ dist }}</option>
                 <!-- <option value="">區</option>
                 <option value="">桃園區</option>

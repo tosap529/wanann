@@ -42,8 +42,6 @@ const goCreateRWD=(e)=>{
 
 }
 
-// let pwdStatusNew = 'password';
-// let pwdStatusConfirm = 'password';
 const eyeOnPWD=(e)=>{
     if (e.target.previousElementSibling.type == "password") {
         e.target.previousElementSibling.type='text';
@@ -63,10 +61,12 @@ const RegisterData = {
     username: '',
     password: '',
     member_pic:'',
+    status:0
     };
 
 const submitForm = () => {
-    const url = 'php/register_insert.php';
+    // const url = 'php/register_insert.php';
+    const url = 'http://localhost/thd104/g1/public/php/register_insert.php';
     
     fetch(url, {
         method: 'POST',
