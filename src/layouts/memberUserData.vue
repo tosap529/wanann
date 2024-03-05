@@ -9,8 +9,8 @@ onMounted(()=>{
     profile.value.addEventListener('change',fileChange );
 })
 onBeforeUpdate(()=>{
-    document.querySelector('.member_sidebar div:first-child img').src = props.member.MEMEBER_PIC;
-    document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${props.member.MEMEBER_PIC}" >`;
+    document.querySelector('.member_sidebar div:first-child img').src = props.member.MEMBER_PIC;
+    document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${props.member.MEMBER_PIC}" >`;
 })
 
  
