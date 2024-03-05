@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 function getSavedCartItems() {
   const savedCartItems = localStorage.getItem('cartItems');
   if (savedCartItems) {
-      return JSON.parse(savedCartItems);
+    return JSON.parse(savedCartItems);
   } else {
     return [];
   }
@@ -27,7 +27,7 @@ export const useCartStore = defineStore('cart', {
 
     // 購物車商品增減
     addToCart(product) {
-      const existingProduct = this.cartItems.find(item => item.productId === product.productId);
+      const existingProduct = this.cartItems.find(item => item.ID === product.ID);
       if (existingProduct) {
         existingProduct.quantity += 1;
       } else {
@@ -40,7 +40,7 @@ export const useCartStore = defineStore('cart', {
 
     // mItem頁用的加入購物車
     addToCartMitem(product, productQuantity) {
-      const existingProduct = this.cartItems.find(item => item.productId === product.productId);
+      const existingProduct = this.cartItems.find(item => item.ID === product.ID);
       if (existingProduct) {
         existingProduct.quantity += productQuantity;
       } else {
