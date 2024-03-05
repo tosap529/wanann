@@ -22,7 +22,7 @@
 
     onMounted(() => {
 
-    const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
+    const url_discount = 'http://localhost/wanann/public/php/actDiscount_select.php';
     
         
     fetch(url_discount)
@@ -36,7 +36,7 @@
             });
 
 
-    const url_lecture = 'http://localhost/thd104/public/php/actLecture_select.php';
+    const url_lecture = 'http://localhost/wanann/public/php/actLecture_select.php';
     
         
     fetch(url_lecture)

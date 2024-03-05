@@ -36,12 +36,12 @@
                         class="mPay1_item"
                         v-for="(i, index) in cartStore.cartItems">
 
-                        <img v-bind:src="i.productSrc1">
+                        <img v-bind:src="i.PRODUCT_PIC1">
 
                         <div class="mPay1_item_product">
 
                             <div class="mPay1_item_name">
-                                <h2>{{ i.productName }}</h2>
+                                <h2>{{ i.PRODUCT_NAME }}</h2>
                                 <div class="mPay1_design">
                                     <h4>經典款</h4>
                                 </div>
@@ -57,7 +57,7 @@
                         </div>
 
                         <div class="mPay1_item_price">
-                            <h2>NTD{{ i.productPrice * i.quantity }}</h2>
+                            <h2>NTD{{ i.PRODUCT_PRICE * i.quantity }}</h2>
                             <font-awesome-icon @click="cartStore.removeFromCart(index)" class="mPay1_item_price_icon" :icon="['fas', 'trash']" />
                         </div>
 
@@ -184,7 +184,7 @@
     // 總價還沒有算到運費及優惠碼
     const calCartTotal = computed(function() {
         return cartStore.cartItems.reduce((total, item) => {
-            return total + (item.productPrice * item.quantity);
+            return total + (item.PRODUCT_PRICE * item.quantity);
         }, 0);
     })
 

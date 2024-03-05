@@ -37,9 +37,9 @@
                         </div>
 
                         <div class="mitem_btns">
-                            <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(product, quantity)" v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
+                            <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(productItem, quantity)" v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
                             <!-- <button class="btn mitem_btn">直接購買</button> -->
-                            <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(product, quantity)">直接購買</router-link>
+                            <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(productItem, quantity)">直接購買</router-link>
                         </div>
                     </div>
 
@@ -165,34 +165,24 @@
     }
 
     // 把商城過來的商品資料放入陣列
-    onBeforeMount(() => {
-        const url = 'http://localhost/projectg1/public/php/mall.php';
-    
-        
-        fetch(url)
-            .then(response => response.json())
-            .then(response => {
-                // console.log('註冊成功 js');
-            // items.value = response;
-            allProducts.value = response;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        
-        fetch(url)
-            .then(response => response.json())
-            .then(response => {
-                allProducts.value = response;
+    onMounted(() => {
+        const productId = route.params.ID;
 
-                // 資料接收後再執行
-                const productId = route.params.ID;
-                productItem.value = getSingleProduct(productId);
-                bigPhotoSrc.value = productItem.value.PRODUCT_PIC1
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+        // const url = 'php/mall.php';
+        
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(response => {
+        //         allProducts.value = response;
+
+        //         // 資料接收後再執行
+        //         const productId = route.params.ID;
+        //         productItem.value = getSingleProduct(productId);
+        //         bigPhotoSrc.value = productItem.value.PRODUCT_PIC1
+        //     })
+        //     .catch(error => {
+        //         console.error('Error:', error);
+        //     });
 
         //  // 找到商城過來的那個商品
         // // 放入productItem
@@ -202,7 +192,6 @@
     })
 
     
-
     // 數量條
     const quantity = ref(1)
 
@@ -241,7 +230,8 @@
         // console.log(items.value);
         // console.log(allProducts.value[0].ID);
         // console.log(route.params.ID);
-        console.log(productItem.PRODUCT_PRICE);
+        // console.log(productItem.value.PRODUCT_PRICE);
+        // console.log(productItem.value);
         // console.log(allProducts.value);
         // console.log(allProducts.value.find(function(p){console.log(p);}));
         // return allProducts.value.find(function(p){console.log(p.ID);});

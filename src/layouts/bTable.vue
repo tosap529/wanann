@@ -17,14 +17,14 @@
     const act_data = ref([]);
    
     
-    const url_act_update = 'http://localhost/thd104/public/php/act_update.php';
+    const url_act_update = 'http://localhost/wanann/public/php/act_update.php';
 
     // contact_data[0].value.STATUS= 1;
 
     onMounted(() => {
         
-        const url_contact = 'http://localhost/thd104/public/php/contact_select.php';
-        const url_act = 'http://localhost/thd104/public/php/act_select.php';
+        const url_contact = 'http://localhost/wanann/public/php/contact_select.php';
+        const url_act = 'http://localhost/wanann/public/php/act_select.php';
         
         fetch(url_contact)
             .then(response => response.json())
