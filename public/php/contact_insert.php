@@ -2,6 +2,7 @@
 
 include("connect.php");
 
+
 $pdo = getPDO();
 $statement = $pdo->prepare("insert into CONTACT_TABLE(NAME, PHONE, EMAIL, CONTENT, CREATE_TIME, STATUS) values(:name, :phone, :email, :message, NOW(), b'0')");
 $statement ->bindValue(":name", $reqBody["name"]);

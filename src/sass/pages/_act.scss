@@ -103,8 +103,63 @@ li.tab_on {
 
 // ------------------------ RWD ------------------------
 
+// ------------------------ width: 1100px ------------------------
 
-@media screen and (max-width:430px) {
+@media screen and (max-width:1100px) {
+
+  .act_wrapper{
+    width: auto;
+  }
+
+}
+
+
+// ------------------------ width: 1000px ------------------------
+
+@media screen and (max-width:1000px) {
+
+  .tab ul.tab_act_phone{
+    width: auto;
+    margin: auto 40px;
+  }
+
+}
+
+
+// ------------------------ width: 800px ------------------------
+
+@media screen and (max-width:800px) {
+
+  .act_main{
+    margin-top: 40px;
+  }
+
+  .act_main article{
+    width: auto;
+    margin: auto 30px 20px;
+  }
+
+  .act_main article .right h2{
+    font-size: $h3;
+    margin-bottom: 10px;
+  }
+
+  .act_main article .right h4{
+    font-size: $p;
+    margin-bottom: 10px;
+  }
+
+  .act_main article .right h3{
+    font-size: $h4;
+  }
+
+}
+
+// ------------------------ width: 700px ------------------------
+
+
+@media screen and (max-width:700px) {
+
 
   .act_main {
     margin-top: 26px;
@@ -197,6 +252,7 @@ li.tab_on {
           border-radius: 0 10px 10px 0;
           cursor: pointer;
         }
+
       }
 
       h3 {
@@ -215,4 +271,139 @@ li.tab_on {
       margin-left: 10px;
     }
   }
+
+}
+
+
+
+// ------------------------ width: 430px ------------------------
+
+@media screen and (max-width:430px) {
+
+  .act_main {
+    margin-top: 26px;
+  }
+
+  .tab ul.tab_act_phone{
+    margin: auto 0px;
+  }
+
+  .tab .tab_act_phone {
+    border-top: 0px;
+    border-bottom: 1px solid $grey;
+    width: 360px;
+
+    ul {
+
+      li {
+        margin-right: 10px;
+      }
+    }
+
+    a {
+      font-size: $h4;
+      width: 85px;
+    }
+  }
+
+
+  .act_main article {
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    height: 560px;
+    margin: 0 auto 28px;
+    background-color: $light-milktea;
+    border-radius: 10px;
+
+    .new {
+      display: block;
+      padding: 20px 30px 12px;
+      font-size: $h3;
+      font-weight: bold;
+      color: $brown;
+    }
+
+    img {
+      display: block;
+      height: 250px;
+      width: 250px;
+      margin: 0 auto 16px;
+      border-radius: 10px;
+      background-size: contain;
+    }
+
+    .right {
+      padding: 0px 30px;
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        display: none;
+      }
+
+      h4 {
+        height: 100px;
+        margin-bottom: 30px;
+        line-height: 1.2;
+      }
+
+      .coupon_container {
+
+        margin: 0 auto 20px;
+        background-color: $white;
+        border-radius: 10px;
+        width: 218px;
+        display: flex;
+
+
+        input {
+          background-color: $white;
+          width: 148px;
+          border: 0;
+          outline: 0;
+          padding-left: 20px;
+        }
+
+        .copy_button {
+          text-align: center;
+          font-size: $h4;
+          color: $white;
+          background-color: $brown;
+          width: 70px;
+          height: 40px;
+          border-radius: 0 10px 10px 0;
+          cursor: pointer;
+        }
+
+      }
+
+      h3 {
+        font-size: $p;
+        align-self: center;
+
+      }
+    }
+  }
+
+
+  .act_tab .tab ul li {
+    margin-right: 10px;
+
+    &:nth-child(2) {
+      margin-left: 10px;
+    }
+  }
+
+}
+
+
+// ------------------------ width: 370px ------------------------
+
+@media screen and (max-width:370px) {
+  
+  .act_main article{
+    width: 350px;
+  }
+
 }
