@@ -66,7 +66,7 @@ const RegisterData = {
     };
 
 const submitForm = () => {
-    const url = 'http://localhost/wanann/public/php/register_insert.php';
+    const url = 'php/register_insert.php';
     
     fetch(url, {
         method: 'POST',

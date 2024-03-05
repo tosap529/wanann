@@ -37,6 +37,8 @@ div.mPay1_item {
         margin-right: auto;
 
         div.mPay1_item_name {
+            width: 140px;
+            max-width: 100%;
 
             display: flex;
             flex-direction: column;
@@ -326,6 +328,8 @@ div.mPay1_total {
 
                 >div.mPay1_item_name {
                     align-items: start;
+
+                    width: 100px;
                 }
             }
         }
@@ -367,30 +371,32 @@ div.mPay1_total {
     div.mPay1_des {
         width: 300px;
 
+        div.mPay1_des_step{
+            div.mPay1_coupon_number {
+                margin-bottom: 20px;
+                flex-wrap: wrap;
 
+                >h3 {
+                    margin-right: 20px;
+                }
 
-        div.mPay1_coupon_number {
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+                >input.mPay1_coupon_input {
+                    width: 120px;
+                    margin-right: auto;
+                }
 
-            >h3 {
-                margin-right: 20px;
+                >p.mPay1_coupon_success {
+                    margin-left: 20% ;
+                    margin-top: 10px;
+                }
             }
 
-            >input.mPay1_coupon_input {
-                width: 120px;
-                margin-right: auto;
-            }
-
-            >p {
-                margin-left: 20%;
-                margin-top: 10px;
+            div.mPay1_payment{
+                max-width: 100%;
             }
         }
 
-        div.mPay1_payment{
-            max-width: 100%;
-        }
+        
  
 
         >div.mPay1_des_price {

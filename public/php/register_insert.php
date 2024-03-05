@@ -1,5 +1,6 @@
 <?php
-include("connect_test.php");
+// include("connect_test.php");
+include("connect.php");
 
 $pdo = getPDO();    
 $statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,COUNTY,DISTRICT,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD,  STATUS,MEMBER_PIC) values(:name, :phone, :email, :county, :district, :send_address, :service_address,  NOW(),:username, :password,:member_pic, b'0')");
