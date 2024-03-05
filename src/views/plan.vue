@@ -27,6 +27,7 @@
         <wrapper class="plan">
           <section class="plans" v-if="plan_now=='浣安全室清潔'">
               <article>
+                <img src="@/img/plan/plan_1-1.jpg" alt="">
                <div class="title">
                  <h1>浣安全室清潔</h1>
                </div>
@@ -55,6 +56,7 @@
             </section>
             <section class="plans" v-if="plan_now=='廚房徹底清潔'">
               <article>
+                <img src="@/img/plan/plan_1-2.jpg" alt="">
                <div class="title">
                  <h1>廚房徹底清潔</h1>
                </div>
@@ -83,6 +85,7 @@
             </section>
             <section class="plans" v-if="plan_now=='浴室特攻清潔'">
               <article>
+                <img src="@/img/plan/plan_1-3.jpg" alt="">
                <div class="title">
                  <h1>浴室特攻清潔</h1>
                </div>
