@@ -101,7 +101,7 @@ const fileUpload=()=>{
     let formdata  = new FormData();
     formdata.append("profile_pic", file);
 
-    fetch('http://localhost/wanann/public/php/member_pic_update.php', {
+    fetch('php/member_pic_update.php', {
             method: 'POST',
             body: formdata
         })
@@ -120,7 +120,7 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
     <section class="member_main userData" >
         <div  method="post"  enctype="multipart/form-data" >
             <!-- <img src="@/img/member/member_icon_profile.png" alt="" ref="profile_pic">  -->
-            <img :src="member.MEMEBER_PIC" alt="" ref="profile_pic"> 
+            <img :src="member.MEMBER_PIC" alt="" ref="profile_pic"> 
             <input type="file" id="profile" name="profile" ref="profile" @change="$emit('getProfileURL')">
                 <font-awesome-icon :icon="['fas', 'pen']" @click="profileClick" />
             <button  id="profilePicUpdate" ref="profilePicUpdate" ></button>

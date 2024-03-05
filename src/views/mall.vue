@@ -129,6 +129,7 @@
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
     import BannerUrl  from '@/img/mall/mall_banner.jpg'; // 更改成banner路徑
+import { storeToRefs } from "pinia";
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
 
 
@@ -217,32 +218,33 @@
     // }
 
     function setCategory(category) {
-    currentCategory.value = category;
-    currentPage.value = 1;
-    console.log("Category set to:", category);
-    console.log("Filtered products:", filteredProducts.value);
-    console.log("Paginated products:", paginatedProducts.value);
-    console.log("Total pages:", totalPages.value);
-}
+        currentCategory.value = category;
+        currentPage.value = 1;
+        console.log("Category set to:", category);
+        console.log("Filtered products:", filteredProducts.value);
+        console.log("Paginated products:", paginatedProducts.value);
+        console.log("Total pages:", totalPages.value);
+    }
 
 
     // API
 
-    const items = ref();
-
-    const url = 'http://localhost/wanann/public/php/mall.php';
+    // const items = ref();
+    const store = useCartStore();
+    const { items } = storeToRefs(store);
+    const url = 'php/mall.php';
     
         
     fetch(url)
         .then(response => response.json())
         .then(response => {
             // console.log('註冊成功 js');
-        // items.value = response;
-        products.value = response;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+            // items.value = response;
+            items.value = response;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
     const showItems = function(e){
         // console.log(e.target);
