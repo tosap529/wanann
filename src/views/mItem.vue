@@ -166,7 +166,7 @@
 
     // 把商城過來的商品資料放入陣列
     onBeforeMount(() => {
-        const url = 'http://localhost/projectg1/public/php/mall.php';
+        const url = 'http://localhost/wanann/public/php/mall.php';
     
         
         fetch(url)

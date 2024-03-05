@@ -5,10 +5,11 @@ defineEmits(['getProfileURL']);
 const props = defineProps({member:Object});
 
 onMounted(()=>{
-    console.log(props.member.ID);
     profile.value.addEventListener('change',fileChange );
 })
 onBeforeUpdate(()=>{
+    console.log(props.member.ID);
+    console.log(props.member.MEMBER_PIC);
     document.querySelector('.member_sidebar div:first-child img').src = props.member.MEMBER_PIC;
     document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${props.member.MEMBER_PIC}" >`;
 })
