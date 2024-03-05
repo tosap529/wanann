@@ -21,7 +21,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
     // 上線用－自訂名稱
     $fileNewPath = $ServerRoot."/wanann/public/img/member/member_pic/".'yourname.'.getExtensionName($filePath);
     // 測試用－自訂名稱
-    $fileTestPath ="../img/member/member_pic/".'yourname.'.getExtensionName($filePath);
+    $fileTestPath ="/thd104/g1/img/member/member_pic/".'yourname.'.getExtensionName($filePath);
 
     //將暫存檔搬移到正確位置
     move_uploaded_file($filePath_Temp, $fileTestPath);
@@ -35,7 +35,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
     echo "<br/>";
     echo "extensionName：".getExtensionName($filePath);
     echo "<br/>";
-    echo "<img src='../img/".$fileName."'/>";
+    echo "<img src='/thd104/g1/img/".$fileName."'/>";
 }
 
 //取得檔案副檔名
