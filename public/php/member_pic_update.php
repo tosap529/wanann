@@ -15,11 +15,12 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
     //Web根目錄真實路徑
     $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
-    
+    echo $ServerRoot;
     //檔案最終存放位置
     $filePath = $ServerRoot."/wanann/public/img/member/member_pic/".$fileName;
     // 上線用－自訂名稱
-    $fileNewPath = $ServerRoot."/wanann/public/img/member/member_pic/".'member1.'.getExtensionName($filePath);
+    $fileNewPath = $ServerRoot."/thd104/g1/img/member/member_pic/".'member1.'.getExtensionName($filePath);
+    $fileNewName = "/thd104/g1/img/member/member_pic/".'member1.'.getExtensionName($filePath);
     // 測試用－自訂名稱
     $fileTestPath ="/thd104/g1/img/member/member_pic/".'yourname.'.getExtensionName($filePath);
 
@@ -28,15 +29,15 @@ header("Access-Control-Allow-Headers: X-Requested-With");
     move_uploaded_file($filePath_Temp, $fileNewPath);
 
     //顯示檔案資訊
-    echo "filePath：".$filePath;
-    echo "<br/>";
-    echo "fileType：".$fileType;
-    echo "<br/>";
-    echo "fileSize：".$fileSize;
-    echo "<br/>";
-    echo "extensionName：".getExtensionName($filePath);
-    echo "<br/>";
-    echo "<img src='/thd104/g1/img/".$fileName."'/>";
+    // echo "filePath：".$filePath;
+    // echo "<br/>";
+    // echo "fileType：".$fileType;
+    // echo "<br/>";
+    // echo "fileSize：".$fileSize;
+    // echo "<br/>";
+    // echo "extensionName：".getExtensionName($filePath);
+    // echo "<br/>";
+    // echo "<img src='/thd104/g1/img/".$fileName."'/>";
 }
 
 //取得檔案副檔名
@@ -44,11 +45,14 @@ function getExtensionName($filePath){
     $path_parts = pathinfo($filePath);
     return $path_parts["extension"];
 }
-include("connect_test.php");
+// include("connect_test.php");
+include("connect.php");
 
 $pdo = getPDO();
 // 上線用
-$statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewPath."' where ID=1");
+// $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewPath."' where ID=1");
+// $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '"."/thd104/g1/img/member/member_pic/member1."."' where ID=1");
+$statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewName."' where ID=1");
 // 測試用
 // $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileTestPath."' where ID=9");
 $statement ->execute();

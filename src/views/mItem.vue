@@ -185,14 +185,14 @@
             .then(response => {
                 allProducts.value = response;
 
-                // 資料接收後再執行
-                const productId = route.params.ID;
-                productItem.value = getSingleProduct(productId);
-                bigPhotoSrc.value = productItem.value.PRODUCT_PIC1
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+        //         // 資料接收後再執行
+        //         const productId = route.params.ID;
+        //         productItem.value = getSingleProduct(productId);
+        //         bigPhotoSrc.value = productItem.value.PRODUCT_PIC1
+        //     })
+        //     .catch(error => {
+        //         console.error('Error:', error);
+        //     });
 
         //  // 找到商城過來的那個商品
         // // 放入productItem
@@ -202,7 +202,6 @@
     })
 
     
-
     // 數量條
     const quantity = ref(1)
 

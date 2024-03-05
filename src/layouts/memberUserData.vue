@@ -5,10 +5,11 @@ defineEmits(['getProfileURL']);
 const props = defineProps({member:Object});
 
 onMounted(()=>{
-    console.log(props.member.ID);
     profile.value.addEventListener('change',fileChange );
 })
 onBeforeUpdate(()=>{
+    console.log(props.member.ID);
+    console.log(props.member.MEMBER_PIC);
     document.querySelector('.member_sidebar div:first-child img').src = props.member.MEMBER_PIC;
     document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${props.member.MEMBER_PIC}" >`;
 })
@@ -100,7 +101,7 @@ const fileUpload=()=>{
     let formdata  = new FormData();
     formdata.append("profile_pic", file);
 
-    fetch('http://localhost/wanann/public/php/member_pic_update.php', {
+    fetch('php/member_pic_update.php', {
             method: 'POST',
             body: formdata
         })
@@ -119,7 +120,7 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
     <section class="member_main userData" >
         <div  method="post"  enctype="multipart/form-data" >
             <!-- <img src="@/img/member/member_icon_profile.png" alt="" ref="profile_pic">  -->
-            <img :src="member.MEMEBER_PIC" alt="" ref="profile_pic"> 
+            <img :src="member.MEMBER_PIC" alt="" ref="profile_pic"> 
             <input type="file" id="profile" name="profile" ref="profile" @change="$emit('getProfileURL')">
                 <font-awesome-icon :icon="['fas', 'pen']" @click="profileClick" />
             <button  id="profilePicUpdate" ref="profilePicUpdate" ></button>
@@ -164,8 +165,8 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
         <div class="sAddress">
             <h2>服務地址</h2>
           <div>
-            <select name="county" id="" value=""   v-model="county" disabled >
-                <option value=""></option>
+            <select name="county" id="" value=""  v-model="county" disabled >
+                <option value="">{{ member.COUNTY }}</option>
                 <option value="newTaipei">新北市</option>
                 <option value="taipei">台北市</option>
                 <option value="taoyuan">桃園市</option>
@@ -215,7 +216,7 @@ const taoyuan = ['區','桃園區','八德區','龜山區'];
                 <option value="">龜山區</option> -->
             </select>
           </div>
-            <input type="text" disabled>
+            <input type="text" :value="member.SERVICE_ADDRESS" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit_sa" />
                 <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="infoSave_sa" />

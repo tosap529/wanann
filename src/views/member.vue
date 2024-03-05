@@ -34,7 +34,7 @@ function sidebarClick(e){
     e.target.closest('li').classList.add('member_sidebar_active');
 }
 onMounted(()=>{
-    const url = 'http://localhost/wanann/public/php/member_select.php';
+    const url = 'php/member_select.php';
    
     fetch(url)
         .then(response => response.json())

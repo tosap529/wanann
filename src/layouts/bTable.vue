@@ -17,14 +17,14 @@
     const act_data = ref([]);
    
     
-    const url_act_update = 'http://localhost/thd104/public/php/act_update.php';
+    const url_act_update = 'http://localhost/wanann/public/php/act_update.php';
 
     // contact_data[0].value.STATUS= 1;
 
     onMounted(() => {
         
-        const url_contact = 'http://localhost/thd104/public/php/contact_select.php';
-        const url_act = 'http://localhost/thd104/public/php/act_select.php';
+        const url_contact = 'http://localhost/wanann/public/php/contact_select.php';
+        const url_act = 'http://localhost/wanann/public/php/act_select.php';
         
         fetch(url_contact)
             .then(response => response.json())
@@ -94,10 +94,10 @@
         let final_status = null;
         if (data.STATUS === 1) {
             data.STATUS = 0;
-            final_status = 0;
+            final_status = false;
         } else {
             data.STATUS = 1;
-            final_status = 1;
+            final_status = true;
         }
 
         fetch(url_act_update, {
@@ -107,18 +107,15 @@
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            id: data.ID, // 數據的 ID
-            status: final_status // 最終狀態值
+            id: data.ID, 
+            status: data.STATUS 
         })
         })
         .then(response => response.json())
         .then(response => {
-            // 處理後端返回的結果
         console.log(response);
         });
-        // .catch(error => {
-        //     console.error('Error:', error);
-        // });
+  
     }
 
 </script>
@@ -156,9 +153,9 @@
                 <td>{{ data.CATEGORY}}</td>
                 <td>{{ data.TITLE }}</td>
                 <td>{{ data.CREATE_TIME }}</td>
-                <td>{{ data.DEADLINE}}</td>
-                <td>{{ data.COUPON_ID}}</td>
-                <td><button :class="{ 'red': data.STATUS === 0, 'green': data.STATUS === 1 }" @click="click_function(key,data.ID,'a')">{{ data.STATUS === 1 ?  '已處理' : '未處理' }} </button></td>
+                <td>{{ data.DEADLINE }}</td>
+                <td>{{ data.COUPON_ID }}</td>
+                <td><button :class="{ 'red': data.STATUS === 0, 'green': data.STATUS === 1 }" @click="click_function(key,data.ID,'a')">{{ data.STATUS === 1 ?  '上架中' : '已下架' }} </button></td>
             </tr>
             <!-- <tr v-show="backNow=='聯絡表單'" v-for= "data in contact_data" :key="data.ID">
                 <td><button class="edit-btn">編輯與查看</button></td>
