@@ -56,6 +56,8 @@ const RegisterData = {
     name:'',
     phone:'',
     email: '',
+    county: '',
+    district: '',
     send_address:'',
     service_address:'',
     username: '',
