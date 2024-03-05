@@ -37,9 +37,9 @@
                         </div>
 
                         <div class="mitem_btns">
-                            <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(product, quantity)" v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
+                            <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(productItem, quantity)" v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
                             <!-- <button class="btn mitem_btn">直接購買</button> -->
-                            <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(product, quantity)">直接購買</router-link>
+                            <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(productItem, quantity)">直接購買</router-link>
                         </div>
                     </div>
 
@@ -241,7 +241,8 @@
         // console.log(items.value);
         // console.log(allProducts.value[0].ID);
         // console.log(route.params.ID);
-        console.log(productItem.PRODUCT_PRICE);
+        // console.log(productItem.value.PRODUCT_PRICE);
+        // console.log(productItem.value);
         // console.log(allProducts.value);
         // console.log(allProducts.value.find(function(p){console.log(p);}));
         // return allProducts.value.find(function(p){console.log(p.ID);});
