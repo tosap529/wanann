@@ -42,8 +42,8 @@ const goCreateRWD=(e)=>{
 
 }
 
-let pwdStatusNew = 'password';
-let pwdStatusConfirm = 'password';
+// let pwdStatusNew = 'password';
+// let pwdStatusConfirm = 'password';
 const eyeOnPWD=(e)=>{
     if (e.target.previousElementSibling.type == "password") {
         e.target.previousElementSibling.type='text';
@@ -52,9 +52,6 @@ const eyeOnPWD=(e)=>{
             e.target.previousElementSibling.type='password';
         }
 }
-
-
-
 const RegisterData = {
     name:'',
     phone:'',
@@ -67,7 +64,7 @@ const RegisterData = {
     };
 
 const submitForm = () => {
-    const url = 'http://localhost/wanann/public/php/register.php';
+    const url = 'http://localhost/wanann/public/php/register_insert.php';
     
     fetch(url, {
         method: 'POST',
@@ -137,9 +134,9 @@ onBeforeUnmount(()=>{
             <h1>登入</h1>
         </div>
         <form class="login_form">
-            <label for="username">帳號<br><input type="text" id="username"></label>
+            <label for="usernameLogin">帳號<br><input type="text" id="usernameLogin"></label>
             <!-- <br> -->
-            <label for="pwd">密碼<br><input type="password" id="pwd"></label>
+            <label for="pwdLogin">密碼<br><input type="password" id="pwdLogin"></label>
             <!-- <br> -->
             <router-link  :to="{ name: 'forget' }">忘記密碼？</router-link>
             <router-link class="btn" :to="{ name: 'member' }">登入</router-link>
@@ -355,7 +352,7 @@ onBeforeUnmount(()=>{
                 position: absolute;
                 width: 45px;
                 right: 0%;
-                top: 33%;
+                top: 30%;
                 cursor: pointer;
             }
         }

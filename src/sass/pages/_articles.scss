@@ -1,10 +1,8 @@
-.articles_banner {
-  background-image: url(../../img/articles/articles_banner.jpg);
-}
 
 .articles_top {
   margin-bottom: 76px;
   display: flex;
+  justify-content: space-between;
 
   .left {
     margin-right: 54px;
@@ -67,6 +65,10 @@
     }
     li {
       margin-bottom: 20px;
+      span{
+        margin-left: 15px;
+      }
+   
     }
     a {
       color: $grey;
@@ -80,7 +82,7 @@
 
   .articles_all {
     display: block;
-    padding-left: 109px;
+    padding-left: 60px;
     border-left: 2px black solid;
     .section_all {
       display: flex;
@@ -88,6 +90,7 @@
         img {
           width: 425px;
           order: 1;
+          border-radius: 10px;
         }
         article {
           margin-left: 52px;
@@ -170,6 +173,490 @@
 }
 // ------------------------ RWD ------------------------
 
+// ------------------------ width: 1200px ------------------------
+
+
+@media screen and (max-width:1200px) {
+
+  div.wrapper.articles{
+    width: auto;
+  }
+
+  .articles_top{
+    width: auto;
+    margin: auto auto 40px;
+  }
+
+  .articles_top img{
+    width: 500px;
+  }
+
+  .articles_top .left a{
+    width: auto;
+  }
+
+  .articles_buttom .articles_all{
+    padding-left: 40px;
+  }
+
+
+}
+
+
+// ------------------------ width: 1100px ------------------------
+
+@media screen and (max-width:1100px) {
+
+  .articles_buttom .articles_all{
+    padding-left: 20px;
+  }
+
+  .articles_buttom .articles_all .section_all article{
+    width: 350px;
+    margin-left: 40px;
+  }
+
+  .articles_buttom .articles_all .section_all img{
+    width: 350px;
+  }
+
+  .articles_buttom .articles_all .section_all article a{
+    width: auto;
+  }
+
+  .articles_buttom .articles_all .section_all article h2:before{
+    width: 350px;
+  }
+  
+  .articles_buttom .articles_all .even article{
+    margin-left: 0px;
+  }
+
+  .articles_buttom .articles_all .even img{
+    margin-left: 40px;
+  }
+}
+
+
+
+// ------------------------ width: 1000px ------------------------
+
+@media screen and (max-width:1000px) {
+
+  .articles_buttom .articles_all{
+    padding-left: 20px;
+  }
+
+  .articles_buttom .articles_all .section_all article{
+    width: 300px;
+    margin-left: 30px;
+  }
+
+  .articles_buttom .articles_all .section_all img{
+    width: 300px;
+  }
+
+  .articles_buttom .articles_all .section_all article h2:before{
+    width: 300px;
+  }
+
+  .articles_buttom .articles_all .section_all article h2{
+    font-size: $h4;
+  }
+
+  .articles_top img{
+    width: 400px;
+  }
+
+  .articles_buttom .articles_all .even article{
+    margin-left: 0px;
+  }
+
+}
+
+
+// ------------------------ width: 850px ------------------------
+
+@media screen and (max-width:850px) {
+
+  .articles_buttom .articles_all{
+    padding-left: 10px;
+  }
+
+  .articles_buttom .articles_all .section_all article{
+    width: 300px;
+    margin-left: 30px;
+  }
+
+  .articles_buttom .articles_all.even .section_all img{
+    width: 250px;
+    margin-left: 30px;
+  }
+
+  .articles_buttom .articles_all .section_all article h2:before{
+    width: 250px;
+  }
+
+  .articles_buttom .articles_all .section_all article h2{
+    font-size: $p;
+  }
+
+  .articles_top img{
+    width: 350px;
+  
+  }
+
+  .articles_top .left{
+    margin-right: 26px;
+  }
+  
+  .articles_buttom .articles_all .even article{
+    margin-left: 0px;
+  }
+}
+
+// ------------------------ width: 800px ------------------------
+
+@media screen and (max-width:800px){
+
+
+  .title_phone{
+    margin-bottom: 15px;
+  }
+
+  .title > h1{
+    font-size: $h2;
+  }
+
+  .title_phone > h1::before{
+    width: 30px;
+    height: 21.63px;
+    background-size: contain;
+  }
+
+
+  .service .title_phone{
+    h1{
+      font-size: $h2;
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .articles_top {
+    margin-bottom: 22px;
+    display: block;
+    width: 600px;
+  
+  
+    .left {
+      margin-right: 0;
+      margin-bottom: 12px;
+        .title {
+          margin-bottom: 12px;
+        }
+        h2 {
+          font-size: $h3;
+          color: $brown;
+          font-weight: bold;
+          margin-bottom: 6px;
+        }
+        h3 {
+          font-size: $h4;
+          margin-bottom: 10px;
+        }
+        h4 {
+          font-size: $p;
+          margin-bottom: 4px;
+          height: 86px;
+          overflow: hidden;
+        }
+        a {
+          color: black;
+          background-color: $white;
+          text-align: right;
+          text-decoration: none;
+          padding-right: 20px;
+          width: auto;
+        }
+    }
+  
+    img {
+      width: 377px;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+  }  
+
+  .articles_buttom .articles_all{
+    margin: 0 auto;
+    width: 600px;
+  }
+
+  .articles_buttom {
+      flex-direction: column;
+      margin: 0 auto;
+        aside{
+          flex-basis: 0;  
+          h2 {
+            display: none;
+          }
+          ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 0;
+            margin: auto auto 40px auto;
+            width: 600px;
+          }
+          li {
+            margin-bottom: 20px;
+            background-color: $light-milktea;
+            padding: 20px 10px;
+            border-radius: 10px;
+            &:hover{
+              background-color: $dark-milktea;
+            }
+          }
+          a {
+            font-size: $p;
+            color: $black;
+            text-decoration: none;
+            &:hover{
+              color: $white;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .articles_all {
+          display: block;
+          padding-left: 0px;
+          border-left: 0px;
+          .section_all {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+              img {
+                border-radius: 10px;
+                width: 280px;
+                order: 2;
+                margin: 0 auto;
+              }
+              article {
+                margin-left: 0px;
+                width: 600px;
+                order: 1;
+                  h2{
+                    font-size: $h3;
+                    margin-bottom: 32px;
+                    position: relative;
+                    color: $brown;
+                    font-weight: bold;
+                    width: auto;
+                    &:before{
+                      position: absolute;
+                      content: "";
+                      background-color: $grey;
+                      width: 380px;
+                      height: 2px;
+                      top: 180%;
+                      left: 0;
+                    }
+                  }
+                  h3{
+                    margin-bottom: 16px;
+                  }
+                  p{
+                    height: 110px;
+                    overflow: hidden;
+                    line-height: 1.3;
+                    margin-bottom: 10px;
+                  }
+                  a{
+                    display: block;
+                    text-align: right;
+                    text-decoration: none;
+                    color: black;
+                    background-color: $white;
+                    width: auto;
+                    height: 40px;
+                    line-height: 40px;
+                    padding-right: 20px;
+                    margin-bottom: 10px;
+                    border-radius: 8px;
+                  }
+              } 
+          }   
+        }
+  }
+  .articles_buttom .color{
+    font-weight: normal;
+  }
+  .articles_buttom .-off{
+    display: none;
+  }
+
+  .articles_buttom .articles_all .section_all img{
+    border-radius: 10px;
+  }
+  
+  .-close{
+    display: none;
+  }
+
+  .articles_paginator{
+    margin-left: 0px;
+  }
+
+  .articles_buttom .articles_all .section_all article h2:before{
+    width: 600px;
+  }
+
+  .articles_buttom aside li span{
+    margin-left: 10px;
+  }
+}
+
+
+// ------------------------ width: 600px ------------------------
+
+@media screen and (max-width:600px){
+
+  .articles_top {
+    margin-bottom: 22px;
+    display: block;
+    width: 450px;
+  
+  
+    .left {
+      margin-right: 0;
+      margin-bottom: 12px;
+        .title {
+          margin-bottom: 12px;
+        }
+        h2 {
+          font-size: $h3;
+          color: $brown;
+          font-weight: bold;
+          margin-bottom: 6px;
+        }
+        h3 {
+          font-size: $h4;
+          margin-bottom: 10px;
+        }
+        h4 {
+          font-size: $p;
+          margin-bottom: 4px;
+          height: 86px;
+          overflow: hidden;
+        }
+        a {
+          color: black;
+          background-color: $white;
+          text-align: right;
+          text-decoration: none;
+          padding-right: 20px;
+          width: auto;
+        }
+    }
+  
+    img {
+      width: 377px;
+      margin: 0 auto;
+      border-radius: 10px;
+    }
+  }  
+
+  .articles_buttom .articles_all{
+    margin: 0 auto;
+    width: 450px;
+  }
+
+  .articles_buttom {
+      flex-direction: column;
+      margin: 0 auto;
+        aside{
+          flex-basis: 0;  
+          h2 {
+            display: none;
+          }
+          ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-between;
+            padding-left: 0;
+            margin: auto auto 40px auto;
+            width: 450px;
+          }
+          li {
+            margin-bottom: 20px;
+            background-color: $light-milktea;
+            padding: 20px 10px;
+            border-radius: 10px;
+            &:hover{
+              background-color: $dark-milktea;
+            }
+          }
+          a {
+            font-size: $p;
+            color: $black;
+            text-decoration: none;
+            &:hover{
+              color: $white;
+              font-weight: bold;
+            }
+          }
+        }
+
+        .articles_all {
+          display: block;
+          padding-left: 0px;
+          border-left: 0px;
+          .section_all {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+              img {
+                width: 280px;
+                order: 2;
+                margin: 0 auto;
+              }
+              article {
+                margin-left: 0px;
+                width: 450px;
+                order: 1;
+                  h2{
+                    font-size: $h3;
+                    margin-bottom: 32px;
+                    position: relative;
+                    color: $brown;
+                    font-weight: bold;
+                    width: auto;
+                    &:before{
+                      position: absolute;
+                      content: "";
+                      background-color: $grey;
+                      width: 450px;
+        
+                    }
+                  }
+              } 
+          }   
+        }
+  }
+
+  .articles_buttom .articles_all .section_all article h2:before{
+    width: 450px;
+  }
+
+
+
+
+}
+
+
+// ------------------------ width: 430px ------------------------
 
 @media screen and (max-width:430px){
 
@@ -244,6 +731,7 @@
 
   .articles_buttom {
       flex-direction: column;
+      margin: 0 auto;
         aside{
           flex-basis: 0;  
           h2 {
@@ -254,7 +742,7 @@
             display: flex;
             justify-content: space-between;
             padding-left: 0;
-            margin-bottom: 40px;
+            margin: auto auto 40px auto;
           }
           li {
             margin-bottom: 20px;
@@ -335,6 +823,15 @@
           }   
         }
   }
+
+  .articles_top{
+    width: 375px;
+  }
+
+  .articles_buttom .articles_all{
+    width: 375px;
+  }
+  
   .articles_buttom .color{
     font-weight: normal;
   }
@@ -349,6 +846,57 @@
   .articles_paginator{
     margin-left: 0px;
   }
+
+  .articles_buttom aside{
+    margin: 0 auto;
+    width: 375px;
+  }
+
+  .articles_buttom aside ul{
+    width:  380px;
+  }
 }
 
-  
+// ------------------------ width: 370px ------------------------
+
+
+@media screen and (max-width:370px){
+
+  .articles_top{
+    width: 350px;
+  }
+
+  .articles_top img{
+    width: 350px;
+  }
+
+  .articles_buttom aside{
+    width: 350px;
+  }
+
+  .articles_buttom aside ul{
+    width: 350px;
+  }
+
+  .articles_top .left a{
+    width: 350px;
+    padding-right: 0px;
+  }
+
+  .articles_buttom .articles_all .section_all article{
+    width: 350px;
+  }
+
+  .articles_buttom .articles_all .section_all article h2:before{
+    width: 350px;
+  }
+
+  .articles_buttom .articles_all{
+    width: 350px;
+  }
+
+  .articles_buttom .articles_all .section_all article a{
+    padding-right: 0px;
+    width: 350px;
+  }
+}

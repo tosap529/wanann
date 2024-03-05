@@ -22,7 +22,11 @@ $reqBody = json_decode(file_get_contents("php://input"), true);
 
 
 function getPDO(){
-
+    // 測試用
+    // $db_host = "127.0.0.1";
+    // $db_user = "root";
+    // $db_pass = "password";
+    // $db_select = "wanann_database";
 
     // 正式連線在使用
 

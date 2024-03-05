@@ -115,7 +115,7 @@ const router = createRouter({
       component: () => import('@/views/member.vue')
     },
     {
-      path: '/mItem/:productId',
+      path: '/mItem/:ID',
       name: 'mItem',
       meta: { title: '浣安 |' },
       component: () => import('@/views/mItem.vue')
