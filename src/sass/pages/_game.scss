@@ -20,14 +20,16 @@
 
     @media screen and (max-width: 500px) {
         background-image: url(@/img/game/game_bgi_m.jpg);
-        max-width: 350px;
-        height: 880px;
+        margin: 0 auto;
+        height: 697px;
+        margin-top: 90px;
+
     }
 
     .game_text {
         padding-top: 340px;
 
-        @include m() {
+        @media screen and (max-width: 500px) {
             padding-top: 210px;
             width: 300px;
             margin: 0 auto;
@@ -38,7 +40,7 @@
             margin-top: 28px;
             line-height: 1.6;
 
-            @include m() {
+            @media screen and (max-width: 500px) {
                 font-size: $h3;
             }
         }
@@ -57,7 +59,7 @@
                 color: $white;
             }
 
-            @include m() {
+            @media screen and (max-width: 500px) {
                 margin-top: 110px;
                 padding: 12px 0;
                 width: 180px;
