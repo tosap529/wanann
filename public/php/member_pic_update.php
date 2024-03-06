@@ -17,16 +17,17 @@ header("Access-Control-Allow-Headers: X-Requested-With");
     $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
     echo $ServerRoot;
     //檔案最終存放位置
-    $filePath = $ServerRoot."/wanann/public/img/member/member_pic/".$fileName;
+    $filePath = $ServerRoot."/thd104/g1/public/img/member/member_pic/".$fileName;
     // 上線用－自訂名稱
     $fileNewPath = $ServerRoot."/thd104/g1/img/member/member_pic/".'member1.'.getExtensionName($filePath);
     $fileNewName = "/thd104/g1/img/member/member_pic/".'member1.'.getExtensionName($filePath);
     // 測試用－自訂名稱
-    $fileTestPath ="/thd104/g1/img/member/member_pic/".'yourname.'.getExtensionName($filePath);
+    $fileTestPath =$ServerRoot."/thd104/g1/public/img/member/member_pic/".'yourname.'.getExtensionName($filePath);
+    $fileTestName ="/thd104/g1/img/member/member_pic/".'yourname.'.getExtensionName($filePath);
 
     //將暫存檔搬移到正確位置
-    // move_uploaded_file($filePath_Temp, $fileTestPath);
-    move_uploaded_file($filePath_Temp, $fileNewPath);
+    move_uploaded_file($filePath_Temp, $fileTestPath);
+    // move_uploaded_file($filePath_Temp, $fileNewPath);
 
     //顯示檔案資訊
     // echo "filePath：".$filePath;
@@ -45,15 +46,14 @@ function getExtensionName($filePath){
     $path_parts = pathinfo($filePath);
     return $path_parts["extension"];
 }
-// include("connect_test.php");
-include("connect.php");
+include("connect_test.php");
+// include("connect.php");
 
 $pdo = getPDO();
 // 上線用
-// $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewPath."' where ID=1");
-// $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '"."/thd104/g1/img/member/member_pic/member1."."' where ID=1");
-$statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewName."' where ID=1");
+// $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewName."' where ID=1");
 // 測試用
+$statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '". $fileTestName."' where ID=1");
 // $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileTestPath."' where ID=9");
 $statement ->execute();
 // $member = $statement->fetchAll();
