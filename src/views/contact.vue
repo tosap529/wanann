@@ -53,7 +53,7 @@ const banner_url = BannerUrl;
     <div>
         <DefaultHeader header-title-zh="聯絡我們" header-title-eng="Contact" :bgi="banner_url" /> 
 
-        <wrapper class="contact_wrapper"> 
+        <wrapper class="wrapper contact_wrapper"> 
            
             <section class="cs_info">
                 <div class="title">
@@ -106,9 +106,10 @@ const banner_url = BannerUrl;
                 <div class="title">
                     <h1>聯絡表單</h1>
                 </div>
-                <p>有相關問題可填寫以下表單，浣安將於3個工作天內回覆，若您一直未收到回覆，歡迎來電詢問，謝謝！</p>
                 
                 <form @submit.prevent="submitForm">
+                <p>有相關問題可填寫以下表單，浣安將於3個工作天內回覆，若您一直未收到回覆，歡迎來電詢問，謝謝！</p>
+
                     <div class="contact_input">
                         <label for="name">姓名/單位</label>
                         <input v-model="formData.name" type="text" id="name" name="name" required>

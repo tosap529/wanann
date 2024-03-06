@@ -1,19 +1,61 @@
 .contact_wrapper {
 
   section {
-    @include m() {
+    @media screen and (max-width: 560px) {
       margin-bottom: 0;
     }
   }
 
   .cs_info {
+    @media screen and (max-width: 1220px) {
+      margin: 0 30px;
+      margin-bottom: 40px;
+    }
 
     .title {
-      margin-left: 19%;
+      max-width: 181px;
+      margin: 0 auto;
+      margin-bottom: 40px;
 
-      @include m() {
-        margin-left: 0;
-        margin-bottom: 28px;
+      @media screen and (max-width: 800px) {
+        margin-bottom: 40px;
+
+        >h1 {
+          display: flex;
+          font-size: $h1;
+          align-items: center;
+        }
+
+        >h1::before {
+          content: '';
+          display: block;
+          width: 45px;
+          height: 32.44px;
+          background-image: url(@/img/logo_title.svg);
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain;
+          margin-right: 8px;
+        }
+      }
+
+      @media screen and (max-width: 560px) {
+        max-width: 118px;
+
+        >h1 {
+          display: flex;
+          font-size: $h2;
+        }
+
+        >h1::before {
+          content: '';
+          display: block;
+          width: 30px;
+          height: 21.63px;
+          background-image: url(@/img/logo_title.svg);
+          background-size: cover;
+          margin-right: 8px;
+        }
       }
     }
 
@@ -21,17 +63,12 @@
       display: flex;
       justify-content: center;
 
-      @include m() {
+      @media screen and (max-width: 560px) {
         flex-direction: column;
       }
 
       ul {
-        margin: 0 80px;
-
-        @include m() {
-          margin: 0;
-          margin-left: 32px;
-        }
+        margin: 0 20px;
 
         p {
           line-height: 1.6;
@@ -55,64 +92,127 @@
   .contact_form {
     background-color: $light-milktea;
     border-radius: 10px;
+    position: relative;
 
-    @include m() {
+    @media screen and (max-width: 1220px) {
+      margin: 0 30px;
+    }
+
+    @media screen and (max-width: 560px) {
+      margin: 0 auto;
       background-color: transparent;
-
+      max-width: 358px;
     }
 
     .title {
-      margin-left: 19%;
-      padding-top: 44px;
+      max-width: 181px;
+      margin: 0 auto;
+      padding-top: 40px;
+      margin-bottom: 40px;
 
-      @include m() {
-        margin-left: 0;
-        padding-top: 20px;
-        margin-bottom: 20px;
+
+      @media screen and (max-width: 800px) {
+        margin-bottom: 40px;
+
+        >h1 {
+          display: flex;
+          font-size: $h1;
+          align-items: center;
+        }
+
+        >h1::before {
+          content: '';
+          display: block;
+          width: 45px;
+          height: 32.44px;
+          background-image: url(@/img/logo_title.svg);
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: contain;
+          margin-right: 8px;
+        }
       }
-    }
 
-    p {
-      width: 460px;
-      text-align: left;
-      margin-left: 31%;
+      @media screen and (max-width: 560px) {
+        max-width: 118px;
+        padding-top: 0;
 
-      @include m() {
-        width: 380px;
-        margin-left: 0;
+        >h1 {
+          display: flex;
+          font-size: $h2;
+        }
 
+        >h1::before {
+          content: '';
+          display: block;
+          width: 30px;
+          height: 21.63px;
+          background-image: url(@/img/logo_title.svg);
+          background-size: cover;
+          margin-right: 8px;
+        }
       }
     }
 
     form {
       text-align: center;
-      margin-top: 28px;
+      margin: 0 auto;
+      padding-top: 10px;
       padding-bottom: 88px;
       position: relative;
+      max-width: 500px;
 
-      @include m() {
+      @media screen and (max-width: 560px) {
         background-color: $light-milktea;
         border-radius: 10px;
         text-align: left;
         padding-top: 4px;
         font-size: $h4;
+        margin-top: 90px;
+        max-width: 350px;
+      }
+
+      p {
+        position: absolute;
+        top: -20px;
+        left: 14px;
+        text-align: left;
+        max-width: 460px;
+        line-height: 1.6;
+
+        @media screen and (max-width: 560px) {
+          width: 350px;
+          text-align: justify;
+          top: -60px;
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
 
       input {
         background-color: $white;
         width: 360px;
         margin-left: 28px;
+        margin-right: 20px;
 
-        @include m() {
+        @media screen and (max-width: 560px) {
           width: 320px;
+          margin-left: 15px;
+
+        }
+
+        @media screen and (max-width: 430px) {
+          margin-right: 0;
+          margin-left: 15px;
+
         }
       }
 
       input#name {
         margin-left: 23px;
 
-        @include m() {
-          margin-left: 31px;
+        @media screen and (max-width: 560px) {
+          margin-left: 15px;
 
         }
       }
@@ -120,20 +220,23 @@
       textarea {
         border: none;
         border-radius: 8px;
-        width: 360px;
+        width: 358px;
         height: 250px;
         margin-left: 28px;
         padding: 10px;
         font-size: $p;
         line-height: 1.6;
+        margin-right: 20px;
 
         &:focus {
           outline: 2px solid $brown;
         }
 
-        @include m() {
+        @media screen and (max-width: 560px) {
           width: 320px;
-          margin-left: 31px;
+          margin-left: 20px;
+          margin-left: 15px;
+
 
         }
       }
@@ -145,10 +248,10 @@
       .contact_input {
         margin: 32px auto;
 
-        @include m() {
+        @media screen and (max-width: 560px) {
           label {
             margin-bottom: 14px;
-            margin-left: 31px;
+            margin-left: 16px;
           }
         }
       }
@@ -159,7 +262,7 @@
         position: absolute;
         left: 49.5%;
 
-        @include m() {
+        @media screen and (max-width: 560px) {
           left: 36%;
           margin-top: 8px;
         }

@@ -188,13 +188,10 @@ header {
                     svg {
                         padding: 0 10px;
                         color: $black;
-                    }
 
-
-
-                    &:hover {
-                        color: $brown;
-
+                        &:hover {
+                            color: $dark-milktea;
+                        }
                     }
                 }
 

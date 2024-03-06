@@ -9,15 +9,28 @@ import { ref } from 'vue';
 import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
 
-
+//漢堡
 const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
     isHamburgerModalShow.value = !isHamburgerModalShow.value;
     // console.log( isModalShow.value)
 };
+
+//會員登入
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
     isLoginModalShow.value = !isLoginModalShow.value;
+};
+
+const urlToCopy = 'https://tibamef2e.com/thd104/g1/game';
+
+const copyUrl = () => {
+  const el = document.createElement('textarea');
+  el.value = urlToCopy;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
 };
 
 // 購物車
@@ -98,7 +111,12 @@ const toggleCart = function() {
                         <a href="#" title="智能潔淨掃地機器人"><img src="@/img/game/gameR_bear_recomm2.jpg" alt="recomm"></a>
                     </div>
                     <div class="gameR_share">
-                        <button class="btn">分享給朋友</button>
+                        <button class="btn" @click="copyUrl">分享給朋友</button>
+                        <transition name="fade">
+                            <div v-if="showMessage" class="message">
+                                已複製測驗連結
+                            </div>
+                        </transition>
                         <router-link :to="{ name: 'game' }"><button class="btn">再測一次</button></router-link>
                     </div>
                 </div>
