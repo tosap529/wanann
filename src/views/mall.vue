@@ -10,7 +10,7 @@
 
                     <ul class="nav_products">
 
-                        <li v-bind:class="{'tab_on' : currentCategory == '所有商品'}"><a href="#" v-on:click.prevent="setCategory('所有商品')">所有商品</a></li>
+                        <li v-bind:class="{'tab_on' : currentCategory == '所有商品'}"><a href="#" v-on:click="showItems" v-on:click.prevent="setCategory('所有商品')">所有商品</a></li>
                         <li v-bind:class="{'tab_on' : currentCategory == '1'}"><a href="#" v-on:click.prevent="setCategory('1')">清潔工具</a></li>
                         <li v-bind:class="{'tab_on' : currentCategory == '2'}"><a href="#" v-on:click.prevent="setCategory('2')">清潔劑</a></li>
 
@@ -37,14 +37,14 @@
                 <ul class="mall_products">
 
                     <li v-for="i in paginatedProducts" v-bind:key="i.ID">
-                        <!-- <router-link :to="{ name: 'mItem' }"><img v-bind:src="i.productSrc"></router-link> -->
+                        
 
                         <!-- 為了設置router -->
                         <!-- <router-link :to="{ name: 'mItem'}"><img v-bind:src="i.PRODUCT_PIC1"></router-link> -->
                         <router-link :to="{ name: 'mItem', params: { ID: i.ID }}"><img v-bind:src="i.PRODUCT_PIC1"></router-link>
 
                         <!-- <img v-bind:src="i.PRODUCT_PIC1"> -->
-                        <!-- <img src="../img/mall/mall_product1_1.jpg"> -->
+                        
                         <h1>{{ i.PRODUCT_NAME }}</h1>
                         <p>NTD {{ i.PRODUCT_PRICE }}</p>
                         <input 
@@ -67,11 +67,9 @@
 
                 <ul class="mall_products">
 
-                    <li v-for="i in paginatedProducts" v-bind:key="i.productId"> -->
-                        <!-- <router-link :to="{ name: 'mItem' }"><img v-bind:src="i.productSrc"></router-link> -->
+                    <li v-for="i in paginatedProducts" v-bind:key="i.productId">
 
-                        <!-- 為了設置router -->
-                        <!-- <router-link :to="{ name: 'mItem', params: { productId: i.productId }}"><img v-bind:src="i.productSrc1"></router-link>
+                        <router-link :to="{ name: 'mItem', params: { productId: i.productId }}"><img v-bind:src="i.productSrc1"></router-link>
 
                         <h1>{{ i.productName }}</h1>
                         <p>NTD {{ i.productPrice }}</p>
@@ -118,7 +116,7 @@
 </template>
 
 <script setup>
-    import { ref, computed } from "vue";
+    import { ref, computed, onMounted } from "vue";
 
     
     import { useCartStore } from '@/stores/cartStore.js';
@@ -129,7 +127,6 @@
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
     import BannerUrl  from '@/img/mall/mall_banner.jpg'; // 更改成banner路徑
-import { storeToRefs } from "pinia";
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
 
 
@@ -220,37 +217,36 @@ import { storeToRefs } from "pinia";
     function setCategory(category) {
         currentCategory.value = category;
         currentPage.value = 1;
-        console.log("Category set to:", category);
-        console.log("Filtered products:", filteredProducts.value);
-        console.log("Paginated products:", paginatedProducts.value);
-        console.log("Total pages:", totalPages.value);
+        // console.log("Category set to:", category);
+        // console.log("Filtered products:", filteredProducts.value);
+        // console.log("Paginated products:", paginatedProducts.value);
+        // console.log("Total pages:", totalPages.value);
     }
 
 
     // API
-
-    const items = ref();
-
-    const url = 'http://localhost/projectg1/public/php/mall_select.php';
-    
+    const url = 'http://localhost/thd104/g1/public/php/mall_select.php';
         
     fetch(url)
         .then(response => response.json())
         .then(response => {
-            // console.log('註冊成功 js');
-            // items.value = response;
-            items.value = response;
+
+            products.value = response;
+            cartStore.setProductsForMitem(response);
         })
         .catch(error => {
             console.error('Error:', error);
         });
 
+            
     const showItems = function(e){
         // console.log(e.target);
         // console.log(products.value);
         // console.log(items.value[2]);
-        console.log(products.value[0].ID);
+        // console.log(items.value);
+        console.log(cartStore.productsForMitem);
     }
+    
 
 </script>
 

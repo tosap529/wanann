@@ -38,7 +38,7 @@
 
                         <div class="mitem_btns">
                             <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(productItem, quantity)" v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
-                            <!-- <button class="btn mitem_btn">直接購買</button> -->
+                            <!-- <button class="btn mitem_btn"  v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button> -->
                             <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(productItem, quantity)">直接購買</router-link>
                         </div>
                     </div>
@@ -70,30 +70,6 @@
 
                 </div>
 
-
-
-
-
-                <!-- <div class="mitem_tab tab">
-                    <ul>
-                        <li v-on:click.prevent="tab_change" v-bind:class="{'tab_on': aboutProduct == '商品敘述'}"><a href="#">商品敘述</a></li>
-                        <li v-on:click.prevent="tab_change" v-bind:class="{'tab_on': aboutProduct == '款式說明'}"><a href="#">款式說明</a></li>
-                        <li v-on:click.prevent="tab_change" v-bind:class="{'tab_on': aboutProduct == '運送方式'}"><a href="#">運送方式</a></li>
-                    </ul>
-                </div>
-                <ol v-if="aboutProduct == '商品敘述'" class="mitem_text">
-                    <li><p>{{ productItem.productDes1 }}</p></li>
-                    <li><p>{{ productItem.productDes2 }}</p></li>
-                </ol>
-
-                <ol v-if="aboutProduct == '款式說明'" class="mitem_text">
-                    <li><p>{{ productItem.productCategory }}</p></li>
-                </ol>
-
-                <ol v-if="aboutProduct == '運送方式'" class="mitem_text">
-                    <li><p>宅配到府</p></li>
-                </ol> -->
-
             </section>
         </wrapper>
         <DefaultFooter />
@@ -102,11 +78,11 @@
 
 <script setup>
     // 設置header及footer
-    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
-    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
-    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/mall/mall_banner.jpg'; // 更改成banner路徑
-    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+    import DefaultHeader from '@/layouts/header.vue';
+    import wrapper from '@/layouts/wrapper.vue';
+    import DefaultFooter from '@/layouts/footer.vue';
+    import BannerUrl  from '@/img/mall/mall_banner.jpg';
+    const banner_url = BannerUrl;
 
     import { ref, onMounted, onBeforeMount } from 'vue'
     import { useRoute } from 'vue-router'
@@ -118,22 +94,11 @@
 
     //商城頁過來的單一商品資料 
     const productItem = ref([]);
-    
-    // const allProducts = ref([])
-
-
-    // 想要選出的 productId 列表
-    // const selectedProductIds = [3, 5];
-
-    // // 使用 filter 函數選出特定的物件
-    // const selectedProducts = allProducts.value.filter(product => 
-    //     selectedProductIds.includes(product.productId)
-    // );
-
 
     const aboutProduct = ref('商品敘述');
 
     const bigPhotoSrc = ref('')
+
 
     // 單一商品
     const product = ref([
@@ -153,7 +118,17 @@
                     },
     ])
 
-    const allProducts = ref([])
+    const productId = route.params.ID;
+    // 找到商城過來的那個商品
+    // 放入productItem
+    productItem.value = getSingleProduct(productId);
+
+    bigPhotoSrc.value = productItem.value.PRODUCT_PIC1
+
+    function getSingleProduct(productId) {
+        return cartStore.productsForMitem.find(p => p.ID == parseInt(productId));
+    }
+
 
     const tab_change = function(e) {
         aboutProduct.value = e.target.innerText;
@@ -164,44 +139,7 @@
 
     }
 
-    // 把商城過來的商品資料放入陣列
-    onBeforeMount(() => {
-        const url = 'http://localhost/projectg1/public/php/mall_select.php';
-    
-        
-        // fetch(url)
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         // console.log('註冊成功 js');
-        //     // items.value = response;
-        //     allProducts.value = response;
-        //         })
-        //         .catch(error => {
-        //             console.error('Error:', error);
-        //         });
-        
-        fetch(url)
-            .then(response => response.json())
-            .then(response => {
-                allProducts.value = response;
 
-        //         // 資料接收後再執行
-        //         const productId = route.params.ID;
-        //         productItem.value = getSingleProduct(productId);
-        //         bigPhotoSrc.value = productItem.value.PRODUCT_PIC1
-        //     })
-        //     .catch(error => {
-        //         console.error('Error:', error);
-        //     });
-
-        //  // 找到商城過來的那個商品
-        // // 放入productItem
-        function getSingleProduct(productId) {
-            return allProducts.value.find(p => p.ID == parseInt(productId));
-        }
-    })
-
-    
     // 數量條
     const quantity = ref(1)
 
@@ -216,11 +154,6 @@
     }
 
 
-    // API
-
-    const items = ref();
-
-    // const url = 'http://localhost/projectg1/public/php/mall.php';
     
         
     // fetch(url)
@@ -236,12 +169,8 @@
 
             // console.log(products);   
     const showItems = function(){
-        // console.log(products.value);
-        // console.log(items.value);
-        // console.log(allProducts.value[0].ID);
-        // console.log(route.params.ID);
-        // console.log(productItem.value.PRODUCT_PRICE);
-        // console.log(productItem.value);
+
+        // console.log(getSingleProduct(productId));
         // console.log(allProducts.value);
         // console.log(allProducts.value.find(function(p){console.log(p);}));
         // return allProducts.value.find(function(p){console.log(p.ID);});

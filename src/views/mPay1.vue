@@ -103,9 +103,10 @@
 
                         <div class="mPay1_coupon_number">
                             <h3>優惠代碼</h3>
-                            <input class="mPay1_coupon_input" type="text" placeholder="請輸入優惠代碼">
-                            <button class="btn mPay1_btn">兌換</button>
-                            <p class="mPay1_coupon_success">兌換成功！</p>
+                            <input class="mPay1_coupon_input" type="text" placeholder="請輸入優惠代碼" v-model="inputNumber">
+                            <button class="btn mPay1_btn" @click="isCouponMatch">兌換</button>
+                            <p v-if="couponStatus === true" class="mPay1_coupon_success">兌換成功！</p>
+                            <p v-if="couponStatus === false" class="mPay1_coupon_fail">兌換失敗！</p>
                         </div>
 
                         <div class="mPay1_shipping_methods">
@@ -124,7 +125,7 @@
 
                         <div class="mPay1_coupon_discount">
                             <h2>優惠代碼</h2>
-                            <h2>NTD -60</h2>
+                            <h2>NTD {{ -couponDiscount }}</h2>
                         </div>
 
                         <div class="mPay1_shipping_fee">
@@ -153,14 +154,12 @@
 
 
 <script setup>
-    // 數量按鈕
-    // import calBar from '@/components/cal.vue';
     // 設置header及footer
-    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
-    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/pay/pay_banner.jpg'; // 更改成banner路徑
-    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
-    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+    import DefaultHeader from '@/layouts/header.vue';
+    import DefaultFooter from '@/layouts/footer.vue';
+    import BannerUrl  from '@/img/pay/pay_banner.jpg';
+    import wrapper from '@/layouts/wrapper.vue';
+    const banner_url = BannerUrl;
 
     import { useCartStore } from '@/stores/cartStore.js';
     const cartStore = useCartStore();
@@ -180,13 +179,63 @@
         }
     }
 
-
-    // 總價還沒有算到運費及優惠碼
+    // 總價
     const calCartTotal = computed(function() {
-        return cartStore.cartItems.reduce((total, item) => {
+        const total = cartStore.cartItems.reduce((total, item) => {
             return total + (item.PRODUCT_PRICE * item.quantity);
-        }, 0);
-    })
+        }, 0) + 60 - couponDiscount.value;
+
+        cartStore.updateTotalPrice(total);
+        return total;
+    });
+
+
+    // 優惠代碼API
+    
+    const couponNumber = ref();
+    const url = 'http://localhost/thd104/g1/public/php/mPay1_select.php';
+        
+    fetch(url)
+        .then(response => response.json())
+        .then(response => {
+
+            couponNumber.value = response;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    // 優惠券兌換
+    const inputNumber = ref();
+
+    const couponCheck = function() {
+        if (Array.isArray(couponNumber.value)) {
+            const foundCoupon = couponNumber.value.find(item => item.COUPON_ID === inputNumber.value);
+            return foundCoupon || null;
+        }
+        return null;
+    };
+
+    const couponStatus = ref(null);
+    const couponDiscount = ref(0)
+
+    const isCouponMatch = function() {
+        const matchedCoupon = couponCheck();
+        if (matchedCoupon) {
+            couponStatus.value = true;
+            couponDiscount.value = matchedCoupon.COUPON_PRICE;
+
+            cartStore.couponDiscount = matchedCoupon.COUPON_PRICE
+        } else {
+            couponStatus.value = false;
+            couponDiscount.value = 0;
+
+            cartStore.couponDiscount = 0;
+        }
+    };
+
+    
+
 
 </script>
 
