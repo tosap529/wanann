@@ -2,14 +2,6 @@ div.mPay2_wrapper{
     max-width: 100%;
 
     padding: 3rem;
-
-    // div.mPay2_title{
-    //     padding-left: 5rem !important;
-
-    //     border: 1px solid red;
-    // }
-
-    border: 1px solid red;
 }
 
 
@@ -17,21 +9,16 @@ div.mPay2_wrapper{
 div.mPay2_circle{
     margin: 0 auto;
     margin-bottom: 60px;
-
 }
 
 div.mPay2_title{
     margin-bottom: 30px;
-
-    border: 1px solid blue;
 }
 
 
 // 商品新增處
 div.mPay2_items{
     margin-bottom: 50px;
-
-    border: 1px solid green;
 }
 
 div.mPay2_item {
@@ -230,7 +217,6 @@ div.mPay2_info{
                 }
             }
         }
-
     }
 
     div.mPay2_payment{
@@ -349,68 +335,12 @@ div.mPay2_info{
     }
 }
 
-
 .mPay2_nextpage{
     margin: 0 auto;
     width: 200px;
 }
 
-
 @media(max-width:1100px){
-    div.mPay2_info_address{
-        >h2{
-            margin-bottom: 15px;
-        }
-    }
-}
-
-
-@media(max-width:431px){
-    div.mPay2_wrapper{
-        width: 400px;
-        padding: 0 25px;
-    }
-
-    div.mPay2_circle{
-        width: 340px;
-
-        >div.circle_step{
-            width: 80px;
-            height: 80px;
-
-            >h1{
-                font-size: $h4;
-            }
-        }
-    }
-
-    div.mPay2_items{
-        width: 360px;
-        margin: 0 auto;
-        div.mPay2_item{
-            > div.mPay2_item_product{
-                flex-direction: column;
-                align-items: start;
-                gap: 5px;
-                >div.mPay2_item_name{
-                    align-items: start;
-                }
-            }
-        }
-    }
-
-    div.mPay2_total{
-        padding-right: 5%;
-        >h2{
-            font-size: $h3;
-        }
-        >h1{
-            font-size: $h2;
-            margin-left: 61px;
-        }
-    }
-
-    // 購買人資料
     div.mPay2_info{
         flex-direction: column;
 
@@ -419,6 +349,7 @@ div.mPay2_info{
         }
 
         div.mPay2_custom{
+            margin: 0 auto;
             margin-bottom: 60px;
 
             div.mPay2_info_name{
@@ -434,11 +365,12 @@ div.mPay2_info{
 
                 >h2{
                     order: 1;
+                    margin-bottom: 15px;
                 }
 
                 >input.mPay2_info_address_input{
                     order: 3;
-                    width: 100%;
+                    margin-left: 160px;
                 }
 
                 >input#mPay2_address_as_member,
@@ -455,7 +387,8 @@ div.mPay2_info{
                 gap: 10px;
 
                 >textarea{
-                    width: 100%;
+                    margin-left: 160px;
+                    max-width: 20rem;
                 }
             }
         }
@@ -467,7 +400,7 @@ div.mPay2_info{
             >div.mPay2_card_number{
                 flex-wrap: wrap;
                 >h3{
-                    margin-right: 50%;
+                    width: 130px;
                     margin-bottom: 10px;
                 }
                 >input{
@@ -519,12 +452,97 @@ div.mPay2_info{
 
                 >input{
                     width: 100%;
+                    margin-left: 130px;
                 }
             }
 
             div.mPay2_card_post{
                 >h3{
                     width: 130px;
+                }
+            }
+        }
+    }
+}
+
+
+@media(max-width:580px){
+    div.mPay2_item_price{
+        height: 100px;
+        h2{
+            font-size: 16px;
+        }
+    }
+
+    div.mPay2_info{
+        div.mPay2_custom{
+
+            div.mPay2_info_address{
+                >input.mPay2_info_address_input{
+                    margin-left: 0;
+                    width: 100%;
+                }
+            }
+            div.mPay2_notes{
+
+                >textarea{
+                    margin-left: 20%;
+                    max-width: 25rem;
+                }
+            }
+        }
+
+        div.mPay2_payment{
+            padding: 20px;
+
+            >div.mPay2_card_number{
+                flex-wrap: wrap;
+                >h3{
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
+                >input{
+                    margin-right: 5px;
+                }
+            }
+
+            >div.mPay2_card_address{
+                >input{
+                    margin-left: 0;
+                }
+            }
+
+        }
+    }
+}
+
+@media(max-width:431px){
+    div.mPay2_wrapper{
+        width: 400px;
+        padding: 0 25px;
+    }
+
+    div.mPay2_circle{
+        width: 340px;
+
+        >div.circle_step{
+            width: 80px;
+            height: 80px;
+
+            >h1{
+                font-size: $h4;
+            }
+        }
+    }
+
+    div.mPay2_items{
+        width: 310px;
+        margin: 0 auto;
+        div.mPay2_item{
+            > div.mPay2_item_price{
+                height: 100px;
+                h2{
+                    font-size: 12px;
                 }
             }
         }
