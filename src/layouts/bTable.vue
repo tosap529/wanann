@@ -2,6 +2,13 @@
 
     import { ref, onMounted } from 'vue';
     import ModalbContact from '@/components/ModalbContact.vue'; 
+    import ModalbServiceOrder from '@/components/ModalbServiceOrder.vue'; 
+    import ModalbServiceComment from '@/components/ModalbServiceComment.vue'; 
+    import ModalbProductOrder from '@/components/ModalbProductOrder.vue'; 
+    import ModalbProduct from '@/components/ModalbProduct.vue'; 
+    import ModalbAct from '@/components/ModalbAct.vue'; 
+    import ModalbArticle from '@/components/ModalbArticle.vue'; 
+    import ModalbMember from '@/components/ModalbMember.vue'; 
     defineProps(['backNow']);
 
     const bMember_th = [ '會員ID','帳號','姓名','手機號碼','電子郵件','註冊日期','權限' ];
@@ -129,7 +136,14 @@
 <template>
 <div id="tableScroll">
     <!-- 燈箱區 -->
-    <ModalbContact @ModalbContact="gobModal" v-show="isbMemberModalShow" />
+    <ModalbMember @ModalbMember="gobModal" v-show="isbMemberModalShow&&backNow=='會員註冊資料'" />
+    <ModalbServiceOrder @ModalbServiceOrder="gobModal" v-show="isbMemberModalShow&&backNow=='服務訂單'" />
+    <ModalbServiceComment @ModalbServiceComment="gobModal" v-show="isbMemberModalShow&&backNow=='服務評論'" />
+    <ModalbProductOrder @ModalbProductOrder="gobModal" v-show="isbMemberModalShow&&backNow=='商品訂單'" />
+    <ModalbProduct @ModalbProduct="gobModal" v-show="isbMemberModalShow&&backNow=='商品'" />
+    <ModalbAct @ModalbAct="gobModal" v-show="isbMemberModalShow&&backNow=='活動'" />
+    <ModalbArticle @ModalbArticle="gobModal" v-show="isbMemberModalShow&&backNow=='文章'" />
+    <ModalbContact @ModalbContact="gobModal" v-show="isbMemberModalShow&&backNow=='聯絡表單'" />
     <table class="bMember_table table-striped">
         <thead>
             <tr>

@@ -23,26 +23,26 @@ onBeforeUpdate(()=>{
     document.querySelector('.member_sidebar div:first-child img').src = props.member.MEMBER_PIC;
     document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${props.member.MEMBER_PIC}" >`;
 
-    if(props.member.COUNTY == '新北市'){
-        county.value = 'newTaipei';
-    }else if(props.member.COUNTY =='台北市'){
-        county.value = 'taipei';
-    }else{
-        county.value = 'taoyuan';
-    }
+    // if(props.member.COUNTY == '新北市'){
+    //     county.value = 'newTaipei';
+    // }else if(props.member.COUNTY =='台北市'){
+    //     county.value = 'taipei';
+    // }else{
+    //     county.value = 'taoyuan';
+    // }
 
-let countySelector = document.getElementById('countySelector');
-countySelector.addEventListener('change',function(){
-    // console.log(countySelector.value)
-    console.log(county.value)
-    if(countySelector.value =='newTaipei' ){
-        county.value = 'newTaipei';
-    }else if(countySelector.value=='taipei'){
-        county.value = 'taipei';
-    }else{
-        county.value = 'taoyuan';
-    }
-})
+// let countySelector = document.getElementById('countySelector');
+// countySelector.addEventListener('change',function(){
+//     // console.log(countySelector.value)
+//     console.log(county.value)
+//     if(countySelector.value =='newTaipei' ){
+//         county.value = 'newTaipei';
+//     }else if(countySelector.value=='taipei'){
+//         county.value = 'taipei';
+//     }else{
+//         county.value = 'taoyuan';
+//     }
+// })
 
 })
 
@@ -202,13 +202,13 @@ const fileUpload=()=>{
         <div class="sAddress">
             <h2>服務地址</h2>
           <div>
-            <select name="county" id="countySelector"   >
+            <select name="county" id="countySelector" v-model="county" >
                 <option value="" selected disabled hidden>{{member.COUNTY}}</option>
                 <option value="newTaipei">新北市</option>
                 <option value="taipei">台北市</option>
                 <option value="taoyuan">桃園市</option>
             </select>
-            <select name="dNewTaipei" id="" v-if="county=='newTaipei'" >
+            <select name="dNewTaipei" id="" v-if="county=='newTaipei'">
                 <option :value="dist" v-for="dist in newTaipei" :key="dist">{{ dist }}</option>
                 <!-- <option value="">區</option>
                 <option value="">三峽區</option>
@@ -228,7 +228,7 @@ const fileUpload=()=>{
                 <option value="">土城區</option> -->
 
             </select>
-            <select name="dTaipei" id="" v-if="county=='taipei' " >
+            <select name="dTaipei" id="" v-if="county=='taipei'" >
                 <option :value="dist" v-for="dist in taipei" :key="dist">{{ dist }}</option>
                 <!-- <option value="">區</option>
                 <option value="">中正區</option>
