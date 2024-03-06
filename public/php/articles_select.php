@@ -1,9 +1,9 @@
 <?php
 
-include("connect.php");
+include("connect_test.php");
 
 $pdo = getPDO();
-$statement = $pdo->prepare("select * from ARTICLE where CATEGORY = '職人講座' order by CREATE_TIME desc");
+$statement = $pdo->prepare("select * from ARTICLE order by CREATE_TIME desc");
 $statement ->execute();
 $act = $statement->fetchAll();
 
