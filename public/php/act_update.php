@@ -1,4 +1,5 @@
 <?php
+
 include("connect_test.php");
 $reqBody = json_decode(file_get_contents("php://input"), true);
 
@@ -9,4 +10,5 @@ $statement->bindValue(":id", $reqBody["id"]);
 $statement->execute();
 
 json_encode($statement);
+
 ?>

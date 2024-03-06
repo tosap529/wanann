@@ -1,7 +1,14 @@
 <script setup>
 
     import { ref, onMounted } from 'vue';
-
+    import ModalbContact from '@/components/ModalbContact.vue'; 
+    import ModalbServiceOrder from '@/components/ModalbServiceOrder.vue'; 
+    import ModalbServiceComment from '@/components/ModalbServiceComment.vue'; 
+    import ModalbProductOrder from '@/components/ModalbProductOrder.vue'; 
+    import ModalbProduct from '@/components/ModalbProduct.vue'; 
+    import ModalbAct from '@/components/ModalbAct.vue'; 
+    import ModalbArticle from '@/components/ModalbArticle.vue'; 
+    import ModalbMember from '@/components/ModalbMember.vue'; 
     defineProps(['backNow']);
 
     const bMember_th = [ '會員ID','帳號','姓名','手機號碼','電子郵件','註冊日期','權限' ];
@@ -17,38 +24,45 @@
     const act_data = ref([]);
    
     
-    const url_act_update = 'http://localhost/wanann/public/php/act_update.php';
+    const url_act_update = 'http://localhost/thd104/public/php/act_update.php';
+
+    const isbMemberModalShow = ref(false);
+    const gobModal = ()=>{
+        isbMemberModalShow.value = !isbMemberModalShow.value;
+        // console.log('fqf2n3ufi')
+    };
+
 
     // contact_data[0].value.STATUS= 1;
 
     onMounted(() => {
         
-        const url_contact = 'http://localhost/wanann/public/php/contact_select.php';
-        const url_act = 'http://localhost/wanann/public/php/act_select.php';
+        const url_contact = 'http://localhost/thd104/public/php/contact_select.php';
+        const url_act = 'http://localhost/thd104/public/php/act_select.php';
         
-        fetch(url_contact)
-            .then(response => response.json())
-            .then(response => {
-                // console.log('註冊成功 js');
-            contact_data.value = response;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+        // fetch(url_contact)
+        //     .then(response => response.json())
+        //     .then(response => {
+        //         // console.log('註冊成功 js');
+        //     contact_data.value = response;
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error);
+        //         });
                 
         // console.log(contact_data);
         // console.log(contact_data._value);
         // console.log(contact_data.value);
 
-        fetch(url_act)
-            .then(response => response.json())
-            .then(response => {
-                // console.log('註冊成功 js');
-            act_data.value = response;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+        // fetch(url_act)
+        //     .then(response => response.json())
+        //     .then(response => {
+        //         // console.log('註冊成功 js');
+        //     act_data.value = response;
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error);
+        //         });
 
        
                 
@@ -121,6 +135,15 @@
 </script>
 <template>
 <div id="tableScroll">
+    <!-- 燈箱區 -->
+    <ModalbMember @ModalbMember="gobModal" v-show="isbMemberModalShow&&backNow=='會員註冊資料'" />
+    <ModalbServiceOrder @ModalbServiceOrder="gobModal" v-show="isbMemberModalShow&&backNow=='服務訂單'" />
+    <ModalbServiceComment @ModalbServiceComment="gobModal" v-show="isbMemberModalShow&&backNow=='服務評論'" />
+    <ModalbProductOrder @ModalbProductOrder="gobModal" v-show="isbMemberModalShow&&backNow=='商品訂單'" />
+    <ModalbProduct @ModalbProduct="gobModal" v-show="isbMemberModalShow&&backNow=='商品'" />
+    <ModalbAct @ModalbAct="gobModal" v-show="isbMemberModalShow&&backNow=='活動'" />
+    <ModalbArticle @ModalbArticle="gobModal" v-show="isbMemberModalShow&&backNow=='文章'" />
+    <ModalbContact @ModalbContact="gobModal" v-show="isbMemberModalShow&&backNow=='聯絡表單'" />
     <table class="bMember_table table-striped">
         <thead>
             <tr>
@@ -139,7 +162,7 @@
         </thead>
         <tbody>
             <tr v-show="backNow=='聯絡表單'" v-for= "(data, key) in contact_data" :key="key">
-                <td><button class="edit-btn">編輯與查看</button></td>
+                <td ><button class="edit-btn" @click="gobModal">編輯與查看</button></td>
                 <td>{{ data.ID }}</td>
                 <td>{{ data.NAME }}</td>
                 <td>{{ data.PHONE }}</td>
@@ -189,7 +212,7 @@
 
             <tr v-for="tr_num in 15" :key="tr_num">
                 <td>
-                <button class="edit-btn" v-show="backNow!='成交量統計表(月)'">編輯與查看</button>
+                <button  @click="gobModal" class="edit-btn" v-show="backNow!='成交量統計表(月)'">編輯與查看</button>
                 </td>
                 <td v-show="backNow=='會員註冊資料'" v-for="td_num in bMember_th.length" :key="td_num"></td>
                 <td v-show="backNow=='服務訂單'" v-for="td_num in bServiceOrder_th.length" :key="td_num"></td>
