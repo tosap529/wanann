@@ -11,6 +11,7 @@
   margin: 0 auto;
   width: 1010px;
   display: flex;
+  justify-content: center;
 
   .dropdown {
     padding: 20px 50px;
@@ -102,7 +103,7 @@ section.next_btn a {
 
 .subtitle {
   display: flex;
-  width: 1000px;
+  width: 900px;
   margin: 0 auto;
   margin-bottom: 50px;
 
@@ -122,12 +123,41 @@ section.next_btn a {
   }
 }
 
-@include m() {}
-
-
 @media screen and (max-width:1010px) {
   .subtitle {
-    width: 380px;
+    width: 500px;
+  }
+
+  .reserve_choose {
+    width: 480px;
+    flex-direction: column-reverse;
+
+    .pic {
+      width: 100%;
+      height: 350px;
+      margin-left: 0;
+    }
+  }
+
+  .dropdown_container {
+    width: 100%;
+
+    section {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    >p {
+      text-align: right;
+    }
+  }
+}
+
+
+
+@media screen and (max-width:500px) {
+  .subtitle {
+    width: 350px;
 
     h1 {
       font-size: $h2;
@@ -148,12 +178,11 @@ section.next_btn a {
   }
 
   .reserve_choose {
-    width: 380px;
-    flex-direction: column-reverse;
+    width: 350px;
+
 
 
     .pic {
-      width: 380px;
       height: 250px;
       margin: 16px 0;
 
@@ -162,8 +191,8 @@ section.next_btn a {
     aside {
       display: flex;
       flex-wrap: wrap;
-      width: 380px;
-      justify-content: space-between;
+      width: 350px;
+      justify-content: center;
 
       section {
         display: flex;
@@ -172,14 +201,14 @@ section.next_btn a {
 
     .dropdown {
       box-sizing: border-box;
-      width: 100px;
+      width: 80px;
       padding: 10px;
       font-size: $h4;
       margin-bottom: 20px;
     }
 
     .dropdown_container {
-      width: 250px;
+      width: 200px;
       margin-left: 20px;
 
       >section {

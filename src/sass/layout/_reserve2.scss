@@ -100,7 +100,7 @@
     }
 
     .reserve_add {
-      width: 380px;
+      width: 450px;
       flex-direction: column;
 
       h2 {
@@ -140,4 +140,11 @@
       }
     }
   }
+}
+
+@media screen and (max-width:500px) {
+  .reserve2 .reserve_add {
+    width: 350px;
+  }
+
 }
