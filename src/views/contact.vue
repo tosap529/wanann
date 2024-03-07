@@ -7,7 +7,7 @@ import BannerUrl  from '@/img/contact/contact_banner.jpg';
 const banner_url = BannerUrl;
 
 
-    const formData =ref({
+    const formData = ref({
     name: '',
     phone: '',
     email: '',
@@ -22,7 +22,7 @@ const banner_url = BannerUrl;
     // };
 
     const submitForm = () => {
-    const url = 'http://localhost/wanann/public/php/contact_insert.php';
+    const url = 'http://localhost/thd104/public/php/contact_insert.php';
     
     fetch(url, {
         method: 'POST',

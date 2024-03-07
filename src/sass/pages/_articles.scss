@@ -71,7 +71,7 @@
    
     }
     a {
-      color: $grey;
+      color: $black;
       text-decoration: none;
       &:hover{
         color: $black;
@@ -410,23 +410,27 @@
             width: 600px;
           }
           li {
-            margin-bottom: 20px;
-            background-color: $light-milktea;
-            padding: 20px 10px;
+            // margin-bottom: 20px;
+
+          
             border-radius: 10px;
-            &:hover{
-              background-color: $dark-milktea;
+           
+            a {
+              font-size: $p;
+              text-align: center;
+              text-decoration: none;
+              display: block;
+              line-height: 40px;
+              padding: 10px 5px;
+              width: 100px;
+              background-color: $light-milktea;
+              border-radius: 10px;
+            }
+            path{
+              display: none;
             }
           }
-          a {
-            font-size: $p;
-            color: $black;
-            text-decoration: none;
-            &:hover{
-              color: $white;
-              font-weight: bold;
-            }
-          }
+    
         }
 
         .articles_all {
@@ -516,6 +520,19 @@
   .articles_buttom aside li span{
     margin-left: 10px;
   }
+
+  // .articles_buttom aside .color{
+  //   background-color:$light-milktea;
+  // }
+
+  .articles_buttom aside .color > a{
+    color: $white;
+    font-weight: bold;
+    background-color:$dark-milktea;
+    border-radius: 10px;
+    width: 100px;
+   
+  }
 }
 
 
@@ -590,23 +607,19 @@
             width: 450px;
           }
           li {
-            margin-bottom: 20px;
-            background-color: $light-milktea;
-            padding: 20px 10px;
-            border-radius: 10px;
-            &:hover{
-              background-color: $dark-milktea;
+      
+            a {
+              font-size: $p;
+              color: $black;
+              text-decoration: none;
+        
+              &:hover{
+                color: $white;
+                font-weight: bold;
+              }
             }
           }
-          a {
-            font-size: $p;
-            color: $black;
-            text-decoration: none;
-            &:hover{
-              color: $white;
-              font-weight: bold;
-            }
-          }
+          
         }
 
         .articles_all {
@@ -661,7 +674,7 @@
 @media screen and (max-width:430px){
 
   .wrapper{
-    width:380px;
+    width:375px;
   }
 
   .title_phone{
@@ -718,13 +731,14 @@
           background-color: $white;
           text-align: right;
           text-decoration: none;
-          padding-right: 20px;
-          width: 377px;
+          padding-right: 30px;
+          width: 375px;
+          box-sizing: border-box;
         }
     }
   
     img {
-      width: 377px;
+      width: 375px;
       border-radius: 10px;
     }
   }  
@@ -738,25 +752,21 @@
             display: none;
           }
           ul {
+            width: 375px;
             list-style-type: none;
             display: flex;
             justify-content: space-between;
             padding-left: 0;
             margin: auto auto 40px auto;
           }
-          li {
-            margin-bottom: 20px;
-            background-color: $light-milktea;
-            padding: 20px 10px;
-            border-radius: 10px;
-            &:hover{
-              background-color: $dark-milktea;
-            }
-          }
+         
+            
+          
           a {
             font-size: $p;
             color: $black;
             text-decoration: none;
+            width: 80px;
             &:hover{
               color: $white;
               font-weight: bold;
@@ -779,7 +789,7 @@
               }
               article {
                 margin-left: 0px;
-                width: 380px;
+                width: 375px;
                 order: 1;
                   h2{
                     font-size: $h3;
@@ -791,7 +801,7 @@
                       position: absolute;
                       content: "";
                       background-color: $grey;
-                      width: 380px;
+                      width: 375px;
                       height: 2px;
                       top: 180%;
                       left: 0;
@@ -815,9 +825,10 @@
                     width: 380px;
                     height: 40px;
                     line-height: 40px;
-                    padding-right: 20px;
+                    margin-right: 20px;
                     margin-bottom: 10px;
                     border-radius: 8px;
+                    box-sizing: border-box;
                   }
               } 
           }   
@@ -853,7 +864,7 @@
   }
 
   .articles_buttom aside ul{
-    width:  380px;
+    width:  355px;
   }
 }
 

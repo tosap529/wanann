@@ -29,9 +29,14 @@
     const isbMemberModalShow = ref(false);
     const gobModal = ()=>{
         isbMemberModalShow.value = !isbMemberModalShow.value;
+        
         // console.log('fqf2n3ufi')
     };
 
+    const emitModalbContact = () => {
+   
+    emit('ModalbContact', key, ID);
+    }
 
     // contact_data[0].value.STATUS= 1;
 
@@ -40,29 +45,29 @@
         const url_contact = 'http://localhost/thd104/public/php/contact_select.php';
         const url_act = 'http://localhost/thd104/public/php/act_select.php';
         
-        // fetch(url_contact)
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         // console.log('註冊成功 js');
-        //     contact_data.value = response;
-        //         })
-        //         .catch(error => {
-        //             console.error('Error:', error);
-        //         });
+        fetch(url_contact)
+            .then(response => response.json())
+            .then(response => {
+                // console.log('註冊成功 js');
+            contact_data.value = response;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
                 
         // console.log(contact_data);
         // console.log(contact_data._value);
         // console.log(contact_data.value);
 
-        // fetch(url_act)
-        //     .then(response => response.json())
-        //     .then(response => {
-        //         // console.log('註冊成功 js');
-        //     act_data.value = response;
-        //         })
-        //         .catch(error => {
-        //             console.error('Error:', error);
-        //         });
+        fetch(url_act)
+            .then(response => response.json())
+            .then(response => {
+                // console.log('註冊成功 js');
+            act_data.value = response;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
 
        
                 
@@ -132,6 +137,8 @@
   
     }
 
+
+
 </script>
 <template>
 <div id="tableScroll">
@@ -146,7 +153,7 @@
     <ModalbContact @ModalbContact="gobModal" v-show="isbMemberModalShow&&backNow=='聯絡表單'" />
     <table class="bMember_table table-striped">
         <thead>
-            <tr>
+            <tr> 
                 <th></th>
                 <th v-show="backNow=='會員註冊資料'" v-for="th in bMember_th" :key="th">{{th}}</th>
                 <th v-show="backNow=='服務訂單'" v-for="th in bServiceOrder_th" :key="th">{{th}}</th>
@@ -162,7 +169,7 @@
         </thead>
         <tbody>
             <tr v-show="backNow=='聯絡表單'" v-for= "(data, key) in contact_data" :key="key">
-                <td ><button class="edit-btn" @click="gobModal">編輯與查看</button></td>
+                <td ><button class="edit-btn" @click="gobModal(key, data.ID)">編輯與查看</button></td>
                 <td>{{ data.ID }}</td>
                 <td>{{ data.NAME }}</td>
                 <td>{{ data.PHONE }}</td>
