@@ -10,7 +10,6 @@ div.mall_wrapper {
 nav.mall_nav {
     width: 1100px;
     max-width: 100%;
-
     margin: 0 auto;
     margin-bottom: 50px;
 
@@ -86,6 +85,7 @@ ul.mall_products {
         width: 200px;
         height: 340px;
 
+        // margin: 0 auto;
 
         > a img {
             width: 200px;
@@ -98,6 +98,7 @@ ul.mall_products {
         >h1 {
             font-size: $h2;
             margin: 0 0 15px 10px;
+            height: 40px;
         }
 
         >p {
@@ -165,28 +166,30 @@ div.mall_paginator {
 
 @media(max-width:1100px){
     ul.mall_products{
-        justify-content: space-evenly;
+        // justify-content: space-evenly;
+        margin: 0 auto;
+        width: 745px;
+        max-width: 100%;
+        // border: 1px solid red;
+    }
+}
+
+@media(max-width:825px){
+    ul.mall_products{
+        width: 530px;
     }
 }
 
 @media(max-width:700px){
     nav.mall_nav{
-        width: 500px;
+        width: 500px !important;
         max-width: 100%;
         margin-left: 1rem;
+        margin-bottom: 10px;
     }
     ul.mall_products{
         justify-content: space-evenly;
     }
-
-
-    nav.mall_nav{
-        width: 380px;
-        box-sizing: border-box;
-
-        margin-bottom: 10px;
-    }
-
 
 
     // 搜尋條
