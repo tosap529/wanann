@@ -1,7 +1,7 @@
 div.mPay2_wrapper{
     max-width: 100%;
 
-    padding: 3rem;
+    padding: 0 20%;
 }
 
 
@@ -13,6 +13,13 @@ div.mPay2_circle{
 
 div.mPay2_title{
     margin-bottom: 30px;
+}
+
+// 欄位未填的提示
+span{
+    color: $warning;
+    font-size: 10px;
+    margin-left: 16px;
 }
 
 
@@ -33,6 +40,7 @@ div.mPay2_item {
 
     >img {
         width: 120px;
+        border-radius: 8px;
     }
 
     div.mPay2_item_product{
@@ -113,18 +121,20 @@ div.mPay2_total{
     }
 }
 
-
-
 div.mPay2_info{
     display: flex;
     justify-content: space-evenly;
     margin: 0 auto;
     box-sizing: border-box;
 
+    gap: 30px;
+
+
     div.mPay2_custom{
         width: 531px;
         max-width: 100%;
 
+        // border: 1px solid green;
         div.mPay2_title{
             margin-bottom: 24px;
         }
@@ -135,13 +145,19 @@ div.mPay2_info{
             padding-left: 40px;
             margin-bottom: 20px;
             >h2{
-                width: 160px;
+                width: 150px;
                 max-width: 100%;
             }
 
             >input{
                 width: 100px;
                 max-width: 100%;
+            }
+
+            >span{
+                // color: $warning;
+                // font-size: 10px;
+                // margin-left: 10px;
             }
 
         }
@@ -152,13 +168,17 @@ div.mPay2_info{
             padding-left: 40px;
             margin-bottom: 20px;
             >h2{
-                width: 160px;
+                width: 150px;
                 max-width: 100%;
             }
 
             >input{
-                width: 150px;
+                width: 120px;
                 max-width: 100%;
+            }
+
+            >span{
+                // border: 1px solid red;
             }
         }
 
@@ -170,12 +190,15 @@ div.mPay2_info{
             padding-left: 40px;
 
             >h2{
-                width: 160px;
+                width: 150px;
                 max-width: 100%;
+
+                margin-bottom: 20px;
             }
 
             >input#mPay2_address_as_member{
                 margin-right: 10px;
+                margin-left: 10px;
                 &:focus{
                     outline: none;
                 }
@@ -187,6 +210,12 @@ div.mPay2_info{
                 margin: 0;
                 display: block;
             }
+
+            span{
+                order: 4;
+                margin-left: 60px;
+                margin-top: 10px;
+            }
         }
 
         div.mPay2_notes{
@@ -195,7 +224,7 @@ div.mPay2_info{
             padding-left: 40px;
 
             >h2{
-                width: 160px;
+                width: 150px;
                 max-width: 100%;
             }
 
@@ -220,8 +249,6 @@ div.mPay2_info{
     }
 
     div.mPay2_payment{
-        
-
         border: 1px solid $grey;
         border-radius: 10px;
 
@@ -239,8 +266,9 @@ div.mPay2_info{
         div.mPay2_card_number{
             display: flex;
             align-items: center;
+            // flex-wrap: wrap;
 
-            margin-bottom: 20px;
+            margin-bottom: 10px;
 
             > h3{
                 width: 150px;
@@ -252,6 +280,13 @@ div.mPay2_info{
                 margin-right: 15px;
                 letter-spacing: 3px;
             }
+
+        }
+        >span{
+            display: block;
+            margin-left: 150px;
+            margin-bottom: 10px;
+            // border: 1px solid red;
         }
 
         div.mPay2_card_info{
@@ -260,11 +295,18 @@ div.mPay2_info{
 
             margin-bottom: 20px;
 
+            // border: 1px solid red;
+
             div.mPay2_card_date{
                 display: flex;
                 align-items: center;
+                flex-wrap: wrap;
 
-                margin-right: 2rem;
+                // margin-right: 2rem;
+                width: 310px;
+
+
+                // border: 1px solid blue;
 
                 > h3{
                     width: 150px;
@@ -275,18 +317,33 @@ div.mPay2_info{
                     width: 70px;
                     max-width: 100%;
                 }
+
+                >span{
+                    margin-left: 150px;
+                    margin-top: 10px;
+                }
             }
 
             div.mPay2_card_safe{
                 display: flex;
                 align-items: center;
+                flex-wrap: wrap;
+                width: 200px;
+
+                // border: 1px solid blue;
 
                 >h3{
                     margin-right: 1rem;
+                    width: 90px;
                 }
 
                 > input{
                     width: 50px;
+                }
+
+                >span{
+                    margin-left: 90px;
+                    margin-top: 10px;
                 }
             }
         }
@@ -305,6 +362,7 @@ div.mPay2_info{
         div.mPay2_card_address{
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
 
             margin-bottom: 20px;
             > h3{
@@ -315,6 +373,11 @@ div.mPay2_info{
             > input{
                 width: 65%;
                 max-width: 100%;
+            }
+
+            >span{
+                margin-left: 150px;
+                margin-top: 10px;
             }
         }
 
@@ -370,12 +433,16 @@ div.mPay2_info{
 
                 >input.mPay2_info_address_input{
                     order: 3;
-                    margin-left: 160px;
+                    margin-left: 150px;
                 }
 
                 >input#mPay2_address_as_member,
                 >label{
                     order: 2;
+                }
+
+                >span{
+                    margin-left: 180px;
                 }
             }
 
@@ -387,7 +454,7 @@ div.mPay2_info{
                 gap: 10px;
 
                 >textarea{
-                    margin-left: 160px;
+                    margin-left: 150px;
                     max-width: 20rem;
                 }
             }
@@ -407,6 +474,9 @@ div.mPay2_info{
                     margin-right: 5px;
                 }
             }
+            >span{
+                margin-left: 130px;
+            }
 
             >div.mPay2_card_info{
                 flex-direction: column;
@@ -418,17 +488,31 @@ div.mPay2_info{
                     margin: 0;
                     margin-bottom: 10px;
 
+                    flex-wrap: nowrap;
+
                     >h3{
                         width: 130px;
+                    }
+
+                    >span{
+                        margin-left: 10px;
                     }
                 }
 
                 div.mPay2_card_safe{
+                    flex-wrap: nowrap;
+
+                    width: auto;
+
+                    // border: 1px solid red;
                     >h3{
                         margin: 0;
                         width: 130px;
                     }
                     
+                    >span{
+                        margin-left: 10px;
+                    }
                 }
             }
 
@@ -454,6 +538,10 @@ div.mPay2_info{
                     width: 100%;
                     margin-left: 130px;
                 }
+
+                >span{
+                    margin-left: 130px;
+                }
             }
 
             div.mPay2_card_post{
@@ -465,8 +553,13 @@ div.mPay2_info{
     }
 }
 
+@media(max-width:780px){
+    div.mPay2_wrapper{
+        padding: 0 10%;
+    }
+}
 
-@media(max-width:580px){
+@media(max-width:590px){
     div.mPay2_item_price{
         height: 100px;
         h2{

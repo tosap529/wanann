@@ -123,11 +123,11 @@
     const cartStore = useCartStore();
     
     // 設置header及footer
-    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
-    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
-    import BannerUrl  from '@/img/mall/mall_banner.jpg'; // 更改成banner路徑
-    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+    import DefaultHeader from '@/layouts/header.vue';
+    import DefaultFooter from '@/layouts/footer.vue';
+    import wrapper from '@/layouts/wrapper.vue';
+    import BannerUrl  from '@/img/mall/mall_banner.jpg';
+    const banner_url = BannerUrl;
 
 
     // 分類tab
