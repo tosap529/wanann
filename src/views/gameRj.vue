@@ -103,8 +103,8 @@ onMounted(() => {
                     <p class="btn_p">適合你的清潔法寶</p>
 
                     <div class="gameR_recomm">
-                        <a href="#" title="輕巧型吸塵器"><img src="@/img/game/gameR_bear_recomm1.jpg" alt="recomm"></a>
-                        <a href="#" title="智能潔淨掃地機器人"><img src="@/img/game/gameR_bear_recomm2.jpg" alt="recomm"></a>
+                        <a href="https://tibamef2e.com/thd104/g1/mItem/18" title="綠意環保補充瓶"><img src="@/img/game/gameR_brid_recomm1.jpg" alt="recomm"></a>
+                        <a href="https://tibamef2e.com/thd104/g1/mItem/20" title="木製家居掃把"><img src="@/img/game/gameR_brid_recomm2.jpg" alt="recomm"></a>
                     </div>
                     <div class="gameR_share">
                         <button class="btn">分享給朋友</button>
