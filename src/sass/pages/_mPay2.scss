@@ -44,18 +44,14 @@ div.mPay2_item {
     }
 
     div.mPay2_item_product{
-        display: flex;
-        align-items: center;
-        gap: 140px; 
         margin-left: 2%;
         margin-right: auto;
 
         div.mPay2_item_name {
-
             display: flex;
             flex-direction: column;
-            align-items: center;
             gap: 16px;
+
         }
 
     }
@@ -224,12 +220,12 @@ div.mPay2_info{
             padding-left: 40px;
 
             >h2{
-                width: 150px;
+                width: 80px;
                 max-width: 100%;
             }
 
             >textarea{
-                width: 220px;
+                width: 290px;
                 max-width: 100%;
 
                 height: 100px;
@@ -449,12 +445,16 @@ div.mPay2_info{
             div.mPay2_notes{
                 padding-left: 0;
 
-                flex-direction: column;
+                // flex-direction: column;
                 align-items: start;
-                gap: 10px;
+                // gap: 10px;
+
+                >h2{
+                    width: 150px;
+                }
 
                 >textarea{
-                    margin-left: 150px;
+                    // margin-left: 150px;
                     max-width: 20rem;
                 }
             }
@@ -569,6 +569,12 @@ div.mPay2_info{
 
     div.mPay2_info{
         div.mPay2_custom{
+            div.mPay2_info_phone{
+                >input{
+                    width: 100px;
+                }
+            }
+
 
             div.mPay2_info_address{
                 >input.mPay2_info_address_input{
@@ -578,8 +584,12 @@ div.mPay2_info{
             }
             div.mPay2_notes{
 
+                >h2{
+
+                }
+
                 >textarea{
-                    margin-left: 20%;
+                    // margin-left: 20%;
                     max-width: 25rem;
                 }
             }
@@ -609,7 +619,7 @@ div.mPay2_info{
     }
 }
 
-@media(max-width:431px){
+@media(max-width:430px){
     div.mPay2_wrapper{
         width: 400px;
         padding: 0 25px;

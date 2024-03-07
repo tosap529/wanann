@@ -138,7 +138,7 @@
 
                 <div class="mPay1_total">
                     <h2>總金額</h2>
-                    <h1>NTD {{ calCartTotal }}</h1>
+                    <h1 @click="showcouponArray">NTD {{ calCartTotal }}</h1>
                 </div>
 
                 <!-- <button class="btn mPay1_nextpage">下一步</button> -->
@@ -193,7 +193,11 @@
     // 優惠代碼API
     
     const couponNumber = ref();
-    const url = 'http://localhost/thd104/g1/public/php/mPay1_select.php';
+    // 本機
+    // const url = 'http://localhost/thd104/g1/public/php/mPay1_select.php';
+
+    // 上伺服器
+    const url = 'php/mPay1_select.php';
         
     fetch(url)
         .then(response => response.json())
@@ -205,15 +209,22 @@
             console.error('Error:', error);
         });
 
+    const showcouponArray = function(){
+        console.log(couponNumber.value);
+    }
+
     // 優惠券兌換
     const inputNumber = ref();
 
     const couponCheck = function() {
         if (Array.isArray(couponNumber.value)) {
             const foundCoupon = couponNumber.value.find(item => item.COUPON_ID === inputNumber.value);
+
+
             return foundCoupon || null;
         }
         return null;
+
     };
 
     const couponStatus = ref(null);
@@ -226,12 +237,17 @@
             couponDiscount.value = matchedCoupon.COUPON_PRICE;
 
             cartStore.couponDiscount = matchedCoupon.COUPON_PRICE
+
+            cartStore.couponActId = matchedCoupon.ID
+
+            console.log(cartStore.couponActId);
         } else {
             couponStatus.value = false;
             couponDiscount.value = 0;
 
             cartStore.couponDiscount = 0;
         }
+
     };
 
     

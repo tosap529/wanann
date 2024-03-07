@@ -20,6 +20,7 @@ export const useCartStore = defineStore('cart', {
 
     productsForMitem : [],
 
+    couponActId : '',
     couponDiscount : 0,
     totalPrice : 0,
 
