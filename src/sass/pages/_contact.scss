@@ -19,24 +19,6 @@
 
       @media screen and (max-width: 800px) {
         margin-bottom: 40px;
-
-        >h1 {
-          display: flex;
-          font-size: $h1;
-          align-items: center;
-        }
-
-        >h1::before {
-          content: '';
-          display: block;
-          width: 45px;
-          height: 32.44px;
-          background-image: url(@/img/logo_title.svg);
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: contain;
-          margin-right: 8px;
-        }
       }
 
       @media screen and (max-width: 560px) {
@@ -114,23 +96,7 @@
       @media screen and (max-width: 800px) {
         margin-bottom: 40px;
 
-        >h1 {
-          display: flex;
-          font-size: $h1;
-          align-items: center;
-        }
-
-        >h1::before {
-          content: '';
-          display: block;
-          width: 45px;
-          height: 32.44px;
-          background-image: url(@/img/logo_title.svg);
-          background-repeat: no-repeat;
-          background-position: center center;
-          background-size: contain;
-          margin-right: 8px;
-        }
+      
       }
 
       @media screen and (max-width: 560px) {
