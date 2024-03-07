@@ -1,6 +1,8 @@
 <script setup>
 
 defineEmits(['ModalbMember'])
+
+
 </script>
 <template>
     <div class="modal_mask" @click.self="$emit('ModalbMember')" >
