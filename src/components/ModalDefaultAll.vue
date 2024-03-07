@@ -1,8 +1,8 @@
 <script setup>
-defineEmits(['ModalMemberAll'])
+defineEmits(['ModalDefaultAll'])
 </script>
 <template>
-<div class="modal_mask" @click.self="$emit('ModalMemberAll')" >
+<div class="modal_mask" @click.self="$emit('ModalDefaultAll')" >
     <slot></slot>
     
     

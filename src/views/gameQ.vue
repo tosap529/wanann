@@ -122,10 +122,10 @@ const confirmAnswer = () => {
                 <div class="nav_user">
                     <a href="#" class="fai" @click.prevent="goLogin"> <font-awesome-icon  icon="user" />
                     </a>
-                    <a href="#" class="fai" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /></a>
+                    <a href="#" class="fai cart" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /><span>{{ cartStore.cartItems.length }}</span></a>
                 </div>
             </div>
-            <a href="#" class="fai cart_m" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /></a>
+            <a href="#" class="fai cart_m" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /><span>{{ cartStore.cartItems.length }}</span></a>
 
             <div class="hamburger" @click="hamburger">
                 <span class="bar"></span>
@@ -140,7 +140,11 @@ const confirmAnswer = () => {
     <section>
         <div class="gameQ_contect">
         <div class="gameQ_text">
+          <div class="cloud">
+          <img src="../img/game/gameR_name.svg" alt="gamename">
             <h2>{{ questions[currentIndex].question }}</h2>
+          </div>
+            
             
             <h4 v-for="(option, index) in questions[currentIndex].options" 
                 :key="index" 
