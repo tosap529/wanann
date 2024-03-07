@@ -8,7 +8,27 @@ const byeCreate = ref(false);
 // const LoginRWD = ref(true);
 // const CreateRWD = ref(false);
 
-let box = document.getElementById('changeLoginBox');
+
+const isRegister = ref(false) ;
+const isRNext_el = ()=>{
+    if(RegisterData.username!=''&&RegisterData.email!=''&&pwdNew.value==pwdConfirm.value){
+        isRegister.value=true;
+    }else{
+        isRegister.value=false;
+    }
+}
+const isLoginable =  ref(false);
+const isLNext_el = ()=>{
+    if(LoginData.username!=''&& LoginData.password!=''){
+        isLoginable.value=true;
+    }else{
+        isLoginable.value=false;
+    }
+}
+
+
+document.addEventListener('input',isLNext_el);
+
 const goCreate=(e)=>{
     // LoginRWD.value = !LoginRWD.value
     
@@ -28,6 +48,7 @@ const goCreate=(e)=>{
         e.target.previousElementSibling.previousElementSibling.innerText = "歡迎回來";
         e.target.previousElementSibling.innerText = "登入預約方便安心的服務吧！";
         document.removeEventListener('input',isLNext_el)
+        document.addEventListener('input',isRNext_el);
     }else{
         bgcImg.classList.remove("login_box_left");
         bgcImg.classList.add("login_box_right");
@@ -36,6 +57,7 @@ const goCreate=(e)=>{
         e.target.previousElementSibling.previousElementSibling.innerText = "還不是會員嗎？";
         e.target.previousElementSibling.innerText = "創建帳號預約方便安心的服務吧！";
         document.removeEventListener('input',isRNext_el)
+        document.addEventListener('input',isLNext_el);
     }
     
 }
@@ -144,24 +166,8 @@ const pwdValidation = (e)=>{
 
 }
 
-const isRegister = ref(false) ;
-const isRNext_el = ()=>{
-    if(RegisterData.username!=''&&RegisterData.email!=''&&pwdNew.value==pwdConfirm.value){
-        isRegister.value=true;
-    }else{
-        isRegister.value=false;
-    }
-}
-const isLoginable =  ref(false);
-const isLNext_el = ()=>{
-    if(LoginData.username!=''&& LoginData.password!=''){
-        isLoginable.value=true;
-    }else{
-        isLoginable.value=false;
-    }
-}
-document.addEventListener('input',isLNext_el);
-document.addEventListener('input',isRNext_el);
+
+
 onBeforeUnmount(()=>{
     document.removeEventListener('keyup',pwdValidation)
     document.removeEventListener('input',isRNext_el)
