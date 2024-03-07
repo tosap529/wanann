@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
 import MemberTab from "@/components/MemberTab.vue";
-import ModalMemberAll from '@/components/ModalMemberAll.vue'; 
+import ModalDefaultAll from '@/components/ModalDefaultAll.vue'; 
+const props = defineProps({mOrder:Array});
 
 let memberTabPage = ref('incomplete');
 function memberTabClick(event) {
@@ -27,6 +28,23 @@ const isMemberModalShow_c = ref(false);
 const goMember_c= ()=>{
     isMemberModalShow_c.value = !isMemberModalShow_c.value;
 };
+onMounted(()=>{
+    console.log(props.mOrder[1]);
+    for(let i=0;i<props.mOrder.length;i++){
+        if(props.mOrder[i].PAYMENT==1){
+            props.mOrder.PAYMENT = '已付款';
+        }else if(props.mOrder[i].PAYMENT==0){
+            props.mOrder.PAYMENT = '未付款';
+        }
+        // if(props.mOrder[i].ORDER_STATUS==1){
+        //     props.mOrder[i].ORDER_STATUS='已完成';
+        // }else if(props.mOrder[i].ORDER_STATUS==0){
+        //     props.mOrder[i].ORDER_STATUS='未完成';
+        // }
+        props.mOrder[i].ORDER_DATE = props.mOrder[i].ORDER_DATE.substring(0,10);
+    }
+ 
+})
 
 </script>
 <template>
@@ -34,7 +52,7 @@ const goMember_c= ()=>{
     <section class="member_main mOrder">
     <MemberTab  @memberTabClick = "memberTabClick" />
         <!-- 商城_未完成訂單分頁 -->
-        <ModalMemberAll v-show="isMemberModalShow_inc" @ModalMemberAll="goMember_inc" >
+        <ModalDefaultAll v-show="isMemberModalShow_inc" @ModalDefaultAll="goMember_inc" >
             <div class="modal_content member_all">
                 <section>
                     <h2>確定要取消商城訂單嗎？</h2>
@@ -48,19 +66,20 @@ const goMember_c= ()=>{
             </div>
 
             </div>
-        </ModalMemberAll>
-        <div class="mOrder_data" v-if="memberTabPage=='incomplete'">
+        </ModalDefaultAll>
+        <div v-for="order in mOrder" :key="order">
+        <div class="mOrder_data" v-if="memberTabPage=='incomplete'&& order.ORDER_STATUS==0"  >
             <div>
                 <h2>訂單編號</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.ID" disabled>
             </div>
             <div>
                 <h2>訂購日期</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.ORDER_DATE" disabled>
             </div>
             <div>
                 <h2>訂單狀態</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.PAYMENT" disabled>
             </div>
             <div>
                 <h2>訂單內容</h2>
@@ -95,9 +114,11 @@ const goMember_c= ()=>{
                     <h2>NTD700</h2>
                 </div>
             </div>
+        </div>    
         </div>
+        
         <!-- 商城_已完成訂單分頁 -->
-        <ModalMemberAll v-show="isMemberModalShow_c" @ModalMemberAll="goMember_c" >
+        <ModalDefaultAll v-show="isMemberModalShow_c" @ModalDefaultAll="goMember_c" >
             <div class="modal_content member_all">
                 <section>
                 <h2>確定要申請退貨嗎？</h2>
@@ -112,19 +133,20 @@ const goMember_c= ()=>{
             </div>
 
             </div>
-        </ModalMemberAll>
-        <div class="mOrder_data" v-if="memberTabPage=='complete'">
+        </ModalDefaultAll>
+        <div v-for="order in mOrder" :key="order">
+        <div class="mOrder_data" v-if="memberTabPage=='complete' && order.ORDER_STATUS==1">
             <div>
                 <h2>訂單編號</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.ID" disabled>
             </div>
             <div>
                 <h2>訂購日期</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.ORDER_DATE" disabled>
             </div>
             <div>
                 <h2>訂單狀態</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.PAYMENT" disabled>
             </div>
             <div>
                 <h2>訂單內容</h2>
@@ -158,7 +180,9 @@ const goMember_c= ()=>{
                     <h2>NTD700</h2>
                 </div>
             </div>
+        </div>    
         </div>
+        
     </section>
 </div>
 </template>

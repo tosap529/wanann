@@ -1,5 +1,6 @@
 <script setup>
 import { ref,onBeforeUnmount } from "vue";
+import ModalDefaultAll from '@/components/ModalDefaultAll.vue'; 
 defineEmits(['ModalLogin']);
 
 const byeLogin = ref(true);
@@ -26,6 +27,7 @@ const goCreate=(e)=>{
         e.target.innerText = "登入";
         e.target.previousElementSibling.previousElementSibling.innerText = "歡迎回來";
         e.target.previousElementSibling.innerText = "登入預約方便安心的服務吧！";
+        document.removeEventListener('input',isLNext_el)
     }else{
         bgcImg.classList.remove("login_box_left");
         bgcImg.classList.add("login_box_right");
@@ -33,6 +35,7 @@ const goCreate=(e)=>{
         e.target.innerText = "註冊";
         e.target.previousElementSibling.previousElementSibling.innerText = "還不是會員嗎？";
         e.target.previousElementSibling.innerText = "創建帳號預約方便安心的服務吧！";
+        document.removeEventListener('input',isRNext_el)
     }
     
 }
@@ -50,6 +53,10 @@ const eyeOnPWD=(e)=>{
             e.target.previousElementSibling.type='password';
         }
 }
+const isRegisterModalShow = ref(false);
+const successRegister= ()=>{
+    isRegisterModalShow.value = !isRegisterModalShow.value;
+};
 const RegisterData = {
     name:'',
     phone:'',
@@ -80,12 +87,20 @@ const submitForm = () => {
         // console.log('註冊成功 js');
         // console.log(response);
 
-        alert('註冊成功')
+        // alert('註冊成功')
+        successRegister();
     }).catch(error => {
         console.error('Error:', error);
     });
+    createAccount.value='';
+    pwdNew.value='';
+    pwdConfirm.value='';
+    createEmail.value=''
 };
-
+const isLoginModalShow = ref(false);
+const successLogin= ()=>{
+    isLoginModalShow.value = !isLoginModalShow.value;
+};
 const LoginData = {
     username:'',
     password:''
@@ -101,12 +116,19 @@ const loginSubmit = ()=>{
     })
     .then(response => response.text())
     .then(response => {
-        // console.log('註冊成功 js');
-        console.log(response);
-        alert('登入嘗試')
+        // console.log(response);
+        
+        // alert('登入嘗試')
+        if(response=='登入失敗'){
+            alert('帳密有誤');
+        }else{
+            successLogin();
+        }
     }).catch(error => {
         console.error('Error:', error);
     });
+    // usernameLogin.value='';
+    // pwdLogin.value='';
 }
 
 
@@ -122,23 +144,66 @@ const pwdValidation = (e)=>{
 
 }
 
-const isNext_el = (e)=>{
-    if(RegisterData.username&&RegisterData.email!=''&&pwdNew.value==pwdConfirm.value){
+const isRegister = ref(false) ;
+const isRNext_el = ()=>{
+    if(RegisterData.username!=''&&RegisterData.email!=''&&pwdNew.value==pwdConfirm.value){
         isRegister.value=true;
     }else{
         isRegister.value=false;
     }
 }
-const isRegister = ref(false)
-document.addEventListener('input',isNext_el);
+const isLoginable =  ref(false);
+const isLNext_el = ()=>{
+    if(LoginData.username!=''&& LoginData.password!=''){
+        isLoginable.value=true;
+    }else{
+        isLoginable.value=false;
+    }
+}
+document.addEventListener('input',isLNext_el);
+document.addEventListener('input',isRNext_el);
 onBeforeUnmount(()=>{
-    document.removeEventListener('keyup',isNext_el)
+    document.removeEventListener('keyup',pwdValidation)
+    document.removeEventListener('input',isRNext_el)
+    document.removeEventListener('input',isLNext_el)
 })
 
 
 </script>
 <template>
 <div class="modal_mask" @click.self="$emit('ModalLogin')" >
+    <ModalDefaultAll v-show="isLoginModalShow" @ModalDefaultAll="successLogin" >
+            <div class="modal_content member_all">
+                <section>
+                    <h2>登入成功！</h2><br>
+                <!-- <p>訂單一經取消即無法復原</p> -->
+                </section>
+                
+            <img class="cross_modal" @click="successLogin" src="@/img/about/about_lightbox_cross.svg" alt="">
+            <div>
+            <button class="btn" @click="successLogin">關閉</button> 
+            <router-link class="btn" :to="{ name: 'member' }">會員中心</router-link>
+            <!-- <button class="btn" @click="successLogin">會員中心</button>  -->
+            </div>
+
+            </div>
+        </ModalDefaultAll>
+        <ModalDefaultAll v-show="isRegisterModalShow" @ModalDefaultAll="successRegister" >
+            <div class="modal_content member_all">
+                <section>
+                    <h2>註冊成功！</h2>
+                <p>請重新登入</p>
+                </section>
+                
+            <img class="cross_modal" @click="successRegister" src="@/img/about/about_lightbox_cross.svg" alt="">
+            <div>
+            <button class="btn" @click="successRegister" style="margin-right: 0;">關閉</button> 
+            <!-- <router-link class="btn" :to="{ name: 'member' }">會員中心</router-link> -->
+            <!-- <button class="btn" @click="successLogin">會員中心</button>  -->
+            </div>
+
+            </div>
+        </ModalDefaultAll>
 <div class="tab">
         <ul>
             <li :class="{'tab_on':byeLogin}">
@@ -164,8 +229,8 @@ onBeforeUnmount(()=>{
             <label for="pwdLogin">密碼<br><input type="password" id="pwdLogin" v-model="LoginData.password"></label>
             <!-- <br> -->
             <router-link  :to="{ name: 'forget' }">忘記密碼？</router-link>
-            <router-link class="btn" :to="{ name: 'member' }">登入</router-link>
-            <a class="btn" @click.prevent="loginSubmit">登入</a>
+            <!-- <router-link class="btn" :to="{ name: 'member' }">登入</router-link> -->
+            <input type="submit" class="btn" value="登入" @click.prevent="loginSubmit" :class="{ disabled: !isLoginable }">
         </form>
         <div>
             <div class="horizontal_line"></div>
@@ -280,7 +345,7 @@ onBeforeUnmount(()=>{
                 font-weight: bold;
             }
         }
-        a.btn {
+        input.btn {
                 width: 150px;
                 height: 50px;
                 line-height: 30px;
@@ -391,6 +456,10 @@ onBeforeUnmount(()=>{
         }
     }
 
+}
+.modal_mask .modal_mask a.btn{
+    width: 120px;
+    height: 50px;
 }
 
 .login_box_left {
@@ -526,5 +595,6 @@ onBeforeUnmount(()=>{
         display: none;
     }
 }
+
 
 </style>
