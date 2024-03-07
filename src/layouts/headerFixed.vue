@@ -85,8 +85,9 @@ const route = useRoute();
                 <div class="nav_user">
                     <a href="#" class="fai" @click.prevent="goLogin"> <font-awesome-icon  icon="user" />
                     </a>
-                    <a href="#" class="fai" @click.prevent="toggleCart">
+                    <a href="#" class="fai cart" @click.prevent="toggleCart">
                         <font-awesome-icon icon="cart-shopping" />
+                        <span>{{ cartStore.cartItems.length }}</span>
                     </a>
                 </div>
             </div>
@@ -109,5 +110,12 @@ const route = useRoute();
 header nav .nav_right .nav_user{
     line-height: 35px;
     height: 35px;
+}
+div.nav_user{
+    .cart{
+        >span{
+            top: .3rem !important;
+        }
+    }
 }
 </style>
