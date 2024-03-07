@@ -275,6 +275,7 @@ input.needToFill {
 .sOrder_data {
     // display: flex;
     // flex-direction: column;
+    margin-bottom: 40px;
 
     >div:nth-child(4)>div {
         display: flex;
@@ -306,6 +307,7 @@ input.needToFill {
 
             h2:last-child {
                 text-align: right;
+                line-height: 1.6;
             }
         }
 
@@ -324,6 +326,7 @@ input.needToFill {
 .mOrder_data {
     // display: flex;
     // flex-direction: column;
+    margin-bottom: 40px;
 
 
     article {

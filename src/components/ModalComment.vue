@@ -1,6 +1,11 @@
 <script setup>
-// 這裡改事件名即可
-defineEmits(['ModalComment'])
+import { ref,onMounted } from "vue";
+defineEmits(['ModalComment']);
+const props = defineProps(['commentData']);
+onMounted(()=>{
+    console.log(props.commentData);
+})
+
 </script>
 <template>
     <div class="modal_mask" @click.self="$emit('ModalComment')" >
@@ -11,7 +16,7 @@ defineEmits(['ModalComment'])
         </div>
         <div>
             <h2>服務日期</h2>
-            <h2>2024/03/21</h2>
+            <h2>{{commentData.SERVICE_DATE}}</h2>
             <h2>下午</h2>
         </div>
         <section>
