@@ -1,5 +1,7 @@
 div.sPay1_wrapper{
     max-width: 100%;
+
+    padding: 0 20%;
 }
 
 div.sPay1_circle {
@@ -16,7 +18,6 @@ div.sPay1_time{
     display: flex;
     align-items: center;
     max-width: 100%;
-    padding-left: 49px;
     margin-bottom: 20px;
 
     > h2{
@@ -50,6 +51,7 @@ div.sPay1_item {
     border-bottom: 3px dashed $grey;
     padding-bottom: 20px;
     margin-bottom: 24px;
+
     div.sPay1_item_img{
         width: 120px;
         height: 120px;
@@ -75,8 +77,8 @@ div.sPay1_item {
         align-items: center;
 
         >h2{
-            width: 120px;
-            margin-right: 40px;
+            min-width: 120px;
+            margin-right: 20px;
         }
 
         div.sPay1_item_descript{
@@ -89,7 +91,6 @@ div.sPay1_item {
             justify-content: space-evenly;
 
             border-left: 3px solid $dark-grey;
-
         }
 
         div.sPay1_item_descript_price{
@@ -113,9 +114,7 @@ div.sPay1_item {
                 }
             }   
         }
-
     }
-    
 }
 
 div.sPay1_des{
@@ -195,9 +194,7 @@ div.sPay1_des{
         display: flex;
         align-items: start;
         justify-content: space-between;
-
     }
-
 }
 
 div.sPay1_total {
@@ -218,16 +215,59 @@ div.sPay1_total {
 }
 
 
-// RWD
-@media(max-width:431px) {
+@media(max-width:1400px){
+    div.sPay1_des{
+        padding: 0;
+    }
+}
+
+@media(max-width:1250px){
     div.sPay1_wrapper{
-        width: 400px;
+        max-width: 100%;
+        padding: 0 10%;
+    }
+}
+
+@media(max-width:950px){
+    div.sPay1_wrapper{
+        padding: 0 5%;
+    }
+}
+
+@media(max-width:850px){
+    div.sPay1_des{
+        flex-direction: column;
+        margin: 0 auto;
+        margin-bottom: 25px;
+        border-bottom: 2px solid $dark-grey;
+
+        >div.sPay1_des_step{
+            h3{
+                font-size: $h4;
+            }
+            >div.sPay1_coupon_number{
+                margin-bottom: 20px;
+
+                >h3{
+                    margin-right: 20px;
+                }
+                >input.sPay1_coupon_input{
+                    width: 120px;
+                }
+            }
+        }
+        >div.sPay1_coupon_discount{
+            margin-left: auto;
+        }
     }
 
-    div.sPay1_title{
-        padding-left: 10px;
+    div.sPay1_total{
+        margin-bottom: 30px;
+        padding-right: 0;
     }
+}
 
+@media(max-width:600px) {
     div.sPay1_circle{
         width: 340px;
 
@@ -243,19 +283,16 @@ div.sPay1_total {
     div.sPay1_items{
         width: 380px;
         margin: 0 auto;
-
         div.sPay1_item{
             justify-content: space-between;
             div.sPay1_item_descript{
                 display: none;
             }
-
             div.sPay1_item_img{
                 width: 120px;
                 height: 120px;
                 margin-right: 10px;
             }
-
             div.sPay1_item_layout{
                 width: 60%;
                 flex-direction: column;
@@ -270,7 +307,6 @@ div.sPay1_total {
                     }
                 }
             }
-
         }
     }
 
@@ -280,44 +316,43 @@ div.sPay1_total {
         margin: 0 auto;
         margin-bottom: 25px;
         border-bottom: 2px solid $dark-grey;
-
         >div.sPay1_des_step{
             h3{
                 font-size: $h4;
             }
             >div.sPay1_coupon_number{
                 width: 380px;
-                margin-bottom: 20px;
                 flex-wrap: wrap;
-                >h3{
-                    margin-right: 20px;
-                }
+
                 >input.sPay1_coupon_input{
                     width: 120px;
-                    margin-right: auto;
                 }
                 >p{
                     margin-left: 40%;
                     margin-top: 10px;
                 }
             }
-
         }
+    }   
+}
 
-        >div.sPay1_coupon_discount{
-            margin-left: auto;
-        }
+@media(max-width:430px) {
+    div.sPay1_wrapper{
+        padding: 0 3%;
     }
+    div.sPay1_items{
+        width: 300px;
+    }
+    div.sPay1_des{
+        width: 320px;
+        >div.sPay1_des_step{
+            >div.sPay1_coupon_number{
+                >input.sPay1_coupon_input{
+                    margin-right: auto;
+                }
 
-    div.sPay1_total{
-        margin-bottom: 30px;
-        padding-right: 8%;
-        >h2{
-            font-size: $h3;
-        }
-        >h1{
-            font-size: $h2;
-            margin-left: 61px;
+            }
+
         }
     }
 }

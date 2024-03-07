@@ -1,10 +1,10 @@
 <script setup>
     // 設置header及footer
-    import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
-    import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
-    import BannerUrl  from '@/img/pay/pay_banner.jpg'; // 更改成banner路徑
-    import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
-    const banner_url = BannerUrl; // banner路徑令變數(請照抄)
+    import DefaultHeader from '@/layouts/header.vue';
+    import DefaultFooter from '@/layouts/footer.vue';
+    import BannerUrl  from '@/img/pay/pay_banner.jpg';
+    import wrapper from '@/layouts/wrapper.vue';
+    const banner_url = BannerUrl;
 </script>
 
 
@@ -43,7 +43,7 @@
                     <!-- <button class="btn mPay3_btn">查看訂單</button> -->
                     <!-- <button class="btn mPay3_btn">回首頁</button> -->
                     <router-link class="btn mPay3_btn" :to="{ name: 'member' }">查看訂單</router-link>
-                    <router-link class="btn mPay3_btn" :to="{ name: 'index' }">回首頁</router-link>
+                    <router-link class="btn mPay3_btn" :to="{ name: 'home' }">回首頁</router-link>
                     
                 </div>
 

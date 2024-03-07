@@ -17,6 +17,12 @@ export const useCartStore = defineStore('cart', {
 
     // 商品新增處
     cartItems: getSavedCartItems(),
+
+    productsForMitem : [],
+
+    couponDiscount : 0,
+    totalPrice : 0,
+
   }),
 
   actions: {
@@ -60,6 +66,15 @@ export const useCartStore = defineStore('cart', {
     // localStorage
     updateLocalStorage(cartItems) {
       localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    },
+
+    setProductsForMitem(products) {
+      this.productsForMitem = products;
+    },
+
+
+    updateTotalPrice(newTotalPrice) {
+      this.totalPrice = newTotalPrice;
     },
   }
 });

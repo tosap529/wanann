@@ -299,6 +299,9 @@
         height: 100px;
         min-height: 100%;
 
+        width: 60px;
+        font-size: 12px;
+
         > .cart_item_remove_btn{
             display: block;
             font-size: 20px;
