@@ -1,26 +1,37 @@
 <script setup>
-import { ref,onMounted,defineProps,onBeforeUpdate } from "vue";
+import { ref,onMounted,defineProps,onBeforeUpdate,computed } from "vue";
 defineEmits(['getProfileURL']);
 
 const props = defineProps({userData:Object});
 
-const newTaipei = ref(['區','三峽區','三重區','中和區','五股區','板橋區','新店區','永和區','汐止區','新莊區','淡水區','深坑區','蘆洲區','林口區','泰山區','土城區'])
-const taipei = ref(['區','中正區','大同區','中山區','松山區','大安區','萬華區','信義區','士林區','北投區','內湖區','南港區','文山區'])
-const taoyuan = ref(['區','桃園區','八德區','龜山區'])
+const newTaipei = ref(['區','三峽區','三重區','中和區','五股區','板橋區','新店區','永和區','汐止區','新莊區','淡水區','深坑區','蘆洲區','林口區','泰山區','土城區']);
+const taipei = ref(['區','中正區','大同區','中山區','松山區','大安區','萬華區','信義區','士林區','北投區','內湖區','南港區','文山區']);
+const taoyuan = ref(['區','桃園區','八德區','龜山區']);
+
 
 let county = ref('');
+// const selectCounty = ()=>{
+// county.value = countySelector.value;
+// }
+
+// computed(()=>{
+//     county = props.userData.COUNTY;
+//     return county;
+// })
+
 
 onMounted(()=>{
     profile.value.addEventListener('change',fileChange );
-    console.log(countySelector.value);
+    // console.log(countySelector.value);
 
 })
 onBeforeUpdate(()=>{
-    console.log(props.userData.ID);
-    console.log(props.userData.MEMBER_PIC);
+    // console.log(props.userData.ID);
+    // console.log(props.userData.MEMBER_PIC);
     // console.log(document.querySelector('#countySelector'))
     document.querySelector('.member_sidebar div:first-child img').src = props.userData.MEMBER_PIC;
     document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${props.userData.MEMBER_PIC}" >`;
+
 
     // if(props.member.COUNTY == '新北市'){
     //     county.value = 'newTaipei';
@@ -55,11 +66,11 @@ function infoEdit(e){
         input.classList.add('needToFill');
     }
 }
-
+const fakeDist = ref(null);
 const infoEdit_sa=(e)=>{
     let dropdown = e.target.closest('.sAddress').querySelector('div select')
     let input = e.target.closest('.sAddress').querySelector('input')
-
+    fakeDist.value.remove();
     dropdown.disabled = false;
     input.disabled = false;
     if(input.disabled==false){
@@ -201,13 +212,18 @@ const fileUpload=()=>{
         <div class="sAddress">
             <h2>服務地址</h2>
           <div>
-            <select name="county" id="countySelector" v-model="county" >
+
+            <select name="county" id="countySelector" v-model="county" disabled>
                 <option value="" selected disabled hidden>{{userData.COUNTY}}</option>
                 <option value="newTaipei">新北市</option>
                 <option value="taipei">台北市</option>
                 <option value="taoyuan">桃園市</option>
             </select>
+            <select ref="fakeDist" disabled>
+                <option value="">{{userData.DISTRICT}}</option>
+            </select>
             <select name="dNewTaipei" id="" v-if="county=='newTaipei'">
+                <!-- <option value="" selected disabled hidden>{{userData.DISTRICT}}</option> -->
                 <option :value="dist" v-for="dist in newTaipei" :key="dist">{{ dist }}</option>
                 <!-- <option value="">區</option>
                 <option value="">三峽區</option>

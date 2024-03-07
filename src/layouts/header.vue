@@ -8,7 +8,7 @@ import robot from '@/layouts/robot.vue';
 import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
 
-import { computed, ref, onMounted, onBeforeUnmount } from "vue";
+import { computed, ref, onMounted, onBeforeUnmount,onBeforeMount } from "vue";
 import { useRoute } from 'vue-router';
 const props = defineProps(['headerTitleZh','headerTitleEng','bgi']);
 const bgi_css = computed(() => {
@@ -41,9 +41,19 @@ const handleScroll = () => {
     isHeaderFixed.value = false;
   }
 };
+//會員驗證
 
+const memberProfilePic = ref(null);
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
+  console.log(sessionStorage.getItem('member_pic'))
+  if(sessionStorage.getItem('member_ID')){
+    memberProfilePic.value.innerHTML = `<img src="${sessionStorage.getItem('member_pic')}" >`;
+  }else{
+    console.log('1111');
+  }
+  
+
 });
 
 onBeforeUnmount(() => {
@@ -124,7 +134,7 @@ const toggleCart = function() {
                     </li>
                 </ul>
                 <div class="nav_user">
-                    <a href="#" class="fai" @click.prevent="goLogin"> <font-awesome-icon  icon="user" />
+                    <a href="#" class="fai" @click.prevent="goLogin" ref="memberProfilePic"> <font-awesome-icon  icon="user" />
                     </a> 
                     <a href="#" class="fai cart" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /><span>{{ cartStore.cartItems.length }}</span></a>
                 </div>

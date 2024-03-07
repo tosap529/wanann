@@ -120,12 +120,26 @@ const submitForm = () => {
     createEmail.value=''
 };
 const isLoginModalShow = ref(false);
-const successLogin= ()=>{
+const successLogin= (SessionData)=>{
     isLoginModalShow.value = !isLoginModalShow.value;
+    if(SessionData.id){
+        sessionStorage.setItem("member_ID", SessionData.id);
+    sessionStorage.setItem("member_pic", SessionData.picPath);
+        console.log(SessionData);
+    }else{
+        console.log('hi')
+    }
+    console.log(SessionData)
+ 
+
 };
 const LoginData = {
     username:'',
     password:''
+}
+const SessionData = {
+    id:'',
+    picPath:''
 }
 const loginSubmit = ()=>{
     const url = 'http://localhost/thd104/g1/public/php/login_select.php';
@@ -144,7 +158,12 @@ const loginSubmit = ()=>{
         if(response=='登入失敗'){
             alert('帳密有誤');
         }else{
-            successLogin();
+            // console.log(response)
+            let msg = response.split(',');
+            SessionData.id = msg[0];
+            SessionData.picPath = msg[1];
+            successLogin(SessionData);
+            console.log(SessionData);
         }
     }).catch(error => {
         console.error('Error:', error);

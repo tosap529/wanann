@@ -35,14 +35,20 @@ function sidebarClick(e){
         }
     e.target.closest('li').classList.add('member_sidebar_active');
 }
-onMounted(()=>{
-    
 
-(function() {
+onMounted(()=>{
     // const url = 'php/member_select.php';
     const url = 'http://localhost/thd104/g1/public/php/member_select.php';
+    // console.log(sessionStorage.getItem('member_ID'));
    
-    fetch(url)
+    fetch(url, {
+        method: 'POST',
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        body: JSON.stringify({id:sessionStorage.getItem('member_ID')})
+        
+    })
         .then(response => response.json())
         .then(response => {
             // console.log('註冊成功 js');
@@ -52,24 +58,11 @@ onMounted(()=>{
         mOrder.value = response.mOrder; 
         // console.log(userData.value);
         // console.log(sOrder.value);
-        // console.log(mOrder.value);
+        console.log(mOrder.value);
             })
             .catch(error => {
                 console.error('Error:', error);
             });
-})()
-
-    // const url = 'http://localhost/thd104/g1/public/php/serviceOrder_select.php';
-    // fetch(url)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         // console.log('註冊成功 js');
-    //         console.log(response);
-    //     sOrder.value = response[0];
-    //         })
-    //         .catch(error => {
-    //             console.error('Error:', error);
-    //         });
 
 })
 

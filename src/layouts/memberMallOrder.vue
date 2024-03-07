@@ -29,8 +29,8 @@ const goMember_c= ()=>{
     isMemberModalShow_c.value = !isMemberModalShow_c.value;
 };
 onMounted(()=>{
-    console.log(props.mOrder[1]);
     for(let i=0;i<props.mOrder.length;i++){
+        console.log(props.mOrder[i].PRODUCT_ID);
         if(props.mOrder[i].PAYMENT==1){
             props.mOrder.PAYMENT = '已付款';
         }else if(props.mOrder[i].PAYMENT==0){
@@ -150,7 +150,7 @@ onMounted(()=>{
             </div>
             <div>
                 <h2>訂單內容</h2>
-                <article>
+                <article >
                     <img src="@/img/member/member_mOrder_product1.jpg" alt="">
                     <section>
                     <div>

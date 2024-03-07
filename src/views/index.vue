@@ -31,6 +31,7 @@ const first = ()=>{
     isFirstShow.value = !isFirstShow.value;
 };
 
+
 //滑動頁首變化
 const isHeaderFixed = ref(false);
 const handleScroll = () => {
@@ -64,7 +65,15 @@ const toggleContent = (index) => {
 };
 
 //-----------------------------------------------------------
+//會員驗證
+
+const memberProfilePic = ref(null);
 onMounted(() => {
+  if(sessionStorage.getItem('member_ID')){
+    memberProfilePic.value.innerHTML = `<img src="${sessionStorage.getItem('member_pic')}" >`;
+  }else{
+    console.log('1111');
+  } 
   window.addEventListener('scroll', handleScroll);
 });
 
@@ -116,7 +125,7 @@ const toggleCart = function() {
                     <li><router-link :to="{ name: 'contact' }">聯絡我們</router-link></li>
                 </ul>
                 <div class="nav_user">
-                    <a href="#" class="fai" @click.prevent="goLogin"> <font-awesome-icon  icon="user" />
+                    <a href="#" class="fai" @click.prevent="goLogin" ref="memberProfilePic"> <font-awesome-icon  icon="user" />
                     </a>
                     <a href="#" class="fai cart" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /><span>{{ cartStore.cartItems.length }}</span></a>
                 </div>
