@@ -86,6 +86,29 @@ const submitForm = () => {
     });
 };
 
+const LoginData = {
+    username:'',
+    password:''
+}
+const loginSubmit = ()=>{
+    const url = 'http://localhost/thd104/g1/public/php/login_select.php';
+    fetch(url, {
+        method: 'POST',
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        body: JSON.stringify(LoginData)
+    })
+    .then(response => response.text())
+    .then(response => {
+        // console.log('註冊成功 js');
+        console.log(response);
+        alert('登入嘗試')
+    }).catch(error => {
+        console.error('Error:', error);
+    });
+}
+
 
 const pwdValidation = (e)=>{
     console.log(pwdNew.value);
@@ -136,12 +159,13 @@ onBeforeUnmount(()=>{
             <h1>登入</h1>
         </div>
         <form class="login_form">
-            <label for="usernameLogin">帳號<br><input type="text" id="usernameLogin"></label>
+            <label for="usernameLogin">帳號<br><input type="text" id="usernameLogin"  v-model="LoginData.username"></label>
             <!-- <br> -->
-            <label for="pwdLogin">密碼<br><input type="password" id="pwdLogin"></label>
+            <label for="pwdLogin">密碼<br><input type="password" id="pwdLogin" v-model="LoginData.password"></label>
             <!-- <br> -->
             <router-link  :to="{ name: 'forget' }">忘記密碼？</router-link>
             <router-link class="btn" :to="{ name: 'member' }">登入</router-link>
+            <a class="btn" @click.prevent="loginSubmit">登入</a>
         </form>
         <div>
             <div class="horizontal_line"></div>

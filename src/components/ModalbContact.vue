@@ -58,38 +58,6 @@ defineEmits(['ModalbContact'])
 <style lang="scss" scoped>
 @import '@/sass/main.scss';
 
-// 燈箱客製化style從這往下寫
-// 後台燈箱共通
-.backModal{
-    box-sizing: border-box;
-    background-color: $light-milktea;
-    margin: 80px auto 0;
-    border-radius: 10px;
-    h2.bItem{
-        background-color: $white;
-        padding: 10px 15px;
-        border-radius: 10px;
-        width: 250px;
-        text-align-last: left;
-        margin-bottom: 20px;
-    }
-.bModalHeader{
-    padding: 10px 0 10px 25px;
-    text-align-last: left;
-    border-radius: 10px 10px 0 0;
-    color: $white;
-    background-color: $brown;
-}
-.bModalContent{
-    padding:25px;
-    div:last-child .btn{
-        width: 120px;
-        height: 40px;
-        line-height: 20px;
-        margin: 0 20px;
-    }
-}
-}
 .bContact{
     width: 1000px;
     // height: 660px;
@@ -121,8 +89,8 @@ defineEmits(['ModalbContact'])
             }
             button{
                 align-self: center;
-                width: 100px;
-                height: 40px;
+                // width: 100px;
+                // height: 40px;
             }
         }
         article:last-child{
@@ -136,11 +104,6 @@ defineEmits(['ModalbContact'])
                  text-align: left;
             }
         }
-        }
-        >div:last-child{
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
         }
     }
 }

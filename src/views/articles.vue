@@ -8,7 +8,7 @@
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
     
-    import { ref } from "vue";
+    import { ref, onMounted } from "vue";
   
     const activeContent = ref('content1');
     const isVisible1 = ref(true);
@@ -21,35 +21,139 @@
             isVisible1.value = true;
             isVisible2.value = false;
             isVisible3.value = false;
-
-
             
         }else if(activeContent.value === 'content2'){
             isVisible2.value = true;
             isVisible1.value = false;
             isVisible3.value = false;
 
-
         }else if(activeContent.value === 'content3'){
             isVisible3.value = true;
             isVisible1.value = false;
             isVisible2.value = false;
+
         }
     }
     
+
+    const wanannItems = ref([]);
+    // const lectureItems = ref([]);
+    // const discountItems = ref([]);
+    // const lectureItems = ref([]);
+    // const discountItems = ref([]);
+    // const lectureItems = ref([]);
+
+    onMounted(() => {
+
+    const url_articlesWanann = 'http://localhost/thd104/public/php/articlesWanann_select.php';
+
+    
+    fetch(url_articlesWanann)
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+        wanannItems.value = response;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+    // const url_lecture = 'http://localhost/thd104/public/php/actLecture_select.php';
+
+    
+    // fetch(url_lecture)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         // console.log('註冊成功 js');
+    //     lectureItems.value = response;
+    //     })
+    //     .catch(error => {
+    //         console.error('Error:', error);
+    //     });
+
+    // const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
+
+    
+    // fetch(url_discount)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         // console.log('註冊成功 js');
+    //     discountItems.value = response;
+    //     })
+    //     .catch(error => {
+    //         console.error('Error:', error);
+    //     });
+    
+    // const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
+
+    
+    // fetch(url_discount)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         // console.log('註冊成功 js');
+    //     discountItems.value = response;
+    //     })
+    //     .catch(error => {
+    //         console.error('Error:', error);
+    //     });
+
+
+    // const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
+
+    
+    // fetch(url_discount)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         // console.log('註冊成功 js');
+    //     discountItems.value = response;
+    //     })
+    //     .catch(error => {
+    //         console.error('Error:', error);
+    //     });
+
+    // const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
+
+    
+    // fetch(url_discount)
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         // console.log('註冊成功 js');
+    //     discountItems.value = response;
+    //     })
+    //     .catch(error => {
+    //         console.error('Error:', error);
+    //     });
+
+});
 
 
 </script>
 
 
 <template>
+
     <div>
         <DefaultHeader header-title-zh="專欄文章" header-title-eng="Articles" :bgi="banner_url" /> 
         <wrapper class="articles"> 
         <div id="wannan_top"  v-show="isVisible1">
-        <section class="articles_top">
+        <section class="articles_top" v-for="item in wanannItems" :key="item.ID">
            
             <article class="left">
+                <div class="title title_phone">
+                    <h1>最新文章</h1>
+                </div>
+
+                <h2>{{ item.TITLE }}</h2>
+                <h3>{{ item.CREATE_TIME }}</h3>
+                <h4>{{ item.CONTENT }}</h4>
+                <a href="">Read More</a>
+
+            </article>
+
+            <img :src="item.PIC" alt="">
+            
+            <!-- <article class="left">
                 <div class="title title_phone">
                     <h1>最新文章</h1>
                 </div>
@@ -64,11 +168,11 @@
 
             </article>
 
-            <img src="../img/articles/articles_1.jpg" alt="">
+            <img src="../img/articles/articles_1.jpg" alt=""> -->
             
         </section>
         </div>
-        <div id="know_top" v-show="isVisible2">
+        <!-- <div id="know_top" v-show="isVisible2">
         <section class="articles_top">
 
             <article class="left">
@@ -93,8 +197,8 @@
             <img src="../img/articles/articles_5.jpg" alt="">
 
         </section>
-        </div>
-        <div id="interview_top" v-show="isVisible3">
+        </div> -->
+        <!-- <div id="interview_top" v-show="isVisible3">
         <section class="articles_top">
 
             <article class="left">
@@ -118,7 +222,7 @@
             <img src="../img/articles/articles_9.jpg" alt="">
 
         </section>
-        </div>
+        </div> -->
 
         <section class="articles_buttom">
 
