@@ -140,7 +140,11 @@ const confirmAnswer = () => {
     <section>
         <div class="gameQ_contect">
         <div class="gameQ_text">
+          <div class="cloud">
+          <img src="../img/game/gameR_name.svg" alt="gamename">
             <h2>{{ questions[currentIndex].question }}</h2>
+          </div>
+            
             
             <h4 v-for="(option, index) in questions[currentIndex].options" 
                 :key="index" 

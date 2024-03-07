@@ -12,7 +12,7 @@ footer {
             position: relative;
         }
 
-        @include index_r(){
+        @include index_r() {
             flex-direction: column;
             position: relative;
         }
@@ -48,8 +48,8 @@ footer {
                 margin-left: 20%;
             }
 
-            @include index_r(){
-                margin-left: 60px;
+            @include index_r() {
+                margin-left: 30px;
             }
         }
 
@@ -67,8 +67,8 @@ footer {
                 margin-left: 20%;
             }
 
-            @include index_r(){
-                margin-left: 60px;
+            @include index_r() {
+                margin-left: 30px;
             }
 
             .btn {
@@ -92,9 +92,9 @@ footer {
                     left: 20%;
                 }
 
-                @include index_r(){
+                @include index_r() {
                     font-size: $p;
-                    left: 60px;
+                    left: 30px;
                     padding: 8px;
                     width: 100px;
                 }
@@ -122,7 +122,7 @@ footer {
 
                 @include footer_r() {
                     width: 70px;
-                    margin-left: 36px;
+                    margin-left: 10px;
                 }
             }
         }
@@ -141,8 +141,8 @@ footer {
                 margin-left: 20%;
             }
 
-            @include index_r(){
-                margin-left: 60px;
+            @include index_r() {
+                margin-left: 30px;
 
             }
         }
@@ -163,7 +163,7 @@ footer {
                 right: 20%;
             }
 
-            @include index_r(){
+            @include index_r() {
                 right: 5%;
                 top: 24px;
             }
@@ -171,7 +171,7 @@ footer {
             a {
                 padding: 8px;
 
-                @include index_r(){
+                @include index_r() {
                     padding: 0;
                     padding-right: 20px;
                 }
@@ -200,7 +200,7 @@ footer {
             margin-top: 32px;
         }
 
-        @include index_r(){
+        @include index_r() {
             margin-top: 32px;
         }
 
@@ -213,16 +213,17 @@ footer {
                 font-size: 10px;
             }
 
-            @include index_r(){
+            @include index_r() {
                 font-size: 10px;
             }
 
-            a {
-                color: $black;
+        }
 
-                &:hover {
-                    color: $brown;
-                }
+        .privacy {
+            color: $black;
+
+            &:hover {
+                color: $brown;
             }
         }
     }

@@ -18,7 +18,7 @@
             </li>
             <li class="footer_logo">
                 <!-- <a href="#"><img src="@/img/logo_square.svg" alt="logo"></a> -->
-                <router-link :to="{ name: 'index' }">
+                <router-link :to="{ name: 'home' }">
                     <img src="@/img/logo_square.svg" alt="logo"></router-link>
             </li>
             <li class="footer_contact">
@@ -34,7 +34,7 @@
         </ul>
 
         <div class="footer_rights_reserved">
-            <p><a href="#" class="privacy">隱私權政策</a></p>
+            <router-link :to="{ name: 'privacyPolicy' }"><p class="privacy">隱私權政策</p></router-link>
             <p>Copyright © 2024 浣安 – THD104-G1 All Rights Reserved</p>
             <p>本網站為緯育TibaMe【第89期】前端工程師專業技術養成班學員作品,僅供學習、展示之用途。</p>
         </div>

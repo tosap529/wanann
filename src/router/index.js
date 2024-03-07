@@ -188,6 +188,13 @@ const router = createRouter({
       meta: { title: '浣安 | 後台' },
       component: () => import('@/views/backLogin.vue')
     },
+    {
+      path: '/privacyPolicy',
+      name: 'privacyPolicy',
+      meta: { title: '浣安 | 隱私權政策' },
+      component: () => import('@/layouts/privacyPolicy.vue')
+    },
+
 
   ]
 })
