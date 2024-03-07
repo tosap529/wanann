@@ -91,7 +91,7 @@ const getBackNow= (e)=>{
                     
                  
                     </section> 
-                    <div class="cms_pagination">
+                    <!-- <div class="cms_pagination">
                         <a href="#" class="pagination-link">首頁</a>
                         <span class="pagination-separator">&lt;</span>
                         <a href="#" class="pagination-number">1</a>
@@ -101,7 +101,7 @@ const getBackNow= (e)=>{
                         <a href="#" class="pagination-number">5</a>
                         <span class="pagination-separator">&gt;</span>
                         <a href="#" class="pagination-link">尾頁</a>
-                    </div>               
+                    </div>                -->
                 </div>
             </div>
         </div>

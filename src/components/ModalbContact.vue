@@ -1,46 +1,78 @@
 <script setup>
 
-defineEmits(['ModalbContact'])
+
+
+    import { ref, onMounted } from 'vue';
+
+    defineEmits(['ModalbContact'])
+
+
+    const contactData = ref([]);
+    const 
+
+    onMounted(() => {
+        
+    const url_contact = 'http://localhost/thd104/public/php/contact_select.php';
+    
+    fetch(url_contact)
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+        contactData.value = response;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+                           
+    });
+
 </script>
 <template>
+    <div>
+        
     <div class="modal_mask" @click.self="$emit('ModalbContact')" >
-    <div class="modal_content bContact backModal">
+        <div  v-for="item in contactData" :key="item.ID">
+    <div class="modal_content bContact backModal" >
+        
         <section class="bModalHeader">
             <h1>聯絡表單－編輯與查看</h1>
         </section>
+
+     
         <section class="bModalContent">
             <div>
-                <h2 class="bItem">表單ID：</h2>
-                <h2></h2>
+                <h2 class="bItem">表單ID： {{ item.ID }}</h2>
+                <h2>表單資料</h2>
             </div>
             <div>
                 <h2>表單資料</h2>
                 <article>
                     <div>
                         <h2>姓名/單位：</h2>
-                        <h2>緯育</h2>
+                        <h2><input type="text" :placeholder= "item.NAME" disabled></h2>
                     </div>
                     <div>
                         <h2>聯絡電話：</h2>
-                        <h2>0912345678</h2>
+                        <h2><input type="text" :placeholder= "item.PHONE"></h2>
                     </div>
                     <div>
                         <h2>電子信箱：</h2>
-                        <h2>newfiu@gmail.com</h2>
+                        <h2><input type="text" :placeholder= "item.EMAIL"></h2>
                     </div>
                     <div>
                         <h2>建立日期：</h2>
-                        <h2>2024/03/06 01:30:29</h2>
+                        <h2><input type="text" :placeholder= "item.CREATE_TIME"></h2>
                     </div>
                     <div>
                         <h2>處理狀態：</h2>
-                        <button>未回覆</button>
+                        <button><input type="text" :placeholder= "item.STATUS"></button>
                     </div>
                 </article>
                 <article>
                     <div>
                         <h2>內容描述：</h2>
-                        <h2>我是內容我是內容我是內容我是內容我是內容我是內容我是內容我是內容</h2>
+                        <br>
+                        <input type="textarea" :placeholder="item.CONTENT">
                     </div>
                 </article>
                 
@@ -49,9 +81,14 @@ defineEmits(['ModalbContact'])
                 <button class="btn" @click="$emit('ModalbContact')">關閉</button>
                 <button class="btn" @click="$emit('ModalbContact')">儲存</button>
             </div>
+            
         </section>
+
+    </div>
     </div>
 </div>
+</div>
+
 </template>
 
 <!-- scoped切勿拿掉 -->
