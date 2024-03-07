@@ -16,13 +16,16 @@ $statement->execute();
 $data = $statement->fetchAll();
 if($data != null){
     $member_ID =  $data[0]['ID'];
-    session_start();
+    $member_pic =  $data[0]['MEMBER_PIC'];
+    // session_start();
     // $_SESSION["isLogin"] = $reqBody["username"];
-    $_SESSION["isLogin"] = $member_ID;
+    // $_SESSION["isLogin"] = $member_ID;
     // echo '登入成功';
-    echo  $_SESSION["isLogin"];
+    echo $member_ID;
+    echo ',';
+    echo $member_pic;
     // print_r($data[0]['ID']);
-    echo var_dump(is_writeable(ini_get("D:\xampp\tmp")));
+    // echo var_dump(is_writeable(ini_get("D:\xampp\tmp")));
 }else{
     echo '登入失敗';
 

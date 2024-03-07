@@ -8,7 +8,9 @@ import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
 const banner_url = BannerUrl; 
 const sidebar = ref(null);
-const member = ref([]);
+const userData = ref([]);
+const sOrder = ref([]);
+const mOrder = ref([]);
 
 let memberSubPage = ref('userData');
 
@@ -33,20 +35,35 @@ function sidebarClick(e){
         }
     e.target.closest('li').classList.add('member_sidebar_active');
 }
+
 onMounted(()=>{
     // const url = 'php/member_select.php';
     const url = 'http://localhost/thd104/g1/public/php/member_select.php';
+    // console.log(sessionStorage.getItem('member_ID'));
    
-    fetch(url)
+    fetch(url, {
+        method: 'POST',
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        body: JSON.stringify({id:sessionStorage.getItem('member_ID')})
+        
+    })
         .then(response => response.json())
         .then(response => {
             // console.log('註冊成功 js');
-            // console.log(response);
-        member.value = response[0];
+           
+        userData.value = response.userData;
+        sOrder.value = response.sOrder; 
+        mOrder.value = response.mOrder; 
+        // console.log(userData.value);
+        // console.log(sOrder.value);
+        console.log(mOrder.value);
             })
             .catch(error => {
                 console.error('Error:', error);
             });
+
 })
 
 // console.log(member)
@@ -74,11 +91,11 @@ onMounted(()=>{
             </ul>
         </section>
         <!-- 個人資料分頁(預設) -->
-        <MemberUserData v-if="memberSubPage ==='userData' && member" :member="member" />
+        <MemberUserData v-if="memberSubPage ==='userData' && userData" :userData="userData" />
         <!-- 服務訂單分頁 -->
-        <MemberServiceOrder v-if="memberSubPage ==='sOrder'" />
+        <MemberServiceOrder v-if="memberSubPage ==='sOrder'&&sOrder" :sOrder="sOrder" />
         <!-- 商城訂單分頁 -->
-        <MemberMallOrder v-if="memberSubPage ==='mOrder'" />
+        <MemberMallOrder v-if="memberSubPage ==='mOrder'&&mOrder" :mOrder="mOrder" />
     </div>
     <DefaultFooter />
 </div>

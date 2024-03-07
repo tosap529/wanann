@@ -1,8 +1,10 @@
 <script setup>
-import { ref } from "vue";
+import { ref,onMounted } from "vue";
 import MemberTab from "@/components/MemberTab.vue";
 import ModalComment from '@/components/ModalComment.vue'; 
-import ModalMemberAll from '@/components/ModalMemberAll.vue'; 
+import ModalDefaultAll from '@/components/ModalDefaultAll.vue'; 
+
+const props = defineProps({sOrder:Array});
 
 let memberTabPage = ref('incomplete');
 function memberTabClick(event) {
@@ -28,14 +30,43 @@ const isCommentModalShow = ref(false);
 const goComment = ()=>{
     isCommentModalShow.value = !isCommentModalShow.value;
 };
+onMounted(()=>{
+    let sOrderData = [{
+        id:'',
+        date:'',
+        payment:'',
+        product:[
+            {id:'',
+            num:'',
+            pic:'',
+            name:'',
+            price:''},
+        ]
+    }]
+    for(let i=0;i<props.sOrder.length;i++){
+        if(props.sOrder[i].PAYMENT==1){
+            props.sOrder.PAYMENT = '已付款';
+        }else if(props.sOrder[i].PAYMENT==0){
+            props.sOrder.PAYMENT = '未付款';
+        }
+        // if(props.sOrder[i].ORDER_STATUS==1){
+        //     props.sOrder[i].ORDER_STATUS='已完成';
+        // }else if(props.sOrder[i].ORDER_STATUS==0){
+        //     props.sOrder[i].ORDER_STATUS='未完成';
+        // }
+        props.sOrder[i].ORDER_DATE = props.sOrder[i].ORDER_DATE.substring(0,10);
+    }
+ 
+})
+
+
 </script>
 <template>
 <div>
-    <ModalComment @ModalComment="goComment" v-show="isCommentModalShow" />
     <section class="member_main sOrder" >
         <MemberTab  @memberTabClick = "memberTabClick" />
         <!-- 服務_未完成訂單分頁 -->
-        <ModalMemberAll v-show="isMemberModalShow" @ModalMemberAll="goMember" >
+        <ModalDefaultAll v-show="isMemberModalShow" @ModalDefaultAll="goMember" >
             <div class="modal_content member_all">
                 <section>
                     <h2>確定要取消服務訂單嗎？</h2>
@@ -50,26 +81,27 @@ const goComment = ()=>{
             </div>
 
             </div>
-        </ModalMemberAll>
-        <div class="sOrder_data" v-if="memberTabPage=='incomplete'">
+        </ModalDefaultAll>
+        <div v-for="order in sOrder" :key="order">
+         <div class="sOrder_data" v-if="memberTabPage=='incomplete'&&order.ORDER_STATUS==0">
             <div>
                 <h2>訂單編號</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.ID" disabled>
             </div>
             <div>
                 <h2>訂購日期</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.ORDER_DATE" disabled>
             </div>
             <div>
                 <h2>訂單狀態</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.PAYMENT" disabled>
             </div>
             <div>
                 <h2>訂單內容</h2>
                 <div>
                     <h2>服務日期</h2>
-                    <h2>2024/03/21</h2>
-                    <h2>下午</h2>
+                    <h2>{{order.SERVICE_DATE}}</h2>
+                    <h2>{{order.TIME_RANGE_NAME}}</h2>
                 </div>
                 <article>
                     <img src="@/img/member/member_sOrder_product1.png" alt="">
@@ -101,27 +133,31 @@ const goComment = ()=>{
                     <h2>NTD4,400</h2>
                 </div>
             </div>
+        </div>   
         </div>
+        
         <!-- 服務_已完成訂單分頁 -->
-        <div class="sOrder_data" v-if="memberTabPage=='complete'" >
+        <div v-for="order in sOrder" :key="order">
+        <ModalComment @ModalComment="goComment" v-show="isCommentModalShow" :commentData="order" />
+          <div class="sOrder_data" v-if="memberTabPage=='complete'&&order.ORDER_STATUS==1" >
             <div>
                 <h2>訂單編號</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.ID" disabled>
             </div>
             <div>
                 <h2>訂購日期</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.ORDER_DATE" disabled>
             </div>
             <div>
                 <h2>訂單狀態</h2>
-                <input type="text" disabled>
+                <input type="text" :value="order.PAYMENT" disabled>
             </div>
             <div>
                 <h2>訂單內容</h2>
                 <div>
                     <h2>服務日期</h2>
-                    <h2>2024/03/21</h2>
-                    <h2>下午</h2>
+                    <h2>{{order.SERVICE_DATE}}</h2>
+                    <h2>{{order.TIME_RANGE_NAME}}</h2>
                 </div>
                 <article>
                     <img src="@/img/member/member_sOrder_product1.png" alt="">
@@ -153,6 +189,8 @@ const goComment = ()=>{
                 </div>
             </div>
         </div>
+        </div>
+        
     </section>
 </div>
 </template>

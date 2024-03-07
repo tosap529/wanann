@@ -196,28 +196,30 @@ header {
                 }
 
                 // 購物車小圈圈
-                .cart{
+                .cart {
                     position: relative;
-                    span{
+                    align-self: center;
+
+                    span {
                         width: 10px;
                         height: 10px;
                         border-radius: 50%;
                         background-color: $warning;
-    
+
                         color: $white;
                         font-size: 10px;
-    
+
                         display: flex;
                         justify-content: center;
                         align-items: center;
-    
+
                         position: absolute;
                         right: 0.5rem;
                         top: -0.3rem;
                     }
                 }
 
-                
+
 
             }
         }
@@ -227,7 +229,8 @@ header {
 
             // 購物車小圈圈
             position: relative;
-            span{
+
+            span {
                 width: 10px;
                 height: 10px;
                 border-radius: 50%;
