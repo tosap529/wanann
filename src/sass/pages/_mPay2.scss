@@ -2,6 +2,13 @@ div.mPay2_wrapper{
     max-width: 100%;
 
     padding: 0 20%;
+
+    // 欄位未填的提示
+    span{
+        color: $warning;
+        font-size: 10px;
+        margin-left: 16px;
+    }
 }
 
 
@@ -13,13 +20,6 @@ div.mPay2_circle{
 
 div.mPay2_title{
     margin-bottom: 30px;
-}
-
-// 欄位未填的提示
-span{
-    color: $warning;
-    font-size: 10px;
-    margin-left: 16px;
 }
 
 
