@@ -1,5 +1,7 @@
 section.mPay1{
     padding: 0 15px;
+
+    min-height: 850px;
 }
 
 div.mPay1_circle {
@@ -143,7 +145,7 @@ div.mPay1_des {
         }
 
         >p.mPay1_coupon_success {
-            color: $brown;
+            color: green;
         }
 
         // 兌換失敗的樣式
@@ -385,7 +387,8 @@ div.mPay1_total {
                     margin-right: auto;
                 }
 
-                >p.mPay1_coupon_success {
+                >p.mPay1_coupon_success,
+                >p.mPay1_coupon_fail {
                     margin-left: 20% ;
                     margin-top: 10px;
                 }

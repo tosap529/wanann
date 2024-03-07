@@ -198,14 +198,55 @@ header {
                     }
                 }
 
-                .route_now {
-                    color: $dark-milktea;
+                // 購物車小圈圈
+                .cart{
+                    position: relative;
+                    span{
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 50%;
+                        background-color: $warning;
+    
+                        color: $white;
+                        font-size: 10px;
+    
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+    
+                        position: absolute;
+                        right: 0.5rem;
+                        top: -0.3rem;
+                    }
                 }
+
+                
+
             }
         }
 
         .cart_m {
             display: none;
+
+            // 購物車小圈圈
+            position: relative;
+            span{
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background-color: $warning;
+
+                color: $white;
+                font-size: 10px;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                position: absolute;
+                right: -0.1rem;
+                top: 0rem;
+            }
 
             @include header_r() {
                 display: block;
