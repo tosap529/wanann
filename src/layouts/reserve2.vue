@@ -9,7 +9,7 @@ import {ref} from 'vue';
         notAllRoom.value = true;
         console.log(notAllRoom.value);
     };
-    const additionals = ['窗簾清潔','布件除蟎','冷氣機清理','冰箱清理','洗衣機清理','陽台清潔','簡易消毒'];
+    const additionals = ['窗飾清潔','布件除螨','冷氣機清理','冰箱清理','洗衣機清理','陽台清潔','簡易消毒'];
     const specials = [
         {name:'空屋',
         disabled:false,
