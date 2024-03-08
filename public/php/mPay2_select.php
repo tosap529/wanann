@@ -8,7 +8,16 @@ include("connect.php");
 $pdo = getPDO();
 
 
-$statement = $pdo->prepare("select * from PRODUCT");
+$statement = $pdo->prepare("
+    select 
+        ID,
+        COUNTY,
+        DISTRICT,
+        SEND_ADDRESS,
+        SERVICE_ADDRESS
+    from 
+        MEMBER
+");
 
 
 $statement ->execute();
@@ -20,4 +29,3 @@ $act = $statement->fetchAll();
 echo json_encode($act);
 
 ?>
-

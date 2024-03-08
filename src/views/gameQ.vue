@@ -3,7 +3,7 @@
 import gameFooter from '@/layouts/footer.vue'
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 import ModalLogin from '@/components/ModalLogin.vue'; 
-import { ref } from 'vue';
+import { ref,onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 
 // 購物車
@@ -24,7 +24,15 @@ const cartStore = useCartStore();
 const toggleCart = function() {
   cartStore.toggleCart();
 };
-
+//會員驗證
+const memberProfilePic = ref(null);
+onMounted(() => {
+  if(sessionStorage.getItem('member_ID')){
+    memberProfilePic.value.innerHTML = `<img src="${sessionStorage.getItem('member_pic')}" >`;
+  }else{
+    console.log('1111');
+  }
+});
 
 
 
@@ -120,7 +128,7 @@ const confirmAnswer = () => {
                     <li><router-link :to="{ name: 'contact' }">聯絡我們</router-link></li>
                 </ul>
                 <div class="nav_user">
-                    <a href="#" class="fai" @click.prevent="goLogin"> <font-awesome-icon  icon="user" />
+                    <a href="#" class="fai" @click.prevent="goLogin" ref="memberProfilePic"> <font-awesome-icon  icon="user" />
                     </a>
                     <a href="#" class="fai cart" @click.prevent="toggleCart"><font-awesome-icon icon="cart-shopping" /><span>{{ cartStore.cartItems.length }}</span></a>
                 </div>

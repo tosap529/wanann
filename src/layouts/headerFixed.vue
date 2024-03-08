@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed, ref,onMounted } from "vue";
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 import ModalLogin from '@/components/ModalLogin.vue'; 
 const props = defineProps(['headerTitleZh','headerTitleEng','bgi','isBgi']);
@@ -28,6 +28,15 @@ const goLogin = ()=>{
 };
 // 取得當前頁面路徑
 const route = useRoute();
+//會員驗證
+const memberProfilePic = ref(null);
+onMounted(() => {
+  if(sessionStorage.getItem('member_ID')){
+    memberProfilePic.value.innerHTML = `<img src="${sessionStorage.getItem('member_pic')}" >`;
+  }else{
+    console.log('1111');
+  }
+});
 </script>
 
 <template>
@@ -83,7 +92,7 @@ const route = useRoute();
                     </li>
                 </ul>
                 <div class="nav_user">
-                    <a href="#" class="fai" @click.prevent="goLogin"> <font-awesome-icon  icon="user" />
+                    <a href="#" class="fai" @click.prevent="goLogin" ref="memberProfilePic"> <font-awesome-icon  icon="user" />
                     </a>
                     <a href="#" class="fai cart" @click.prevent="toggleCart">
                         <font-awesome-icon icon="cart-shopping" />
