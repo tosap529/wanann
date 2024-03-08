@@ -2,31 +2,72 @@
 import { ref,onMounted,defineProps,onBeforeUpdate,computed } from "vue";
 defineEmits(['getProfileURL']);
 
-const props = defineProps({userData:Object});
+//const props = defineProps({userData:Object});
+const props = defineProps(["userData"]);
+// console.log("props");
+// console.log(props);
 
 const newTaipei = ref(['區','三峽區','三重區','中和區','五股區','板橋區','新店區','永和區','汐止區','新莊區','淡水區','深坑區','蘆洲區','林口區','泰山區','土城區']);
 const taipei = ref(['區','中正區','大同區','中山區','松山區','大安區','萬華區','信義區','士林區','北投區','內湖區','南港區','文山區']);
 const taoyuan = ref(['區','桃園區','八德區','龜山區']);
 
 
-let county = ref('');
+// let county = ref('');
 // const selectCounty = ()=>{
 // county.value = countySelector.value;
 // }
+let UserData = {}
 
-// computed(()=>{
-//     county = props.userData.COUNTY;
-//     return county;
-// })
+const userDataEdit = ()=>{
+    UserData= {
+        id:sessionStorage.getItem('member_ID'),
+        name : props.userData.NAME,
+        phone: props.userData.PHONE,
+        email: props.userData.EMAIL,
+        county: props.userData.COUNTY,
+        district: props.userData.DISTRICT,
+        send_address:props.userData.SEND_ADDRESS,
+        service_address:props.userData.SERVICE_ADDRESS,
+        password: props.userData.PASSWORD,
+    }
+    console.log(UserData);
+//     async () => {
+//     const url = 'http://localhost/thd104/g1/public/php/member_update.php';
+//     const res = await fetch(url, { method: 'POST', body: JSON.stringify(UserData) });
+//     const data = await res.json();
+//     console.log(data);
+// }
+    // const url = 'php/register_insert.php';
+    const url = 'http://localhost/thd104/g1/public/php/member_update.php';
+    fetch(url, {
+            method: 'POST',
+            // headers: {
+            //     'Content-Type': 'application/json'
+            // },
+            body: JSON.stringify(UserData)
+        })
+        .then(response => response.text())
+        .then(response => {
+            // console.log('註冊成功 js');
+            // console.log(response);
+
+            // alert('更新成功');
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+}
+
 
 
 onMounted(()=>{
     profile.value.addEventListener('change',fileChange );
     // console.log(countySelector.value);
-
+    // console.log("mounted");
+    // console.log(props.userData);
+    
 })
 onBeforeUpdate(()=>{
-    // console.log(props.userData.ID);
+    console.log(props.userData);
     // console.log(props.userData.MEMBER_PIC);
     // console.log(document.querySelector('#countySelector'))
     document.querySelector('.member_sidebar div:first-child img').src = props.userData.MEMBER_PIC;
@@ -66,18 +107,28 @@ function infoEdit(e){
         input.classList.add('needToFill');
     }
 }
-const fakeDist = ref(null);
 const infoEdit_sa=(e)=>{
     let dropdown = e.target.closest('.sAddress').querySelector('div select')
+    let dropdown_sub = e.target.closest('.sAddress').querySelector('div select:nth-child(2)')
     let input = e.target.closest('.sAddress').querySelector('input')
-    fakeDist.value.remove();
+    dropdown.addEventListener('click',function(){
+        dropdown_sub = document.querySelector('.sAddress div select:nth-child(2)');
+        if(dropdown_sub){
+            console.log(dropdown_sub);
+            dropdown_sub.disabled = false;
+        }
+       
+    })
     dropdown.disabled = false;
+    if(dropdown_sub){
+        dropdown_sub.disabled=false;
+    }
     input.disabled = false;
     if(input.disabled==false){
     input.classList.add('needToFill');
-    if(e.target.closest('.sAddress').querySelectorAll('div select')[1]){
-        e.target.closest('.sAddress').querySelectorAll('div select')[1].disabled = false;
-    }
+    // if(e.target.closest('.sAddress').querySelectorAll('div select')[1]){
+    //     e.target.closest('.sAddress').querySelectorAll('div select')[1].disabled = false;
+    // }
 }
 }
 function infoSave(e){
@@ -89,7 +140,7 @@ if (input.disabled==false){
     }
     input.disabled=true;  
     input.classList.remove('needToFill');
-
+    userDataEdit();
 }else{
     alert("請輸入！")
     input.classList.add('alert_input');
@@ -113,6 +164,8 @@ const infoSave_sa=(e)=>{
             dropdown_sub.disabled=true; 
             input.disabled=true; 
             input.classList.remove('needToFill');
+            userDataEdit();
+
         }else{
             alert("請輸入完整地址！")
         input.classList.add('alert_input');
@@ -153,17 +206,33 @@ const fileUpload=()=>{
             body: formdata
         })
         .then(response => {
+            editSuccessMsg()
             console.log(response);})
 }
 
-
-
-
+const editSuccessMsg=(e)=>{
+    let editSuccessMsg = document.getElementById('editSuccessMsg') 
+    // editSuccessMsg.style.top=`${e.target.closest('div').offsetTop}px`;
+    // editSuccessMsg.style.left=`${60+e.target.closest('div').offsetLeft}px`;
+    // editSuccessMsg.style.top=`${80}px`;
+    // editSuccessMsg.style.left=`${document.offsetLeft}px`;
+    editSuccessMsg.style.opacity='.8';
+    setTimeout(()=>{
+        editSuccessMsg.style.opacity='0';
+    },700)
+    setTimeout(()=>{
+        // editSuccessMsg.style.top = '0px';
+        // editSuccessMsg.style.left = '0px';
+    },1000)
+    // e.target
+    // (e.offsetX + e.target.offsetLeft, e.offsetY + e.target.offsetTop)
+}
 
 
 </script>
 <template>
 <div>
+    
     <section class="member_main userData" >
         <div  method="post"  enctype="multipart/form-data" >
             <!-- <img src="@/img/member/member_icon_profile.png" alt="" ref="profile_pic">  -->
@@ -174,56 +243,51 @@ const fileUpload=()=>{
                 <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="fileUpload" />
         </div>
         <div>
-            <h2>帳號</h2>
+            <h2 @click="editSuccessMsg">帳號</h2>
             <input type="text" :value="userData.ID"  disabled>
         </div>
         <div>
             <h2>修改密碼</h2>
-            <input type="password" :value="userData.PASSWORD" disabled>
+            <input type="password" v-model="userData.PASSWORD" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="infoSave" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }"/>
             </div>
         </div>
         <div>
             <h2>姓名</h2>
-            <input type="text" :value="userData.NAME" disabled>
+            <input type="text"  v-model="userData.NAME" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="infoSave" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }" />
             </div>
         </div>
         <div>
             <h2>手機號碼</h2>
-            <input type="tel" :value="userData.PHONE" disabled maxlength="10">
+            <input type="tel"  v-model="userData.PHONE" disabled maxlength="10">
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="infoSave" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }" />
             </div>
         </div>
         <div>
             <h2>電子信箱</h2>
-            <input type="email" :value="userData.EMAIL" disabled>
+            <input type="email"  v-model="userData.EMAIL" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="infoSave" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }" />
             </div>
         </div>
         <div class="sAddress">
             <h2>服務地址</h2>
           <div>
 
-            <select name="county" id="countySelector" v-model="county" disabled>
-                <option value="" selected disabled hidden>{{userData.COUNTY}}</option>
-                <option value="newTaipei">新北市</option>
-                <option value="taipei">台北市</option>
-                <option value="taoyuan">桃園市</option>
+            <select name="county" id="countySelector" v-model="userData.COUNTY" disabled>
+                <option value="新北市">新北市</option>
+                <option value="台北市">台北市</option>
+                <option value="桃園市">桃園市</option>
             </select>
-            <select ref="fakeDist" disabled>
-                <option value="">{{userData.DISTRICT}}</option>
-            </select>
-            <select name="dNewTaipei" id="" v-if="county=='newTaipei'">
-                <!-- <option value="" selected disabled hidden>{{userData.DISTRICT}}</option> -->
+            <select name="dNewTaipei" id="" v-if="userData.COUNTY=='新北市'" v-model="userData.DISTRICT" disabled>
                 <option :value="dist" v-for="dist in newTaipei" :key="dist">{{ dist }}</option>
                 <!-- <option value="">區</option>
                 <option value="">三峽區</option>
@@ -243,7 +307,7 @@ const fileUpload=()=>{
                 <option value="">土城區</option> -->
 
             </select>
-            <select name="dTaipei" id="" v-if="county=='taipei'" >
+            <select name="dTaipei" id="" v-if="userData.COUNTY=='台北市'" v-model="userData.DISTRICT" disabled>
                 <option :value="dist" v-for="dist in taipei" :key="dist">{{ dist }}</option>
                 <!-- <option value="">區</option>
                 <option value="">中正區</option>
@@ -260,7 +324,8 @@ const fileUpload=()=>{
                 <option value="">文山區</option> -->
 
             </select>
-            <select name="dTaoyuan" id="" v-if="county=='taoyuan'" >
+            <select name="dTaoyuan" id="" v-if="userData.COUNTY=='桃園市'" v-model="userData.DISTRICT" disabled>
+                <!-- <option value="" selected disabled hidden>{{userData.DISTRICT}}</option> -->
                 <option :value="dist" v-for="dist in taoyuan" :key="dist">{{ dist }}</option>
                 <!-- <option value="">區</option>
                 <option value="">桃園區</option>
@@ -268,19 +333,22 @@ const fileUpload=()=>{
                 <option value="">龜山區</option> -->
             </select>
           </div>
-            <input type="text" :value="userData.SERVICE_ADDRESS" disabled>
+            <input type="text" v-model="userData.SERVICE_ADDRESS" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit_sa" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="infoSave_sa" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave_sa(e); editSuccessMsg(e); }" />
             </div>
         </div>
         <div class="mAddress">
             <h2>收件地址</h2>
-            <input type="text" :value="userData.SEND_ADDRESS" disabled>
+            <input type="text" v-model="userData.SEND_ADDRESS" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="infoSave" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }" />
             </div>
+        </div>
+        <div id="editSuccessMsg">
+            <h3>更新資料成功！</h3>
         </div>
     </section>
 </div>

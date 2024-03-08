@@ -6,7 +6,7 @@ import robot from '@/layouts/robot.vue';
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 import ModalLogin from '@/components/ModalLogin.vue'; 
 import ModalIndexFirst from '@/components/ModalIndexFirst.vue'; 
-
+import { useRouter } from 'vue-router';
 // 購物車
 import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
@@ -19,10 +19,15 @@ const hamburger = ()=>{
     isHamburgerModalShow.value = !isHamburgerModalShow.value;
 };
 
+const router = useRouter();
 //會員登入燈箱
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
-    isLoginModalShow.value = !isLoginModalShow.value;
+    if(sessionStorage.getItem('member_ID')){
+        router.push({path:"/member"});
+    }else{
+        isLoginModalShow.value = !isLoginModalShow.value;
+    }
 };
 
 //初次使用燈箱

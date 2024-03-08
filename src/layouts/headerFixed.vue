@@ -3,7 +3,7 @@ import { computed, ref,onMounted } from "vue";
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 import ModalLogin from '@/components/ModalLogin.vue'; 
 const props = defineProps(['headerTitleZh','headerTitleEng','bgi','isBgi']);
-import { useRoute } from 'vue-router';
+import { useRoute,useRouter } from 'vue-router';
 // 購物車
 import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
@@ -24,10 +24,15 @@ const hamburger = ()=>{
 };
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
-    isLoginModalShow.value = !isLoginModalShow.value;
+    if(sessionStorage.getItem('member_ID')){
+        router.push({path:"/member"});
+    }else{
+        isLoginModalShow.value = !isLoginModalShow.value;
+    }
 };
 // 取得當前頁面路徑
 const route = useRoute();
+const router = useRouter();
 //會員驗證
 const memberProfilePic = ref(null);
 onMounted(() => {
