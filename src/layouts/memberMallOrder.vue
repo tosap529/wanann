@@ -29,6 +29,7 @@ const goMember_c= ()=>{
     isMemberModalShow_c.value = !isMemberModalShow_c.value;
 };
 onMounted(()=>{
+    console.log(props.mOrder);
     for(let i=0;i<props.mOrder.length;i++){
         console.log(props.mOrder[i].PRODUCT_ID);
         if(props.mOrder[i].PAYMENT==1){

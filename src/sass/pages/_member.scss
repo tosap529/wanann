@@ -4,6 +4,35 @@
     width: 100vw;
 }
 
+// 更新成功小框
+#editSuccessMsg {
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    line-height: 40px;
+    height: 60px;
+    color: $black;
+    background-color: $light-milktea;
+    opacity: 0;
+    position: absolute;
+    z-index: 10;
+    top: -20%;
+    left: 20%;
+    // right: auto;
+    transition: opacity .5s;
+
+    h3 {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width:900px) {
+    #editSuccessMsg {
+        font-size: $p;
+    }
+
+}
+
 // -----------------萬年不動側邊欄------------------
 .member_sidebar {
     flex-basis: 250px;
@@ -75,6 +104,7 @@
 // 個人資料分頁(預設)
 section.userData {
     margin-left: 60px;
+    width: 800px;
 }
 
 input.needToFill {
@@ -82,6 +112,7 @@ input.needToFill {
 }
 
 .userData {
+    position: relative;
 
     svg {
         font-size: 25px;

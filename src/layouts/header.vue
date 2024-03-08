@@ -9,7 +9,7 @@ import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
 
 import { computed, ref, onMounted, onBeforeUnmount,onBeforeMount } from "vue";
-import { useRoute } from 'vue-router';
+import { useRoute,useRouter } from 'vue-router';
 const props = defineProps(['headerTitleZh','headerTitleEng','bgi']);
 const bgi_css = computed(() => {
       return {
@@ -27,7 +27,11 @@ const hamburger = ()=>{
 //會員
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
-    isLoginModalShow.value = !isLoginModalShow.value;
+    if(sessionStorage.getItem('member_ID')){
+        router.push({path:"/member"});
+    }else{
+        isLoginModalShow.value = !isLoginModalShow.value;
+    }
 };
 
 //主選單列
@@ -70,6 +74,7 @@ onBeforeUnmount(() => {
 // document.addEventListener("scroll", aa);
 // 取得當前頁面路徑
 const route = useRoute();
+const router = useRouter();
 // console.log(route.name);
 
 
