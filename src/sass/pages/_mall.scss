@@ -99,6 +99,7 @@ ul.mall_products {
             font-size: $h2;
             margin: 0 0 15px 10px;
             height: 40px;
+            line-height: 1.6;
         }
 
         >p {
@@ -274,6 +275,18 @@ div.mall_paginator {
     div.mall_tab{
         ul.nav_products{
             padding-top: 0;
+        }
+    }
+    ul.mall_products{
+        >li{
+            >h1{
+                font-size: $h4;
+            }
+
+            >input.mall_add_to_cart{
+                font-size: $h4;
+            }
+
         }
     }
 }

@@ -84,7 +84,7 @@
 
                 <div class="mPay2_total">
                     <h2>總金額</h2>
-                    <h1 @click="showItems">NTD {{ cartStore.totalPrice }}</h1>
+                    <h1>NTD {{ cartStore.totalPrice }}</h1>
                 </div>
 
                 <div class="mPay2_info">
@@ -260,8 +260,6 @@
     import { useCartStore } from '@/stores/cartStore.js';
     const cartStore = useCartStore();
 
-
-
     // 驗證欄位有無輸入
     const form = reactive({
         recipientName: '',
@@ -363,10 +361,10 @@
     // API取得會員地址
 
     // 本機
-    // const url = 'http://localhost/thd104/g1/public/php/mPay2_select.php';
+    const url = 'http://localhost/thd104/g1/public/php/mPay2_select.php';
 
     // 上伺服器
-    const url = 'php/mPay2_select.php';
+    // const url = 'php/mPay2_select.php';
         
     fetch(url)
         .then(response => response.json())
@@ -422,53 +420,7 @@
     });
 
 
-    // 送出訂單資料到後端
-
-    // const submitProductsOrder = function(){
-
-    //     const productsOrder = {
-    //         ADDRESSEE_NAME : form.recipientName,
-    //         ADDRESSEE_PHONE : form.recipientPhone,
-    //         ADDRESSEE_ADDRESS : address.value,
-    //         MEMBER_ID : memberId.value,
-    //         ACTIVITY_ID : cartStore.couponActId
-    //     }
-
-    //     // 本機
-    //     const url = 'http://localhost/thd104/g1/public/php/mPay2_insert.php';
-
-    //     // 上伺服器
-    //     // const url = 'php/mPay2_insert.php';
-
-    //     fetch(url, {
-    //         method: 'POST',
-    //         // headers: {
-    //         //     'Content-Type': 'application/json'
-    //         // },
-    //         body: JSON.stringify(productsOrder)
-    //     })
-    //     .then(response => response.text())
-    //     .then(response => {
-    //         console.log(response);
-    //         alert('訂單成立')
-
-    //         // getOrderId()
-    //         // console.log(orderId.value);
-
-    //         // 清空購物車
-    //         // cartStore.cartItems = [];
-    //         // localStorage.clear();
-
-    //         // 跳轉頁面
-    //         // router.push({ name: 'mPay3' });
-    //     }).catch(error => {
-    //         console.error('Error:', error);
-    //     });
-
-
-    // }
-
-
+    // 送出訂單資訊到後端 PRODUCT_ORDER
     const submitProductsOrder = function(){
 
         const productsOrder = {
@@ -476,14 +428,14 @@
             ADDRESSEE_PHONE: form.recipientPhone,
             ADDRESSEE_ADDRESS: address.value,
             MEMBER_ID: memberId.value,
-            ACTIVITY_ID: cartStore.couponActId
+            ACTIVITY_ID: cartStore.couponActId || 1
         };
 
         // 本機
-        // const url = 'http://localhost/thd104/g1/public/php/mPay2_insert.php';
+        const url = 'http://localhost/thd104/g1/public/php/mPay2_insert.php';
 
         // 上伺服器
-        const url = 'php/mPay2_insert.php';
+        // const url = 'php/mPay2_insert.php';
 
 
         fetch(url, {
@@ -495,8 +447,10 @@
         })
         .then(response => response.text())
         .then(orderId => {
+            orderId = orderId.trim();
             console.log('Order ID:', orderId);
 
+            orderDetail(orderId)
 
         })
         .catch(error => {
@@ -505,51 +459,50 @@
     };
 
 
-    const orderId = ref('')
 
-    // const orderItemDetail = ref()
 
     const orderDetail = function(orderId){
 
-        const orderItemDetail = [
-            {
-                PRODUCT_ID : cartStore.cartItems[0].ID,
-                QUANTITY : cartStore.cartItems[0].quantity,
-                PRODUCT_ORDER_ID : orderId
-            },
-        ]
+        const orderItemDetail = cartStore.cartItems.map(item => ({
+            PRODUCT_ID: item.ID,
+            QUANTITY: item.quantity,
+            PRODUCT_ORDER_ID: orderId
+        }));
+
+        console.log(orderItemDetail);
 
 
         // // 本機
-        // const url = 'http://localhost/thd104/g1/public/php/mPay2_select_orderid.php';
+        const url = 'http://localhost/thd104/g1/public/php/mPay2_insert_orderDetail.php';
 
         // // 上伺服器
         // // const url = 'php/mPay2_insert.php';
 
-        // fetch(url, {
-        //     method: 'POST',
-        //     // headers: {
-        //     //     'Content-Type': 'application/json'
-        //     // },
-        //     body: JSON.stringify(productsOrder)
-        // })
-        // .then(response => response.text())
-        // .then(response => {
-        //     console.log(response);
-        //     alert('訂單成立')
+        fetch(url, {
+            method: 'POST',
+            // headers: {
+            //     'Content-Type': 'application/json'
+            // },
+            // body: JSON.stringify(orderItemDetail)
+            body: JSON.stringify({ orderItemDetail: orderItemDetail })
+        })
+        .then(response => response.text())
+        .then(response => {
+            console.log(response);
+            alert('訂單成立')
 
-        //     // getOrderId()
-        //     // console.log(orderId.value);
+            // getOrderId()
+            console.log(orderId);
 
-        //     // 清空購物車
-        //     // cartStore.cartItems = [];
-        //     // localStorage.clear();
+            // 清空購物車
+            cartStore.cartItems = [];
+            localStorage.clear();
 
-        //     // 跳轉頁面
-        //     // router.push({ name: 'mPay3' });
-        // }).catch(error => {
-        //     console.error('Error:', error);
-        // });
+            // 跳轉頁面
+            router.push({ name: 'mPay3' });
+        }).catch(error => {
+            console.error('Error:', error);
+        });
 
     }
 
