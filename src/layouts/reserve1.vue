@@ -50,8 +50,8 @@ const reserveDropdown = (e)=>{
         </div>
     </section>
     <section>
-        <button class="dropdown btn" @click="reserveDropdown" :class="{dropdown_on:dropdownNow=='廚房特攻清潔'}">廚房特攻清潔</button>
-         <div class="dropdown_container" :class="{fold:dropdownNow!='廚房特攻清潔'}">            
+        <button class="dropdown btn" @click="reserveDropdown" :class="{dropdown_on:dropdownNow=='廚房徹底清潔'}">廚房徹底清潔</button>
+         <div class="dropdown_container" :class="{fold:dropdownNow!='廚房徹底清潔'}">            
            <section>
                <p>廚房專業清潔</p>
                <p>加強油汙處理</p>
@@ -62,8 +62,8 @@ const reserveDropdown = (e)=>{
        </div>
     </section>
        <section>
-        <button class="dropdown btn" @click="reserveDropdown" :class="{dropdown_on:dropdownNow=='浴室徹底清潔'}">浴室徹底清潔</button>     
-        <div class="dropdown_container" :class="{fold:dropdownNow!='浴室徹底清潔'}">            
+        <button class="dropdown btn" @click="reserveDropdown" :class="{dropdown_on:dropdownNow=='浴室特攻清潔'}">浴室特攻清潔</button>     
+        <div class="dropdown_container" :class="{fold:dropdownNow!='浴室特攻清潔'}">            
             <section>
                 <p>浴室專業清潔</p>
                 <p>加強水垢處理</p>

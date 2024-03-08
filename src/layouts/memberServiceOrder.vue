@@ -31,18 +31,7 @@ const goComment = ()=>{
     isCommentModalShow.value = !isCommentModalShow.value;
 };
 onMounted(()=>{
-    let sOrderData = [{
-        id:'',
-        date:'',
-        payment:'',
-        product:[
-            {id:'',
-            num:'',
-            pic:'',
-            name:'',
-            price:''},
-        ]
-    }]
+   
     for(let i=0;i<props.sOrder.length;i++){
         if(props.sOrder[i].PAYMENT==1){
             props.sOrder.PAYMENT = '已付款';
