@@ -1,6 +1,6 @@
 <script setup>
 import bTable from '@/layouts/bTable.vue'
-import{ref} from 'vue';
+import{ ref, computed } from 'vue';
 const back_sidebar = [{
                         title:'會員管理',
                         subtitle: ['會員註冊資料']},
@@ -21,6 +21,39 @@ const getBackNow= (e)=>{
     console.log(e.target.innerText);
     back_now.value = e.target.innerText;
 }
+
+defineEmits(['ModalbContact']);
+
+const searchBar = ref('');
+const member = ref([]);
+
+
+const url = 'http://localhost/thd104/public/php/Backstage/member_select.php';
+        
+        fetch(url)
+            .then(response => response.json())
+            .then(response => {
+    
+                member.value = response;
+                // cartStore.setProductsForMitem(response);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+
+
+const filteredMembers = computed(() => {
+    if(!searchBar.value.trim()){
+        return member.value;
+    } else {
+        return member.value.filter(member => {
+            return member.NAME.includes(searchBar.value.trim());
+        });
+    }
+});
+
+
+
 </script>
 <template>
     <div>
@@ -78,7 +111,7 @@ const getBackNow= (e)=>{
                             </ul>
                         </div> -->
                         <div class="cms_search-container" v-if="back_now=='會員註冊資料'">
-                            <input type="text" class="cms_search-input" placeholder="帳號/姓名/手機號碼">
+                            <input type="text" v-model.lazy.trim="searchBar" class="cms_search-input" placeholder="帳號/姓名/手機號碼">
                         </div>
                         <div class="cms_logo">
                             <img src="@/img/cms/cms_logo.svg" alt="">

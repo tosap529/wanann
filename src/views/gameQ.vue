@@ -17,7 +17,11 @@ const hamburger = ()=>{
 };
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
-    isLoginModalShow.value = !isLoginModalShow.value;
+  if(sessionStorage.getItem('member_ID')){
+        router.push({path:"/member"});
+    }else{
+        isLoginModalShow.value = !isLoginModalShow.value;
+    }
 };
 // 購物車
 const cartStore = useCartStore();

@@ -35,7 +35,27 @@ where MEMBER_ID=:id");
 $statement ->bindValue(":id",  $reqBody['id']);
 $statement ->execute();
 $memberAllData['mOrder'] = $statement->fetchAll();
-// print_r($statement);
+// print_r($memberAllData['mOrder']);
+// $memberPerData=[];
+// for($i=0; $i<count($memberAllData['mOrder']); $i++ ){
+//     echo($memberAllData['mOrder'][$i]['ID']);
+//     for($j=1; $j<=max($memberAllData['mOrder'][$i]['ID']);$j++){
+//         array_push($memberPerData[$j]['quantity'],$memberAllData['mOrder'][$i]['QUANTITY']);
+//         array_push($memberPerData[$j]['product'],$memberAllData['mOrder'][$i]['PRODUCT_ID']);
+        
+//     }
+    
+// }
+// for($i = 0; $i < count($arr); $i++){
+// 	echo $arr[$i];
+// 	echo "<br/>";
+// }
+// echo(max($memberAllData['mOrder']['ID']));
+
+
+
+
+
 // echo "接收成功";
 echo json_encode($memberAllData);
 

@@ -1,11 +1,14 @@
 <script setup>
+    import { onMounted } from "vue";
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import BannerUrl  from '@/img/plan/plan_banner.jpg'; // 更改成banner路徑
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
-
+    const planAComment = ref([]);
+    const planBComment = ref([]);
+    const planCComment = ref([]);
 
     import { ref } from "vue";
 
@@ -16,7 +19,34 @@
         activeContent.value = e;
     }
     const plan_now =  ref(localStorage.getItem("plan_want_to_see"));
- 
+    
+
+onMounted(()=>{
+    // const url = 'php/plan_select.php';
+    const url = 'http://localhost/thd104/g1/public/php/plan_select.php';
+   
+    fetch(url, {
+        method: 'POST',
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify({id:sessionStorage.getItem('member_ID')})
+        
+    })
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+           
+          // console.log(response);
+          planAComment.value = response.A;
+          planBComment.value = response.B;
+          planCComment.value = response.C;
+          console.log(planAComment.value);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+})
 
 </script>
 

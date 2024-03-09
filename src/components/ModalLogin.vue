@@ -1,8 +1,10 @@
 <script setup>
 import { ref,onBeforeUnmount } from "vue";
 import ModalDefaultAll from '@/components/ModalDefaultAll.vue'; 
+import ModalCantGoAnywhere from '@/components/ModalCantGoAnywhere.vue'; 
+import { useRouter } from 'vue-router';
 defineEmits(['ModalLogin']);
-
+const router = useRouter();
 const byeLogin = ref(true);
 const byeCreate = ref(false);
 // const LoginRWD = ref(true);
@@ -64,7 +66,6 @@ const goCreate=(e)=>{
 const goCreateRWD=(e)=>{
     byeLogin.value= !byeLogin.value;
     byeCreate.value= !byeCreate.value;
-
 }
 
 const eyeOnPWD=(e)=>{
@@ -78,6 +79,10 @@ const eyeOnPWD=(e)=>{
 const isRegisterModalShow = ref(false);
 const successRegister= ()=>{
     isRegisterModalShow.value = !isRegisterModalShow.value;
+    setTimeout(()=>{
+        router.push({path:"/home"});
+        location.reload();
+    },1500)
 };
 const RegisterData = {
     name:'',
@@ -89,8 +94,8 @@ const RegisterData = {
     service_address:'',
     username: '',
     password: '',
-    member_pic:'',
-    status:0
+    member_pic:'/thd104/g1/img/member/member_pic/pic_default.png',
+    status:1
     };
 
 const submitForm = () => {
@@ -122,15 +127,17 @@ const submitForm = () => {
 const isLoginModalShow = ref(false);
 const successLogin= (SessionData)=>{
     isLoginModalShow.value = !isLoginModalShow.value;
+    setTimeout(()=>{
+        router.push({path:"/member"})
+    },1500)
     if(SessionData.id){
         sessionStorage.setItem("member_ID", SessionData.id);
     sessionStorage.setItem("member_pic", SessionData.picPath);
         console.log(SessionData);
     }else{
-        console.log('hi')
+        console.log('hi');
     }
     console.log(SessionData)
- 
 
 };
 const LoginData = {
@@ -197,38 +204,36 @@ onBeforeUnmount(()=>{
 </script>
 <template>
 <div class="modal_mask" @click.self="$emit('ModalLogin')" >
-    <ModalDefaultAll v-show="isLoginModalShow" @ModalDefaultAll="successLogin" >
+    <ModalCantGoAnywhere v-show="isLoginModalShow" @ModalCantGoAnywhere="successLogin" >
             <div class="modal_content member_all">
                 <section>
                     <h2>登入成功！</h2><br>
-                <!-- <p>訂單一經取消即無法復原</p> -->
+                    <p>將為您導向會員中心</p>
                 </section>
-                
-            <img class="cross_modal" @click="successLogin" src="@/img/about/about_lightbox_cross.svg" alt="">
             <div>
-            <button class="btn" @click="successLogin">關閉</button> 
+            <!-- <button class="btn" @click="successLogin">關閉</button> -->
             <router-link class="btn" :to="{ name: 'member' }">會員中心</router-link>
             <!-- <button class="btn" @click="successLogin">會員中心</button>  -->
             </div>
 
             </div>
-        </ModalDefaultAll>
-        <ModalDefaultAll v-show="isRegisterModalShow" @ModalDefaultAll="successRegister" >
+        </ModalCantGoAnywhere>
+        <ModalCantGoAnywhere v-show="isRegisterModalShow" @ModalCantGoAnywhere="successRegister" >
             <div class="modal_content member_all">
                 <section>
                     <h2>註冊成功！</h2>
                 <p>請重新登入</p>
                 </section>
                 
-            <img class="cross_modal" @click="successRegister" src="@/img/about/about_lightbox_cross.svg" alt="">
+            <!-- <img class="cross_modal" @click="successRegister" src="@/img/about/about_lightbox_cross.svg" alt=""> -->
             <div>
-            <button class="btn" @click="successRegister" style="margin-right: 0;">關閉</button> 
+            <!-- <button class="btn" @click="successRegister" style="margin-right: 0;">關閉</button>  -->
             <!-- <router-link class="btn" :to="{ name: 'member' }">會員中心</router-link> -->
             <!-- <button class="btn" @click="successLogin">會員中心</button>  -->
             </div>
 
             </div>
-        </ModalDefaultAll>
+        </ModalCantGoAnywhere>
 <div class="tab">
         <ul>
             <li :class="{'tab_on':byeLogin}">

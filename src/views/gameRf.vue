@@ -4,7 +4,8 @@ import gameFooter from '@/layouts/footer.vue'
 import ModalHamburger from '@/components/ModalHamburger.vue'; 
 import ModalLogin from '@/components/ModalLogin.vue'; 
 import { ref,onMounted } from 'vue';
-
+import { useRouter } from 'vue-router';
+const router = useRouter();
 // 購物車
 import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
@@ -26,7 +27,11 @@ const hamburger = ()=>{
 };
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
-    isLoginModalShow.value = !isLoginModalShow.value;
+    if(sessionStorage.getItem('member_ID')){
+        router.push({path:"/member"});
+    }else{
+        isLoginModalShow.value = !isLoginModalShow.value;
+    }
 };
 
 // 購物車
