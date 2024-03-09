@@ -32,7 +32,7 @@ function chatback(userInput) {
 
 // 使用 GPT 進行回覆的非同步函式
 async function getChatGPTResponse(userMessage) {
-    const openaiApiKey = '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';
+    const openaiApiKey = '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';
     // 向 OpenAI API 發送請求得到回覆
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
