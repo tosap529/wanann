@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref,onBeforeMount } from "vue";
 import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
 import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
 import BannerUrl  from '@/img/service/service_banner.jpg'; // 更改成banner路徑
@@ -15,6 +15,12 @@ import 'swiper/css/navigation';
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 const modules = [Autoplay, Pagination, Navigation];
+
+onBeforeMount(()=>{
+  if(localStorage.getItem('plan_want_to_see')){
+    localStorage.removeItem('plan_want_to_see')
+    }
+})
 
 let whichPlan = ref('')
 const toPlan = (e)=>{
@@ -54,7 +60,7 @@ const toPlan = (e)=>{
         <p class="new">適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
         <div>
             <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
-            <router-link class="btn" :to="{ name: 'reserve' }">直接預約</router-link>  
+            <router-link class="btn" :to="{ name: 'reserve' }" @click="toPlan">直接預約</router-link>  
         </div>             
     </article>
     
@@ -76,7 +82,7 @@ const toPlan = (e)=>{
         <p class="new">適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
         <div>
             <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
-            <router-link class="btn" :to="{ name: 'reserve' }">直接預約</router-link> 
+            <router-link class="btn" :to="{ name: 'reserve' }" @click="toPlan">直接預約</router-link> 
         </div>             
     </article>
 
@@ -98,7 +104,7 @@ const toPlan = (e)=>{
         <p class="new">適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
         <div>
             <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
-            <router-link class="btn" :to="{ name: 'reserve' }">直接預約</router-link> 
+            <router-link class="btn" :to="{ name: 'reserve' }" @click="toPlan">直接預約</router-link> 
         </div>             
     </article>
 

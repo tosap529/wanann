@@ -13,7 +13,7 @@ join MEMBER m on m.ID = so.MEMBER_ID
 where sc.STATUS = 1 and srt.SERVICE_ID=1");
 
 $statement ->execute();
-$commentAllData['A'] = $statement->fetch();
+$commentAllData['A'] = $statement->fetchAll();
 
 $pdo = getPDO();
 $statement = $pdo->prepare("select 
@@ -25,7 +25,7 @@ join MEMBER m on m.ID = so.MEMBER_ID
 where sc.STATUS = 1 and srt.SERVICE_ID=2");
 
 $statement ->execute();
-$commentAllData['B'] = $statement->fetch();
+$commentAllData['B'] = $statement->fetchAll();
 
 
 $pdo = getPDO();
@@ -38,7 +38,7 @@ join MEMBER m on m.ID = so.MEMBER_ID
 where sc.STATUS = 1 and srt.SERVICE_ID=3");
 
 $statement ->execute();
-$commentAllData['C'] = $statement->fetch();
+$commentAllData['C'] = $statement->fetchAll();
 
 echo json_encode($commentAllData);
 

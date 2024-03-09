@@ -1,15 +1,22 @@
 <script setup>
 import {ref,onBeforeMount} from 'vue';
 defineEmits(['nextReserveStep']);
+let dropdownNow = ref('浣安全室清潔'); //預設是什麼方案也不選
+
 onBeforeMount(()=>{
     //進入服務預約流程前先清掉localStorage的服務預約key
     localStorage.removeItem("my_service_order");
     //以下兩行防止未選擇主方案就按下一步的bug出現
     my_service_order.main_plan = '浣安全室清潔';
     localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
+
+    if(localStorage.getItem('plan_want_to_see')){
+        dropdownNow.value = localStorage.getItem('plan_want_to_see');
+    }
+   
 })
 
-let dropdownNow = ref('浣安全室清潔'); //預設是什麼方案也不選
+
 const my_service_order = {
     service_order_ID:'',
     main_plan:'',
@@ -80,8 +87,8 @@ const reserveDropdown = (e)=>{
         <img src="@/img/reserve1/reserve1_2.jpg" v-if="dropdownNow=='廚房特攻清潔'" alt="">
         <img src="@/img/reserve1/reserve1_3.jpg" v-if="dropdownNow=='浴室徹底清潔'" alt=""> -->
         <img src="@/img/reserve1/reserve1_1.jpg"  :class="{onTheTop:dropdownNow=='浣安全室清潔'}" alt="">
-        <img src="@/img/reserve1/reserve1_2.jpg" :class="{onTheTop:dropdownNow=='廚房特攻清潔'}" alt="">
-        <img src="@/img/reserve1/reserve1_3.jpg"  :class="{onTheTop:dropdownNow=='浴室徹底清潔'}" alt="">
+        <img src="@/img/reserve1/reserve1_2.jpg" :class="{onTheTop:dropdownNow=='廚房徹底清潔'}" alt="">
+        <img src="@/img/reserve1/reserve1_3.jpg"  :class="{onTheTop:dropdownNow=='浴室特攻清潔'}" alt="">
     </div>
 
 </section>

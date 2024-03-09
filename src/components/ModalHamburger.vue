@@ -1,15 +1,36 @@
 <script setup>
 import{ref} from 'vue';
-import { useRoute } from 'vue-router';
+import { useRoute,useRouter } from 'vue-router';
 import ModalLogin from '@/components/ModalLogin.vue'; 
 defineEmits(['hamburger']);
 // 取得當前頁面路徑
 const route = useRoute();
-// console.log(route.name);
+const router = useRouter();
+
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
-    isLoginModalShow.value = !isLoginModalShow.value;
+    if(route.name=='member'){
+        location.reload();
+    }else{
+        if(sessionStorage.getItem('member_ID')){
+        router.push({path:"/member"});
+        }else{
+            isLoginModalShow.value = !isLoginModalShow.value;
+        } 
+    }
 };
+const nowPage = (e)=>{
+    if(e.target.closest('li').querySelector('a').dataset.page == 'game'){
+        router.push({path:"/game"});
+        
+    }else{
+        if (e.target.closest('li').querySelector('a').dataset.page == route.name){
+        location.reload();
+    }
+    }
+    
+}
+
 </script>
 
 <template>
@@ -26,31 +47,31 @@ const goLogin = ()=>{
             <div class="nav_right">
                 <router-link :to="{ name: 'home' }"><img src="@/img/logo_square.svg" alt="logo" class="hamlogo"></router-link>
                 <ul>
-                    <li><router-link :class="{'route_now_ham':route.name=='about'}" :to="{ name: 'about' }">關於我們</router-link></li>
+                    <li><router-link :class="{'route_now_ham':route.name=='about'}" :to="{ name: 'about' }" data-page="about" @click="nowPage">關於我們</router-link></li>
                     <li class="h_li"><router-link :to="{ name: 'articles' }">最新消息</router-link>
                         <ol>
-                            <li><router-link :class="{'route_now_ham':route.name=='act'}" :to="{ name: 'act' }">優惠活動</router-link></li>
-                            <li><router-link :class="{'route_now_ham':route.name=='articles'}" class="nav_last_a" :to="{ name: 'articles' }">專欄文章</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='act'}" :to="{ name: 'act' }" data-page="act" @click="nowPage">優惠活動</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='articles'}" class="nav_last_a" :to="{ name: 'articles' }" data-page="articles" @click="nowPage">專欄文章</router-link></li>
                         </ol>
                     </li>
 
                     <li class="h_li"><router-link :to="{ name: 'service' }">我們的服務</router-link>
                         <ol>
-                            <li><router-link :class="{'route_now_ham':route.name=='service'}" :to="{ name: 'service' }">服務介紹</router-link></li>
-                            <li><router-link :class="{'route_now_ham':route.name=='case'}" :to="{ name: 'case' }">案例分享</router-link></li>
-                            <li><router-link :class="{'route_now_ham':route.name=='reserve'}" class="nav_last_a" :to="{ name: 'reserve' }">預約服務</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='service'}" :to="{ name: 'service' }" data-page="service" @click="nowPage">服務介紹</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='case'}" :to="{ name: 'case' }" data-page="case" @click="nowPage">案例分享</router-link></li>
+                            <li><router-link :class="{'route_now_ham':route.name=='reserve'}" class="nav_last_a" :to="{ name: 'reserve' }" data-page="reserve" @click="nowPage">預約服務</router-link></li>
                         </ol>
                     </li>
-                    <li><router-link :class="{'route_now_ham':route.name=='mall'}" :to="{ name: 'mall' }">商城</router-link></li>
-                    <li><router-link :class="{'route_now_ham':route.name=='contact'}" :to="{ name: 'contact' }">聯絡我們</router-link></li>
-                    <li><router-link :class="{'route_now_ham':route.name=='game'||route.name=='gameQ'||route.name=='gameR'}" :to="{ name: 'game' }">清潔人格測驗</router-link></li>
+                    <li><router-link :class="{'route_now_ham':route.name=='mall'}" :to="{ name: 'mall' }" data-page="mall" @click="nowPage">商城</router-link></li>
+                    <li><router-link :class="{'route_now_ham':route.name=='contact'}" :to="{ name: 'contact' }" data-page="contact" @click="nowPage">聯絡我們</router-link></li>
+                    <li><router-link :class="{'route_now_ham':route.name=='game'||route.name=='gameQ'||route.name=='gameRb'||route.name=='gameRf'||route.name=='gameRj'||route.name=='gameRt'}" data-page="game" :to="{ name: 'game' }" @click="nowPage">清潔人格測驗</router-link></li>
                     <!-- <li><router-link :class="{'route_now_ham':route.name=='member'}" :to="{ name: 'member' }">會員中心</router-link></li> 
                     -->
-                    <li><a href="#" class="fai" @click.prevent="goLogin"> 
+                    <li><a href="#" :class="{'route_now_ham':route.name=='member'}" class="fai" @click.prevent="(e)=>{goLogin();nowPage(e)}"> 
                     會員中心</a> </li> 
                 </ul>
                 <div class="h_btns">
-                    <router-link class="btn" :to="{ name: 'reserve' }">
+                    <router-link class="btn" :to="{ name: 'reserve' }" data-page="reserve" @click="nowPage">
                     <img src="@/img/footer_calendar.svg" alt="calendar_icon">立即預約
                     </router-link>
                     <a href="#"><img src="@/img/icon_fb.svg" alt=""></a>

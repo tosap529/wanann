@@ -6,9 +6,7 @@
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
-    const planAComment = ref([]);
-    const planBComment = ref([]);
-    const planCComment = ref([]);
+    const planCommentNow = ref([]);
 
     import { ref } from "vue";
 
@@ -26,7 +24,7 @@ onMounted(()=>{
     const url = 'http://localhost/thd104/g1/public/php/plan_select.php';
    
     fetch(url, {
-        method: 'POST',
+        method: 'POST'
         // headers: {
         //     'Content-Type': 'application/json'
         // },
@@ -38,10 +36,14 @@ onMounted(()=>{
             // console.log('註冊成功 js');
            
           // console.log(response);
-          planAComment.value = response.A;
-          planBComment.value = response.B;
-          planCComment.value = response.C;
-          console.log(planAComment.value);
+          if(plan_now.value =='浣安全室清潔'){
+            planCommentNow.value = response.A;
+          }else if(plan_now.value =='廚房徹底清潔'){
+            planCommentNow.value = response.B;
+          }else{
+            planCommentNow.value = response.C;
+          }
+          console.log(planCommentNow.value);
             })
             .catch(error => {
                 console.error('Error:', error);
@@ -189,38 +191,37 @@ onMounted(()=>{
 
           </section>
 
-
-          <section class="rank">
+          <section class="nonComment" v-if="!planCommentNow.length">
+            <h1>目前暫無評價！</h1>
+          </section>
+          <section class="rank" v-if="planCommentNow">
 
             <ul>
-              <li>
-                <img src="@/img/plan/plan_2.jpg" alt="">
+              <li v-for="comment in planCommentNow" :key="comment">
+                <img :src="comment.MEMBER_PIC" alt="">
                 <article>
                   <div class="rank_top">
-                    <span>SilverLion42</span>
+                    <span>{{comment.USERNAME}}</span>
                     <div class="right">
                       <span>服務態度</span>
                       <span>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon v-for="i in comment.SERVICE_ATTITUDE" :key="i" :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon v-for="j in 5-(comment.SERVICE_ATTITUDE)" :key="j" :icon="['fas', 'star']" class="star_wo_color"/>
                       </span>
                       <span>服務品質</span>
                       <span>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon v-for="j in comment.SERVICE_QUALITY" :key="j" :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon v-for="j in 5-(comment.SERVICE_QUALITY)" :key="j" :icon="['fas', 'star']"  class="star_wo_color"/>
                       </span> 
                     </div>
                   </div>
-                  <div class="buttom"><p>上次朋友推薦浣安居家清潔，剛開始覺得價格有些貴，但過程中覺得很不錯，方案選擇彈性，可以按照自家狀況選擇，清潔人員也很年輕有禮貌，清潔工具清潔劑也都自己帶，結束前還會請你檢查，突然覺得自己很像貴婦……哈哈哈~</p></div>
+                  <div class="buttom">
+                    <!-- <p>上次朋友推薦浣安居家清潔，剛開始覺得價格有些貴，但過程中覺得很不錯，方案選擇彈性，可以按照自家狀況選擇，清潔人員也很年輕有禮貌，清潔工具清潔劑也都自己帶，結束前還會請你檢查，突然覺得自己很像貴婦……哈哈哈~</p> -->
+                    <p>{{ comment.CONTENT }}</p>
+                  </div>
                 </article>
               </li>
-              <li>
+              <!-- <li>
                 <img src="@/img/plan/plan_3.jpg" alt="">
                 <article>
                   <div class="rank_top">
@@ -273,13 +274,13 @@ onMounted(()=>{
                   </div>
                   <div class="buttom"><P>我要特別稱讚這家公司的清潔人員。他們非常專業和友好，總是微笑著迎接我們。他們非常細心，總是確保一切都完美無瑕。這間公司的清潔服務給我留下了深刻的印象。他們的專業態度和出色的工作質量讓我感到非常滿意。我強烈推薦這家公司的清潔服務，給予他們五星評價！</p></div>
                 </article>
-              </li>
+              </li> -->
        
             </ul>
 
           </section>
 
-          <section><a href="" class="btn next">看更多</a></section>
+          <section v-if="planCommentNow.length"><a href="" class="btn next">看更多</a></section>
 
         </wrapper>
 

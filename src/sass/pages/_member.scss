@@ -230,24 +230,25 @@ input.needToFill {
     border-radius: 10px;
     padding: 30px 50px;
 
-    @for $i from 2 through 5 {
+    @for $i from 2 through 8 {
         >div:nth-child(#{$i}) {
             margin-top: 40px;
         }
     }
 
-    @for $i from 1 through 3 {
+    @for $i from 1 through 6 {
         >div:nth-child(#{$i}) {
             display: flex;
 
             h2 {
                 line-height: 30px;
+                width: 80px;
             }
 
             input {
                 height: 30px;
                 margin-left: 70px;
-                width: 250px;
+                width: 200px;
                 // background-color: transparent;
                 // border-radius: 0;
                 // border-bottom: 1px solid $grey;
@@ -255,9 +256,20 @@ input.needToFill {
         }
     }
 
-    >div:nth-child(4) {
+    >div:nth-child(6) {
+        input {
+            width: 300px;
+        }
+    }
+
+    >div:nth-child(7) {
         display: flex;
         flex-direction: column;
+
+        >h2:first-child {
+            padding-bottom: 10px;
+            border-bottom: 2px solid $dark-milktea;
+        }
     }
 
     >div:last-child {
@@ -308,9 +320,9 @@ input.needToFill {
     // flex-direction: column;
     margin-bottom: 40px;
 
-    >div:nth-child(4)>div {
+    >div:nth-child(7)>div {
         display: flex;
-        margin-top: 45px;
+        margin-top: 25px;
 
         h2 {
             margin-right: 20px;
@@ -336,15 +348,19 @@ input.needToFill {
             display: flex;
             justify-content: space-between;
 
-            h2:last-child {
+            >h2 {
+                margin-bottom: 20px;
+            }
+
+            >h2:last-child {
                 text-align: right;
-                line-height: 1.6;
             }
         }
 
         h2 {
+            line-height: 1.6;
             align-self: center;
-            margin-bottom: 30px;
+
         }
 
 
@@ -408,7 +424,6 @@ input.needToFill {
             margin-left: 150px;
         }
 
-        :first-child~div {}
 
         input {
             width: 200px;
@@ -424,7 +439,8 @@ input.needToFill {
     // 服務 &會員訂單
     .member_main {
         .tab ul {
-            width: 400px;
+            // width: 400px;
+            width: auto;
             margin-bottom: 20px;
         }
     }
@@ -644,6 +660,7 @@ input.needToFill {
         margin: 0 auto;
         box-sizing: border-box;
         padding: 20px;
+        margin-bottom: 30px;
 
         h2 {
             font-size: $h3;
@@ -651,13 +668,13 @@ input.needToFill {
 
 
 
-        @for $i from 2 through 5 {
+        @for $i from 2 through 8 {
             >div:nth-child(#{$i}) {
                 margin-top: 20px;
             }
         }
 
-        @for $i from 1 through 3 {
+        @for $i from 1 through 6 {
             >div:nth-child(#{$i}) {
                 // background-color: red;
                 flex-direction: column;
@@ -669,11 +686,11 @@ input.needToFill {
             }
         }
 
-        >div:nth-child(4) {
+        >div:nth-child(7) {
             margin-top: 40px;
         }
 
-        >div:nth-child(5) {
+        >div:nth-child(8) {
             flex-direction: column-reverse;
             align-items: center;
 
@@ -689,7 +706,8 @@ input.needToFill {
 
         article {
             img {
-                height: 60px;
+                width: 80px;
+                height: 80px;
                 margin-right: 30px;
                 margin-bottom: 20px;
 
@@ -699,28 +717,43 @@ input.needToFill {
 
     // 服務訂單分頁
     .sOrder_data {
-        >div:nth-child(4)>div {
+        >div:nth-child(7)>div {
+            flex-wrap: wrap;
             margin-top: 20px;
-        }
 
-        >div:nth-child(4) article>div {
-            margin-top: 0px;
-            margin-bottom: 20px;
-
-            h2:first-child {
-                margin-bottom: 15px;
+            >h2:first-child {
+                margin-bottom: 10px;
+                flex-basis: 100%;
             }
         }
 
+        >div:nth-child(7) article>div {
+            margin-top: 0px;
+            margin-bottom: 20px;
+            // background-color: purple;
+
+            // h2:first-child {
+            //     margin-bottom: 15px;
+            // }
+        }
+
         article {
+            height: 100px;
             justify-content: flex-start;
 
+            img {
+                align-self: center;
+            }
 
-            div {
+            >div {
                 display: flex;
                 flex-direction: column;
                 margin-bottom: 30px;
                 justify-content: space-between;
+
+                >h2 {
+                    margin-bottom: 0;
+                }
 
                 h2 {
                     align-self: flex-start;
@@ -773,7 +806,7 @@ input.needToFill {
 
 }
 
-//----------------燈箱們(ModalMemberAll)-----------------
+//----------------燈箱們(ModalMemberAll(現DefaultAll))-----------------
 .member_all {
     position: relative;
     background-color: $white;
@@ -799,7 +832,8 @@ input.needToFill {
 
         button {
             width: 120px;
-            height: 50px;
+            height: 40px;
+            line-height: 20px;
         }
 
         button:first-child {

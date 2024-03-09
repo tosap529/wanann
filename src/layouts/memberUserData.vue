@@ -1,5 +1,5 @@
 <script setup>
-import { ref,onMounted,defineProps,onBeforeUpdate,computed } from "vue";
+import { ref,onMounted,defineProps,onBeforeUpdate,computed,onBeforeMount } from "vue";
 defineEmits(['getProfileURL']);
 
 //const props = defineProps({userData:Object});
@@ -11,11 +11,6 @@ const newTaipei = ref(['區','三峽區','三重區','中和區','五股區','�
 const taipei = ref(['區','中正區','大同區','中山區','松山區','大安區','萬華區','信義區','士林區','北投區','內湖區','南港區','文山區']);
 const taoyuan = ref(['區','桃園區','八德區','龜山區']);
 
-
-// let county = ref('');
-// const selectCounty = ()=>{
-// county.value = countySelector.value;
-// }
 let UserData = {}
 
 const userDataEdit = ()=>{
@@ -41,9 +36,6 @@ const userDataEdit = ()=>{
     const url = 'http://localhost/thd104/g1/public/php/member_update.php';
     fetch(url, {
             method: 'POST',
-            // headers: {
-            //     'Content-Type': 'application/json'
-            // },
             body: JSON.stringify(UserData)
         })
         .then(response => response.text())
@@ -59,41 +51,20 @@ const userDataEdit = ()=>{
 
 
 
+
 onMounted(()=>{
     profile.value.addEventListener('change',fileChange );
     // console.log(countySelector.value);
     // console.log("mounted");
     // console.log(props.userData);
     
+
 })
+
 onBeforeUpdate(()=>{
-    console.log(props.userData);
-    // console.log(props.userData.MEMBER_PIC);
-    // console.log(document.querySelector('#countySelector'))
+    // console.log(props.userData);
     document.querySelector('.member_sidebar div:first-child img').src = props.userData.MEMBER_PIC;
-    document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${props.userData.MEMBER_PIC}" >`;
-
-
-    // if(props.member.COUNTY == '新北市'){
-    //     county.value = 'newTaipei';
-    // }else if(props.member.COUNTY =='台北市'){
-    //     county.value = 'taipei';
-    // }else{
-    //     county.value = 'taoyuan';
-    // }
-
-// let countySelector = document.getElementById('countySelector');
-// countySelector.addEventListener('change',function(){
-//     // console.log(countySelector.value)
-//     console.log(county.value)
-//     if(countySelector.value =='newTaipei' ){
-//         county.value = 'newTaipei';
-//     }else if(countySelector.value=='taipei'){
-//         county.value = 'taipei';
-//     }else{
-//         county.value = 'taoyuan';
-//     }
-// })
+    // document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${props.userData.MEMBER_PIC}" >`;
 
 })
 
@@ -126,9 +97,6 @@ const infoEdit_sa=(e)=>{
     input.disabled = false;
     if(input.disabled==false){
     input.classList.add('needToFill');
-    // if(e.target.closest('.sAddress').querySelectorAll('div select')[1]){
-    //     e.target.closest('.sAddress').querySelectorAll('div select')[1].disabled = false;
-    // }
 }
 }
 function infoSave(e){
@@ -190,44 +158,46 @@ function fileChange(){
     document.querySelector('.member_sidebar div:first-child img').src = readFile.result;
     document.querySelector('header .nav_right .nav_user a:first-child').innerHTML = `<img src="${readFile.result}" >`;
     })
-    console.log(file);
 }
+
 const fileUpload=()=>{
-    let file = document.getElementById('profile').files[0]
+    let file = document.getElementById('profile').files[0];
+
     if(file){
          let formdata  = new FormData();
             formdata.append("profile_pic", file);
-
-            // fetch('php/member_pic_update.php', {
-            //         method: 'POST',
-            //         body: formdata
-            //     })
+            formdata.append("member_ID", JSON.stringify({'id':sessionStorage.getItem('member_ID')}));
+ 
             fetch('http://localhost/thd104/g1/public/php/member_pic_update.php', {
                     method: 'POST',
                     body: formdata
                 })
                 .then(response => {
-                    editSuccessMsg()
-                    console.log(response);})
+                    editSuccessMsg(response.status);
+                   })
     }
-   
 }
 
+
 const editSuccessMsg=(e)=>{
-    // console.log(e.target.closest('div').previousElementSibling.disabled);
-    if(!e.target.closest('div').previousElementSibling.disabled){
-    let editSuccessMsg = document.getElementById('editSuccessMsg') 
-    // editSuccessMsg.style.top=`${e.target.closest('div').offsetTop}px`;
-    // editSuccessMsg.style.left=`${60+e.target.closest('div').offsetLeft}px`;
-    // editSuccessMsg.style.top=`${80}px`;
-    // editSuccessMsg.style.left=`${document.offsetLeft}px`;
-    editSuccessMsg.style.opacity='.8';
-    setTimeout(()=>{
-        editSuccessMsg.style.opacity='0';
-    },700)
+    let editSuccessMsg = document.getElementById('editSuccessMsg');
+    if(e==200){
+        // console.log('更新成功');
+        editSuccessMsg.style.opacity='1';
+            setTimeout(()=>{
+                editSuccessMsg.style.opacity='0';
+            },700)
     }else{
-        console.log('111');
+        if(!e.target.closest('div').previousElementSibling.disabled){
+            editSuccessMsg.style.opacity='1';
+            setTimeout(()=>{
+                editSuccessMsg.style.opacity='0';
+            },700)
+            }else{
+                console.log('111');
+            } 
     }
+        
   
 }
 
@@ -238,12 +208,11 @@ const editSuccessMsg=(e)=>{
     
     <section class="member_main userData" >
         <div  method="post"  enctype="multipart/form-data" >
-            <!-- <img src="@/img/member/member_icon_profile.png" alt="" ref="profile_pic">  -->
             <img :src="userData.MEMBER_PIC" alt="" ref="profile_pic"> 
             <input type="file" id="profile" name="profile" ref="profile" @change="$emit('getProfileURL')">
                 <font-awesome-icon :icon="['fas', 'pen']" @click="profileClick" />
             <button  id="profilePicUpdate" ref="profilePicUpdate" ></button>
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="fileUpload" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="fileUpload()" />
         </div>
         <div>
             <h2 @click="editSuccessMsg">帳號</h2>
@@ -339,7 +308,7 @@ const editSuccessMsg=(e)=>{
             <input type="text" v-model="userData.SERVICE_ADDRESS" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit_sa" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave_sa(e);}" />
             </div>
         </div>
         <div class="mAddress">

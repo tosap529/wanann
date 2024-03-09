@@ -1,7 +1,7 @@
 <?php
 include("connect_test.php");
 // include("connect.php");
-echo $reqBody;
+print_r($reqBody) ;
 $pdo = getPDO();
 // 上線用
 // $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewName."' where ID=1");
