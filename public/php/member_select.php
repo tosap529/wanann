@@ -36,7 +36,7 @@ $statement ->bindValue(":id",  $reqBody['id']);
 $statement ->execute();
 $memberAllData['mOrder'] = $statement->fetchAll();
 // print_r($memberAllData['mOrder']);
-$memberPerData=[];
+// $memberPerData=[];
 // for($i=0; $i<count($memberAllData['mOrder']); $i++ ){
 //     echo($memberAllData['mOrder'][$i]['ID']);
 //     for($j=1; $j<=max($memberAllData['mOrder'][$i]['ID']);$j++){
