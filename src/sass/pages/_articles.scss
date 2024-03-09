@@ -678,10 +678,6 @@
     margin-bottom: 15px;
   }
 
-  .title > h1{
-    font-size: $h2;
-  }
-
   .title_phone > h1::before{
     width: 30px;
     height: 21.63px;
@@ -888,7 +884,7 @@
 
   .articles_top .left a{
     width: 350px;
-    padding-right: 0px;
+    padding-right: 10px;
   }
 
   .articles_buttom .articles_all .section_all article{
@@ -904,7 +900,7 @@
   }
 
   .articles_buttom .articles_all .section_all article a{
-    padding-right: 0px;
+    padding-right: 15px;
     width: 350px;
   }
 }
