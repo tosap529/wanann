@@ -41,7 +41,7 @@ const toPlan = (e)=>{
 <section class="service_plan service_phone">
     
     <div class="left">
-        <img src="../img/service/service_1.jpg" alt="">
+        <img src="@/img/service/service_1.jpg" alt="">
         <p>適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
     </div>
     <article class="service_article">
@@ -63,7 +63,7 @@ const toPlan = (e)=>{
 <section class="service_plan service_phone">
     
     <div class="left">
-        <img src="../img/service/service_2.jpg" alt="">
+        <img src="@/img/service/service_2.jpg" alt="">
         <p>適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
     </div>
     <article class="service_article">
@@ -86,7 +86,7 @@ const toPlan = (e)=>{
 <section class="service_plan service_phone">
     
     <div class="left">
-        <img src="../img/service/service_3.jpg" alt="">
+        <img src="@/img/service/service_3.jpg" alt="">
         <p>適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
     </div>
     <article class="service_article">
@@ -125,7 +125,7 @@ const toPlan = (e)=>{
         <section class="service_plan">
     
     <div class="left">
-        <img src="../img/service/service_1.jpg" alt="">
+        <img src="@/img/service/service_1.jpg" alt="">
         <p>適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
     </div>
     <article>
@@ -149,7 +149,7 @@ const toPlan = (e)=>{
         <section class="service_plan ">
     
     <div class="left">
-        <img src="../img/service/service_2.jpg" alt="">
+        <img src="@/img/service/service_2.jpg" alt="">
         <p>適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
     </div>
     <article>
@@ -172,7 +172,7 @@ const toPlan = (e)=>{
         <section class="service_plan ">
     
     <div class="left">
-        <img src="../img/service/service_3.jpg" alt="">
+        <img src="@/img/service/service_3.jpg" alt="">
         <p>適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
     </div>
     <article>

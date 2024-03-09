@@ -10,7 +10,7 @@ import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
 const banner_url = BannerUrl; 
 const sidebar = ref(null);
-const userData = ref([]); // {value: {}}
+const userData = ref([]);
 const sOrder = ref([]);
 const mOrder = ref([]);
 const router = useRouter();
@@ -66,7 +66,6 @@ onMounted(()=>{
             .catch(error => {
                 console.error('Error:', error);
             });
-
 })
 */
 
