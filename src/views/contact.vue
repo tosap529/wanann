@@ -128,30 +128,7 @@ const banner_url = BannerUrl;
                     </div>
                     <button type="submit" class="btn">送出</button>
                 </form>
-        
-            <!-- <form action="#" method="post">
-                <div class="contact_input">
-                    <label for="name">姓名/單位</label>
-                    <input type="text" id="name" name="name">
-                </div>
-                <div class="contact_input">
-                    <label for="phone">手機號碼</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-
-                <div class="contact_input">
-                    <label for="email">電子信箱</label>
-                    <input type="email" id="email" name="email">
-                </div>
-
-                <div class="contact_input ">
-                    <label for="message" class="message">問題描述</label>
-                    <textarea id="message" name="message"></textarea>
-                </div>
-                <button type="submit" class="btn">送出</button>
-
-            </form> -->
-
+    
         </section>
         </wrapper>
         <DefaultFooter />

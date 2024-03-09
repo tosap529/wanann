@@ -1,6 +1,6 @@
 <?php
 
-include("connect_test.php");
+include("../connect_test.php");
 
 $pdo = getPDO();
 $statement = $pdo->prepare("select * from ACTIVITY order by CREATE_TIME desc");
