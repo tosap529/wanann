@@ -6,19 +6,8 @@
 
     // defineProps(['contactData']);
 
-<<<<<<< HEAD
-    import { ref, onMounted } from 'vue';
-
-    const contactData = ref([]);
-
-
-    onMounted(() => {
-        
-    const url_contact = 'http://localhost/thd104/public/php/contact_select.php';
-=======
     const props = defineProps({data: Object});
     const showSuccessMessage = ref(false);
->>>>>>> e5375a5de9426be18a6ce50bd6622171d509d090
     
     const submitForm = () => {
     
@@ -48,9 +37,6 @@
     })
 
     };
-<<<<<<< HEAD
-})
-=======
 
     
     const click_function = (key, id) => {
@@ -65,7 +51,6 @@
         }
     }
 
->>>>>>> e5375a5de9426be18a6ce50bd6622171d509d090
 </script>
 <template>
     <div>
