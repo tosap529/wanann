@@ -20,7 +20,8 @@ console.log(EmailData.email);
 
 // let idWantToChange = '';
 const emailValidation = ()=>{
-    const url = 'http://localhost/thd104/g1/public/php/forget_select.php';
+    // const url = 'http://localhost/thd104/g1/public/php/forget_select.php';
+    const url = 'php/forget_select.php';
     fetch(url, {
             method: 'POST',
             body: JSON.stringify(EmailData)
@@ -93,7 +94,7 @@ const eyeOnPWD=(e)=>{
             <form class="forget_form" action="">
                 <label for="reEmail">請輸入電子信箱<br>
                     <div>
-                        <input type="email" id="reEmail"  v-model="EmailData.email">
+                        <input type="email" id="reEmail"  v-model="EmailData.email" autocomplete="off">
                         <button class="btn" @click.prevent="emailValidation" >送出</button>
                     </div>
                 </label>

@@ -1,32 +1,62 @@
 <script setup>
-import { ref,onMounted } from "vue";
+import { ref,onMounted,onUpdated } from "vue";
 defineEmits(['ModalComment']);
 const props = defineProps({data:Object});
 onMounted(()=>{
-    console.log(props.data);
+    // console.log(props.data);
 })
 const qualityStar = ref(null);
 const attitudeStar = ref(null);
+// let quaStarNum = 0;
+// let attStarNum = 0;
 let CommentData = {
-    id:props.data.id,
+    member_id:sessionStorage.getItem('member_ID'),
+    order_id:props.data.id,
     quality:0,
     attitude:0,
     content:''
 }
 const submitComment =()=>{
-    const url = 'http://localhost/thd104/g1/public/php/comment_insert.php';
+    // const url = 'http://localhost/thd104/g1/public/php/comment_insert.php';
+    const url = 'php/comment_insert.php';
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(CommentData)
 
     })
 }
-const qualityStar_el = ()=>{
 
-}
-const attitudeStar_el = ()=>{
 
+const qualityStar_el = (e)=>{
+    if(e.target.closest('svg').dataset.qua){
+    //   quaStarNum = e.target.closest('svg').dataset.qua;
+      CommentData.quality = e.target.closest('svg').dataset.qua;
+        for(let k = 0; k < 5; k ++ ){
+            qualityStar.value.querySelectorAll('svg')[k].classList.remove('star_color');
+            if(CommentData.quality>=k+1){
+                qualityStar.value.querySelectorAll('svg')[k].classList.remove('star_wo_color');
+                qualityStar.value.querySelectorAll('svg')[k].classList.add('star_color');
+            }
+        }  
+    }
+    console.log(CommentData.quality);
 }
+
+const attitudeStar_el = (e)=>{
+    if(e.target.closest('svg').dataset.att){
+    //   attStarNum = e.target.closest('svg').dataset.att;
+      CommentData.attitude = e.target.closest('svg').dataset.att;
+        for(let j = 0; j < 5; j ++ ){
+            attitudeStar.value.querySelectorAll('svg')[j].classList.remove('star_color');
+            if(CommentData.attitude>=j+1){
+                attitudeStar.value.querySelectorAll('svg')[j].classList.remove('star_wo_color');
+                attitudeStar.value.querySelectorAll('svg')[j].classList.add('star_color');
+            }
+        }  
+    }
+    console.log(CommentData.attitude);
+}
+// console.log(CommentData.content)
 
 </script>
 <template>
@@ -56,31 +86,21 @@ const attitudeStar_el = ()=>{
                 <article>
                     <h2>服務品質</h2>
                     <div class="comment_star" ref="qualityStar" @click="qualityStar_el">
-                        <!-- <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star.png" alt=""> -->
-                        <font-awesome-icon :icon="['fas', 'star']"  class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon :icon="['fas', 'star']" class="star_wo_color"/>
-                        <font-awesome-icon :icon="['far', 'star']"  class="star_wo_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" data-qua="1" class="star_wo_color" />
+                        <font-awesome-icon :icon="['fas', 'star']" data-qua="2" class="star_wo_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" data-qua="3" class="star_wo_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" data-qua="4" class="star_wo_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" data-qua="5" class="star_wo_color" />
                     </div>
                 </article>
                 <article>
                     <h2>服務態度</h2>
                     <div class="comment_star" ref="attitudeStar" @click="attitudeStar_el">
-                        <!-- <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star.png" alt=""> -->
-                        <!-- <font-awesome-icon :icon="['fas', 'star']" />
-                        <font-awesome-icon :icon="['fas', 'star']" />
-                        <font-awesome-icon :icon="['fas', 'star']" />
-                        <font-awesome-icon :icon="['fas', 'star']" />
-                        <font-awesome-icon :icon="['far', 'star']" /> -->
+                        <font-awesome-icon :icon="['fas', 'star']" data-att="1"  class="star_wo_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" data-att="2" class="star_wo_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" data-att="3" class="star_wo_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" data-att="4" class="star_wo_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" data-att="5"  class="star_wo_color"/>
                     </div>
                 </article>
             </div>
@@ -197,11 +217,26 @@ img.cross_modal{
 }
 .comment_star{
     display: flex;
+    cursor: pointer;
    
-    img{
+    svg{
+        color:$dark-milktea;
+        opacity: .2;
         width: 24px;
         margin-left: 10px;
     }
+        svg.star_color {
+        color: $dark-milktea;
+        opacity: 1;
+        }
+
+        svg.star_wo_color {
+        color: $dark-milktea;
+        opacity: .2;
+        &:hover{
+            opacity: .5;
+        }
+        }
 }
 
 @media screen and (max-width:750px) {

@@ -1,8 +1,7 @@
 <?php
-include("connect_test.php");
-// include("connect.php");
-// print_r($reqBody) ;
-// echo $reqBody['id'];
+// include("connect_test.php");
+include("connect.php");
+
 $pdo = getPDO();
 $statement = $pdo->prepare("
     select ID,EMAIL
