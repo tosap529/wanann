@@ -58,14 +58,14 @@
     onMounted(() => {
         
         //搜尋所有的資料
-        const url_contact = 'http://localhost/thd104/public/php/Backstage/contact_select.php';
-        const url_act = 'http://localhost/thd104/public/php/Backstage/act_select.php';
-        const url_member = 'http://localhost/thd104/public/php/Backstage/member_select.php';
-        const url_comment = 'http://localhost/thd104/public/php/Backstage/comment_select.php';
-        const url_articles = 'http://localhost/thd104/public/php/Backstage/articles_select.php';
-        const url_products = 'http://localhost/thd104/public/php/Backstage/products_select.php';
-        const url_pOrder = 'http://localhost/thd104/public/php/Backstage/pOrder_select.php';
-        const url_sOrder = 'http://localhost/thd104/public/php/Backstage/sOrder_select.php';
+        const url_contact = 'http://localhost/thd104/g1/public/php/Backstage/contact_select.php';
+        const url_act = 'http://localhost/thd104/g1/public/php/Backstage/act_select.php';
+        const url_member = 'http://localhost/thd104/g1/public/php/Backstage/member_select.php';
+        const url_comment = 'http://localhost/thd104/g1/public/php/Backstage/comment_select.php';
+        const url_articles = 'http://localhost/thd104/g1/public/php/Backstage/articles_select.php';
+        const url_products = 'http://localhost/thd104/g1/public/php/Backstage/products_select.php';
+        const url_pOrder = 'http://localhost/thd104/g1/public/php/Backstage/pOrder_select.php';
+        const url_sOrder = 'http://localhost/thd104/g1/public/php/Backstage/sOrder_select.php';
         
         fetch(url_contact)
             .then(response => response.json())
