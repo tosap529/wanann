@@ -378,7 +378,7 @@ const toPlan = (e)=>{
 
 <section class="service_map">
     
-    <img src="../img/service/service_map.jpg" alt="">
+    <img src="@/img/service/service_map.jpg" alt="">
     
     <article class="area">
     

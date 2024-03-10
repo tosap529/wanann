@@ -3,7 +3,7 @@ include("connect_test.php");
 // include("connect.php");
 
 $pdo = getPDO();    
-$statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,COUNTY,DISTRICT,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD, MEMBER_PIC,STATUS) values(:name, :phone, :email, :county, :district, :send_address, :service_address,  NOW(),:username, :password,:member_pic,0)");
+$statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,COUNTY,DISTRICT,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD, MEMBER_PIC,STATUS) values(:name, :phone, :email, :county, :district, :send_address, :service_address,  NOW(),:username, :password,:member_pic,1)");
 // $statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD,  STATUS) values(:name, :phone, :email, :send_address, :service_address,  NOW(),:username, :password, b'0')");
 $statement ->bindValue(":name", $reqBody["name"]);
 $statement ->bindValue(":phone", $reqBody["phone"]);
