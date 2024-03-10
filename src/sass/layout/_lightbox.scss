@@ -21,7 +21,7 @@
 
     h2.bItem {
         background-color: $white;
-        padding: 10px 15px;
+        padding: 10px;
         border-radius: 10px;
         width: 250px;
         text-align-last: left;
@@ -43,12 +43,16 @@
             width: 160px;
             height: 160px;
             border-radius: 10px;
+
+            background-color: $light-milktea;
+            margin-right: 25px;
+        }
+
+        .bAddPicPlus {
             background-image: url(@/img/cms/cms_modal_add_icon.png);
             background-size: 30% 30%;
             background-repeat: no-repeat;
             background-position: 50% 50%;
-            background-color: $light-milktea;
-            margin-right: 25px;
         }
 
         >div:last-child {

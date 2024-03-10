@@ -10,6 +10,10 @@
     import ModalbAct from '@/components/ModalbAct.vue'; 
     import ModalbArticle from '@/components/ModalbArticle.vue'; 
     import ModalbMember from '@/components/ModalbMember.vue'; 
+    // 新增資料燈箱
+    import ModalbProductAdd from '@/components/ModalbProductAdd.vue'; 
+    import ModalbActAdd from '@/components/ModalbActAdd.vue'; 
+    import ModalbArticleAdd from '@/components/ModalbArticleAdd.vue'; 
     defineProps(['backNow']);
 
     const bMember_th = [ '會員ID','帳號','姓名','手機號碼','電子郵件','註冊日期','權限' ];
@@ -30,6 +34,9 @@
     const products_data = ref([]);
     const sOrder_data = ref([]);
 
+    // 新增資料按鈕(僅商品/文章/活動頁面)
+    const insertBtn = ref(null)
+
     //更新狀態按鈕
 
     // const url_act_update = 'http://localhost/thd104/g1/public/php/act_update.php';
@@ -49,6 +56,10 @@
             isbMemberModalShow.value = null
         }
     }
+    const isbMemberAddModalShow = ref(false);
+    const gobModalAdd = ()=>{
+        isbMemberAddModalShow.value = !isbMemberAddModalShow.value;
+    }
     
     
     const emitModalbContact = () => {
@@ -60,22 +71,22 @@
     onMounted(() => {
         
         //搜尋所有的資料
-        // const url_contact = 'http://localhost/thd104/g1/public/php/Backstage/contact_select.php';
-        // const url_act = 'http://localhost/thd104/g1/public/php/Backstage/act_select.php';
-        // const url_member = 'http://localhost/thd104/g1/public/php/Backstage/member_select.php';
-        // const url_comment = 'http://localhost/thd104/g1/public/php/Backstage/comment_select.php';
-        // const url_articles = 'http://localhost/thd104/g1/public/php/Backstage/articles_select.php';
-        // const url_products = 'http://localhost/thd104/g1/public/php/Backstage/products_select.php';
-        // const url_pOrder = 'http://localhost/thd104/g1/public/php/Backstage/pOrder_select.php';
-        // const url_sOrder = 'http://localhost/thd104/g1/public/php/Backstage/sOrder_select.php';
-        const url_contact = 'php/Backstage/contact_select.php';
-        const url_act = 'php/Backstage/act_select.php';
-        const url_member = 'php/Backstage/member_select.php';
-        const url_comment = 'php/Backstage/comment_select.php';
-        const url_articles = 'php/Backstage/articles_select.php';
-        const url_products = 'php/Backstage/products_select.php';
-        const url_pOrder = 'php/Backstage/pOrder_select.php';
-        const url_sOrder = 'php/Backstage/sOrder_select.php';
+        const url_contact = 'http://localhost/thd104/g1/public/php/Backstage/contact_select.php';
+        const url_act = 'http://localhost/thd104/g1/public/php/Backstage/act_select.php';
+        const url_member = 'http://localhost/thd104/g1/public/php/Backstage/member_select.php';
+        const url_comment = 'http://localhost/thd104/g1/public/php/Backstage/comment_select.php';
+        const url_articles = 'http://localhost/thd104/g1/public/php/Backstage/articles_select.php';
+        const url_products = 'http://localhost/thd104/g1/public/php/Backstage/products_select.php';
+        const url_pOrder = 'http://localhost/thd104/g1/public/php/Backstage/pOrder_select.php';
+        const url_sOrder = 'http://localhost/thd104/g1/public/php/Backstage/sOrder_select.php';
+        // const url_contact = 'php/Backstage/contact_select.php';
+        // const url_act = 'php/Backstage/act_select.php';
+        // const url_member = 'php/Backstage/member_select.php';
+        // const url_comment = 'php/Backstage/comment_select.php';
+        // const url_articles = 'php/Backstage/articles_select.php';
+        // const url_products = 'php/Backstage/products_select.php';
+        // const url_pOrder = 'php/Backstage/pOrder_select.php';
+        // const url_sOrder = 'php/Backstage/sOrder_select.php';
         
         fetch(url_contact)
             .then(response => response.json())
@@ -261,10 +272,16 @@
     <ModalbAct @ModalbAct="gobModal" v-if="isbMemberModalShow !==null &&backNow=='活動'" :data="isbMemberModalShow"/>
     <ModalbArticle @ModalbArticle="gobModal" v-if="isbMemberModalShow !==null &&backNow=='文章'" :data="isbMemberModalShow"/>
     <ModalbContact @ModalbContact="gobModal" v-if="isbMemberModalShow !==null &&backNow=='聯絡表單'" :data="isbMemberModalShow"/>
+    <!-- 新增資料的燈箱 -->
+    <ModalbProductAdd @ModalbProductAdd="gobModalAdd" v-if="isbMemberAddModalShow &&backNow=='商品'"/>
+    <ModalbActAdd @ModalbActAdd="gobModalAdd" v-if="isbMemberAddModalShow &&backNow=='活動'"/>
+    <ModalbArticleAdd @ModalbArticleAdd="gobModalAdd" v-if="isbMemberAddModalShow &&backNow=='文章'"/>
     <table class="bMember_table table-striped">
         <thead>
             <tr> 
-                <th></th>
+                <th>
+                    <button class="insert_btn edit-btn" v-show="backNow=='商品'||backNow=='活動'||backNow=='文章'" ref="insertBtn" @click="gobModalAdd"><font-awesome-icon :icon="['fas', 'plus']" />新增</button>
+                </th>
                 <th v-show="backNow=='會員註冊資料'" v-for="th in bMember_th" :key="th">{{th}}</th>
                 <th v-show="backNow=='服務訂單'" v-for="th in bServiceOrder_th" :key="th">{{th}}</th>
                 <th v-show="backNow=='服務評論'" v-for="th in bServiceComment_th" :key="th">{{th}}</th>
@@ -379,6 +396,7 @@
 
 
 <style lang="scss" scoped>
+
 
 button{
     cursor: pointer;

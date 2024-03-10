@@ -148,7 +148,7 @@ const infoSave_sa=(e)=>{
 const profile = ref(null);
 const profile_pic = ref(null);
 const profilePicUpdate = ref(null);
-const profileClick=(e)=>{
+const profileClick=()=>{
     profile.value.click();
 }
 function fileChange(){
@@ -238,7 +238,7 @@ const editSuccessMsg=(e)=>{
         </div>
         <div>
             <h2>手機號碼</h2>
-            <input type="tel"  v-model="userData.PHONE" disabled maxlength="10" autocomplete="off">
+            <input type="tel"  v-model="userData.PHONE" disabled maxlength="10" autocomplete="off" oninput="value = value.replace(/[^\d]/g,'')">
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
                 <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />

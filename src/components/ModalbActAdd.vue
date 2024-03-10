@@ -1,14 +1,29 @@
 <script setup>
 
-    import { ref } from 'vue';
-    defineEmits(['ModalbAct'])
+    import { ref,onMounted } from 'vue';
+    defineEmits(['ModalbActAddAdd']);
 
 
-    const props = defineProps({data: Object});
+    // const props = defineProps({data: Object});
+    const actAddPic = ref(null);
+    const actAddPicInput = ref(null);
     const showSuccessMessage = ref(false);
     
+    let NewActData = {
+        id: '', 
+        content: '',
+        createTime: '',
+        status:'',
+        title:'',
+        pic:'',
+        deadline: '',
+        category: '',
+        couponPrice: '',
+        couponId: '',
+    }
+
     const submitForm = () => {
-    const url_act_update = 'http://localhost/thd104/g1/public/php/Backstage/act_update.php';
+    // const url_act_update = 'http://localhost/thd104/g1/public/php/Backstage/act_update.php';
     
     showSuccessMessage.value = true;
     setTimeout(() => {
@@ -20,37 +35,42 @@
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-            id: props.data.ID, 
-            content: props.data.CONTENT,
-            createTime: props.data.CREATE_TIME,
-            status: props.data.STATUS,
-            title: props.data.TITLE,
-            pic: props.data.PIC,
-            deadline: props.data.DEADLINE,
-            category: props.data.CATEGORY,
-            couponPrice: props.data.COUPON_PRICE,
-            couponId: props.data.COUPON_ID,
-        })
+        body: JSON.stringify(NewActData)
 
     })
     };
 
-    const click_function = (key, id) => {
+    // const click_function = (key, id) => {
         
-        let final_status = null;
-        if (props.data.STATUS === 1) {
-            props.data.STATUS = 0;
-            final_status = false;
-        } else {
-            props.data.STATUS = 1;
-            final_status = true;
+    //     let final_status = null;
+    //     if (props.data.STATUS === 1) {
+    //         props.data.STATUS = 0;
+    //         final_status = false;
+    //     } else {
+    //         props.data.STATUS = 1;
+    //         final_status = true;
+    //     }
+    // }
+    function fileChange(){
+    let file = actAddPicInput.value.files[0];
+    let readFile = new FileReader();
+    readFile.readAsDataURL(file);
+    readFile.addEventListener('load', () => {
+    actAddPic.value.src = readFile.result
+    if(actAddPic.value.src){
+        actAddPic.value.closest('div').classList.remove('bAddPicPlus');
         }
+    })}
+    onMounted(()=>{
+    actAddPicInput.value.addEventListener('change',fileChange );
+    })
+    const fileClick =()=>{
+    actAddPicInput.value.click();
     }
 
 </script>
 <template>
-    <div class="modal_mask" @click.self="$emit('ModalbAct')" >
+    <div class="modal_mask" @click.self="$emit('ModalbActAdd')" >
     <div class="modal_content bAct backModal">
         <section class="bModalHeader">
             <h1>活動－編輯與查看</h1>
@@ -60,34 +80,38 @@
         <section class="bModalContent">
             <div>
                 <div>
-                    <h2 class="bItem">活動ID：{{ props.data.ID }}</h2>
+                    <h2 class="bItem">活動ID：{{ NewActData.id }}</h2>
                     <h2></h2>
                 </div>
                 <h2>活動資料</h2>
                 <article>
                     <div>
                         <h2>活動類別：</h2>
-                        <h2>{{ props.data.CATEGORY }}</h2>
+                        <!-- <h2>{{ NewActData.category }}</h2> -->
+                        <select name="" id="" v-model="NewActData.category">
+                            <option value="優惠活動">優惠活動</option>
+                            <option value="職人講座">職人講座</option>
+                        </select>
                     </div>
                     <div>
                         <h2>建立日期：</h2>
-                        <h2>{{ props.data.CREATE_TIME }}</h2>
+                        <h2>{{ NewActData.createTime }}</h2>
                     </div>
                     <div>
                         <h2>截止日期：</h2>
-                        <input v-model="props.data.DEADLINE">
+                        <input v-model="NewActData.deadline">
                     </div>
                     <div>
                         <h2>優惠代碼：</h2>
-                        <input v-model="props.data.COUPON_ID">
+                        <input v-model="NewActData.couponId">
                     </div>
                     <div>
                         <h2>優惠內容：</h2>
-                        <input v-model="props.data.COUPON_PRICE">
+                        <input v-model="NewActData.couponPrice">
                     </div>
                     <div>
                         <h2>活動狀態：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')">{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button>
+                        <!-- <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')">{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button> -->
                     </div>
                 </article>
             </div>
@@ -98,25 +122,26 @@
                     
                     <div>
                         <h2>活動標題：</h2>
-                        <input type="text" v-model="props.data.TITLE">
-                        <!-- <h2>{{ props.data.TITLE }}</h2> -->
+                        <input type="text" v-model="NewActData.title">
+                        <!-- <h2>{{ NewActData.TITLE }}</h2> -->
                     </div>
                     <div>
                         <h2>活動敘述：</h2>
-                        <textarea style="resize: none" type="text" v-model="props.data.CONTENT"></textarea>
-                        <!-- <h2>{{ props.data.CONTENT }}</h2> -->
+                        <textarea style="resize:none" type="text" v-model="NewActData.content"></textarea>
+                        <!-- <h2>{{ NewActData.CONTENT }}</h2> -->
                     </div>
                     <div>
                         <h2>活動圖片：</h2>
-                        <div class="bAddPic bAddPicPlus">
-                            <img src="" alt="">
+                        <div class="bAddPicPlus bAddPic" @click="fileClick">
+                            <input type="file" ref="actAddPicInput" style="display: none;">
+                            <img src="" alt="" ref="actAddPic">
                         </div>
                     </div>
                   
                 </article>
             </div>
             <div class="block">
-                <button class="btn" @click="$emit('ModalbAct')">關閉</button>
+                <button class="btn" @click="$emit('ModalbActAdd')">關閉</button>
                 <button class="btn">儲存</button>
                 <div id="successMessage" class="success-message" v-show="showSuccessMessage">儲存成功 !!</div>
             </div>
@@ -150,6 +175,9 @@
         article{
             div{
                 display: flex;
+                select{
+                    align-self: center;
+                }
                 h2{
                     padding: 5px 0;
                     margin: 10px 0;

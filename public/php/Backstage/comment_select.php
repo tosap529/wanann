@@ -1,7 +1,7 @@
 <?php
 
-// include("../connect_test.php");
-include("../connect.php");
+include("../connect_test.php");
+// include("../connect.php");
 
 $pdo = getPDO();
 $statement = $pdo->prepare("select sc.*, so.ID as ORDER_ID from SERVICE_COMMENT sc join SERVICE_ORDER so on sc.ID = so.SERVICE_COMMENT_ID order by COMMENT_DATE desc");

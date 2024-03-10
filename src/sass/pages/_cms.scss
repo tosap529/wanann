@@ -232,7 +232,25 @@
 
   }
 
+  //  新增資料按鈕
+  .cms_main-content .cms_data-table button.insert_btn {
+      box-sizing: border-box;
+      //   width: 60px;
+      line-height: 26px;
+      height: 36px;
+      padding: 5px 15px;
+      background-color: $warning;
+      box-shadow: 1px 1px .5px #96341e;
 
+      &:hover {
+          background-color: #96341e;
+          box-shadow: 1px 1px .5px #96341e inset;
+      }
+
+      svg {
+          margin-right: 5px;
+      }
+  }
 
 
   //------以下換頁鍵--------

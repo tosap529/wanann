@@ -94,8 +94,7 @@
                 <article>
                     <div>
                         <h2>內容描述：</h2>
-                        <br>
-                        <input type="textarea" v-model="props.data.CONTENT">
+                        <textarea style="resize: none;" v-model="props.data.CONTENT"></textarea>
                     </div>
                 </article>
                 
@@ -156,6 +155,7 @@
                 // width: 100px;
                 // height: 40px;
             }
+
         }
         article:last-child{
             flex-basis: 55%;
@@ -167,10 +167,18 @@
             h2{
                  text-align: left;
             }
-            input{
-                width: 450px;
-                height: 300px;
-            }
+            textarea{
+                    width: 450px;
+                    height: 300px;
+                    border-radius: 8px;
+                    border: none;
+                    background-color: $light-milktea;
+                    padding: 10px;
+                    margin-top: 15px;
+                    &:focus{
+                        outline-color: $brown;
+                    }
+                }
         }
         }
     }
