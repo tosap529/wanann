@@ -1,14 +1,15 @@
 <script setup>
 
+    import { ref, computed, onMounted } from "vue";
 
     import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
     import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
     import BannerUrl  from '@/img/articles/articles_banner.jpg'; // 更改成banner路徑
     import wrapper from '@/layouts/wrapper.vue'; // 引入wrapper滑動(請照抄)
 
+
     const banner_url = BannerUrl; // banner路徑令變數(請照抄)
     
-    import { ref, onMounted } from "vue";
   
     const activeContent = ref('content1');
     const isVisible1 = ref(true);
@@ -37,15 +38,16 @@
     
 
     const wanannItems = ref([]);
-    // const lectureItems = ref([]);
-    // const discountItems = ref([]);
-    // const lectureItems = ref([]);
-    // const discountItems = ref([]);
-    // const lectureItems = ref([]);
+    const wanannNewItems = ref([]);
+    const proItems = ref([]);
+    const proNewItems = ref([]);
+    const cleanItems = ref([]);
+    const cleanNewItems = ref([]);
+
 
     onMounted(() => {
 
-    const url_articlesWanann = 'http://localhost/thd104/public/php/articlesWanann_select.php';
+    const url_articlesWanann = 'http://localhost/thd104/g1/public/php/articlesWanann_select.php';
 
     
     fetch(url_articlesWanann)
@@ -59,73 +61,42 @@
         });
 
 
-    // const url_lecture = 'http://localhost/thd104/public/php/actLecture_select.php';
+    const url_articlesWanannNew = 'http://localhost/thd104/g1/public/php/articlesWanannNew_select.php';
 
     
-    // fetch(url_lecture)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         // console.log('註冊成功 js');
-    //     lectureItems.value = response;
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error);
-    //     });
+    fetch(url_articlesWanannNew)
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+        wanannNewItems.value = response;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
-    // const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
 
-    
-    // fetch(url_discount)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         // console.log('註冊成功 js');
-    //     discountItems.value = response;
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error);
-    //     });
-    
-    // const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
 
     
-    // fetch(url_discount)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         // console.log('註冊成功 js');
-    //     discountItems.value = response;
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error);
-    //     });
-
-
-    // const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
-
-    
-    // fetch(url_discount)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         // console.log('註冊成功 js');
-    //     discountItems.value = response;
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error);
-    //     });
-
-    // const url_discount = 'http://localhost/thd104/public/php/actDiscount_select.php';
-
-    
-    // fetch(url_discount)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         // console.log('註冊成功 js');
-    //     discountItems.value = response;
-    //     })
-    //     .catch(error => {
-    //         console.error('Error:', error);
-    //     });
-
 });
+
+    // --------------------分頁器----------------------->
+    
+    const wcurrentPage = ref(1)
+    const wpageSize = ref(3)
+
+    
+    const wstartIndex = (wcurrentPage.value - 1) * wpageSize.value;
+    const wendIndex = wstartIndex + wpageSize.value;
+    wanannNewItems.value.slice(wstartIndex, wendIndex);
+ 
+
+    const wtotalPages = computed(() => Math.ceil(wanannNewItems.value.length / wpageSize.value));
+
+    const wsetPage = (wpage) => {
+        if (wpage >= 1 && wpage <= wtotalPages.value) {
+            wcurrentPage.value = wpage;
+        }
+    };
 
 
 </script>
@@ -224,13 +195,13 @@
         </section>
         </div> -->
 
-        <section class="articles_buttom">
+        <section class="articles_buttom" >
 
             <aside>
                 <h2>文章一覽</h2>
                 <ul>
                     <!-- class="color" -->
-                    <li   @click.prevent="showContent('content1')" :class="{ color: activeContent === 'content1' }">                     
+                    <li @click.prevent="showContent('content1')" :class="{ color: activeContent === 'content1' }">                     
                         <a href="#" id="btn_wanann">浣安小品</a>  
                         <span v-show="isVisible1"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-feather" viewBox="0 0 16 16">
                         <path d="M15.807.531c-.174-.177-.41-.289-.64-.363a3.8 3.8 0 0 0-.833-.15c-.62-.049-1.394 0-2.252.175C10.365.545 8.264 1.415 6.315 3.1S3.147 6.824 2.557 8.523c-.294.847-.44 1.634-.429 2.268.005.316.05.62.154.88q.025.061.056.122A68 68 0 0 0 .08 15.198a.53.53 0 0 0 .157.72.504.504 0 0 0 .705-.16 68 68 0 0 1 2.158-3.26c.285.141.616.195.958.182.513-.02 1.098-.188 1.723-.49 1.25-.605 2.744-1.787 4.303-3.642l1.518-1.55a.53.53 0 0 0 0-.739l-.729-.744 1.311.209a.5.5 0 0 0 .443-.15l.663-.684c.663-.68 1.292-1.325 1.763-1.892.314-.378.585-.752.754-1.107.163-.345.278-.773.112-1.188a.5.5 0 0 0-.112-.172M3.733 11.62C5.385 9.374 7.24 7.215 9.309 5.394l1.21 1.234-1.171 1.196-.027.03c-1.5 1.789-2.891 2.867-3.977 3.393-.544.263-.99.378-1.324.39a1.3 1.3 0 0 1-.287-.018Zm6.769-7.22c1.31-1.028 2.7-1.914 4.172-2.6a7 7 0 0 1-.4.523c-.442.533-1.028 1.134-1.681 1.804l-.51.524zm3.346-3.357C9.594 3.147 6.045 6.8 3.149 10.678c.007-.464.121-1.086.37-1.806.533-1.535 1.65-3.415 3.455-4.976 1.807-1.561 3.746-2.36 5.31-2.68a8 8 0 0 1 1.564-.173"/>
@@ -257,19 +228,18 @@
 
             <div class="articles_all" id="articles_wanann" v-if="activeContent === 'content1'">
               
-                <section class="section_all" >
-                    <img src="../img/articles/articles_2.jpg" alt="">
+                <section class="section_all"  v-for="item in wanannNewItems" :key="item.ID">
+                    <img :src="item.PIC" alt="">
 
                     <article>
-                        <h2>愛心關懷，浣安陪您守護愛的長者</h2>
-                        <h3>2023.12.31</h3>
-                        <p>在高齡化社會的現今，家中的長者需要更多的關愛和照顧。他們的生活品質直接受到居家環境的影響，因此一個清潔、舒適的家居空間變得顯得格外重要。為了滿足這樣的需求，浣安居家清潔服務應運而生。浣安不僅提供專業的清潔服務，更在其中融入愛心關懷，為您的家人打造一個安心、舒適的居家環境。我們深刻理解長者的需求，因此在清潔的同時，注重細節、注重安全，確保長者的居家環境是乾淨、整潔且安全的。
-                        </p>
+                        <h2>{{ item.TITLE }}</h2>
+                        <h3>{{ item.CREATE_TIME }}</h3>
+                        <p>{{ item.CONTENT }}</p>
                         <a href="">Read More</a>
                     </article>
                 </section>
 
-                <section class="section_all even">
+                <!-- <section class="section_all even">
                     <img src="../img/articles/articles_3.jpg" alt="">
 
                     <article>
@@ -297,11 +267,11 @@
                         <a href="">Read More</a>
                     </article>
 
-                </section>
+                </section> -->
         
             </div>
 
-            <div class="articles_all " id="articles_know" v-else-if="activeContent === 'content2'">
+            <!-- <div class="articles_all " id="articles_know" v-else-if="activeContent === 'content2'">
                
                 <section class="section_all">
                     <img src="../img/articles/articles_6.jpg" alt="">
@@ -416,40 +386,34 @@
 
                 </section>
            
-            </div>
+            </div> -->
             
         </section>
-        <div class="mall_paginator articles_paginator">
-                <ul>
-                    <!-- 上一頁圖案 -->
-                    <!-- <li v-if="currentPage != 1" v-on:click="setPage(currentPage - 1)"> -->
-                    <li>
-                        <!-- <span>&lt;</span> -->
-                        <div>
-                            <span>&lt;</span>
-                        </div>
-                    </li>
 
-                    <li>
-                        1
-                    </li>
-                    <li>
-                        2
-                    </li>
-                    <li>
-                        3
-                    </li>
+<!---------------------  分頁器   --------------------->
 
-                    <!-- 下一頁圖案 -->
-                    <!-- <li  v-if="currentPage != totalPages" v-on:click="setPage(currentPage + 1)"> -->
-                    <li>
-                        <!-- <span>&gt;</span> -->
-                        <div>
-                            <span>&gt;</span>
-                        </div>
-                    </li>
-                </ul>
+    <div class="mall_paginator"  v-if="activeContent === 'content1'">
+
+                
+    <ul>
+        <!-- 上一頁圖案 -->
+        <li>                    
+            <div v-if="wcurrentPage != 1" v-on:click="wsetPage(wcurrentPage - 1)">
+                <span>&lt;</span>
             </div>
+        </li>
+        <li v-for="n in wtotalPages" v-bind:key="n" v-on:click="wsetPage(n)" v-bind:class="{'mall_paginator_on' : n == wcurrentPage}">
+            {{ n }}
+        </li>
+        <!-- 下一頁圖案 -->
+        <li>                     
+            <div  v-if="wcurrentPage != wtotalPages" v-on:click="wsetPage(wcurrentPage + 1)">
+                <span>&gt;</span>
+            </div>
+        </li>
+    </ul>
+
+    </div>
 
 
     </wrapper>
