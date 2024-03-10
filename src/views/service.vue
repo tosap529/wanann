@@ -56,7 +56,7 @@ const toPlan = (e)=>{
         <h3>廚房簡易清潔</h3>
         <h3>浴室簡易清潔</h3>
         <h3>臥室及客房清潔</h3>
-        <p>NTD4,000</p>
+        <p>NTD 4000</p>
         <p class="new">適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
         <div>
             <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
@@ -78,7 +78,7 @@ const toPlan = (e)=>{
         <h3>加強油汙處理</h3>
         <h3>廚具汰洗</h3>
         <h3>水槽疏通</h3>
-        <p>NTD2,000</p>
+        <p>NTD 2000</p>
         <p class="new">適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
         <div>
             <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
@@ -100,7 +100,7 @@ const toPlan = (e)=>{
         <h3>加強水垢處理</h3>
         <h3>專業除黴</h3>
         <h3>馬桶清潔</h3>
-        <p>NTD1,500</p>
+        <p>NTD 1500</p>
         <p class="new">適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
         <div>
             <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
