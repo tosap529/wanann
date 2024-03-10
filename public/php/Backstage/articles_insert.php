@@ -1,5 +1,7 @@
 <?php
-
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
+header("Access-Control-Allow-Headers: X-Requested-With");
 include("../connect_test.php");
 // include("../connect.php");
 
@@ -14,7 +16,7 @@ $statement = $pdo->prepare("
     insert into
     ARTICLE (TITLE,PIC,CONTENT,CREATE_TIME,CATEGORY,SUMMERNOTE,STATUS) 
     values
-    (:title, :pic, :content, CURDATE(), :category, :summernote, 1
+    (:title, :pic, :content, CURDATE(), :category, :summernote, 1)
     ");
 
 $statement ->bindValue(":title", $article_info["title"]);

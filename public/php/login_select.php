@@ -1,6 +1,6 @@
 <?php
-// include('connect_test.php');
-include('connect.php')
+include('connect_test.php');
+// include('connect.php');
 
 // $username = $_POST['usernameLogin'];
 // $password = $_POST['pwdLogin'];

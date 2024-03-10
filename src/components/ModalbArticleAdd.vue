@@ -11,11 +11,10 @@ const showSuccessMessage = ref(false);
 let NewArticleData = {
     id: '', 
     title: '',
-    pic: 'default',
+    pic: '',
     content: '',
-    createTime:'',
     category:'',
-    summernote: 'default',
+    summernote: '',
     status: '',
     }
 
