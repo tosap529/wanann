@@ -1,7 +1,7 @@
 <?php
 
-include("connect_test.php");
-$reqBody = json_decode(file_get_contents("php://input"), true);
+include("../connect_test.php");
+
 
 $pdo = getPDO();
 $statement = $pdo->prepare("update CONTACT_TABLE set STATUS = :status, NAME = :name, PHONE = :phone, EMAIL = :email, CONTENT = :content, CREATE_TIME = :createTime where ID = :id");

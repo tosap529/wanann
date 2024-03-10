@@ -25,32 +25,32 @@ const getBackNow= (e)=>{
 defineEmits(['ModalbContact']);
 
 const searchBar = ref('');
-const member = ref([]);
+// const member = ref([]);
 
 
-const url = 'http://localhost/thd104/public/php/Backstage/member_select.php';
+// const url = 'http://localhost/thd104/public/php/Backstage/member_select.php';
         
-        fetch(url)
-            .then(response => response.json())
-            .then(response => {
+//         fetch(url)
+//             .then(response => response.json())
+//             .then(response => {
     
-                member.value = response;
-                // cartStore.setProductsForMitem(response);
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+//                 member.value = response;
+//                 // cartStore.setProductsForMitem(response);
+//             })
+//             .catch(error => {
+//                 console.error('Error:', error);
+//             });
 
 
-const filteredMembers = computed(() => {
-    if(!searchBar.value.trim()){
-        return member.value;
-    } else {
-        return member.value.filter(member => {
-            return member.NAME.includes(searchBar.value.trim());
-        });
-    }
-});
+// const filteredMembers = computed(() => {
+//     if(!searchBar.value.trim()){
+//         return member.value;
+//     } else {
+//         return member.value.filter(member => {
+//             return member.NAME.includes(searchBar.value.trim());
+//         });
+//     }
+// });
 
 
 
