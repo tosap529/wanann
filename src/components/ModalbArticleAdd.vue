@@ -1,61 +1,79 @@
 <script setup>
 
-import { ref } from 'vue';
+import { ref,onMounted } from 'vue';
 
-defineEmits(['ModalbArticle'])
+defineEmits(['ModalbArticleAdd']);
 
-const props = defineProps({data: Object});
+const articleAddPic = ref(null);
+const articleAddPicInput = ref(null);
 const showSuccessMessage = ref(false);
 
-const submitForm = () => {
-
-    const url_articles_update = 'http://localhost/thd104/g1/public/php/Backstage/articles_update.php';
-    
-    showSuccessMessage.value = true;
-    setTimeout(() => {
-        showSuccessMessage.value = false;
-    }, 1000);
-
-
-
-    fetch(url_articles_update, {
-
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            id: props.data.ID, 
-            title: props.data.TITLE,
-            pic: props.data.PIC,
-            content: props.data.CONTENT,
-            createTime: props.data.CREATE_TIME,
-            category: props.data.CATEGORY,
-            summernote: props.data.SUMMERNOTE,
-            status: props.data.STATUS,
-
-        })
-
-    })
-    };
-
-    const click_function = (key, id) => {
-        
-        let final_status = null;
-        if (props.data.STATUS === 1) {
-            props.data.STATUS = 0;
-            final_status = false;
-        } else {
-            props.data.STATUS = 1;
-            final_status = true;
-        }
+let NewArticleData = {
+    id: '', 
+    title: '',
+    pic: '',
+    content: '',
+    category:'',
+    summernote: '',
+    status: '',
     }
 
+    // const click_function = (key, id) => {
+        
+    //     let final_status = null;
+    //     if (props.data.STATUS === 1) {
+    //         props.data.STATUS = 0;
+    //         final_status = false;
+    //     } else {
+    //         props.data.STATUS = 1;
+    //         final_status = true;
+    //     }
+    // }
 
+    const articlesInsert=()=>{
+    let file = articleAddPicInput.value.files[0];
+
+    if(file){
+         let formdata  = new FormData();
+            formdata.append("article_pic", file);
+            formdata.append("article_info", JSON.stringify(NewArticleData));
+            const url = 'http://localhost/thd104/g1/public/php/Backstage/articles_insert.php';
+            // const url = 'php/Backstage/articles_insert.php';
+            fetch(url, {
+                    method: 'POST',
+                    body: formdata
+                })
+            .then(response => {
+                if(response){
+                    showSuccessMessage.value = true;
+                    setTimeout(() => {
+                        showSuccessMessage.value = false;
+                    }, 1000);
+                }
+                })
+    }
+}
+
+    function fileChange(){
+    let file = articleAddPicInput.value.files[0];
+    let readFile = new FileReader();
+    readFile.readAsDataURL(file);
+    readFile.addEventListener('load', () => {
+    articleAddPic.value.src = readFile.result
+    if(articleAddPic.value.src){
+        articleAddPic.value.closest('div').classList.remove('bAddPicPlus');
+        }
+    })}
+onMounted(()=>{
+    articleAddPicInput.value.addEventListener('change',fileChange );
+})
+const fileClick =()=>{
+    articleAddPicInput.value.click();
+}
 
 </script>
 <template>
-    <div class="modal_mask" @click.self="$emit('ModalbArticle')" >
+    <div class="modal_mask" @click.self="$emit('ModalbArticleAdd')" >
     <div class="modal_content bArticle backModal">
 
         <section class="bModalHeader">
@@ -66,22 +84,27 @@ const submitForm = () => {
         <section class="bModalContent">
             <div>
                 <div>
-                    <h2 class="bItem">文章ID：{{ props.data.ID }}</h2>
+                    <h2 class="bItem">文章ID：{{ NewArticleData.id }}</h2>
                     <h2></h2>
                 </div>
                 <h2>文章資料</h2>
                 <article>
                     <div>
                         <h2>文章類別：</h2>
-                        <input type="text" v-model="props.data.CATEGORY">
+                        <!-- <input type="text" v-model="NewArticleData.category"> -->
+                        <select name="" id="" v-model="NewArticleData.category">
+                            <option value="浣安小品">浣安小品</option>
+                            <option value="清潔小知識">清潔小知識</option>
+                            <option value="職人專訪">職人專訪</option>
+                        </select>
                     </div>
                     <div>
                         <h2>建立日期：</h2>
-                        <h2>{{ props.data.CREATE_TIME }}</h2>
+                        <h2>{{ NewArticleData.createTime }}</h2>
                     </div>
                     <div>
                         <h2>文章狀態：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button>
+                        <!-- <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button> -->
                     </div>
                 </article>
             </div>
@@ -92,25 +115,25 @@ const submitForm = () => {
                     
                     <div>
                         <h2>文章標題：</h2>
-                        <input type="text" v-model="props.data.TITLE">
+                        <input type="text" v-model="NewArticleData.title">
                     </div>
                     <div>
                         <h2>文章敘述：</h2>
-                        <!-- <input type="text" v-model="props.data.CONTENT"> -->
-                        <textarea style="resize: none" type="text" v-model="props.data.CONTENT"></textarea>
+                        <input type="text" v-model="NewArticleData.content">
                     </div>
                     <div>
                         <h2>文章圖片：</h2>
-                        <div class="bAddPic bAddPicPlus">
-                            <img src="" alt="">
+                        <div class="bAddPicPlus bAddPic" @click="fileClick">
+                            <input type="file" ref="articleAddPicInput" style="display: none;">
+                            <img src="" alt="" ref="articleAddPic">
                         </div>
                     </div>
                   
                 </article>
             </div>
             <div class="block">
-                <button class="btn" @click="$emit('ModalbArticle')">關閉</button>
-                <button type="submit" class="btn">儲存</button>
+                <button class="btn" @click="$emit('ModalbArticleAdd')">關閉</button>
+                <button type="submit" @click="articlesInsert" class="btn">儲存</button>
                 <div id="successMessage" class="success-message" v-show="showSuccessMessage">儲存成功 !!</div>
             </div>
             
@@ -142,6 +165,9 @@ const submitForm = () => {
         article{
             div{
                 display: flex;
+                select{
+                    align-self: center;
+                }
                 input{
                     margin-top: 10px;
                 }
@@ -162,27 +188,12 @@ const submitForm = () => {
             text-align: left;
             margin-bottom: 10px;
         }
-        article:nth-child(2)>div:nth-child(2){
-            height: 160px;
-        }
         article{
             div{
                 display: flex;
                 input{
-                    width: 400px;
+                    width: 420px;
                     margin-top: 15px;
-                }
-                textarea{
-                    width: 400px;
-                    height: 160px;
-                    border-radius: 8px;
-                    border: none;
-                    background-color: $light-milktea;
-                    padding: 10px;
-                    margin-top: 15px;
-                    &:focus{
-                        outline-color: $brown;
-                    }
                 }
                 h2{
                     padding: 10px 0;

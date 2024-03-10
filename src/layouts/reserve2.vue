@@ -82,7 +82,7 @@ import {ref} from 'vue';
                     <input type="checkbox" name="checkbox" class="service_checkbox_ad" :id="'checkbox'+(i+1)"  @click.self="checkAdditional">
                     <label :for="'checkbox'+(i+1)">{{ additional }}</label>
                 </div>
-                <p>NTD500</p>
+                <p>NTD 500</p>
             </div>
         </article>
         <article class="right">
