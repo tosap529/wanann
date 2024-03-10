@@ -1,34 +1,25 @@
 <script setup>
 defineEmits(['first'])
-</script>
 
-<script>
+import { ref } from 'vue';
 
-    export default {
+const couponInput = ref(null);
+const couponCode = 'welcome0101';
+const showSuccessModal = ref(false);
 
-        mounted(){
-            let coupon_input_el = document.getElementsByClassName("coupon_input");
-            let copy_btns = document.getElementsByClassName("copy_button");
-            // const showSuccessModal = false;
-            for(let i = 0; i < copy_btns.length; i++){
-              
-                copy_btns[i].addEventListener("click", function(){
-                coupon_input_el[i].select();
-                document.execCommand('copy');
-                // showSuccessModal = true;
-                // setTimeout(() => {
-                //     showSuccessModal = false;
-                // }, 800);
-                });
-            }
-    //         const closeModal = () => {
-    //     showSuccessModal = false;
-    // };
-        }
-
-        
-    }
-    
+const copyValue = () => {
+  if (couponInput.value) {
+    couponInput.value.select();
+    document.execCommand('copy');
+    showSuccessModal.value = true;
+  setTimeout(() => {
+            showSuccessModal.value = false;
+         }, 800);
+  }
+};
+const closeModal = () => {
+        showSuccessModal.value = false;
+    };
 </script>
 
 <template>
@@ -56,13 +47,15 @@ defineEmits(['first'])
                 <div class="first_coupon">
                     <h3>領取初次消費優惠碼：</h3>
                     <div class="coupon_btn">
-                    <input type="text" value="welcome0101" class="coupon_input" readonly="readonly">
-                    <button class="copy_button">複製</button>
-                    <!-- <div class="modal_content">
-                        <span class="close" @click="closeModal">&times;</span>
-                        <img src="../img/logo_title.svg" alt="logo">
-                        <p>已複製連結</p>
-                    </div> -->
+                        <input ref="couponInput" type="text" :value="couponCode" class="coupon_input" readonly>
+                        <button class="copy_button" @click="copyValue">複製</button>
+                        <div v-if="showSuccessModal" class="modal">
+                                <div class="modal_content">
+                                    <span class="close" @click="closeModal">&times;</span>
+                                    <img src="@/img/logo_title.svg" alt="logo">
+                                    <p>已複製連結</p>
+                                </div>
+                        </div>
                     </div>
 
                     <h4>折抵100元</h4>
@@ -183,6 +176,7 @@ defineEmits(['first'])
                 cursor: pointer;
                 border: none;
                 margin-right: 16px;
+                margin-top: 1px;
             }
         }
 
@@ -197,50 +191,50 @@ defineEmits(['first'])
     }
 
     
-// .modal {
-//     display: block; 
-//     position: fixed; 
-//     z-index: 12; 
-//     left: 0;
-//     top: 0;
-//     background-color: rgba(0, 0, 0, .5); 
-// }
+.modal {
+    display: block; 
+    position: fixed; 
+    z-index: 12; 
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5); 
+}
 
-// .modal_content {
-//     margin: 0 auto;
-//     margin-top: 17%;
-//     background-color:#B69B85;
-//     width: 155px;
-//     border: none;
-//     text-align: center;
-//     padding: 16px;
-//     border-radius: 8px;
-//     animation: rotate .5s linear infinite alternate;
-//     display: flex;
-//     img{
-//     width:22px;
-//     }
-//     p{    
-//     font-size: 16px;
-//     letter-spacing: .5px;
-//     text-align: center;
-//     margin: 0 auto;
-//     color: white;
-//     position: relative;}
-// }
+.modal_content {
+    margin: 0 auto;
+    margin-top: 17%;
+    background-color:#B69B85;
+    width: 155px;
+    border: none;
+    text-align: center;
+    padding: 16px;
+    border-radius: 8px;
+    animation: rotate .5s linear infinite alternate;
+    display: flex;
+    img{
+    width:22px;
+    }
+    p{    
+    font-size: 16px;
+    letter-spacing: .5px;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    position: relative;}
+}
 
-// @keyframes rotate {
-//   0% {
-//     transform: rotate(-5deg);
-//   }
-//   100% {
-//     transform: rotate(5deg); 
-//   }
-// }
+@keyframes rotate {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg); 
+  }
+}
 
-// .close {
-//     display: none;
-// }
+.close {
+    display: none;
+}
 }
 
 </style>

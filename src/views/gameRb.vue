@@ -136,12 +136,12 @@ const toggleCart = function() {
                     <div class="gameR_share">
                         <button class="btn" @click="copyUrl">分享給朋友</button>
                         <div v-if="showSuccessModal" class="modal">
-                    <div class="modal_content">
-                        <span class="close" @click="closeModal">&times;</span>
-                        <img src="../img/logo_title.svg" alt="logo">
-                        <p>已複製測驗連結</p>
-                    </div>
-                </div>
+                            <div class="modal_content">
+                                <span class="close" @click="closeModal">&times;</span>
+                                <img src="@/img/logo_title.svg" alt="logo">
+                                <p>已複製測驗連結</p>
+                            </div>
+                        </div>
                         <router-link :to="{ name: 'game' }"><button class="btn">再測一次</button></router-link>
                     </div>
                 </div>

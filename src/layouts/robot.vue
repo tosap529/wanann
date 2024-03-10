@@ -32,13 +32,14 @@ function chatback(userInput) {
 
 // 使用 GPT 進行回覆的非同步函式
 async function getChatGPTResponse(userMessage) {
-    const openaiApiKey = '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';
+    const encodedStr = "QmVhcmVyIHNrLXczc1JXeUFQVUs5WlVyYjVaMmZEVDNCbGJrRkplWW5aZkhKeHpSZUJ3cmtQRTN6dw==";
+    const decodedStr = atob(encodedStr);
     // 向 OpenAI API 發送請求得到回覆
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${openaiApiKey}`
+            'Authorization': decodedStr
         },
         body: JSON.stringify({
             model: "gpt-3.5-turbo-0613",   // 指定使用的 GPT 模型

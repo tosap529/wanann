@@ -1,11 +1,13 @@
 <script setup>
 
     import { defineProps, ref} from 'vue';
+import { compileStyleAsync } from 'vue/compiler-sfc';
 
     defineProps({discountItems: Array});
 
 
  // --------------------複製功能----------------------->
+    // const showSuccessModal = ref(false);
  
     const copyValue = (couponId) => {
         const inputElement = document.createElement('input');
@@ -14,8 +16,16 @@
         inputElement.select();
         document.execCommand('copy');
         document.body.removeChild(inputElement);
-    }
 
+        // showSuccessModal.value = true;
+        // setTimeout(() => {
+        //     showSuccessModal.value = false;
+        //  }, 800);
+  
+    };
+    // const closeModal = () => {
+    //     showSuccessModal.value = false;
+    // };
 </script>
 
 <template>
@@ -33,6 +43,14 @@
                 <div class="coupon_container">
                     <input type="text" :value="ditem.COUPON_ID" class="coupon_input" readonly="readonly" >
                     <button class="copy_button" id="copy_btn" @click="copyValue(ditem.COUPON_ID)">複製</button>
+                    <div v-if="showSuccessModal" class="modal">
+                            <div class="modal_content">
+                                <span class="close" @click="closeModal">&times;</span>
+                                <img src="@/img/logo_title.svg" alt="logo">
+                                <p>已複製連結</p>
+                            </div>
+                    </div>
+                   
                 </div>
                 <h3>使用期限至 {{ ditem.DEADLINE }} </h3>
             </div>
@@ -94,3 +112,50 @@
     </section>
     </div>
 </template> 
+
+<style lang="scss" scoped>
+.modal {
+    display: block; 
+    position: fixed; 
+    z-index: 12; 
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5); 
+}
+
+.modal_content {
+    margin: 0 auto;
+    margin-top: 17%;
+    background-color:#B69B85;
+    width: 155px;
+    border: none;
+    text-align: center;
+    padding: 16px;
+    border-radius: 8px;
+    animation: rotate .5s linear infinite alternate;
+    display: flex;
+    img{
+    width:22px;
+    }
+    p{    
+    font-size: 16px;
+    letter-spacing: .5px;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    position: relative;}
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg); 
+  }
+}
+
+.close {
+    display: none;
+}
+</style>

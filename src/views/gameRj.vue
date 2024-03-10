@@ -138,7 +138,7 @@ const toggleCart = function() {
                         <div v-if="showSuccessModal" class="modal">
                     <div class="modal_content">
                         <span class="close" @click="closeModal">&times;</span>
-                        <img src="../img/logo_title.svg" alt="logo">
+                        <img src="@/img/logo_title.svg" alt="logo">
                         <p>已複製測驗連結</p>
                     </div>
                 </div>
