@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref,onBeforeMount } from "vue";
 import DefaultHeader from '@/layouts/header.vue'; // 引入header(請照抄)
 import DefaultFooter from '@/layouts/footer.vue'; // 引入footer(請照抄)
 import BannerUrl  from '@/img/service/service_banner.jpg'; // 更改成banner路徑
@@ -15,6 +15,12 @@ import 'swiper/css/navigation';
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 const modules = [Autoplay, Pagination, Navigation];
+
+onBeforeMount(()=>{
+  if(localStorage.getItem('plan_want_to_see')){
+    localStorage.removeItem('plan_want_to_see')
+    }
+})
 
 let whichPlan = ref('')
 const toPlan = (e)=>{
@@ -41,7 +47,7 @@ const toPlan = (e)=>{
 <section class="service_plan service_phone">
     
     <div class="left">
-        <img src="../img/service/service_1.jpg" alt="">
+        <img src="@/img/service/service_1.jpg" alt="">
         <p>適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
     </div>
     <article class="service_article">
@@ -54,7 +60,7 @@ const toPlan = (e)=>{
         <p class="new">適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
         <div>
             <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
-            <a href="" class="btn">直接預約</a>
+            <router-link class="btn" :to="{ name: 'reserve' }" @click="toPlan">直接預約</router-link>  
         </div>             
     </article>
     
@@ -63,7 +69,7 @@ const toPlan = (e)=>{
 <section class="service_plan service_phone">
     
     <div class="left">
-        <img src="../img/service/service_2.jpg" alt="">
+        <img src="@/img/service/service_2.jpg" alt="">
         <p>適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
     </div>
     <article class="service_article">
@@ -76,8 +82,7 @@ const toPlan = (e)=>{
         <p class="new">適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
         <div>
             <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
-            
-            <a href="" class="btn">直接預約</a>
+            <router-link class="btn" :to="{ name: 'reserve' }" @click="toPlan">直接預約</router-link> 
         </div>             
     </article>
 
@@ -86,7 +91,7 @@ const toPlan = (e)=>{
 <section class="service_plan service_phone">
     
     <div class="left">
-        <img src="../img/service/service_3.jpg" alt="">
+        <img src="@/img/service/service_3.jpg" alt="">
         <p>適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
     </div>
     <article class="service_article">
@@ -99,7 +104,7 @@ const toPlan = (e)=>{
         <p class="new">適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
         <div>
             <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
-            <a href="" class="btn">直接預約</a>
+            <router-link class="btn" :to="{ name: 'reserve' }" @click="toPlan">直接預約</router-link> 
         </div>             
     </article>
 
@@ -125,7 +130,7 @@ const toPlan = (e)=>{
         <section class="service_plan">
     
     <div class="left">
-        <img src="../img/service/service_1.jpg" alt="">
+        <img src="@/img/service/service_1.jpg" alt="">
         <p>適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
     </div>
     <article>
@@ -137,8 +142,8 @@ const toPlan = (e)=>{
         <p>NTD4,000</p>
         <p class="new">適用對象：下班就是要回家放鬆！不想打掃&gt;&lt;，想在庸碌生活中稍作休息的你</p>
         <div>
-            <a href="" class="btn">詳細內容</a>
-            <a href="" class="btn">直接預約</a>
+            <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
+            <router-link class="btn" :to="{ name: 'reserve' }">直接預約</router-link> 
         </div>             
     </article>
     
@@ -149,7 +154,7 @@ const toPlan = (e)=>{
         <section class="service_plan ">
     
     <div class="left">
-        <img src="../img/service/service_2.jpg" alt="">
+        <img src="@/img/service/service_2.jpg" alt="">
         <p>適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
     </div>
     <article>
@@ -161,8 +166,8 @@ const toPlan = (e)=>{
         <p>NTD2,000</p>
         <p class="new">適用對象：油油油，只想安心料理不想踏足清潔善後的你</p>
         <div>
-            <a href="" class="btn">詳細內容</a>
-            <a href="" class="btn">直接預約</a>
+            <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
+            <router-link class="btn" :to="{ name: 'reserve' }">直接預約</router-link> 
         </div>             
     </article>
 
@@ -172,7 +177,7 @@ const toPlan = (e)=>{
         <section class="service_plan ">
     
     <div class="left">
-        <img src="../img/service/service_3.jpg" alt="">
+        <img src="@/img/service/service_3.jpg" alt="">
         <p>適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
     </div>
     <article>
@@ -184,8 +189,8 @@ const toPlan = (e)=>{
         <p>NTD1,500</p>
         <p class="new">適用對象：陳年黴菌難以去除，對浴室清潔感到絕望的你</p>
         <div>
-            <a href="" class="btn">詳細內容</a>
-            <a href="" class="btn">直接預約</a>
+            <router-link class="btn" :to="{ name: 'plan' }" @click="toPlan">詳細內容</router-link>  
+            <router-link class="btn" :to="{ name: 'reserve' }">直接預約</router-link> 
         </div>             
     </article>
 

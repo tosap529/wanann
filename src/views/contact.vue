@@ -5,6 +5,7 @@ import DefaultHeader from '@/layouts/header.vue';
 import DefaultFooter from '@/layouts/footer.vue'; 
 import BannerUrl  from '@/img/contact/contact_banner.jpg'; 
 const banner_url = BannerUrl;
+const showSuccessModal = ref(false);
 
 
     const formData = ref({
@@ -33,7 +34,10 @@ const banner_url = BannerUrl;
     })
     .then(response => response.text())
     .then(response => {
-        alert("傳送成功")
+        showSuccessModal.value = true; // 顯示彈窗
+        // alert("傳送成功");
+
+        
         console.log(response);
         
         // 清空表單數據
@@ -41,12 +45,19 @@ const banner_url = BannerUrl;
         formData.value.phone = '';
         formData.value.email = '';
         formData.value.message = '';
+        //1秒後關閉彈窗
+         setTimeout(() => {
+            showSuccessModal.value = false;
+         }, 1000);
     })
     .catch(error => {
         console.error('Error:', error);
     });
-};
-
+    };
+    const closeModal = () => {
+        showSuccessModal.value = false;
+    };
+    
 </script>
 <template>
    
@@ -129,6 +140,13 @@ const banner_url = BannerUrl;
                     <button type="submit" class="btn">送出</button>
                 </form>
         
+
+                <div v-if="showSuccessModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" @click="closeModal">&times;</span>
+                        <p>送出成功</p>
+                    </div>
+                </div>
             <!-- <form action="#" method="post">
                 <div class="contact_input">
                     <label for="name">姓名/單位</label>
@@ -160,7 +178,59 @@ const banner_url = BannerUrl;
 
 
 
-<style lang="scss">
+<style lang="scss" scoped>
+.modal {
+    display: block; /* 預設情況下隱藏彈窗 */
+    position: fixed; /* 固定定位，以便視窗滾動時仍然顯示 */
+    z-index: 12; /* 確保彈窗在其他元素之上 */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(47, 25, 189, 0.5); /* 半透明的背景 */
+    overflow: hidden;
+}
+
+.modal-content {
+    background-color:#B69B85;
+    width: 20%;
+    border: none;
+    
+    text-align: center;
+    position: absolute; /* 相對於父元素定位 */
+    left: 50%; /* 水平置中 */
+    top: 50%; /* 垂直置中 */
+    transform: translate(-50%, -50%); /* 以自身寬高的一半為基準偏移 */
+    padding: 20px;
+    border-radius: 10px;
+}
+.modal-content p{
+    font-size: 32px;
+    line-height: 32px   ;
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+    color: white;
+    position: relative;
+}
+.close {
+    color: #aaa;
+    display: none;
+    // float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
 </style>

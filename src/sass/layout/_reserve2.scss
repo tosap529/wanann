@@ -33,7 +33,12 @@
     }
 
     .checkbox_bar {
-
+      @for $i from 1 through 13 {
+        #checkbox#{$i} {
+          accent-color: $medium-milktea;
+          color: red;
+        }
+      }
 
       input {
         width: 20px;
@@ -93,7 +98,7 @@
   border: $dark-milktea;
 }
 
-@media screen and (max-width:1010px) {
+@media screen and (max-width:1050px) {
   .reserve2 {
     .subtitle {
       margin-bottom: 0;

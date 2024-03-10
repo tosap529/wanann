@@ -1,3 +1,7 @@
+section.nonComment {
+  text-align: center;
+}
+
 .wrapper>.plans {
   display: flex;
   margin: 0 auto;
@@ -82,6 +86,7 @@
     margin: 0px auto 55px auto;
 
     img {
+      border-radius: 50%;
       width: 200px;
       margin-right: 40px;
     }
@@ -94,6 +99,11 @@
 
 .star_color {
   color: $dark-milktea;
+  margin-left: 5px;
+}
+
+.star_wo_color {
+  color: $white;
   margin-left: 5px;
 }
 
@@ -115,7 +125,9 @@
     height: 2px;
   }
 
-  span {
+  >span {
+    margin-left: 10px;
+    width: 160px;
     font-size: $h3;
     display: flex;
     align-items: center;
@@ -137,7 +149,7 @@
   }
 
   .right {
-    margin-left: 80px;
+    margin-left: 20px;
     display: flex;
     justify-content: space-between;
     flex-basis: 550px;
@@ -194,11 +206,12 @@
 
 @media screen and (max-width:1200px) {
 
-  .wrapper.plan{
+  .wrapper.plan {
     width: auto;
     margin: 70px 20px 30px;
   }
-  .wrapper > .planA .right{
+
+  .wrapper>.planA .right {
     width: auto;
   }
 
@@ -209,19 +222,19 @@
 
 @media screen and (max-width:1100px) {
 
-  section.planA{
+  section.planA {
     flex-direction: column;
   }
 
-  .wrapper > .planA article{
+  .wrapper>.planA article {
     margin-right: 0px;
   }
 
-  .right{
+  .right {
     margin: 0 auto 30px auto;
   }
 
-  .notice .text{
+  .notice .text {
     margin: 40px 100px 50px 90px;
   }
 
@@ -233,38 +246,41 @@
 @media screen and (max-width:1000px) {
 
 
-  .notice .text{
+  .notice .text {
     margin: 40px 100px 50px 90px;
   }
 
-  .rank{
+  .rank {
     width: auto;
     margin: 0 auto;
-      ul{
-        width: 600px;
-        margin: 0 auto;
+
+    ul {
+      width: 600px;
+      margin: 0 auto;
+    }
+
+    li {
+      width: auto;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      margin: 0px 20px 300px 20px;
+
+      img {
+        display: block;
+        align-self: center;
+        width: 250px;
+        margin-right: 0px;
+        margin-bottom: 30px;
       }
-      li{
-        width: auto;
-        height: 250px;
-        display: flex;
-        flex-direction: column;
-        margin: 0px 20px 300px 20px;
-        
-          img{
-            display: block;
-            align-self: center;
-            width:250px;
-            margin-right: 0px;
-            margin-bottom: 30px;
-          }
-          article{
-            padding: 0px 0px;
-          }
+
+      article {
+        padding: 0px 0px;
       }
+    }
   }
-  
-  .rank_top{
+
+  .rank_top {
     padding-bottom: 0px;
     margin-bottom: 5px;
     width: auto;
@@ -273,384 +289,29 @@
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
-    &:before{
-        display: none;
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: $dark-grey ;
-        width: 660px;
-        height: 2px;
-    }
-      span{
-        font-size: $h3;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        margin-right: 10px;
-        
-        &:nth-child(2){
-          position: relative;
-          &:before{
-  
-            content: "";
-            display: none;
-            position: absolute;
-            top: -80%;
-            left: -280px;
-            background-color: $dark-grey ;
-            width: 2px;
-            height: 50px;
-          }
-          
-        }
-         
-      }
-      .right{
-        margin-left: 32px;
-        display: flex;
-        
-        //justify-content: space-between;
-        flex-basis: 100px;
-      }
-  
-  }
-  
-  .buttom{
-    flex-grow: 1;
-    position: relative;
-    p{
-      line-height: 1.5;
-      &:before{
-        display: none;
-        content: "";
-        position: absolute;
-        top: -80px;
-        left: 160px;
-        background-color: $dark-grey;
-        width: 2px;
-        height: 50px;
-      }
-    }
-  
-  }
 
-  .tab ul{
-    width: auto;
-    
-  }
-
-  .wrapper > .plans{
-    flex-direction: column;
-  }
-
-  .wrapper > .plans article{
-    margin-right: 0;
-  }
-
-  
-  
-}
-
-
-// ------------------------ width: 700px ------------------------
-
-@media screen and (max-width:700px){
-
-  .planA{
-    width: auto;
-  }
-
-  .rank ul{
-    width: auto;
-  }
-
-  .notice .text{
-    margin: 40px 60px 50px 50px ;
-  }
-
-  .wrapper > .plans .right img{
-    width: 550px;
-  }
-
-  .wrapper > .plans article .rule{
-    margin: 42px auto 63px auto;
-  }
-
-}
-
-
-// ------------------------ width: 550px ------------------------
-
-@media screen and (max-width:550px){
-
-
-
-
-  .rank ul{
-    width: auto;
-  }
-
-  .rank{
-    width: 400px;
-    margin: 0 auto;
-    ul{
-      width: 378px;
-      margin: 0 auto;
-    }
-      li{
-        width: 360px;
-        height: 250px;
-        display: flex;
-        flex-direction: column;
-        margin: 0px auto 170px auto;
-        
-          img{
-            display: block;
-            align-self: center;
-            width:120px;
-            margin-right: 0px;
-            margin-bottom: 5px;
-          }
-          article{
-            padding: 0px 0px;
-          }
-      }
-  }
-  
-  .rank_top{
-    padding-bottom: 0px;
-    margin-bottom: 5px;
-    width: auto;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    &:before{
-        display: none;
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: $dark-grey ;
-        width: 660px;
-        height: 2px;
-    }
-      span{
-        font-size: $p;
-        justify-content: center;
-        display: flex;
-        align-items: center;
-        
-        &:nth-child(2){
-          position: relative;
-          &:before{
-  
-            content: "";
-            display: none;
-            position: absolute;
-            top: -80%;
-            left: -280px;
-            background-color: $dark-grey ;
-            width: 2px;
-            height: 50px;
-          }
-          
-        }
-         
-      }
-      .right{
-        margin-left: 0px;
-        display: flex;
-        
-        //justify-content: space-between;
-        flex-basis: 100px;
-      }
-  
-  }
-  
-  .buttom{
-    flex-grow: 1;
-    position: relative;
-    p{
-      line-height: 1.5;
-      &:before{
-        display: none;
-        content: "";
-        position: absolute;
-        top: -80px;
-        left: 160px;
-        background-color: $dark-grey;
-        width: 2px;
-        height: 50px;
-      }
-    }
-  
-  }
-
-  .wrapper > .planA .right{
-    margin: auto auto 40px auto;
-  }
-
-  .notice .text{
-    margin: 30px 20px 50px 10px;
-  }
-
-  .tab ul li a{
-    width: 90px;
-    height: 40px;
-    line-height: 40px;
-  }
-
-  .wrapper > .plans .right img{
-    width: 400px;
-  }
-
-}
-
-// ------------------------ width: 430px ------------------------
-
-@media screen and (max-width:430px){
-
-.wrapper > .planA article{
-  margin-right: 0px;
-}
-.wrapper > .planA .right{
-  width: 360px;
-  margin-bottom: 26px;
-}
-
-.wrapper > .planA{
-  display: flex;
-  flex-direction: column;
-  margin: 24px auto;
-   
-    article{
-      margin-right: 0px;
-      width: 360px;
-      img{
-        display: block;
-        width: 360px;
-        border-radius: 10px;
-        margin-bottom: 24px;
-      }
-      .title{
-        margin-bottom: 16px;
-      }
-      h3{          
-        margin-bottom: 32px;
-        font-size: $h4;
-      }
-      p{
-        margin-bottom: 12px;
-        line-height: 1.2;
-      }
-      .rule{
-        border-radius: 10px;
-        margin-top: 42px;
-        padding: 20px 30px;
-        background-color: $light-milktea;
-        margin-bottom: 12px;
-
-      }
-    }
-    .right{
-      width:auto;
-       img{
-          display: none;
-       }
-    }
-}
-
-.notice{
-  margin: 0 10px 0 10px;
-    .tab{
-        ul{
-          margin: 0 auto;
-          width: 350px;
-           li{
-              a{
-                width: 80px;
-                height: 40px;
-              }
-           }
-        }
-    }
-    .text{
-        margin: 20px 15px 50px 35px;
-        ul{
-          padding-left: 0px;
-        }
-        li{
-            padding: 20px;
-            list-style-type: decimal;
-            font-size: $h3;
-            line-height: 1.3;
-        }
-    }
-}
-
-.tab .tab_planA{
-  border-top: 0px;
-  border-bottom: 1px solid $grey;
-  padding-top: 0;
-}
-
-.rank{
-  width: 360px;
-  margin: 0 auto;
-  ul{
-    width: 378px;
-    margin: 0 auto;
-  }
-    li{
-      width: 360px;
-      height: 250px;
-      display: flex;
-      flex-direction: column;
-      margin: 0px auto 170px auto;
-      
-        img{
-          display: block;
-          align-self: center;
-          width:120px;
-          margin-right: 0px;
-          margin-bottom: 5px;
-        }
-        article{
-          padding: 0px 0px;
-        }
-    }
-}
-
-.rank_top{
-  padding-bottom: 0px;
-  margin-bottom: 5px;
-  width: auto;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  &:before{
+    &:before {
       display: none;
       content: "";
       position: absolute;
       top: 100%;
       left: 0;
       background-color: $dark-grey ;
-      width: 360px;
+      width: 660px;
       height: 2px;
-  }
-    span{
-      font-size: $p;
+    }
+
+    span {
+      font-size: $h3;
       justify-content: center;
       display: flex;
       align-items: center;
-      
-      &:nth-child(2){
+      margin-right: 10px;
+
+      &:nth-child(2) {
         position: relative;
-        &:before{
+
+        &:before {
 
           content: "";
           display: none;
@@ -661,57 +322,449 @@
           width: 2px;
           height: 50px;
         }
-        
+
       }
-       
+
     }
-    .right{
-      margin-left: 0px;
+
+    .right {
+      margin-left: 32px;
       display: flex;
-      
+
       //justify-content: space-between;
       flex-basis: 100px;
     }
 
+  }
+
+  .buttom {
+    flex-grow: 1;
+    position: relative;
+
+    p {
+      line-height: 1.5;
+
+      &:before {
+        display: none;
+        content: "";
+        position: absolute;
+        top: -80px;
+        left: 160px;
+        background-color: $dark-grey;
+        width: 2px;
+        height: 50px;
+      }
+    }
+
+  }
+
+  .tab ul {
+    width: auto;
+
+  }
+
+  .wrapper>.plans {
+    flex-direction: column;
+  }
+
+  .wrapper>.plans article {
+    margin-right: 0;
+  }
+
+
+
 }
 
-.buttom{
-  flex-grow: 1;
-  position: relative;
-  p{
-    line-height: 1.5;
-    &:before{
-      display: none;
-      content: "";
-      position: absolute;
-      top: -80px;
-      left: 160px;
-      background-color: $dark-grey;
-      width: 2px;
-      height: 50px;
-    }
+
+// ------------------------ width: 700px ------------------------
+
+@media screen and (max-width:700px) {
+
+  .planA {
+    width: auto;
+  }
+
+  .rank ul {
+    width: auto;
+  }
+
+  .notice .text {
+    margin: 40px 60px 50px 50px;
+  }
+
+  .wrapper>.plans .right img {
+    width: 550px;
+  }
+
+  .wrapper>.plans article .rule {
+    margin: 42px auto 63px auto;
   }
 
 }
 
-.rank ul{
-  width: 360px;
+
+// ------------------------ width: 550px ------------------------
+
+@media screen and (max-width:550px) {
+
+
+
+
+  .rank ul {
+    width: auto;
+  }
+
+  .rank {
+    width: 400px;
+    margin: 0 auto;
+
+    ul {
+      width: 378px;
+      margin: 0 auto;
+    }
+
+    li {
+      width: 360px;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      margin: 0px auto 170px auto;
+
+      img {
+        display: block;
+        align-self: center;
+        width: 120px;
+        margin-right: 0px;
+        margin-bottom: 5px;
+      }
+
+      article {
+        padding: 0px 0px;
+      }
+    }
+  }
+
+  .rank_top {
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+    width: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    &:before {
+      display: none;
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: $dark-grey ;
+      width: 660px;
+      height: 2px;
+    }
+
+    span {
+      font-size: $p;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+
+      &:nth-child(2) {
+        position: relative;
+
+        &:before {
+
+          content: "";
+          display: none;
+          position: absolute;
+          top: -80%;
+          left: -280px;
+          background-color: $dark-grey ;
+          width: 2px;
+          height: 50px;
+        }
+
+      }
+
+    }
+
+    .right {
+      margin-left: 0px;
+      display: flex;
+
+      //justify-content: space-between;
+      flex-basis: 100px;
+    }
+
+  }
+
+  .buttom {
+    flex-grow: 1;
+    position: relative;
+
+    p {
+      line-height: 1.5;
+
+      &:before {
+        display: none;
+        content: "";
+        position: absolute;
+        top: -80px;
+        left: 160px;
+        background-color: $dark-grey;
+        width: 2px;
+        height: 50px;
+      }
+    }
+
+  }
+
+  .wrapper>.planA .right {
+    margin: auto auto 40px auto;
+  }
+
+  .notice .text {
+    margin: 30px 20px 50px 10px;
+  }
+
+  .tab ul li a {
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .wrapper>.plans .right img {
+    width: 400px;
+  }
+
 }
 
-.wrapper > .plans .right img{
-  width: 360px;
-}
+// ------------------------ width: 430px ------------------------
+
+@media screen and (max-width:430px) {
+
+  .wrapper>.planA article {
+    margin-right: 0px;
+  }
+
+  .wrapper>.planA .right {
+    width: 360px;
+    margin-bottom: 26px;
+  }
+
+  .wrapper>.planA {
+    display: flex;
+    flex-direction: column;
+    margin: 24px auto;
+
+    article {
+      margin-right: 0px;
+      width: 360px;
+
+      img {
+        display: block;
+        width: 360px;
+        border-radius: 10px;
+        margin-bottom: 24px;
+      }
+
+      .title {
+        margin-bottom: 16px;
+      }
+
+      h3 {
+        margin-bottom: 32px;
+        font-size: $h4;
+      }
+
+      p {
+        margin-bottom: 12px;
+        line-height: 1.2;
+      }
+
+      .rule {
+        border-radius: 10px;
+        margin-top: 42px;
+        padding: 20px 30px;
+        background-color: $light-milktea;
+        margin-bottom: 12px;
+
+      }
+    }
+
+    .right {
+      width: auto;
+
+      img {
+        display: none;
+      }
+    }
+  }
+
+  .notice {
+    margin: 0 10px 0 10px;
+
+    .tab {
+      ul {
+        margin: 0 auto;
+        width: 350px;
+
+        li {
+          a {
+            width: 80px;
+            height: 40px;
+          }
+        }
+      }
+    }
+
+    .text {
+      margin: 20px 15px 50px 35px;
+
+      ul {
+        padding-left: 0px;
+      }
+
+      li {
+        padding: 20px;
+        list-style-type: decimal;
+        font-size: $h3;
+        line-height: 1.3;
+      }
+    }
+  }
+
+  .tab .tab_planA {
+    border-top: 0px;
+    border-bottom: 1px solid $grey;
+    padding-top: 0;
+  }
+
+  .rank {
+    width: 360px;
+    margin: 0 auto;
+
+    ul {
+      width: 378px;
+      margin: 0 auto;
+    }
+
+    li {
+      width: 360px;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      margin: 0px auto 170px auto;
+
+      img {
+        display: block;
+        align-self: center;
+        width: 120px;
+        margin-right: 0px;
+        margin-bottom: 5px;
+      }
+
+      article {
+        padding: 0px 0px;
+      }
+    }
+  }
+
+  .rank_top {
+    padding-bottom: 0px;
+    margin-bottom: 5px;
+    width: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    &:before {
+      display: none;
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: $dark-grey ;
+      width: 360px;
+      height: 2px;
+    }
+
+    span {
+      font-size: $p;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+
+      &:nth-child(2) {
+        position: relative;
+
+        &:before {
+
+          content: "";
+          display: none;
+          position: absolute;
+          top: -80%;
+          left: -280px;
+          background-color: $dark-grey ;
+          width: 2px;
+          height: 50px;
+        }
+
+      }
+
+    }
+
+    .right {
+      margin-left: 0px;
+      display: flex;
+
+      //justify-content: space-between;
+      flex-basis: 100px;
+    }
+
+  }
+
+  .buttom {
+    flex-grow: 1;
+    position: relative;
+
+    p {
+      line-height: 1.5;
+
+      &:before {
+        display: none;
+        content: "";
+        position: absolute;
+        top: -80px;
+        left: 160px;
+        background-color: $dark-grey;
+        width: 2px;
+        height: 50px;
+      }
+    }
+
+  }
+
+  .rank ul {
+    width: 360px;
+  }
+
+  .wrapper>.plans .right img {
+    width: 360px;
+  }
 
 }
 
 // ------------------------ width: 375px ------------------------
 
-@media screen and (max-width:375px){
-  .wrapper.plan{
+@media screen and (max-width:375px) {
+  .wrapper.plan {
     margin: 70px 5px 30px;
   }
 
-  .wrapper > .plans .right img{
+  .wrapper>.plans .right img {
     width: 350px;
   }
 }

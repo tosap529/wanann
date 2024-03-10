@@ -35,16 +35,10 @@ import {ref} from 'vue';
         },
     ]
     const checkAdditional =(e)=>{
-        // console.log(e.target.nextElementSibling.innerText);
-        // console.log(document.querySelectorAll('.service_checkbox'));
         let service_checkbox = document.querySelectorAll('.service_checkbox_ad');
         let additional_plan_selected = [];
         for(let i =0;i<service_checkbox.length;i++){
-            // console.log(service_checkbox[i])
-            
             if(service_checkbox[i].checked==true){
-
-                // console.log(service_checkbox[i].nextElementSibling.innerText);
                 additional_plan_selected.push(service_checkbox[i].nextElementSibling.innerText);
                 console.log(additional_plan_selected);
             }
@@ -53,16 +47,10 @@ import {ref} from 'vue';
         localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
     }
     const checkSpecial =(e)=>{
-        // console.log(e.target.nextElementSibling.innerText);
-        // console.log(document.querySelectorAll('.service_checkbox'));
         let service_checkbox = document.querySelectorAll('.service_checkbox_sp');
         let special_plan_selected = [];
-        for(let i =0;i<service_checkbox.length;i++){
-            // console.log(service_checkbox[i])
-            
+        for(let i =0;i<service_checkbox.length;i++){  
             if(service_checkbox[i].checked==true){
-
-                // console.log(service_checkbox[i].nextElementSibling.innerText);
                 special_plan_selected.push(service_checkbox[i].nextElementSibling.innerText);
                 console.log(special_plan_selected);
             }
@@ -112,7 +100,6 @@ import {ref} from 'vue';
         </article>
     </section>
         <section class="next_btn">
-            <!-- <router-link class="btn" :to="{ name: 'reserve3' }">下一步</router-link>    -->
             <a class="btn" @click="$emit('nextReserveStep',$e)">下一步</a>
         </section>
 

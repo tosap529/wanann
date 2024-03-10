@@ -10,7 +10,7 @@ import DefaultFooter from '@/layouts/footer.vue';
 import BannerUrl  from '@/img/member/member_banner.jpg'; 
 const banner_url = BannerUrl; 
 const sidebar = ref(null);
-const userData = ref([]); // {value: {}}
+const userData = ref([]);
 const sOrder = ref([]);
 const mOrder = ref([]);
 const router = useRouter();
@@ -66,7 +66,6 @@ onMounted(()=>{
             .catch(error => {
                 console.error('Error:', error);
             });
-
 })
 */
 
@@ -74,7 +73,7 @@ onMounted(async () => {
     const url = 'http://localhost/thd104/g1/public/php/member_select.php';
     const res = await fetch(url, { method: 'POST', body: JSON.stringify({id:sessionStorage.getItem('member_ID')}) });
     const data = await res.json();
-    console.log(data);
+    console.log(data.sOrder);
     userData.value = data.userData;
     sOrder.value = data.sOrder; 
     mOrder.value = data.mOrder;
@@ -120,7 +119,7 @@ const memberLogOut= ()=>{
             <div @click="profileMiniClick">
                 <img src="@/img/member/member_icon_profileMini.png" alt="" >
                 <input type="file" id="profileMini" >
-                <h2>thd104</h2>
+                <h2>{{userData.USERNAME}}</h2>
             </div>
             <ul ref="sidebar">
                 <!-- userData -->

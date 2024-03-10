@@ -1,47 +1,49 @@
 <script setup>
 
+    defineEmits(['ModalbContact']);
 
+    // defineProps(['contactData']);
 
-    import { ref, onMounted } from 'vue';
-
-    defineEmits(['ModalbContact'])
-
-
-    const contactData = ref([]);
-    const 
-
-    onMounted(() => {
-        
-    const url_contact = 'http://localhost/thd104/public/php/contact_select.php';
+    const props = defineProps({data: Object});
     
-    fetch(url_contact)
-        .then(response => response.json())
-        .then(response => {
-            // console.log('註冊成功 js');
-        contactData.value = response;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-                           
-    });
+    const submitForm = () => {
+    const url_contact_update = 'http://localhost/thd104/public/php/contact_update.php';
+    
+    
+    fetch(url_contact_update, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: props.data.ID, 
+            name: props.data.NAME,
+            phone: props.data.PHONE,
+            email: props.data.EMAIL,
+            content: props.data.CONTENT,
+            createTime: props.data.CREATE_TIME,
+            status: props.data.STATUS,
+
+        })
+
+    })
+    };
 
 </script>
 <template>
     <div>
         
     <div class="modal_mask" @click.self="$emit('ModalbContact')" >
-        <div  v-for="item in contactData" :key="item.ID">
     <div class="modal_content bContact backModal" >
         
         <section class="bModalHeader">
             <h1>聯絡表單－編輯與查看</h1>
         </section>
 
-     
+        <form @submit.prevent="submitForm">
         <section class="bModalContent">
             <div>
-                <h2 class="bItem">表單ID： {{ item.ID }}</h2>
+                <h2 class="bItem">表單ID： {{ props.data.ID }} </h2>
                 <h2>表單資料</h2>
             </div>
             <div>
@@ -49,44 +51,43 @@
                 <article>
                     <div>
                         <h2>姓名/單位：</h2>
-                        <h2><input type="text" :placeholder= "item.NAME" disabled></h2>
+                        <h2><input type="text" v-model="props.data.NAME"></h2>
                     </div>
                     <div>
                         <h2>聯絡電話：</h2>
-                        <h2><input type="text" :placeholder= "item.PHONE"></h2>
+                        <h2><input type="text" v-model="props.data.PHONE"></h2>
                     </div>
                     <div>
                         <h2>電子信箱：</h2>
-                        <h2><input type="text" :placeholder= "item.EMAIL"></h2>
+                        <h2><input type="text"  v-model="props.data.EMAIL"></h2>
                     </div>
                     <div>
                         <h2>建立日期：</h2>
-                        <h2><input type="text" :placeholder= "item.CREATE_TIME"></h2>
+                        <h2><input type="text"  v-model="props.data.CREATE_TIME"></h2>
                     </div>
                     <div>
                         <h2>處理狀態：</h2>
-                        <button><input type="text" :placeholder= "item.STATUS"></button>
+                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" >{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button>
                     </div>
                 </article>
                 <article>
                     <div>
                         <h2>內容描述：</h2>
                         <br>
-                        <input type="textarea" :placeholder="item.CONTENT">
+                        <input type="textarea" v-model="props.data.CONTENT">
                     </div>
                 </article>
                 
             </div>
             <div>
                 <button class="btn" @click="$emit('ModalbContact')">關閉</button>
-                <button class="btn" @click="$emit('ModalbContact')">儲存</button>
+                <button type="submit" class="btn" >儲存</button>
             </div>
             
         </section>
-
+        </form>
     </div>
     </div>
-</div>
 </div>
 
 </template>
@@ -143,6 +144,19 @@
         }
         }
     }
+}
+
+button{
+    cursor: pointer;
+    background-color:white;
+}
+
+.green{
+    color:green;
+}
+
+.red{
+    color: red;
 }
 
 </style>

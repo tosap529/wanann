@@ -323,6 +323,17 @@ div.service_swiper{
   .service_plan .left img{
     width: 350px;
   }
+
+  .service_map img{
+    width: 600px;
+    margin: auto auto 30px auto;
+  }
+  
+  .service_map{
+    margin: auto 20px;
+    flex-direction: column;
+  }
+
 }
 
 
@@ -672,7 +683,7 @@ display: flex;
 
 
 .service_compare_phone{
-  width: 365px;
+  width: 355px;
   overflow-x: auto;
   margin: 0 auto;
   .phone{
