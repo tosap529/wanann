@@ -98,6 +98,9 @@
 </template>
 
 <script setup>
+    import { useRouter } from 'vue-router';
+    const router = useRouter();
+
     import { ref, computed } from "vue";
 
     import { useCartStore } from '@/stores/cartStore.js';
@@ -136,7 +139,7 @@
         const memberID = sessionStorage.getItem('member_ID');
 
         if(memberID){
-            router.push({ name: 'mPay3' });
+            router.push({ name: 'mPay1' });
         }else{
             alert('請先登入會員')
         }
