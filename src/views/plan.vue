@@ -20,8 +20,8 @@
     
 
 onMounted(()=>{
-    // const url = 'php/plan_select.php';
-    const url = 'http://localhost/thd104/g1/public/php/plan_select.php';
+    const url = 'php/plan_select.php';
+    // const url = 'http://localhost/thd104/g1/public/php/plan_select.php';
    
     fetch(url, {
         method: 'POST'
@@ -66,7 +66,7 @@ onMounted(()=>{
                <h3>包括客廳、臥室、餐廳等全室清潔，讓您的家居環境清新宜人。</h3>
                <p>所需時長：4小時</p>
                <p>適合坪數：室內25坪內</p>
-               <p>方案費用：$ 4000起</p>
+               <p>方案費用：NTD 4000起</p>
 
                <div class="rule">
                   <p>1. 基本清潔</p>
@@ -95,7 +95,7 @@ onMounted(()=>{
                <h3>我們提供廚房各項區域的專業徹底清潔，讓您的廚房焕然一新，充滿清新與活力，讓烹飪成為一種愉悅的享受。</h3>
                <p>所需時長：3小時</p>
                <p>適合坪數：廚房面積小於20坪</p>
-               <p>方案費用：$ 3000起</p>
+               <p>方案費用：NTD 3000起</p>
 
                <ol class="rule">
                 <p>1. 廚房專業清潔</p>
@@ -124,7 +124,7 @@ onMounted(()=>{
                <h3>專業的浴室清潔服務，專注解決您浴室中的各種難題，讓您感受到清潔的舒適與滿足。</h3>
                <p>所需時長：2小時</p>
                <p>適合坪數：浴室面積小於10坪</p>
-               <p>方案費用：$ 2000起</p>
+               <p>方案費用：NTD 2000起</p>
 
                <div class="rule">
                 <p>1. 浴室專業清潔</p>
