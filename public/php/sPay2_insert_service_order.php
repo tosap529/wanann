@@ -1,6 +1,10 @@
 
 <?php
-include("connect_test.php"); // 確保這裡的路徑是正確的
+// 本機測試
+// include("connect_test.php");
+
+// 上伺服器
+include("connect.php");
 
 $pdo = getPDO();
 

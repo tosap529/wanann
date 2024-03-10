@@ -1,5 +1,6 @@
 <template>
     <div>
+        <ModalLogin @ModalLogin="isLogin()" v-show="isLoginModalShow" />
         <DefaultHeader header-title-zh="商城" header-title-eng="Mall" :bgi="banner_url" />
         <wrapper class="mitem_wrapper wrapper">
             <section class="mitem_sec">
@@ -91,10 +92,15 @@
     import { ref, onMounted, onBeforeMount } from 'vue'
     import { useRoute } from 'vue-router'
 
+    const route = useRoute();
+
     import { useCartStore } from '@/stores/cartStore.js';
     const cartStore = useCartStore();
 
-    const route = useRoute();
+    // 登入燈箱
+    import ModalLogin from '@/components/ModalLogin.vue'; 
+
+    
 
     //商城頁過來的單一商品資料 
     const productItem = ref([]);
@@ -158,39 +164,29 @@
     }
 
 
+    // 直接購買按鈕
+    const isLoginModalShow = ref(false);
     
-        
-    // fetch(url)
-    //     .then(response => response.json())
-    //     .then(response => {
-    //         // console.log('註冊成功 js');
-    //     // items.value = response;
-    //     allProducts.value = response;
-    //         })
-    //         .catch(error => {
-    //             console.error('Error:', error);
-    //         });
-
-            // console.log(products);   
-    const showItems = function(){
-
-        // console.log(getSingleProduct(productId));
-        // console.log(allProducts.value);
-        // console.log(allProducts.value.find(function(p){console.log(p);}));
-        // return allProducts.value.find(function(p){console.log(p.ID);});
-    }
-
-    const memberId = ref()
-    
-    memberId.value = sessionStorage.getItem('member_ID')
     const isLogin = function(){
-        if(memberId.value){
-            router.push({ name: 'mPay1' });
+        // console.log(e);
+        const memberID = sessionStorage.getItem('member_ID');
 
+        if(memberID){
+            router.push({ name: 'mPay1' });
         }else{
-            alert('請先登入會員')
+            // alert('請先登入會員')
+
+            if(isLoginModalShow.value == false){
+                alert('請先登入會員')
+                isLoginModalShow.value = !isLoginModalShow.value;
+            }else{
+                isLoginModalShow.value = !isLoginModalShow.value;
+            }
+
         }
     }
+
+    
 
 </script>
 

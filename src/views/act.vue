@@ -142,6 +142,9 @@
             </ul>
 
         </div>
+        
+        
+        
         <div class="mall_paginator" v-else-if="activeContent === 'content2'">
 
 <ul>
