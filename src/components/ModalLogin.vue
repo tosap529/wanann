@@ -110,8 +110,8 @@ const RegisterData = {
     };
 
 const submitForm = () => {
-    // const url = 'php/register_insert.php';
-    const url = 'http://localhost/thd104/g1/public/php/register_insert.php';
+    const url = 'php/register_insert.php';
+    // const url = 'http://localhost/thd104/g1/public/php/register_insert.php';
     
     fetch(url, {
         method: 'POST',
@@ -121,6 +121,9 @@ const submitForm = () => {
     .then(response => {
         if(response=='註冊成功'){
             successRegister();
+        }else if(response=='email重複'){
+            loginBoxFailedModalmsg.value = '重複';
+            failedTry();
         }else{
             loginBoxFailedModalmsg.value = '註冊';
             failedTry();
@@ -159,7 +162,8 @@ const SessionData = {
     picPath:''
 }
 const loginSubmit = ()=>{
-    const url = 'http://localhost/thd104/g1/public/php/login_select.php';
+    // const url = 'http://localhost/thd104/g1/public/php/login_select.php';
+    const url = 'php/login_select.php';
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(LoginData)
@@ -218,6 +222,10 @@ const pwdValidation = ()=>{
                     <h2>此帳號已被停權</h2><br>
                     <p>如有疑問請聯絡浣安客服人員</p>
                 </section>
+                <section ref="failedContext" v-if="loginBoxFailedModalmsg=='重複'">
+                    <h2>此Email已被註冊過</h2><br>
+                    <p>請使用另一組Email註冊</p>
+                </section>
                 <div>
                     <button class="btn" style="margin-right:0px;" @click="failedTry">關閉</button>
                 </div>
@@ -269,9 +277,9 @@ const pwdValidation = ()=>{
             <h1>登入</h1>
         </div>
         <form class="login_form">
-            <label for="usernameLogin">帳號<br><input type="text" id="usernameLogin"  v-model="LoginData.username" @input="isRNext_el"></label>
+            <label for="usernameLogin">帳號<br><input type="text" id="usernameLogin"  v-model="LoginData.username" @input="isLNext_el" autocomplete="off"></label>
             <!-- <br> -->
-            <label for="pwdLogin">密碼<br><input type="password" id="pwdLogin" v-model="LoginData.password" @input="isRNext_el"></label>
+            <label for="pwdLogin">密碼<br><input type="password" id="pwdLogin" v-model="LoginData.password" @input="isLNext_el" autocomplete="off"></label>
             <!-- <br> -->
             <router-link  :to="{ name: 'forget' }">忘記密碼？</router-link>
             <!-- <router-link class="btn" :to="{ name: 'member' }">登入</router-link> -->
@@ -305,19 +313,19 @@ const pwdValidation = ()=>{
             <h1>會員註冊</h1>
         </div>
         <form class="create_form" @submit.prevent="submitForm">
-            <label for="createAccount">*帳號<br><input type="text" id="createAccount" name="username" v-model="RegisterData.username" @input="isRNext_el" required></label>
+            <label for="createAccount">*帳號<br><input type="text" id="createAccount" name="username" v-model="RegisterData.username" @input="isRNext_el" required autocomplete="off"></label>
             <!-- <br> -->
             <label for="pwdNew">*密碼<br>
-                <input type="password" id="pwdNew" name="password" ref="pwdNew" v-model="RegisterData.password" @input="()=>{pwdValidation();isRNext_el();}" required>
+                <input type="password" id="pwdNew" name="password" ref="pwdNew" v-model="RegisterData.password" @input="()=>{pwdValidation();isRNext_el();}" required autocomplete="off">
                 <img src="@/img/login/login_icon_eye.png" @click="eyeOnPWD" alt="">
             </label>
             <!-- <br> -->
             <label for="pwdConfirm">*確認密碼<br>
-                <input type="password" id="pwdConfirm" ref="pwdConfirm"  @input="()=>{pwdValidation();isRNext_el();}" required>
+                <input type="password" id="pwdConfirm" ref="pwdConfirm"  @input="()=>{pwdValidation();isRNext_el();}" required autocomplete="off">
                 <img src="@/img/login/login_icon_eye.png"  @click="eyeOnPWD" alt="">
             </label>
             <!-- <br> -->
-            <label for="createEmail">*電子信箱<br><input type="email" id="createEmail" name="email" v-model="RegisterData.email" @input="isRNext_el" required></label>
+            <label for="createEmail">*電子信箱<br><input type="email" id="createEmail" name="email" v-model="RegisterData.email" @input="isRNext_el" required autocomplete="off"></label>
             <input type="submit" value="加入會員" class="btn" :class="{ disabled: !isRegister }">
         </form>
     </section>

@@ -47,8 +47,8 @@ function getExtensionName($filePath){
 }
 
 // 將圖片路徑存進資料庫
-include("connect_test.php");
-// include("connect.php");
+// include("connect_test.php");
+include("connect.php");
 
 $pdo = getPDO();
 // 上線用

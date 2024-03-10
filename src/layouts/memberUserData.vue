@@ -33,8 +33,8 @@ const userDataEdit = ()=>{
 //     const data = await res.json();
 //     console.log(data);
 // }
-    // const url = 'php/register_insert.php';
-    const url = 'http://localhost/thd104/g1/public/php/member_update.php';
+    const url = 'php/register_insert.php';
+    // const url = 'http://localhost/thd104/g1/public/php/member_update.php';
     fetch(url, {
             method: 'POST',
             body: JSON.stringify(UserData)
@@ -169,8 +169,9 @@ const fileUpload=()=>{
          let formdata  = new FormData();
             formdata.append("profile_pic", file);
             formdata.append("member_ID", JSON.stringify({'id':sessionStorage.getItem('member_ID')}));
- 
-            fetch('http://localhost/thd104/g1/public/php/member_pic_update.php', {
+        // const url = 'http://localhost/thd104/g1/public/php/member_pic_update.php';
+        const url = 'php/member_pic_update.php';
+            fetch(url, {
                     method: 'POST',
                     body: formdata
                 })
@@ -229,7 +230,7 @@ const editSuccessMsg=(e)=>{
         </div>
         <div>
             <h2>姓名</h2>
-            <input type="text"  v-model="userData.NAME" disabled>
+            <input type="text"  v-model="userData.NAME" disabled autocomplete="off">
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
                 <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
@@ -237,7 +238,7 @@ const editSuccessMsg=(e)=>{
         </div>
         <div>
             <h2>手機號碼</h2>
-            <input type="tel"  v-model="userData.PHONE" disabled maxlength="10">
+            <input type="tel"  v-model="userData.PHONE" disabled maxlength="10" autocomplete="off">
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
                 <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
@@ -245,7 +246,7 @@ const editSuccessMsg=(e)=>{
         </div>
         <div>
             <h2>電子信箱</h2>
-            <input type="email" ref="emailInput"  v-model="userData.EMAIL" disabled>
+            <input type="email" ref="emailInput"  v-model="userData.EMAIL" disabled autocomplete="off">
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
                 <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
@@ -306,7 +307,7 @@ const editSuccessMsg=(e)=>{
                 <option value="">龜山區</option> -->
             </select>
           </div>
-            <input type="text" v-model="userData.SERVICE_ADDRESS" disabled>
+            <input type="text" v-model="userData.SERVICE_ADDRESS" disabled autocomplete="off">
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit_sa" />
                 <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave_sa(e);}" />
@@ -314,7 +315,7 @@ const editSuccessMsg=(e)=>{
         </div>
         <div class="mAddress">
             <h2>收件地址</h2>
-            <input type="text" v-model="userData.SEND_ADDRESS" disabled>
+            <input type="text" v-model="userData.SEND_ADDRESS" disabled autocomplete="off">
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
                 <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
