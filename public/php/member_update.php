@@ -19,6 +19,7 @@ if(count($data)>1){
     if($data[0]['ID']==$reqBody['id']){
         // echo $data[0]['ID'];
         echo '和原本的一樣';
+        editMemberData($reqBody);
         // $pdo = getPDO();
         // $statement = $pdo->prepare("
         //     update MEMBER
@@ -36,6 +37,11 @@ if(count($data)>1){
 else{
    echo count($data);
     echo '可改email';
+    editMemberData($reqBody);
+}
+
+
+function editMemberData($reqBody){
     $pdo = getPDO();
     // 上線用
     // $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewName."' where ID=1");
@@ -65,8 +71,5 @@ else{
     $statement ->bindValue(":password",  $reqBody['password']);
     $statement ->execute();
 }
-
-
-
 
 ?>
