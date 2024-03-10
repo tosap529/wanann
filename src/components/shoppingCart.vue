@@ -1,5 +1,6 @@
 <template>
     <div>
+        <ModalLogin @ModalLogin="isLogin()" v-show="isLoginModalShow" />
         <!-- <div class="cart_outside" v-bind:class="{ 'toggle': cartStore.isCartOpen }"> -->
             <div class="cart" v-bind:class="{ 'toggle': cartStore.isCartOpen }">        
 
@@ -98,6 +99,7 @@
 </template>
 
 <script setup>
+    import ModalLogin from '@/components/ModalLogin.vue'; 
     import { useRouter } from 'vue-router';
     const router = useRouter();
 
@@ -135,15 +137,32 @@
         alert('沒有選擇任何商品喔')
     }
 
+
+
+    // 購物車結帳按鈕
+
     const isLogin = function(){
+        // console.log(e);
         const memberID = sessionStorage.getItem('member_ID');
 
         if(memberID){
             router.push({ name: 'mPay1' });
         }else{
-            alert('請先登入會員')
+            // alert('請先登入會員')
+
+            if(isLoginModalShow.value == false){
+                alert('請先登入會員')
+                isLoginModalShow.value = !isLoginModalShow.value;
+            }else{
+                isLoginModalShow.value = !isLoginModalShow.value;
+            }
+
         }
     }
+
+    const isLoginModalShow = ref(false);
+    
+
 </script>
 
 <style lang="scss">

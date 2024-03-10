@@ -201,7 +201,6 @@ const pwdValidation = ()=>{
 }
 
 
-
 </script>
 <template>
 <div class="modal_mask" @click.self="$emit('ModalLogin')" >

@@ -207,10 +207,10 @@
     
     const couponNumber = ref();
     // 本機
-    const url = 'http://localhost/thd104/g1/public/php/mPay1_select.php';
+    // const url = 'http://localhost/thd104/g1/public/php/mPay1_select.php';
 
     // 上伺服器
-    // const url = 'php/mPay1_select.php';
+    const url = 'php/mPay1_select.php';
         
     fetch(url)
         .then(response => response.json())
@@ -279,15 +279,24 @@
     
     onMounted(async () => {
 
-        const url_main_reserve = 'http://localhost/thd104/g1/public/php/sPay1_select_mainReserve.php';
+        // 本機
+        // const url_main_reserve = 'http://localhost/thd104/g1/public/php/sPay1_select_mainReserve.php';
+
+        // 上伺服器
+        const url_main_reserve = 'php/sPay1_select_mainReserve.php';
+
         const response1 = await fetch(url_main_reserve);
         const data1 = await response1.json();
         mainReserve.value = data1;
         // console.log("aaaa");
         // console.log(mainReserve.value);
 
+        // 本機
+        // const url_add_reserve = 'http://localhost/thd104/g1/public/php/sPay1_select_addReserve.php';
 
-        const url_add_reserve = 'http://localhost/thd104/g1/public/php/sPay1_select_addReserve.php';
+        // 上伺服器
+        const url_add_reserve = 'php/sPay1_select_addReserve.php';
+
         // 附加服務
         const response2 = await fetch(url_add_reserve);
         const data2 = await response2.json();
