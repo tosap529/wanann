@@ -1,8 +1,8 @@
 <script setup>
-import { ref,onMounted } from "vue";
+import { ref,onMounted,toRaw,onBeforeMount } from "vue";
 import MemberTab from "@/components/MemberTab.vue";
 import ModalDefaultAll from '@/components/ModalDefaultAll.vue'; 
-const props = defineProps({mOrder:Array});
+const props = defineProps({mOrder:Object});
 
 let memberTabPage = ref('incomplete');
 function memberTabClick(event) {
@@ -18,7 +18,6 @@ function memberTabClick(event) {
             event.target.closest('ul').children[i].classList.toggle('tab_on');
         }
     }
-    // console.log(memberTabPage.value)
 };
 const isMemberModalShow_inc = ref(false);
 const goMember_inc= ()=>{
@@ -29,22 +28,19 @@ const goMember_c= ()=>{
     isMemberModalShow_c.value = !isMemberModalShow_c.value;
 };
 onMounted(()=>{
-    console.log(props.mOrder);
-    for(let i=0;i<props.mOrder.length;i++){
-        console.log(props.mOrder[i].PRODUCT_ID);
-        if(props.mOrder[i].PAYMENT==1){
-            props.mOrder.PAYMENT = '已付款';
-        }else if(props.mOrder[i].PAYMENT==0){
-            props.mOrder.PAYMENT = '未付款';
+    //    console.log(toRaw(props.mOrder)); 
+})
+onBeforeMount(()=>{
+   let mOrder_arr = Object.values(toRaw(props.mOrder));
+   for(let i = 0; i<mOrder_arr.length ;i++){
+    if(mOrder_arr[i].payment==1){
+        mOrder_arr[i].payment = '已付款';
+        }else if(mOrder_arr[i].payment==0){
+            mOrder_arr[i].payment = '未付款';
         }
-        // if(props.mOrder[i].ORDER_STATUS==1){
-        //     props.mOrder[i].ORDER_STATUS='已完成';
-        // }else if(props.mOrder[i].ORDER_STATUS==0){
-        //     props.mOrder[i].ORDER_STATUS='未完成';
-        // }
-        props.mOrder[i].ORDER_DATE = props.mOrder[i].ORDER_DATE.substring(0,10);
-    }
- 
+        mOrder_arr[i].order_date = mOrder_arr[i].order_date.substring(0,10);
+   }
+
 })
 
 </script>
@@ -68,42 +64,43 @@ onMounted(()=>{
 
             </div>
         </ModalDefaultAll>
-        <div v-for="order in mOrder" :key="order">
-        <div class="mOrder_data" v-if="memberTabPage=='incomplete'&& order.ORDER_STATUS==0"  >
+        <div v-for="(item,key) in mOrder" :key="key">
+        <div class="mOrder_data" v-if="memberTabPage=='incomplete'&& item.order_status==0"  >
             <div>
                 <h2>訂單編號</h2>
-                <input type="text" :value="order.ID" disabled>
+                <input type="text" :value="item.id" disabled>
             </div>
             <div>
                 <h2>訂購日期</h2>
-                <input type="text" :value="order.ORDER_DATE" disabled>
+                <input type="text" :value="item.order_date" disabled>
             </div>
             <div>
                 <h2>訂單狀態</h2>
-                <input type="text" :value="order.PAYMENT" disabled>
+                <input type="text" :value="item.payment" disabled>
+            </div>
+            <div>
+                <h2>訂購人</h2>
+                <input type="text" :value="item.order_name" disabled>
+            </div>
+            <div>
+                <h2>聯絡電話</h2>
+                <input type="text" :value="item.order_phone" disabled>
+            </div>
+            <div>
+                <h2>寄送地址</h2>
+                <input type="text" :value="item.order_address" disabled>
             </div>
             <div>
                 <h2>訂單內容</h2>
-                <article>
-                    <img src="@/img/member/member_mOrder_product1.jpg" alt="">
+                <article v-for="(product,product_num) in item['products']" :key="product_num">
+                    <img :src="product.product_pic" alt="">
                     <section>
                     <div>
-                        <h2>浣安手工香皂</h2>
+                        <h2>{{product.product_name}}</h2>
                         <h4>經典款</h4>
                     </div>
-                    <h3>x2</h3>
-                    <h2>NTD400</h2>
-                </section>
-                </article>
-                <article>
-                    <img src="@/img/member/member_mOrder_product2.jpg" alt="">
-                    <section>
-                    <div>
-                        <h2>家居清潔工具收納桶</h2>
-                        <h4>經典款</h4>
-                    </div>
-                    <h3>x1</h3>
-                    <h2>NTD300</h2>
+                    <h3>x{{ product.quantity }}</h3>
+                    <h2>NTD {{ product.price }}</h2>
                 </section>
                 </article>
             </div>
@@ -112,7 +109,7 @@ onMounted(()=>{
                 <p>*未發貨才能取消喔~</p>
                 <div>
                     <h2>總金額</h2>
-                    <h2>NTD700</h2>
+                    <h2>NTD {{ item.total }}</h2>
                 </div>
             </div>
         </div>    
@@ -135,42 +132,43 @@ onMounted(()=>{
 
             </div>
         </ModalDefaultAll>
-        <div v-for="order in mOrder" :key="order">
-        <div class="mOrder_data" v-if="memberTabPage=='complete' && order.ORDER_STATUS==1">
+        <div v-for="(item,key) in mOrder" :key="key" >
+        <div class="mOrder_data" v-if="memberTabPage=='complete' && item.order_status==1">
             <div>
                 <h2>訂單編號</h2>
-                <input type="text" :value="order.ID" disabled>
+                <input type="text" :value="item.id" disabled>
             </div>
             <div>
                 <h2>訂購日期</h2>
-                <input type="text" :value="order.ORDER_DATE" disabled>
+                <input type="text" :value="item.order_date" disabled>
             </div>
             <div>
                 <h2>訂單狀態</h2>
-                <input type="text" :value="order.PAYMENT" disabled>
+                <input type="text" :value="item.payment" disabled>
+            </div>
+            <div>
+                <h2>訂購人</h2>
+                <input type="text" :value="item.order_name" disabled>
+            </div>
+            <div>
+                <h2>聯絡電話</h2>
+                <input type="text" :value="item.order_phone" disabled>
+            </div>
+            <div>
+                <h2>寄送地址</h2>
+                <input type="text" :value="item.order_address" disabled>
             </div>
             <div>
                 <h2>訂單內容</h2>
-                <article >
-                    <img src="@/img/member/member_mOrder_product1.jpg" alt="">
+                <article v-for="(product,product_num) in item['products']" :key="product_num" >
+                    <img :src=product.product_pic alt="">
                     <section>
                     <div>
-                        <h2>浣安手工香皂</h2>
+                        <h2>{{product.product_name}}</h2>
                         <h4>經典款</h4>
                     </div>
-                    <h3>x2</h3>
-                    <h2>NTD400</h2>
-                </section>
-                </article>
-                <article>
-                    <img src="@/img/member/member_mOrder_product2.jpg" alt="">
-                <section>
-                    <div>
-                        <h2>家居清潔工具收納桶</h2>
-                        <h4>經典款</h4>
-                    </div>
-                    <h3>x1</h3>
-                    <h2>NTD300</h2>
+                    <h3>x{{ product.quantity }}</h3>
+                    <h2>NTD {{ product.price }}</h2>
                 </section>
                 </article>
             </div>
@@ -178,7 +176,7 @@ onMounted(()=>{
                 <button class="btn" @click="goMember_c">退貨</button>
                 <div>
                     <h2>總金額</h2>
-                    <h2>NTD700</h2>
+                    <h2>NTD{{item.total}}</h2>
                 </div>
             </div>
         </div>    

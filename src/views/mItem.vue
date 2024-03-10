@@ -39,7 +39,8 @@
                         <div class="mitem_btns">
                             <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(productItem, quantity)" v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
                             <!-- <button class="btn mitem_btn"  v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button> -->
-                            <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(productItem, quantity)">直接購買</router-link>
+                            <!-- <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(productItem, quantity)">直接購買</router-link> -->
+                            <button class="btn mitem_btn"@click="cartStore.addToCartMitem(productItem, quantity)"  v-on:click="isLogin">直接購買</button>
                         </div>
                     </div>
 
@@ -83,6 +84,9 @@
     import DefaultFooter from '@/layouts/footer.vue';
     import BannerUrl  from '@/img/mall/mall_banner.jpg';
     const banner_url = BannerUrl;
+
+    import { useRouter } from 'vue-router';
+    const router = useRouter();
 
     import { ref, onMounted, onBeforeMount } from 'vue'
     import { useRoute } from 'vue-router'
@@ -174,6 +178,18 @@
         // console.log(allProducts.value);
         // console.log(allProducts.value.find(function(p){console.log(p);}));
         // return allProducts.value.find(function(p){console.log(p.ID);});
+    }
+
+    const memberId = ref()
+    
+    memberId.value = sessionStorage.getItem('member_ID')
+    const isLogin = function(){
+        if(memberId.value){
+            router.push({ name: 'mPay1' });
+
+        }else{
+            alert('請先登入會員')
+        }
     }
 
 </script>

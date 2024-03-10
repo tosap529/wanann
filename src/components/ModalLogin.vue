@@ -1,7 +1,7 @@
 <script setup>
-import { ref,onBeforeUnmount } from "vue";
-import ModalDefaultAll from '@/components/ModalDefaultAll.vue'; 
+import { ref } from "vue";
 import ModalCantGoAnywhere from '@/components/ModalCantGoAnywhere.vue'; 
+import ModalDefaultAll from '@/components/ModalDefaultAll.vue'; 
 import { useRouter } from 'vue-router';
 defineEmits(['ModalLogin']);
 const router = useRouter();
@@ -9,14 +9,18 @@ const byeLogin = ref(true);
 const byeCreate = ref(false);
 // const LoginRWD = ref(true);
 // const CreateRWD = ref(false);
-
+const pwdNew =ref(null);
+const pwdConfirm =ref(null);
+const failedContext = ref(null)
 
 const isRegister = ref(false) ;
 const isRNext_el = ()=>{
-    if(RegisterData.username!=''&&RegisterData.email!=''&&pwdNew.value==pwdConfirm.value){
+    if(pwdNew.value&&pwdConfirm.value){
+     if(RegisterData.username!=''&&RegisterData.email!=''&&pwdNew.value.value==pwdConfirm.value.value){
         isRegister.value=true;
     }else{
         isRegister.value=false;
+    }   
     }
 }
 const isLoginable =  ref(false);
@@ -50,7 +54,6 @@ const goCreate=(e)=>{
         e.target.previousElementSibling.previousElementSibling.innerText = "歡迎回來";
         e.target.previousElementSibling.innerText = "登入預約方便安心的服務吧！";
         document.removeEventListener('input',isLNext_el)
-        document.addEventListener('input',isRNext_el);
     }else{
         bgcImg.classList.remove("login_box_left");
         bgcImg.classList.add("login_box_right");
@@ -59,7 +62,6 @@ const goCreate=(e)=>{
         e.target.previousElementSibling.previousElementSibling.innerText = "還不是會員嗎？";
         e.target.previousElementSibling.innerText = "創建帳號預約方便安心的服務吧！";
         document.removeEventListener('input',isRNext_el)
-        document.addEventListener('input',isLNext_el);
     }
     
 }
@@ -84,6 +86,15 @@ const successRegister= ()=>{
         location.reload();
     },1500)
 };
+const isLoginBoxFailedModalShow = ref(false);
+let loginBoxFailedModalmsg = ref();
+const failedTry= ()=>{
+    isLoginBoxFailedModalShow.value = !isLoginBoxFailedModalShow.value;
+    // setTimeout(()=>{
+    //     router.push({path:"/home"});
+    //     location.reload();
+    // },1500)
+};
 const RegisterData = {
     name:'',
     phone:'',
@@ -104,18 +115,17 @@ const submitForm = () => {
     
     fetch(url, {
         method: 'POST',
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },
         body: JSON.stringify(RegisterData)
     })
     .then(response => response.text())
     .then(response => {
-        // console.log('註冊成功 js');
-        // console.log(response);
+        if(response=='註冊成功'){
+            successRegister();
+        }else{
+            loginBoxFailedModalmsg.value = '註冊';
+            failedTry();
+        }
 
-        // alert('註冊成功')
-        successRegister();
     }).catch(error => {
         console.error('Error:', error);
     });
@@ -132,7 +142,7 @@ const successLogin= (SessionData)=>{
     },1500)
     if(SessionData.id){
         sessionStorage.setItem("member_ID", SessionData.id);
-    sessionStorage.setItem("member_pic", SessionData.picPath);
+        sessionStorage.setItem("member_pic", SessionData.picPath);
         console.log(SessionData);
     }else{
         console.log('hi');
@@ -152,58 +162,68 @@ const loginSubmit = ()=>{
     const url = 'http://localhost/thd104/g1/public/php/login_select.php';
     fetch(url, {
         method: 'POST',
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // },
         body: JSON.stringify(LoginData)
     })
     .then(response => response.text())
     .then(response => {
-        // console.log(response);
-        
-        // alert('登入嘗試')
         if(response=='登入失敗'){
-            alert('帳密有誤');
-        }else{
-            // console.log(response)
+            // alert('帳密有誤');
+            loginBoxFailedModalmsg.value = '登入';
+            failedTry();
+        }else if(response=='此帳號已被停權'){
+            // alert('此帳號已被停權');
+            loginBoxFailedModalmsg.value = '停權';
+            failedTry();
+        }
+        else{
             let msg = response.split(',');
             SessionData.id = msg[0];
             SessionData.picPath = msg[1];
             successLogin(SessionData);
-            console.log(SessionData);
+            // console.log(SessionData);
         }
     }).catch(error => {
         console.error('Error:', error);
     });
-    // usernameLogin.value='';
-    // pwdLogin.value='';
 }
 
 
-const pwdValidation = (e)=>{
+const pwdValidation = ()=>{
     console.log(pwdNew.value);
-    if(pwdNew.value != pwdConfirm.value){
+    if(pwdNew.value.value != pwdConfirm.value.value){
         // pwdConfirm.style.backgroundColor = 'white';
-        pwdConfirm.classList.add('alert_inputWeye');
+        pwdConfirm.value.classList.add('alert_inputWeye');
     }else{
         // pwdConfirm.style.backgroundColor = '#ECE7E1';
-        pwdConfirm.classList.remove('alert_inputWeye');
+        pwdConfirm.value.classList.remove('alert_inputWeye');
     }
 
 }
 
 
 
-onBeforeUnmount(()=>{
-    document.removeEventListener('keyup',pwdValidation)
-    document.removeEventListener('input',isRNext_el)
-    document.removeEventListener('input',isLNext_el)
-})
-
-
 </script>
 <template>
 <div class="modal_mask" @click.self="$emit('ModalLogin')" >
+    <ModalDefaultAll v-show="isLoginBoxFailedModalShow" @ModalDefaultAll="failedTry" >
+            <div class="modal_content member_all">
+                <section ref="failedContext" v-if="loginBoxFailedModalmsg=='註冊'">
+                    <h2>註冊失敗！</h2><br>
+                    <p>您輸入的使用者名稱已被註冊過</p>
+                </section>
+                <section ref="failedContext" v-if="loginBoxFailedModalmsg=='登入'">
+                    <h2>登入失敗！</h2><br>
+                    <p>帳號或密碼有誤</p>
+                </section>
+                <section ref="failedContext" v-if="loginBoxFailedModalmsg=='停權'">
+                    <h2>此帳號已被停權</h2><br>
+                    <p>如有疑問請聯絡浣安客服人員</p>
+                </section>
+                <div>
+                    <button class="btn" style="margin-right:0px;" @click="failedTry">關閉</button>
+                </div>
+            </div>
+    </ModalDefaultAll>
     <ModalCantGoAnywhere v-show="isLoginModalShow" @ModalCantGoAnywhere="successLogin" >
             <div class="modal_content member_all">
                 <section>
@@ -211,9 +231,7 @@ onBeforeUnmount(()=>{
                     <p>將為您導向會員中心</p>
                 </section>
             <div>
-            <!-- <button class="btn" @click="successLogin">關閉</button> -->
             <router-link class="btn" :to="{ name: 'member' }">會員中心</router-link>
-            <!-- <button class="btn" @click="successLogin">會員中心</button>  -->
             </div>
 
             </div>
@@ -224,8 +242,6 @@ onBeforeUnmount(()=>{
                     <h2>註冊成功！</h2>
                 <p>請重新登入</p>
                 </section>
-                
-            <!-- <img class="cross_modal" @click="successRegister" src="@/img/about/about_lightbox_cross.svg" alt=""> -->
             <div>
             <!-- <button class="btn" @click="successRegister" style="margin-right: 0;">關閉</button>  -->
             <!-- <router-link class="btn" :to="{ name: 'member' }">會員中心</router-link> -->
@@ -254,9 +270,9 @@ onBeforeUnmount(()=>{
             <h1>登入</h1>
         </div>
         <form class="login_form">
-            <label for="usernameLogin">帳號<br><input type="text" id="usernameLogin"  v-model="LoginData.username"></label>
+            <label for="usernameLogin">帳號<br><input type="text" id="usernameLogin"  v-model="LoginData.username" @input="isRNext_el"></label>
             <!-- <br> -->
-            <label for="pwdLogin">密碼<br><input type="password" id="pwdLogin" v-model="LoginData.password"></label>
+            <label for="pwdLogin">密碼<br><input type="password" id="pwdLogin" v-model="LoginData.password" @input="isRNext_el"></label>
             <!-- <br> -->
             <router-link  :to="{ name: 'forget' }">忘記密碼？</router-link>
             <!-- <router-link class="btn" :to="{ name: 'member' }">登入</router-link> -->
@@ -290,21 +306,20 @@ onBeforeUnmount(()=>{
             <h1>會員註冊</h1>
         </div>
         <form class="create_form" @submit.prevent="submitForm">
-            <label for="createAccount">*帳號<br><input type="text" id="createAccount" name="username" v-model="RegisterData.username" required></label>
+            <label for="createAccount">*帳號<br><input type="text" id="createAccount" name="username" v-model="RegisterData.username" @input="isRNext_el" required></label>
             <!-- <br> -->
             <label for="pwdNew">*密碼<br>
-                <input type="password" id="pwdNew" name="password" v-model="RegisterData.password" @input="pwdValidation" required>
+                <input type="password" id="pwdNew" name="password" ref="pwdNew" v-model="RegisterData.password" @input="()=>{pwdValidation();isRNext_el();}" required>
                 <img src="@/img/login/login_icon_eye.png" @click="eyeOnPWD" alt="">
             </label>
             <!-- <br> -->
             <label for="pwdConfirm">*確認密碼<br>
-                <input type="password" id="pwdConfirm" @input="pwdValidation" required>
+                <input type="password" id="pwdConfirm" ref="pwdConfirm"  @input="()=>{pwdValidation();isRNext_el();}" required>
                 <img src="@/img/login/login_icon_eye.png"  @click="eyeOnPWD" alt="">
             </label>
             <!-- <br> -->
-            <label for="createEmail">*電子信箱<br><input type="email" id="createEmail" name="email" v-model="RegisterData.email" required></label>
+            <label for="createEmail">*電子信箱<br><input type="email" id="createEmail" name="email" v-model="RegisterData.email" @input="isRNext_el" required></label>
             <input type="submit" value="加入會員" class="btn" :class="{ disabled: !isRegister }">
-            <!-- <button type="submit" class="btn">送出</button> -->
         </form>
     </section>
 </transition>

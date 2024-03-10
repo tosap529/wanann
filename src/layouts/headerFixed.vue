@@ -24,10 +24,14 @@ const hamburger = ()=>{
 };
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
-    if(sessionStorage.getItem('member_ID')){
-        router.push({path:"/member"});
+    if(route.name=='member'){
+        location.reload();
     }else{
-        isLoginModalShow.value = !isLoginModalShow.value;
+        if(sessionStorage.getItem('member_ID')){
+        router.push({path:"/member"});
+        }else{
+            isLoginModalShow.value = !isLoginModalShow.value;
+        } 
     }
 };
 // 取得當前頁面路徑
@@ -122,8 +126,9 @@ onMounted(() => {
 </template>
 <style lang="scss" scoped>
 header nav .nav_right .nav_user{
-    line-height: 35px;
-    height: 35px;
+    align-items: center;
+    line-height: 38px;
+    height: 38px;
 }
 div.nav_user{
     .cart{

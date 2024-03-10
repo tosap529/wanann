@@ -2,8 +2,15 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: X-Requested-With");
- //判斷是否上傳成功
- if($_FILES["profile_pic"]["error"] > 0){
+// echo $_FILES["profile_pic"]["name"];
+// preg_match('/([0-9])/', json_encode($_POST['member_ID']),$member_ID);
+$member_ID = preg_replace('/\D/', '', json_encode($_POST['member_ID']));
+echo $member_ID;
+$self = 'member_'.$member_ID;
+
+
+//判斷是否上傳成功
+if($_FILES["profile_pic"]["error"] > 0){
     echo "上傳失敗: 錯誤代碼".$_FILES["profile_pic"]["error"];
 }else{
     //取得上傳的檔案資訊=======================================
@@ -13,32 +20,24 @@ header("Access-Control-Allow-Headers: X-Requested-With");
     $fileSize = $_FILES["profile_pic"]["size"];    //檔案尺寸
     //=======================================================
 
+    $memberPicPath = "/thd104/g1/img/member/member_pic/";
+
     //Web根目錄真實路徑
     $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
-    echo $ServerRoot;
+    // echo $ServerRoot;
     //檔案最終存放位置
     $filePath = $ServerRoot."/thd104/g1/public/img/member/member_pic/".$fileName;
     // 上線用－自訂名稱
-    $fileNewPath = $ServerRoot."/thd104/g1/img/member/member_pic/".'member1.'.getExtensionName($filePath);
-    $fileNewName = "/thd104/g1/img/member/member_pic/".'member1.'.getExtensionName($filePath);
+    $fileNewPath = $ServerRoot.$memberPicPath.$self.'.'.getExtensionName($filePath);
+    $fileNewName = $memberPicPath.$self.'.'.getExtensionName($filePath);
     // 測試用－自訂名稱
-    $fileTestPath =$ServerRoot."/thd104/g1/public/img/member/member_pic/".'yourname.'.getExtensionName($filePath);
-    $fileTestName ="/thd104/g1/img/member/member_pic/".'yourname.'.getExtensionName($filePath);
+    $fileTestPath =$ServerRoot."/thd104/g1/public/img/member/member_pic/".$self.'.'.getExtensionName($filePath);
+    $fileTestName =$memberPicPath.$self.'.'.getExtensionName($filePath);
 
     //將暫存檔搬移到正確位置
     move_uploaded_file($filePath_Temp, $fileTestPath);
     // move_uploaded_file($filePath_Temp, $fileNewPath);
 
-    //顯示檔案資訊
-    // echo "filePath：".$filePath;
-    // echo "<br/>";
-    // echo "fileType：".$fileType;
-    // echo "<br/>";
-    // echo "fileSize：".$fileSize;
-    // echo "<br/>";
-    // echo "extensionName：".getExtensionName($filePath);
-    // echo "<br/>";
-    // echo "<img src='/thd104/g1/img/".$fileName."'/>";
 }
 
 //取得檔案副檔名
@@ -46,15 +45,19 @@ function getExtensionName($filePath){
     $path_parts = pathinfo($filePath);
     return $path_parts["extension"];
 }
+
+// 將圖片路徑存進資料庫
 include("connect_test.php");
 // include("connect.php");
 
 $pdo = getPDO();
 // 上線用
-// $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewName."' where ID=1");
+// $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewName."' where ID=:id");
 // 測試用
-$statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '". $fileTestName."' where ID=1");
-// $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileTestPath."' where ID=9");
+$statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '". $fileTestName."' where ID=:id");
+
+$statement ->bindValue(":id", $member_ID);
+
 $statement ->execute();
 // $member = $statement->fetchAll();
 ?>

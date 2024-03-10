@@ -1,12 +1,9 @@
 <script setup>
-import {ref} from 'vue';
   const props = defineProps(['day']);
   defineEmits(['clickDay'])
-  // ,'myDay'
 </script>
 <template>
 <div>
-  <!-- ,{'selected_day': myDay==day} -->
 <article class="single_day" :class="[{'not_day':!day}]" @click="$emit('clickDay', $event)">
     <h2>{{day}}</h2>
     <div class="star" v-if="day">

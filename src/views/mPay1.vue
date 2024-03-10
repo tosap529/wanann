@@ -194,10 +194,10 @@
     
     const couponNumber = ref();
     // 本機
-    // const url = 'http://localhost/thd104/g1/public/php/mPay1_select.php';
+    const url = 'http://localhost/thd104/g1/public/php/mPay1_select.php';
 
     // 上伺服器
-    const url = 'php/mPay1_select.php';
+    // const url = 'php/mPay1_select.php';
         
     fetch(url)
         .then(response => response.json())

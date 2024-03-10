@@ -16,7 +16,7 @@ onMounted(()=>{
         </div>
         <div>
             <h2>服務日期</h2>
-            <h2>{{commentData.SERVICE_DATE}}</h2>
+            <!-- <h2>{{commentData}}</h2> -->
             <h2>下午</h2>
         </div>
         <section>
