@@ -84,7 +84,7 @@
 
                 <div class="mPay2_total">
                     <h2>總金額</h2>
-                    <h1>NTD {{ cartStore.totalPrice }}</h1>
+                    <h1 @click="showItems">NTD {{ cartStore.totalPrice }}</h1>
                 </div>
 
                 <div class="mPay2_info">
@@ -389,13 +389,16 @@
         // console.log(cartStore.cartItems);
 
         // 活動ID
-        console.log(cartStore.couponActId);
+        // console.log(cartStore.couponActId);
 
-        console.log(form.recipientName);
-        console.log(form.recipientPhone);
-        console.log(address.value);
+        // console.log(form.recipientName);
+        // console.log(form.recipientPhone);
+        // console.log(address.value);
 
-        console.log(productsOrder);
+        // console.log(productsOrder);
+
+        console.log(memberAddress.value[memberId.value - 1]);
+        console.log(memberId.value);
 
     }
 
@@ -407,17 +410,23 @@
     const useMemberAddress = ref(false);
 
     // !!!!!!!!!!!!待施工!!!!!!!!!!!!!!!!!!!!!
-    const memberId = ref(1)
+    const memberId = ref();
+    memberId.value = sessionStorage.getItem('member_ID');
 
     // 勾選後自動加入地址
     watch(useMemberAddress, (newValue) => {
         if (newValue) {
             // address.value = memberAddress.value[0].SERVICE_ADDRESS;
-            address.value = memberAddress.value[memberId.value].SEND_ADDRESS
+            address.value = memberAddress.value[memberId.value - 1].SEND_ADDRESS
         } else {
             address.value = '';
         }
     });
+
+
+
+
+    
 
 
     // 送出訂單資訊到後端 PRODUCT_ORDER

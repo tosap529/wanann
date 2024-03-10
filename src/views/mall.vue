@@ -242,14 +242,25 @@
             console.error('Error:', error);
         });
 
+
+    // 會員狀態
+    const memberId = ref()
+
+    memberId.value = sessionStorage.getItem('member_ID')
+
+
             
     const showItems = function(e){
         // console.log(e.target);
         // console.log(products.value);
         // console.log(items.value[2]);
         // console.log(items.value);
-        console.log(cartStore.productsForMitem);
+        // console.log(cartStore.productsForMitem);
+        // console.log(memberId.value);
+
     }
+
+    
     
 
 </script>
