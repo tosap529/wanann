@@ -1,6 +1,7 @@
 <?php
 
-include("../connect_test.php");
+// include("../connect_test.php");
+include("../connect.php");
 
 $pdo = getPDO();
 $statement = $pdo->prepare("select s.SERVICE_NAME, so.SERVICE_ADDRESS, m.PHONE, m.NAME, ads.ADD_SERVICE_NAME , so.ID, m.USERNAME, so.ORDER_DATE, so.SERVICE_DATE, rt.TIME_RANGE_NAME, so.PAYMENT, so.ORDER_STATUS, so.RANK_STATUS from SERVICE_ORDER so join SERVICE_COMMENT sc on so.SERVICE_COMMENT_ID = sc.ID join SERVICE_RESERVE_TIME srt on so.SERVICE_RESERVE_TIME_ID = srt.ID join SERVICE s on srt.SERVICE_ID = s.ID join RESERVE_TIME rt on rt.ID = srt.RESERVE_TIME_ID join SERVICE_ORDER_ADD_SERVICE soas on soas.SERVICE_ORDER_ID = so.ID join ADD_SERVICE ads on ads.ID = soas.ADD_SERVICE_ID join MEMBER m on m.id = so.MEMBER_ID");
