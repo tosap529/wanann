@@ -90,7 +90,15 @@ const selectDay_el=(e)=>{
         selectedDay_outline.style.outline = day_outline;
         let selectedDate = selectedMonth + '月' + selectedDay + '日';
         selectedDate_panel.value.innerText = '預約日期：'+selectedDate;
-        my_service_order.service_date = selectedDate;
+        // my_service_order.service_date = selectedDate;
+        // 對存入local storage的日期做處理
+        let string_selectedMonth = '';
+        if(selectedMonth<10){
+            string_selectedMonth = '0'+selectedMonth;
+        }else{
+            string_selectedMonth = selectedMonth
+        }
+        my_service_order.service_date = myYear+'-'+string_selectedMonth+'-'+selectedDay;
         localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
     }
     

@@ -28,8 +28,11 @@
     const pOrder_data = ref([]);
     const articles_data = ref([]);
     const products_data = ref([]);
+    const sOrder_data = ref([]);
 
-    const url_act_update = 'http://localhost/thd104/public/php/act_update.php';
+    //更新狀態按鈕
+
+    const url_act_update = 'http://localhost/thd104/g1/public/php/act_update.php';
 
 
     //決定開啟的燈箱
@@ -54,13 +57,15 @@
 
     onMounted(() => {
         
-        const url_contact = 'http://localhost/thd104/public/php/Backstage/contact_select.php';
-        const url_act = 'http://localhost/thd104/public/php/Backstage/act_select.php';
-        const url_member = 'http://localhost/thd104/public/php/Backstage/member_select.php';
-        const url_comment = 'http://localhost/thd104/public/php/Backstage/comment_select.php';
-        const url_articles = 'http://localhost/thd104/public/php/Backstage/articles_select.php';
-        const url_products = 'http://localhost/thd104/public/php/Backstage/products_select.php';
-        const url_pOrder = 'http://localhost/thd104/public/php/Backstage/pOrder_select.php';
+        //搜尋所有的資料
+        const url_contact = 'http://localhost/thd104/g1/public/php/Backstage/contact_select.php';
+        const url_act = 'http://localhost/thd104/g1/public/php/Backstage/act_select.php';
+        const url_member = 'http://localhost/thd104/g1/public/php/Backstage/member_select.php';
+        const url_comment = 'http://localhost/thd104/g1/public/php/Backstage/comment_select.php';
+        const url_articles = 'http://localhost/thd104/g1/public/php/Backstage/articles_select.php';
+        const url_products = 'http://localhost/thd104/g1/public/php/Backstage/products_select.php';
+        const url_pOrder = 'http://localhost/thd104/g1/public/php/Backstage/pOrder_select.php';
+        const url_sOrder = 'http://localhost/thd104/g1/public/php/Backstage/sOrder_select.php';
         
         fetch(url_contact)
             .then(response => response.json())
@@ -81,11 +86,18 @@
                 .catch(error => {
                     console.error('Error:', error);
                 });
-                
-        // console.log(contact_data);
-        // console.log(contact_data._value);
-        // console.log(contact_data.value);
 
+        fetch(url_sOrder)
+            .then(response => response.json())
+            .then(response => {
+                // console.log('註冊成功 js');
+                sOrder_data.value = response;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+                
+                
         fetch(url_act)
             .then(response => response.json())
             .then(response => {
@@ -109,8 +121,7 @@
         fetch(url_comment)
             .then(response => response.json())
             .then(response => {
-                // console.log('註冊成功 js');
-                // console.log(response);
+                console.log('註冊成功');
                 comment_data.value = response;
                 })
             .catch(error => {
@@ -138,26 +149,6 @@
              
     });
          
-    // const cclick_function = (key)=>{
-    //     // console.log(contact_data.value[key]);
-    //     const data = contact_data.value[key]
-    //     if( data.STATUS === 1){
-    //         data.STATUS = 0
-    //     }else{
-    //         data.STATUS = 1
-    //     }
-    // }
-
-    // const aclick_function = (key)=>{
-    //     // console.log(contact_data.value[key]);
-    //     const data = act_data.value[key]
-    //     if( data.STATUS === 1){
-    //         data.STATUS = 0
-    //     }else{
-    //         data.STATUS = 1
-    //     }
-    // }
-    
     //決定是哪個資料存入data
 
     const click_function = (key, id, type) => {
@@ -179,6 +170,15 @@
             case 'pOrder':
                 data = pOrder_data.value[key];
                 break;
+            case 'articles':
+                data = articles_data.value[key];
+                break;
+            case 'products':
+                data = products_data.value[key];
+                break;
+            case 'sOrder':
+                data = sOrder_data.value[key];
+                break;
             default:
                 break;
         }
@@ -193,6 +193,14 @@
         } else {
             data.STATUS = 1;
             final_status = true;
+        }
+
+        if (data.order_status === 1) {
+            data.order_status = 0;
+          
+        } else {
+            data.order_status = 1;
+        
         }
 
         fetch(url_act_update, {
@@ -219,7 +227,7 @@
         },
         body: JSON.stringify({
         id: data.ID, 
-        status: data.STATUS 
+        status: data.order_status
         })
         })
         .then(response => response.json())
@@ -270,7 +278,7 @@
                 <td><button :class="{ 'red': data.STATUS === 0, 'green': data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')">{{ data.STATUS === 1 ?  '已處理' : '未處理' }} </button></td>
             </tr>
             <tr v-show="backNow=='活動'" v-for= "(data, key) in act_data" :key="key">
-                <td><button class="edit-btn">編輯與查看</button></td>
+                <td><button class="edit-btn" @click="gobModal(data)">編輯與查看</button></td>
                 <td>{{ data.ID }}</td>
                 <td>{{ data.CATEGORY}}</td>
                 <td>{{ data.TITLE }}</td>
@@ -287,26 +295,27 @@
                 <td>{{ data.PHONE }}</td>
                 <td>{{ data.EMAIL}}</td>
                 <td>{{ data.CREATE_TIME }}</td>
-                <td>{{ data.STATUS }}</td>
+                <td><button :class="{ 'red': data.STATUS === 0, 'green': data.STATUS === 1 }" @click="click_function(key,data.ID,'member')">{{ data.STATUS === 1 ?  '正常' : '停權' }} </button></td>
             </tr>
-            <!-- <tr v-show="backNow=='服務訂單'" v-for= "(data, key) in member_data" :key="key">
+            <tr v-show="backNow=='服務訂單'" v-for= "(data, key) in sOrder_data" :key="key">
                 <td><button class="edit-btn"  @click="gobModal(data)">編輯與查看</button></td>
-                <td>{{ data.ID }}</td>
-                <td>{{ data.USERNAME }}</td>
-                <td>{{ data.NAME }}</td>
-                <td>{{ data.PHONE }}</td>
-                <td>{{ data.EMAIL}}</td>
-                <td>{{ data.CREATE_TIME }}</td>
-                <td>{{ data.STATUS }}</td>
-            </tr> -->
+                <td>{{ data.id }}</td>
+                <td>{{ data.username }}</td>
+                <td>{{ data.order_date }}</td>
+                <td>{{ data.service_date }}</td>
+                <td>{{ data.time_range_name }}</td>
+                <td>{{ data.payment}}</td>
+                <td>{{ data.order_status }}</td>
+                <td>{{ data.rank_status }}</td>
+            </tr>
             <tr v-show="backNow=='服務評論'" v-for= "(data, key) in comment_data" :key="key">
                 <td><button class="edit-btn"  @click="gobModal(data)">編輯與查看</button></td>
                 <td>{{ data.ID }}</td>
+                <td>{{ data.ORDER_ID }}</td>
                 <td>{{ data.COMMENT_DATE }}</td>
                 <td>{{ data.SERVICE_ATTITUDE }}</td>
                 <td>{{ data.SERVICE_QUALITY }}</td>
-                <td>{{ data.CONTENT}}</td>
-                <td>{{ data.STATUS }}</td>
+                <td><button :class="{ 'red': data.STATUS === 0, 'green': data.STATUS === 1 }" @click="click_function(key,data.ID,'comment')">{{ data.STATUS === 1 ?  '已評論' : '未評論' }} </button></td>
             </tr>
             <tr v-show="backNow=='商品訂單'" v-for= "(data, key) in pOrder_data" :key="key">
                 <td><button class="edit-btn"  @click="gobModal(data)">編輯與查看</button></td>
@@ -315,7 +324,7 @@
                 <td>{{ data.order_date }}</td>
                 <td>{{ data.payment }}</td>
                 <td>{{ data.order_status}}</td>
-                <td><button :class="{ 'red': data.STATUS === 0, 'green': data.STATUS === 1 }" @click="click_function(key,data.ID,'pOrder')">{{ data.STATUS === 1 ?  '已處理' : '未處理' }} </button></td>
+                <td><button :class="{ 'red': data.order_status === 0, 'green': data.order_status === 1 }" @click="click_function(key,data.ID,'pOrder')">{{ data.order_status === 1 ?  '已處理' : '未處理' }} </button></td>
                 
             </tr>
             <tr v-show="backNow=='商品'" v-for= "(data, key) in products_data" :key="key">
@@ -325,18 +334,15 @@
                 <td>{{ data.PRODUCT_NAME }}</td>
                 <td>{{ data.PRODUCT_STYLE }}</td>
                 <td>{{ data.PRODUCT_PRICE }}</td>
-                <td>{{ data.CREATE_TIME }}</td>
-                <td>{{ data.STATUS }}</td>
+                <td><button :class="{ 'red': data.STATUS === 0, 'green': data.STATUS === 1 }" @click="click_function(key,data.ID,'products')">{{ data.STATUS === 1 ?  '上架中': '已下架' }} </button></td>
             </tr>
             <tr v-show="backNow=='文章'" v-for= "(data, key) in articles_data" :key="key">
                 <td><button class="edit-btn"  @click="gobModal(data)">編輯與查看</button></td>
                 <td>{{ data.ID }}</td>
-                <td>{{ data.TITLE }}</td>
-                <td>{{ data.CONTENT }}</td>
-                <td>{{ data.CREATE_TIME }}</td>
                 <td>{{ data.CATEGORY }}</td>
-                <td>{{ data.SUMMERNOTE }}</td>
-                <td>{{ data.STATUS }}</td>
+                <td>{{ data.TITLE }}</td>
+                <td>{{ data.CREATE_TIME }}</td>
+                <td><button :class="{ 'red': data.STATUS === 0, 'green': data.STATUS === 1 }" @click="click_function(key,data.ID,'articles')">{{ data.STATUS === 1 ?  '上架中' : '已下架' }} </button></td>
             </tr> 
          
 
@@ -367,6 +373,7 @@
 button{
     cursor: pointer;
     background-color:white;
+    border: none;
 }
 
 .green{

@@ -10,13 +10,14 @@ const router = useRouter();
 import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
 
-
-
+// 漢堡
 const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
     isHamburgerModalShow.value = !isHamburgerModalShow.value;
     // console.log( isModalShow.value)
 };
+
+// 會員登入
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
     if(sessionStorage.getItem('member_ID')){
@@ -25,13 +26,7 @@ const goLogin = ()=>{
         isLoginModalShow.value = !isLoginModalShow.value;
     }
 };
-
-// 購物車
-const cartStore = useCartStore();
-const toggleCart = function() {
-  cartStore.toggleCart();
-};
-//會員驗證
+// 會員驗證
 const memberProfilePic = ref(null);
 onMounted(() => {
   if(sessionStorage.getItem('member_ID')){
@@ -40,7 +35,34 @@ onMounted(() => {
     console.log('1111');
   }
 });
+
+// 複製分享連結
+const showSuccessModal = ref(false);
+
+const urlToCopy = 'https://tibamef2e.com/thd104/g1/game';
+
+const copyUrl = () => {
+  const el = document.createElement('textarea');
+  el.value = urlToCopy;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  showSuccessModal.value = true;
+  setTimeout(() => {
+            showSuccessModal.value = false;
+         }, 800);
+};
+const closeModal = () => {
+        showSuccessModal.value = false;
+    };
+// 購物車
+const cartStore = useCartStore();
+const toggleCart = function() {
+  cartStore.toggleCart();
+};
 </script>
+
 
 <template>
     <div>
@@ -108,11 +130,18 @@ onMounted(() => {
                     <p class="btn_p">適合你的清潔法寶</p>
 
                     <div class="gameR_recomm">
-                        <a href="#" title="輕巧型吸塵器"><img src="@/img/game/gameR_bear_recomm1.jpg" alt="recomm"></a>
-                        <a href="#" title="智能潔淨掃地機器人"><img src="@/img/game/gameR_bear_recomm2.jpg" alt="recomm"></a>
+                        <a href="https://tibamef2e.com/thd104/g1/mItem/18" title="綠意環保補充瓶"><img src="@/img/game/gameR_brid_recomm1.jpg" alt="recomm"></a>
+                        <a href="https://tibamef2e.com/thd104/g1/mItem/20" title="木製家居掃把"><img src="@/img/game/gameR_brid_recomm2.jpg" alt="recomm"></a>
                     </div>
                     <div class="gameR_share">
-                        <button class="btn">分享給朋友</button>
+                        <button class="btn" @click="copyUrl">分享給朋友</button>
+                        <div v-if="showSuccessModal" class="modal">
+                    <div class="modal_content">
+                        <span class="close" @click="closeModal">&times;</span>
+                        <img src="../img/logo_title.svg" alt="logo">
+                        <p>已複製測驗連結</p>
+                    </div>
+                </div>
                         <router-link :to="{ name: 'game' }"><button class="btn">再測一次</button></router-link>
                     </div>
                 </div>
@@ -125,7 +154,51 @@ onMounted(() => {
     </div>
 </template>
 
-<style lang="scss" >
+<style lang="scss" scoped>
 
+.modal {
+    display: block; 
+    position: fixed; 
+    z-index: 12; 
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5); 
+}
+
+.modal_content {
+    margin: 0 auto;
+    margin-top: 17%;
+    background-color:#B69B85;
+    width: 185px;
+    border: none;
+    text-align: center;
+    padding: 16px;
+    border-radius: 8px;
+    animation: rotate .5s linear infinite alternate;
+    display: flex;
+    img{
+    width:28px;
+    }
+    p{    
+    font-size: 16px;
+    letter-spacing: .5px;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    position: relative;}
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg); 
+  }
+}
+
+.close {
+    display: none;
+}
 
 </style>

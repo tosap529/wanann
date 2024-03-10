@@ -10,11 +10,14 @@ import { useRouter } from 'vue-router';
 import { useCartStore } from '@/stores/cartStore.js';
 import shoppingCart from '@/components/shoppingCart.vue';
 
+//漢堡
 const isHamburgerModalShow = ref(false);
 const hamburger = ()=>{
     isHamburgerModalShow.value = !isHamburgerModalShow.value;
     // console.log( isModalShow.value)
 };
+
+//會員登入
 const isLoginModalShow = ref(false);
 const goLogin = ()=>{
   if(sessionStorage.getItem('member_ID')){

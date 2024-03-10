@@ -23,7 +23,7 @@ const showSuccessModal = ref(false);
     // };
 
     const submitForm = () => {
-    const url = 'http://localhost/thd104/public/php/contact_insert.php';
+    const url = 'http://localhost/thd104/g1/public/php/contact_insert.php';
     
     fetch(url, {
         method: 'POST',
@@ -35,8 +35,6 @@ const showSuccessModal = ref(false);
     .then(response => response.text())
     .then(response => {
         showSuccessModal.value = true; // 顯示彈窗
-        // alert("傳送成功");
-
         
         console.log(response);
         
@@ -45,10 +43,10 @@ const showSuccessModal = ref(false);
         formData.value.phone = '';
         formData.value.email = '';
         formData.value.message = '';
-        //1秒後關閉彈窗
+        //0.8秒後關閉彈窗
          setTimeout(() => {
             showSuccessModal.value = false;
-         }, 1000);
+         }, 800);
     })
     .catch(error => {
         console.error('Error:', error);
@@ -142,33 +140,12 @@ const showSuccessModal = ref(false);
         
 
                 <div v-if="showSuccessModal" class="modal">
-                    <div class="modal-content">
+                    <div class="modal_content">
                         <span class="close" @click="closeModal">&times;</span>
+                        <img src="../img/logo_title.svg" alt="logo">
                         <p>送出成功</p>
                     </div>
                 </div>
-            <!-- <form action="#" method="post">
-                <div class="contact_input">
-                    <label for="name">姓名/單位</label>
-                    <input type="text" id="name" name="name">
-                </div>
-                <div class="contact_input">
-                    <label for="phone">手機號碼</label>
-                    <input type="tel" id="phone" name="phone">
-                </div>
-
-                <div class="contact_input">
-                    <label for="email">電子信箱</label>
-                    <input type="email" id="email" name="email">
-                </div>
-
-                <div class="contact_input ">
-                    <label for="message" class="message">問題描述</label>
-                    <textarea id="message" name="message"></textarea>
-                </div>
-                <button type="submit" class="btn">送出</button>
-
-            </form> -->
 
         </section>
         </wrapper>
@@ -185,52 +162,48 @@ const showSuccessModal = ref(false);
     z-index: 12; /* 確保彈窗在其他元素之上 */
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(47, 25, 189, 0.5); /* 半透明的背景 */
-    overflow: hidden;
+    background-color: rgba(0, 0, 0, .5); /* 半透明的背景 */
 }
 
-.modal-content {
+.modal_content {
+    margin: 0 auto;
+    margin-top: 17%;
     background-color:#B69B85;
-    width: 20%;
+    width: 145px;
     border: none;
-    
     text-align: center;
-    position: absolute; /* 相對於父元素定位 */
-    left: 50%; /* 水平置中 */
-    top: 50%; /* 垂直置中 */
-    transform: translate(-50%, -50%); /* 以自身寬高的一半為基準偏移 */
-    padding: 20px;
-    border-radius: 10px;
-}
-.modal-content p{
-    font-size: 32px;
-    line-height: 32px   ;
+    padding: 16px;
+    border-radius: 8px;
+    animation: rotate .5s linear infinite alternate;
+    display: flex;
+    align-items: center;
+    img{
+    width:28px;
+    }
+    p{
+    font-size: 16px;
     text-align: center;
     margin: 0 auto;
-    width: 50%;
     color: white;
     position: relative;
+    letter-spacing: .8px;
 }
-.close {
-    color: #aaa;
-    display: none;
-    // float: right;
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 5px;
-    font-size: 32px;
-    font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+@keyframes rotate {
+  0% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(5deg); 
+  }
 }
+
+
+.close {
+    display: none;
+}
+
 
 
 </style>

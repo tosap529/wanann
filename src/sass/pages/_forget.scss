@@ -11,10 +11,49 @@
 
 .forget_form {
     label {
+        position: relative;
+
+        #rePwdNew+img,
+        #rePwdConfirm+img {
+            padding: 10px;
+            position: absolute;
+            width: 45px;
+            right: 0%;
+            top: 40%;
+            cursor: pointer;
+        }
+    }
+
+
+
+    label {
         font-size: $h2;
     }
 
-    div {
+    h4+div>h2:first-child {
+        width: fit-content;
+        padding: 10px 20px;
+        border: 3px solid $warning ;
+        // background-color: $medium-milktea;
+        // opacity: 0;
+        border-radius: 10px;
+        color: $warning;
+        margin: 0 auto;
+        // text-align: center;
+        margin-top: 30px;
+    }
+
+    h4+div>h2:nth-child(2) {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    h4+div>p:nth-child(2) {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    label div {
         display: flex;
         margin-bottom: 10px;
         margin-top: 15px;
@@ -33,12 +72,13 @@
     }
 
 
-    label>input {
+    label>input,
+    >div label input {
         margin-top: 30px;
         width: 300px;
     }
 
-    >input {
+    >div input {
         width: 150px;
         margin: 30px auto 0;
         height: 50px;

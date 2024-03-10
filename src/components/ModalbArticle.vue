@@ -1,32 +1,87 @@
 <script setup>
 
+import { ref } from 'vue';
+
 defineEmits(['ModalbArticle'])
+
+const props = defineProps({data: Object});
+const showSuccessMessage = ref(false);
+
+const submitForm = () => {
+
+    const url_articles_update = 'http://localhost/thd104/g1/public/php/Backstage/articles_update.php';
+    
+    showSuccessMessage.value = true;
+    setTimeout(() => {
+        showSuccessMessage.value = false;
+    }, 1000);
+
+
+
+    fetch(url_articles_update, {
+
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: props.data.ID, 
+            title: props.data.TITLE,
+            pic: props.data.PIC,
+            content: props.data.CONTENT,
+            createTime: props.data.CREATE_TIME,
+            category: props.data.CATEGORY,
+            summernote: props.data.SUMMERNOTE,
+            status: props.data.STATUS,
+
+        })
+
+    })
+    };
+
+    const click_function = (key, id) => {
+        
+        let final_status = null;
+        if (props.data.STATUS === 1) {
+            props.data.STATUS = 0;
+            final_status = false;
+        } else {
+            props.data.STATUS = 1;
+            final_status = true;
+        }
+    }
+
+
+
 </script>
 <template>
     <div class="modal_mask" @click.self="$emit('ModalbArticle')" >
     <div class="modal_content bArticle backModal">
+
         <section class="bModalHeader">
             <h1>文章－編輯與查看</h1>
         </section>
+
+        <form @submit.prevent="submitForm">
         <section class="bModalContent">
             <div>
                 <div>
-                    <h2 class="bItem">文章ID：</h2>
+                    <h2 class="bItem">文章ID：{{ props.data.ID }}</h2>
                     <h2></h2>
                 </div>
                 <h2>文章資料</h2>
                 <article>
                     <div>
                         <h2>文章類別：</h2>
-                        <button>職人講座</button>
+                        <input type="text" v-model="props.data.CATEGORY">
                     </div>
                     <div>
                         <h2>建立日期：</h2>
-                        <h2>2023/12/31</h2>
+                        <h2>{{ props.data.CREATE_TIME }}</h2>
                     </div>
                     <div>
                         <h2>文章狀態：</h2>
-                        <button>上架中</button>
+                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button>
                     </div>
                 </article>
             </div>
@@ -37,11 +92,11 @@ defineEmits(['ModalbArticle'])
                     
                     <div>
                         <h2>文章標題：</h2>
-                        <h2>我是內容我是內容我是內容我是內容</h2>
+                        <input type="text" v-model="props.data.TITLE">
                     </div>
                     <div>
                         <h2>文章敘述：</h2>
-                        <h2>我是內容我是內容我是內容我是內容</h2>
+                        <input type="text" v-model="props.data.CONTENT">
                     </div>
                     <div>
                         <h2>文章圖片：</h2>
@@ -52,11 +107,14 @@ defineEmits(['ModalbArticle'])
                   
                 </article>
             </div>
-            <div>
+            <div class="block">
                 <button class="btn" @click="$emit('ModalbArticle')">關閉</button>
-                <button class="btn" @click="$emit('ModalbArticle')">儲存</button>
+                <button type="submit" class="btn">儲存</button>
+                <div id="successMessage" class="success-message" v-show="showSuccessMessage">儲存成功 !!</div>
             </div>
+            
         </section>
+    </form>
     </div>
 </div>
 </template>
@@ -136,4 +194,38 @@ defineEmits(['ModalbArticle'])
     }
 }
 
+
+button{
+    cursor: pointer;
+    background-color: $light-milktea;
+    outline: none;
+    
+    border-radius: 8px;
+    background-color: $light-milktea;
+}
+
+.green{
+    color: black;
+    border: none;
+}
+
+.red{
+    color: $warning;
+    border: 1px red solid;
+
+}
+
+.block {
+    position: relative;
+}
+
+.success-message {
+    position: absolute;
+    top: 10px;
+    right: 200px;
+    color: green;
+    border-radius: 5px;
+    font-weight: bold;
+
+}
 </style>

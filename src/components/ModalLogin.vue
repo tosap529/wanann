@@ -9,14 +9,18 @@ const byeLogin = ref(true);
 const byeCreate = ref(false);
 // const LoginRWD = ref(true);
 // const CreateRWD = ref(false);
-
+const pwdNew =ref(null);
+const pwdConfirm =ref(null);
+const failedContext = ref(null)
 
 const isRegister = ref(false) ;
 const isRNext_el = ()=>{
-    if(RegisterData.username!=''&&RegisterData.email!=''&&pwdNew.value==pwdConfirm.value){
+    if(pwdNew.value&&pwdConfirm.value){
+     if(RegisterData.username!=''&&RegisterData.email!=''&&pwdNew.value.value==pwdConfirm.value.value){
         isRegister.value=true;
     }else{
         isRegister.value=false;
+    }   
     }
 }
 const isLoginable =  ref(false);
@@ -82,9 +86,10 @@ const successRegister= ()=>{
         location.reload();
     },1500)
 };
-const isRegisterFailedModalShow = ref(false);
-const failedRegister= ()=>{
-    isRegisterFailedModalShow.value = !isRegisterFailedModalShow.value;
+const isLoginBoxFailedModalShow = ref(false);
+let loginBoxFailedModalmsg = ref();
+const failedTry= ()=>{
+    isLoginBoxFailedModalShow.value = !isLoginBoxFailedModalShow.value;
     // setTimeout(()=>{
     //     router.push({path:"/home"});
     //     location.reload();
@@ -117,7 +122,8 @@ const submitForm = () => {
         if(response=='註冊成功'){
             successRegister();
         }else{
-            failedRegister();
+            loginBoxFailedModalmsg.value = '註冊';
+            failedTry();
         }
 
     }).catch(error => {
@@ -136,7 +142,7 @@ const successLogin= (SessionData)=>{
     },1500)
     if(SessionData.id){
         sessionStorage.setItem("member_ID", SessionData.id);
-    sessionStorage.setItem("member_pic", SessionData.picPath);
+        sessionStorage.setItem("member_pic", SessionData.picPath);
         console.log(SessionData);
     }else{
         console.log('hi');
@@ -161,8 +167,15 @@ const loginSubmit = ()=>{
     .then(response => response.text())
     .then(response => {
         if(response=='登入失敗'){
-            alert('帳密有誤');
-        }else{
+            // alert('帳密有誤');
+            loginBoxFailedModalmsg.value = '登入';
+            failedTry();
+        }else if(response=='此帳號已被停權'){
+            // alert('此帳號已被停權');
+            loginBoxFailedModalmsg.value = '停權';
+            failedTry();
+        }
+        else{
             let msg = response.split(',');
             SessionData.id = msg[0];
             SessionData.picPath = msg[1];
@@ -177,12 +190,12 @@ const loginSubmit = ()=>{
 
 const pwdValidation = ()=>{
     console.log(pwdNew.value);
-    if(pwdNew.value != pwdConfirm.value){
+    if(pwdNew.value.value != pwdConfirm.value.value){
         // pwdConfirm.style.backgroundColor = 'white';
-        pwdConfirm.classList.add('alert_inputWeye');
+        pwdConfirm.value.classList.add('alert_inputWeye');
     }else{
         // pwdConfirm.style.backgroundColor = '#ECE7E1';
-        pwdConfirm.classList.remove('alert_inputWeye');
+        pwdConfirm.value.classList.remove('alert_inputWeye');
     }
 
 }
@@ -192,18 +205,25 @@ const pwdValidation = ()=>{
 </script>
 <template>
 <div class="modal_mask" @click.self="$emit('ModalLogin')" >
-    <ModalDefaultAll v-show="isRegisterFailedModalShow" @ModalDefaultAll="failedRegister" >
+    <ModalDefaultAll v-show="isLoginBoxFailedModalShow" @ModalDefaultAll="failedTry" >
             <div class="modal_content member_all">
-                <section>
+                <section ref="failedContext" v-if="loginBoxFailedModalmsg=='註冊'">
                     <h2>註冊失敗！</h2><br>
                     <p>您輸入的使用者名稱已被註冊過</p>
                 </section>
-            <div>
-            <button class="btn" @click="failedRegister">關閉</button>
+                <section ref="failedContext" v-if="loginBoxFailedModalmsg=='登入'">
+                    <h2>登入失敗！</h2><br>
+                    <p>帳號或密碼有誤</p>
+                </section>
+                <section ref="failedContext" v-if="loginBoxFailedModalmsg=='停權'">
+                    <h2>此帳號已被停權</h2><br>
+                    <p>如有疑問請聯絡浣安客服人員</p>
+                </section>
+                <div>
+                    <button class="btn" style="margin-right:0px;" @click="failedTry">關閉</button>
+                </div>
             </div>
-
-            </div>
-        </ModalDefaultAll>
+    </ModalDefaultAll>
     <ModalCantGoAnywhere v-show="isLoginModalShow" @ModalCantGoAnywhere="successLogin" >
             <div class="modal_content member_all">
                 <section>
@@ -289,12 +309,12 @@ const pwdValidation = ()=>{
             <label for="createAccount">*帳號<br><input type="text" id="createAccount" name="username" v-model="RegisterData.username" @input="isRNext_el" required></label>
             <!-- <br> -->
             <label for="pwdNew">*密碼<br>
-                <input type="password" id="pwdNew" name="password" v-model="RegisterData.password" @input="()=>{pwdValidation();isRNext_el();}" required>
+                <input type="password" id="pwdNew" name="password" ref="pwdNew" v-model="RegisterData.password" @input="()=>{pwdValidation();isRNext_el();}" required>
                 <img src="@/img/login/login_icon_eye.png" @click="eyeOnPWD" alt="">
             </label>
             <!-- <br> -->
             <label for="pwdConfirm">*確認密碼<br>
-                <input type="password" id="pwdConfirm"  @input="()=>{pwdValidation();isRNext_el();}" required>
+                <input type="password" id="pwdConfirm" ref="pwdConfirm"  @input="()=>{pwdValidation();isRNext_el();}" required>
                 <img src="@/img/login/login_icon_eye.png"  @click="eyeOnPWD" alt="">
             </label>
             <!-- <br> -->

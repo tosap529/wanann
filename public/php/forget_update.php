@@ -1,9 +1,14 @@
 <?php
 include("connect_test.php");
+// include("connect.php");
 
 $pdo = getPDO();
 
-$statement = $pdo->prepare("update MEMBER set MEMEBER_PIC = '".$fileTestPath."' where ID=9");
+$statement = $pdo->prepare("update MEMBER set PASSWORD = :pwd where ID=:id");
+
+$statement ->bindValue(":id",  $reqBody['id']);
+$statement ->bindValue(":pwd",  $reqBody['pwd']);
+
 $statement ->execute();
-$member = $statement->fetchAll();
+
 ?>

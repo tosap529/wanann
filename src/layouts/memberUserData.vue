@@ -11,6 +11,7 @@ const newTaipei = ref(['區','三峽區','三重區','中和區','五股區','�
 const taipei = ref(['區','中正區','大同區','中山區','松山區','大安區','萬華區','信義區','士林區','北投區','內湖區','南港區','文山區']);
 const taoyuan = ref(['區','桃園區','八德區','龜山區']);
 
+const emailInput = ref(null);
 let UserData = {}
 
 const userDataEdit = ()=>{
@@ -40,10 +41,10 @@ const userDataEdit = ()=>{
         })
         .then(response => response.text())
         .then(response => {
-            // console.log('註冊成功 js');
-            // console.log(response);
-
-            // alert('更新成功');
+            console.log(response);
+            if(response=="email重複"){
+                props.userData.EMAIL='請重新輸入email';
+            }
         }).catch(error => {
             console.error('Error:', error);
         });
@@ -101,8 +102,9 @@ const infoEdit_sa=(e)=>{
 }
 function infoSave(e){
 let input = e.target.closest('div').parentElement.querySelector('input')
+console.log(input.value);
 if (input.disabled==false){
-    if(input.value!=''){  
+    if(input.value!=''&&input.value!='請重新輸入email'){  
     if(input.classList.contains('alert_input')){
         input.classList.remove('alert_input')
     }
@@ -188,14 +190,13 @@ const editSuccessMsg=(e)=>{
                 editSuccessMsg.style.opacity='0';
             },700)
     }else{
+        // console.log(e.target.closest('div').previousElementSibling.value);
         if(!e.target.closest('div').previousElementSibling.disabled){
             editSuccessMsg.style.opacity='1';
             setTimeout(()=>{
                 editSuccessMsg.style.opacity='0';
             },700)
-            }else{
-                console.log('111');
-            } 
+            }
     }
         
   
@@ -244,7 +245,7 @@ const editSuccessMsg=(e)=>{
         </div>
         <div>
             <h2>電子信箱</h2>
-            <input type="email"  v-model="userData.EMAIL" disabled>
+            <input type="email" ref="emailInput"  v-model="userData.EMAIL" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
                 <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
