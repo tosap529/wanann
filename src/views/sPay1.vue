@@ -198,20 +198,9 @@
         reserveStore.removeAdditionalService(serviceId);
     };
 
-    // const removeService = (serviceId) => {
-    //     // 更新 Pinia store 中的 reserveItem
-    //     reserveStore.removeAdditionalService(serviceId);
 
-    //     // 更新 localStorage 中的 reserveItemLocal
-    //     reserveItemLocal.add_spec_service = reserveItemLocal.add_spec_service.filter(service => service.ID !== serviceId);
-    //     localStorage.setItem('my_service_order', JSON.stringify(reserveItemLocal));
-    // };
 
     const totalPrice = computed(() => reserveStore.totalPrice);
-
-
-
-
 
 
     // 優惠代碼API
@@ -274,13 +263,6 @@
         }
 
     };
-
-
-
-
-
-
-    
 
     
     // 測試用的函式
@@ -348,49 +330,12 @@
             add_spec_service: add_reserve_array,
         }
 
-        // console.log(finalData.value.main_plan_arr);
 
-
-        // {
-        //     service_date: "2024/03/21",
-        //     service_time: "afternoon",
-        //     main_service: {
-        //         pic: "aa",
-        //         name: "",
-        //         content: "",
-        //         price: 4000
-        //     },
-        //     add_spec_service: [
-        //         {
-        //             pic: "bbb",
-        //             name: "",
-        //             content: "",
-        //             price: 100
-        //         },
-        //         {
-
-        //         }
-        //     ]
-        // }
         
     
         reserveStore.reserveItem = finalData.value
 
         reserveStore.calculateTotalPrice();
-        console.log('所有資料');
-        console.log(finalData.value);
-
-        console.log(finalData.value.service_date);
-        console.log(finalData.value.service_time);
-
-        console.log('主要服務');
-        console.log(finalData.value.main_service[0].SERVICE_PIC);
-
-        console.log('附加服務');
-        console.log(finalData.value.add_spec_service[0].ADD_SERVICE_NAME);
-
-        console.log(reserveItemLocal);
-
 
     });
 

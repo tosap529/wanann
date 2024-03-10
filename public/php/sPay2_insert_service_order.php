@@ -1,40 +1,40 @@
-<?php
-// 本機測試
-include("connect_test.php");
 
-// 上伺服器
-// include("connect.php");
+<?php
+include("connect_test.php"); // 確保這裡的路徑是正確的
 
 $pdo = getPDO();
-
 
 $content = trim(file_get_contents("php://input"));
 $reqBody = json_decode($content, true);
 
-
 $statement = $pdo->prepare("
-    INSERT INTO `Wanann_database`.`PRODUCT_ORDER` 
-    (`ADDRESSEE_NAME`, `ADDRESSEE_PHONE`, `ORDER_DATE`, `ADDRESSEE_ADDRESS`, `PAYMENT`, `ORDER_STATUS`, `MEMBER_ID`, `ACTIVITY_ID`) 
-    VALUES (:addresseeName, :addresseePhone, NOW(), :addresseeAddress, :payment, :orderStatus, :memberId, :activityId)
+    INSERT INTO `Wanann_database`.`SERVICE_ORDER` (
+        `SERVICE_PHONE`, `ORDER_DATE`, `SERVICE_ADDRESS`, 
+        `SERVICE_DATE`, `PAYMENT`, `ORDER_STATUS`, 
+        `RANK_STATUS`, `MEMBER_ID`, `SERVICE_COMMENT_ID`, 
+        `SERVICE_RESERVE_TIME_ID`, `ACTIVITY_ID`
+    ) VALUES (
+        :servicePhone, now(), :serviceAddress, 
+        :serviceDate, '1', '0', 
+        '1', :memberId, :serviceCommentId, 
+        :serviceReserveTimeId, :activityId
+    );
 ");
 
-$statement->bindValue(":addresseeName", $reqBody["ADDRESSEE_NAME"]);
-$statement->bindValue(":addresseePhone", $reqBody["ADDRESSEE_PHONE"]);
-$statement->bindValue(":addresseeAddress", $reqBody["ADDRESSEE_ADDRESS"]);
-$statement->bindValue(":payment", '1');
-$statement->bindValue(":orderStatus", '0');
+$statement->bindValue(":servicePhone", $reqBody["SERVICE_PHONE"]);
+$statement->bindValue(":serviceAddress", $reqBody["SERVICE_ADDRESS"]);
 $statement->bindValue(":memberId", $reqBody["MEMBER_ID"]);
+$statement->bindValue(":serviceCommentId", $reqBody["SERVICE_COMMENT_ID"]);
+$statement->bindValue(":serviceReserveTimeId", $reqBody["SERVICE_RESERVE_TIME_ID"]);
 $statement->bindValue(":activityId", $reqBody["ACTIVITY_ID"]);
-$statement->execute();
+$statement->bindValue(":serviceDate", $reqBody["SERVICE_DATE"]);
 
-// echo "訂單提交成功";
-
-// 傳回本次資料新家資料的ID給前端
-$lastInsertId = $pdo->lastInsertId();
-
-echo $lastInsertId;
+    $statement->execute();
+    echo $pdo->lastInsertId();
 
 ?>
+
+
 
 
 

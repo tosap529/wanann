@@ -234,12 +234,14 @@ div.service_swiper {
 
 .service_map {
   margin: 0 auto;
+  padding: 0 40px;
   width: 1000px;
   display: flex;
 
   img {
     display: block;
-    width: 100%;
+    // width: 100%;
+    width: 500px;
     height: 400px;
     margin-top: 20px;
     border-radius: 10px;
@@ -340,87 +342,31 @@ div.service_swiper {
     padding: 56px 28px 56px 35px;
   }
 
+
+
+
+  .service_map {
+    width: auto;
+    margin: auto 30px;
+    flex-direction: column;
+
+    img {
+      margin: 0 auto;
+      margin-bottom: 20px;
+    }
+  }
+
+
   .service_compare {
     width: auto;
   }
 
-}
-
-
-// ------------------------ width: 800px ------------------------
-
-@media screen and (max-width:800px) {
-
-  .service_plan .left img {
-    width: 350px;
-  }
-
-  .service_map img {
-    width: 500px;
-    height: 400px;
-    margin: auto auto 30px auto;
-  }
-
-}
-
-
-// ------------------------ width: 700px ------------------------
-
-@media screen and (max-width:700px) {
-
-  .service_plan {
-    flex-direction: column;
-  }
-
-  .service_plan .service_article {
-    flex-direction: column;
-  }
-
-  .service_plan .left {
-    margin: 0 auto;
-  }
-
-  .service_plan .left img {
-    margin: auto auto 10px auto;
-
-    +p {
-      width: 350px;
-    }
-  }
-
-  .service_plan .service_article h3 {
+  .service_compare {
     display: none;
   }
 
-  .service_plan .left {
-    padding: 56px 28px 0px 35px;
-  }
-
-  .service_plan .service_article {
-    padding: 30px 0 60px;
-    width: 300px;
-    margin: 0 auto;
-  }
-
-  .service_plan .service_article p {
-    padding-top: 0px;
-    margin-bottom: 40px;
-  }
-
-  .service_plan .service_article h2 {
-    margin-bottom: 16px;
-  }
-
-  .service_icon article h2 {
-    flex-basis: 20%;
-  }
-
-  .right_icon1 ul {
-    margin-left: -1px;
-  }
-
-  .right_icon2 ul {
-    margin-left: -1px;
+  .service_compare_phone {
+    display: block;
   }
 
   .service_compare_phone {
@@ -484,19 +430,104 @@ div.service_swiper {
     background-color: $light-milktea;
   }
 
-  .service_map img {
-    width: 400px;
-    height: 300px;
-    margin-bottom: 30px;
+
+}
+
+
+// ------------------------ width: 800px ------------------------
+
+@media screen and (max-width:800px) {
+
+  .service_plan .left img {
+    width: 350px;
   }
 
-  .service_compare {
+  .service_map img {
+    width: 400px;
+    height: 320px;
+    margin: auto auto 30px auto;
+  }
+
+  .service_map {
+    margin: auto 20px;
+
+  }
+
+
+
+}
+
+
+// ------------------------ width: 700px ------------------------
+
+@media screen and (max-width:700px) {
+
+  .service_plan {
+    flex-direction: column;
+  }
+
+  .service_plan .service_article {
+    flex-direction: column;
+  }
+
+  .service_plan .left {
+    margin: 0 auto;
+  }
+
+  .service_plan .left img {
+    margin: auto auto 10px auto;
+
+    +p {
+      width: 350px;
+    }
+  }
+
+  .service_plan .service_article h3 {
     display: none;
   }
 
-  .service_compare_phone {
-    display: block;
+  .service_plan .left {
+    padding: 56px 28px 0px 35px;
   }
+
+  .service_plan .service_article {
+    padding: 30px 0 60px;
+    width: 300px;
+    margin: 0 auto;
+  }
+
+  .service_plan .service_article p {
+    padding-top: 0px;
+    margin-bottom: 40px;
+  }
+
+  .service_plan .service_article h2 {
+    margin-bottom: 16px;
+  }
+
+  .service_icon article h2 {
+    flex-basis: 20%;
+  }
+
+  .right_icon1 ul {
+    margin-left: -1px;
+  }
+
+  .right_icon2 ul {
+    margin-left: -1px;
+  }
+
+
+
+
+  .service_map {
+    margin: auto 20px;
+
+    .area {
+      margin-left: 0;
+    }
+  }
+
 
 
 
@@ -511,6 +542,7 @@ div.service_swiper {
 
 .service_compare_phone {
   width: auto;
+  margin: 0 20px;
 }
 
 
@@ -520,6 +552,11 @@ div.service_swiper {
   .right_icon1 ul,
   .right_icon2 ul {
     justify-content: center;
+  }
+
+  .service_map img {
+    width: 300px;
+    height: 240px;
   }
 }
 
@@ -805,14 +842,12 @@ div.service_swiper {
 
 
   .service_map {
+    padding: 0 10px;
     width: 330px;
     display: flex;
     flex-direction: column;
 
     img {
-      display: block;
-      width: 100%;
-      height: 240px;
       padding-top: 0px;
       border-radius: 10px;
       margin-bottom: 42px;

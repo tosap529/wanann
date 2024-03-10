@@ -106,7 +106,7 @@ const RegisterData = {
     username: '',
     password: '',
     member_pic:'/thd104/g1/img/member/member_pic/pic_default.png',
-    status:1
+    status:'1'
     };
 
 const submitForm = () => {

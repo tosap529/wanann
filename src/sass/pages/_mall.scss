@@ -272,6 +272,12 @@ div.mall_paginator {
 
 
 @media(max-width:430px){
+    div.mall_wrapper{
+        // border: 1px solid red;
+        padding: 5px;
+        width: 350px;
+    }
+
     div.mall_tab{
         ul.nav_products{
             padding-top: 0;

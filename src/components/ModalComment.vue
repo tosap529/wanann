@@ -1,10 +1,32 @@
 <script setup>
 import { ref,onMounted } from "vue";
 defineEmits(['ModalComment']);
-const props = defineProps(['commentData']);
+const props = defineProps({data:Object});
 onMounted(()=>{
-    console.log(props.commentData);
+    console.log(props.data);
 })
+const qualityStar = ref(null);
+const attitudeStar = ref(null);
+let CommentData = {
+    id:props.data.id,
+    quality:0,
+    attitude:0,
+    content:''
+}
+const submitComment =()=>{
+    const url = 'http://localhost/thd104/g1/public/php/comment_insert.php';
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(CommentData)
+
+    })
+}
+const qualityStar_el = ()=>{
+
+}
+const attitudeStar_el = ()=>{
+
+}
 
 </script>
 <template>
@@ -16,48 +38,44 @@ onMounted(()=>{
         </div>
         <div>
             <h2>服務日期</h2>
-            <!-- <h2>{{commentData}}</h2> -->
-            <h2>下午</h2>
+            <h2>{{props.data.service_date}}</h2>
+            <h2>{{props.data.time_range}}</h2>
         </div>
         <section>
             <article>
-                <img src="@/img/member/member_sOrder_product1.png" alt="">
-                <h2>浣安全室清潔</h2>
+                <img :src="data.service_pic" alt="">
+                <h2>{{data.service}}</h2>
             </article>
-            <article>
-                <img src="@/img/member/member_sOrder_product2.png" alt="">
-                <h2>冷氣機清理</h2>
-            </article>
-            <article>
-                <img src="@/img/member/member_sOrder_product3.png" alt="">
-                <h2>毛孩服務</h2>
+            <article v-for="item in data['add_service']" :key="item">
+                <img :src="item.add_service_pic" alt="">
+                <h2>{{item.add_service_name}}</h2>
             </article>
         </section>
         <section>
             <div>
                 <article>
                     <h2>服務品質</h2>
-                    <div class="comment_star">
+                    <div class="comment_star" ref="qualityStar" @click="qualityStar_el">
+                        <!-- <img src="@/img/member/member_comment_star_full.png" alt="">
                         <img src="@/img/member/member_comment_star_full.png" alt="">
                         <img src="@/img/member/member_comment_star_full.png" alt="">
                         <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star.png" alt="">
-                        <!-- <font-awesome-icon :icon="['fas', 'star']" />
-                        <font-awesome-icon :icon="['fas', 'star']" />
-                        <font-awesome-icon :icon="['fas', 'star']" />
-                        <font-awesome-icon :icon="['fas', 'star']" />
-                        <font-awesome-icon :icon="['far', 'star']" /> -->
+                        <img src="@/img/member/member_comment_star.png" alt=""> -->
+                        <font-awesome-icon :icon="['fas', 'star']"  class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon :icon="['fas', 'star']" class="star_wo_color"/>
+                        <font-awesome-icon :icon="['far', 'star']"  class="star_wo_color"/>
                     </div>
                 </article>
                 <article>
                     <h2>服務態度</h2>
-                    <div class="comment_star">
+                    <div class="comment_star" ref="attitudeStar" @click="attitudeStar_el">
+                        <!-- <img src="@/img/member/member_comment_star_full.png" alt="">
                         <img src="@/img/member/member_comment_star_full.png" alt="">
                         <img src="@/img/member/member_comment_star_full.png" alt="">
                         <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star_full.png" alt="">
-                        <img src="@/img/member/member_comment_star.png" alt="">
+                        <img src="@/img/member/member_comment_star.png" alt=""> -->
                         <!-- <font-awesome-icon :icon="['fas', 'star']" />
                         <font-awesome-icon :icon="['fas', 'star']" />
                         <font-awesome-icon :icon="['fas', 'star']" />
@@ -66,11 +84,11 @@ onMounted(()=>{
                     </div>
                 </article>
             </div>
-            <textarea name="" id="" cols="30" rows="10" placeholder="我還有話想說~"></textarea>
+            <textarea name="" id="" cols="30" rows="10" placeholder="我還有話想說~" v-model="CommentData.content"></textarea>
         </section>
         <div>
             <button class="btn" @click="$emit('ModalComment')">關閉</button>
-            <button class="btn" @click="$emit('ModalComment')">送出</button>
+            <button class="btn" @click="()=>{submitComment();$emit('ModalComment');}">送出</button>
         </div>
 
 

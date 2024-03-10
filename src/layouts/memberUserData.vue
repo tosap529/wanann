@@ -217,7 +217,7 @@ const editSuccessMsg=(e)=>{
         </div>
         <div>
             <h2 @click="editSuccessMsg">帳號</h2>
-            <input type="text" :value="userData.ID"  disabled>
+            <input type="text" :value="userData.USERNAME"  disabled>
         </div>
         <div>
             <h2>修改密碼</h2>

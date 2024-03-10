@@ -505,7 +505,7 @@
 
             // 清空購物車
             cartStore.cartItems = [];
-            localStorage.clear();
+            localStorage.removeItem('cartItems')
 
             // 跳轉頁面
             router.push({ name: 'mPay3' });
