@@ -66,7 +66,6 @@
         <section class="bModalContent">
             <div>
                 <h2 class="bItem">表單ID： {{ props.data.ID }} </h2>
-                <h2>表單資料</h2>
             </div>
             <div>
                 <h2>表單資料</h2>
@@ -118,11 +117,15 @@
 <!-- scoped切勿拿掉 -->
 <style lang="scss" scoped>
 @import '@/sass/main.scss';
-
+.backModal h2.bItem{
+    width: 353px;
+}
 .bContact{
     width: 1000px;
     // height: 660px;
     .bModalContent{
+        height: 500px;
+        overflow: auto;
         >div:nth-child(2){
             display: flex;
             flex-wrap: wrap;
@@ -206,5 +209,9 @@ button{
     font-weight: bold;
 
 }
-
+.bModalHeader{
+    h1{
+        font-size: 20px;
+    }
+}
 </style>

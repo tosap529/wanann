@@ -139,7 +139,9 @@ const click_function = (key, id) => {
 <!-- scoped切勿拿掉 -->
 <style lang="scss" scoped>
 @import '@/sass/main.scss';
-
+.backModal h2.bItem{
+    width: 683px;
+}
 .bServiceOrder{
     width: 800px;
     .bModalContent{
@@ -209,5 +211,9 @@ button{
     font-weight: bold;
 
 }
-
+.bModalHeader{
+    h1{
+        font-size: 20px;
+    }
+}
 </style>

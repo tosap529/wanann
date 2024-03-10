@@ -122,7 +122,9 @@ const submitForm = () => {
 <!-- scoped切勿拿掉 -->
 <style lang="scss" scoped>
 @import '@/sass/main.scss';
-
+.backModal h2.bItem{
+    width: 315px;
+}
 .bArticle{
     width: 1000px;
     // height: 660px;
@@ -139,6 +141,9 @@ const submitForm = () => {
         article{
             div{
                 display: flex;
+                input{
+                    margin-top: 10px;
+                }
                 h2{
                     padding: 5px 0;
                     margin: 10px 0;
@@ -159,6 +164,10 @@ const submitForm = () => {
         article{
             div{
                 display: flex;
+                input{
+                    width: 420px;
+                    margin-top: 15px;
+                }
                 h2{
                     padding: 10px 0;
                     text-align: left;
@@ -176,10 +185,14 @@ const submitForm = () => {
                 }
             }
             >div:nth-child(2){
-                height: 150px;
+                height: 50px;
+                margin-bottom: 40px;
                 h2:first-child{
                     align-self: center;
+                    margin-bottom: 0px;
+                    margin-top: 20px;
                 }
+
             }
             >div:nth-child(3){
                 h2:first-child{
@@ -227,5 +240,10 @@ button{
     border-radius: 5px;
     font-weight: bold;
 
+}
+.bModalHeader{
+    h1{
+        font-size: 20px;
+    }
 }
 </style>

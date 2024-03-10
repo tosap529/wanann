@@ -103,7 +103,7 @@
                     </div>
                     <div>
                         <h2>活動敘述：</h2>
-                        <input type="text" v-model="props.data.CONTENT">
+                        <textarea type="text" v-model="props.data.CONTENT"></textarea>
                         <!-- <h2>{{ props.data.CONTENT }}</h2> -->
                     </div>
                     <div>
@@ -129,11 +129,15 @@
 <!-- scoped切勿拿掉 -->
 <style lang="scss" scoped>
 @import '@/sass/main.scss';
-
+.backModal h2.bItem{
+    width: 315px;
+}
 .bAct{
     width: 1000px;
     // height: 660px;
     .bModalContent{
+        height: 500px;
+        overflow: auto;
         display: flex;
         flex-wrap: wrap;
        >div:first-child{
@@ -174,6 +178,10 @@
         article{
             div{
                 display: flex;
+                input{
+                    width: 400px;
+                    margin-top: 15px;
+                }
                 h2{
                     padding: 10px 0;
                     text-align: left;
@@ -191,12 +199,26 @@
                 }
             }
             >div:nth-child(2){
-                height: 250px;
+                height: 150px;
                 h2:first-child{
                     align-self: center;
+                    margin-top: 50px;
+                }
+                textarea{
+                    border-radius: 8px;
+                    border: none;
+                    background-color: $light-milktea;
+                    padding: 10px;
+                    width: 400px;
+                    margin-top: 15px;
+                    height: 160px;
+                    &:focus{
+                        outline-color: $brown;
+                    }
                 }
             }
             >div:nth-child(3){
+                margin-top: 50px;
                 h2:first-child{
                     align-self: center;
                 }
@@ -208,7 +230,7 @@
        }
     }
 }
-
+input{margin-top: 10px;}
 button{
     cursor: pointer;
     background-color: $light-milktea;
@@ -242,5 +264,9 @@ button{
     font-weight: bold;
 
 }
-
+.bModalHeader{
+    h1{
+        font-size: 20px;
+    }
+}
 </style>
