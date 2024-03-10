@@ -6,6 +6,10 @@
     height: 100vh;
     background-color: rgba(0, 0, 0, .5);
     z-index: 100;
+
+    a.btn {
+        line-height: 30px;
+    }
 }
 
 // 後台燈箱共通

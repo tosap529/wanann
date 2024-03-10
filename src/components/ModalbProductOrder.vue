@@ -1,6 +1,34 @@
 <script setup>
 
 defineEmits(['ModalbProductOrder'])
+
+const props = defineProps({data: Object});
+
+    console.log(props.data)
+
+    // const submitForm = () => {
+    // const url_contact_update = 'http://localhost/thd104/public/php/pOrder_update.php';
+    
+    
+    // fetch(url_contact_update, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({
+    //         id: props.data.ID, 
+    //         name: props.data.NAME,
+    //         phone: props.data.PHONE,
+    //         email: props.data.EMAIL,
+    //         content: props.data.CONTENT,
+    //         createTime: props.data.CREATE_TIME,
+    //         status: props.data.STATUS,
+
+    //     })
+
+    // })
+    // };
+
 </script>
 <template>
     <div class="modal_mask" @click.self="$emit('ModalbProductOrder')" >
@@ -8,9 +36,11 @@ defineEmits(['ModalbProductOrder'])
         <section class="bModalHeader">
             <h1>商品訂單－編輯與查看</h1>
         </section>
+
+        <form @submit.prevent="submitForm">
         <section class="bModalContent">
             <div>
-                <h2 class="bItem">商品訂單ID：</h2>
+                <h2 class="bItem">商品訂單ID：{{ props.data.id }}</h2>
                 <h2></h2>
             </div>
             <div>
@@ -18,15 +48,15 @@ defineEmits(['ModalbProductOrder'])
                 <article>
                     <div>
                         <h2>帳號：</h2>
-                        <h2>thd104</h2>
+                        <h2>{{ props.data.username }}</h2>
                     </div>
                     <div>
                         <h2>姓名：</h2>
-                        <h2>XXX</h2>
+                        <h2>{{ props.data.name }}</h2>
                     </div>
                     <div>
                         <h2>手機號碼：</h2>
-                        <h2>0912345678</h2>
+                        <h2>{{ props.data.PHONE }}</h2>
                     </div>
                     <div>
                         <h2>收件地址：</h2>
@@ -37,14 +67,8 @@ defineEmits(['ModalbProductOrder'])
             <div>
                 <h2>商品訂單內容</h2>
                 <article>
-                    <div>
-                        <h2>強效清潔劑</h2>
-                        <h2>柑橘款</h2>
-                        <h2>1個</h2>
-                        <h2>NTD500</h2>
-                    </div>
-                    <div>
-                        <h2>Leo牌掃地機器人</h2>
+                    <div v-for="item in props.data.products">
+                        <h2>{{ item.product_name }}</h2>
                         <h2>柑橘款</h2>
                         <h2>1個</h2>
                         <h2>NTD500</h2>
@@ -70,6 +94,7 @@ defineEmits(['ModalbProductOrder'])
                 <button class="btn" @click="$emit('ModalbProductOrder')">儲存</button>
             </div>
         </section>
+    </form>
     </div>
 </div>
 </template>

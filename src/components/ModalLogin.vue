@@ -66,7 +66,6 @@ const goCreate=(e)=>{
 const goCreateRWD=(e)=>{
     byeLogin.value= !byeLogin.value;
     byeCreate.value= !byeCreate.value;
-
 }
 
 const eyeOnPWD=(e)=>{
@@ -95,7 +94,7 @@ const RegisterData = {
     service_address:'',
     username: '',
     password: '',
-    member_pic:'',
+    member_pic:'/thd104/g1/img/member/member_pic/pic_default.png',
     status:1
     };
 

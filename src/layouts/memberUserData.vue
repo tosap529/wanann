@@ -194,23 +194,28 @@ function fileChange(){
 }
 const fileUpload=()=>{
     let file = document.getElementById('profile').files[0]
-    let formdata  = new FormData();
-    formdata.append("profile_pic", file);
+    if(file){
+         let formdata  = new FormData();
+            formdata.append("profile_pic", file);
 
-    // fetch('php/member_pic_update.php', {
-    //         method: 'POST',
-    //         body: formdata
-    //     })
-    fetch('http://localhost/thd104/g1/public/php/member_pic_update.php', {
-            method: 'POST',
-            body: formdata
-        })
-        .then(response => {
-            editSuccessMsg()
-            console.log(response);})
+            // fetch('php/member_pic_update.php', {
+            //         method: 'POST',
+            //         body: formdata
+            //     })
+            fetch('http://localhost/thd104/g1/public/php/member_pic_update.php', {
+                    method: 'POST',
+                    body: formdata
+                })
+                .then(response => {
+                    editSuccessMsg()
+                    console.log(response);})
+    }
+   
 }
 
 const editSuccessMsg=(e)=>{
+    // console.log(e.target.closest('div').previousElementSibling.disabled);
+    if(!e.target.closest('div').previousElementSibling.disabled){
     let editSuccessMsg = document.getElementById('editSuccessMsg') 
     // editSuccessMsg.style.top=`${e.target.closest('div').offsetTop}px`;
     // editSuccessMsg.style.left=`${60+e.target.closest('div').offsetLeft}px`;
@@ -220,12 +225,10 @@ const editSuccessMsg=(e)=>{
     setTimeout(()=>{
         editSuccessMsg.style.opacity='0';
     },700)
-    setTimeout(()=>{
-        // editSuccessMsg.style.top = '0px';
-        // editSuccessMsg.style.left = '0px';
-    },1000)
-    // e.target
-    // (e.offsetX + e.target.offsetLeft, e.offsetY + e.target.offsetTop)
+    }else{
+        console.log('111');
+    }
+  
 }
 
 
@@ -251,7 +254,7 @@ const editSuccessMsg=(e)=>{
             <input type="password" v-model="userData.PASSWORD" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }"/>
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}"/>
             </div>
         </div>
         <div>
@@ -259,7 +262,7 @@ const editSuccessMsg=(e)=>{
             <input type="text"  v-model="userData.NAME" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
             </div>
         </div>
         <div>
@@ -267,7 +270,7 @@ const editSuccessMsg=(e)=>{
             <input type="tel"  v-model="userData.PHONE" disabled maxlength="10">
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
             </div>
         </div>
         <div>
@@ -275,7 +278,7 @@ const editSuccessMsg=(e)=>{
             <input type="email"  v-model="userData.EMAIL" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
             </div>
         </div>
         <div class="sAddress">
@@ -336,7 +339,7 @@ const editSuccessMsg=(e)=>{
             <input type="text" v-model="userData.SERVICE_ADDRESS" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit_sa" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave_sa(e); editSuccessMsg(e); }" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
             </div>
         </div>
         <div class="mAddress">
@@ -344,7 +347,7 @@ const editSuccessMsg=(e)=>{
             <input type="text" v-model="userData.SEND_ADDRESS" disabled>
             <div>
                 <font-awesome-icon :icon="['fas', 'pen']" @click="infoEdit" />
-                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => { infoSave(e); editSuccessMsg(e); }" />
+                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="(e) => {editSuccessMsg(e);infoSave(e);}" />
             </div>
         </div>
         <div id="editSuccessMsg">
