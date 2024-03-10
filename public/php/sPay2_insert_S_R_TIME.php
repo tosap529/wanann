@@ -13,19 +13,12 @@ $reqBody = json_decode($content, true);
 
 
 $statement = $pdo->prepare("
-    INSERT INTO `Wanann_database`.`PRODUCT_ORDER` 
-    (`ADDRESSEE_NAME`, `ADDRESSEE_PHONE`, `ORDER_DATE`, `ADDRESSEE_ADDRESS`, `PAYMENT`, `ORDER_STATUS`, `MEMBER_ID`, `ACTIVITY_ID`)
-    VALUES (:addresseeName, :addresseePhone, NOW(), :addresseeAddress, :payment, :orderStatus, :memberId, :activityId)
-");
-
-
-$statement = $pdo->prepare("
     INSERT INTO `Wanann_database`.`SERVICE_RESERVE_TIME` (`SERVICE_ID`, `RESERVE_TIME_ID`)
-    VALUES ('5', '1');
+    VALUES (:serviceId, :reserveTimeId);
 ");
 
-$statement->bindValue(":addresseeName", $reqBody["ADDRESSEE_NAME"]);
-$statement->bindValue(":addresseePhone", $reqBody["ADDRESSEE_PHONE"]);
+$statement->bindValue(":serviceId", $reqBody["SERVICE_ID"]);
+$statement->bindValue(":reserveTimeId", $reqBody["RESERVE_TIME_ID"]);
 
 $statement->execute();
 

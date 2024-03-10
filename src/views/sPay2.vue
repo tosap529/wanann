@@ -302,11 +302,13 @@
     const show = function() {
         // reserveStore.reserveItem
 
-        console.log(reserveStore.reserveItem);
+        // console.log(reserveStore.reserveItem);
 
-        console.log(memberId.value);
+        // console.log(memberId.value);
 
-        console.log(RESERVE_TIME_ID);
+        // console.log(RESERVE_TIME_ID);
+
+        console.log(service_order);
     }
 
 
@@ -455,106 +457,132 @@
 
 
 
+
     
 
-    const setReserveTime = function(){
-        if( reserveStore.reserveItem.service_time == '上午' ){
-            SERVICE_RESERVE_TIME.RESERVE_TIME_ID = 1
-        }else if( reserveStore.reserveItem.service_time == '下午' ){
-            SERVICE_RESERVE_TIME.RESERVE_TIME_ID = 2
-        }else if( reserveStore.reserveItem.service_time == '晚間' ){
-            SERVICE_RESERVE_TIME.RESERVE_TIME_ID = 3
-        }
-    }
+    
 
     
 
 
-    // 送出訂單資訊到後端 SERVICE_RESERVE_TIME
+    // 送出訂單資訊到後端
     const submitProductsOrder = function(){
 
+
+        // SERVICE_RESERVE_TIME 表
+        const SERVICE_RESERVE_TIME = {
+                    SERVICE_ID : reserveStore.reserveItem.main_service.ID,
+                    RESERVE_TIME_ID : 0,
+                };
+
+        const setReserveTime = function(){
+            if( reserveStore.reserveItem.service_time == '上午' ){
+                SERVICE_RESERVE_TIME.RESERVE_TIME_ID = 1
+            }else if( reserveStore.reserveItem.service_time == '下午' ){
+                SERVICE_RESERVE_TIME.RESERVE_TIME_ID = 2
+            }else if( reserveStore.reserveItem.service_time == '晚間' ){
+                SERVICE_RESERVE_TIME.RESERVE_TIME_ID = 3
+            }
+        }
+            
         setReserveTime();
 
-    const SERVICE_RESERVE_TIME = {
-            SERVICE_ID : reserveStore.reserveItem.main_service.ID,
-            RESERVE_TIME_ID : 0,
-        };
+        // console.log(SERVICE_RESERVE_TIME);
 
-    本機
-    const url = 'http://localhost/thd104/g1/public/php/sPay2_insert_S_R_TIME.php';
+        // 本機
+        const url_S_R_TIME = 'http://localhost/thd104/g1/public/php/sPay2_insert_S_R_TIME.php';
 
-    // 上伺服器
-    // const url = 'php/sPay2_insert_S_R_TIME.php';
+        // 上伺服器
+        // const url = 'php/sPay2_insert_S_R_TIME.php';
 
 
-    // fetch(url, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify(productsOrder)
-    // })
-    // .then(response => response.text())
-    // .then(orderId => {
-    //     orderId = orderId.trim();
-    //     console.log('Order ID:', orderId);
+        fetch(url_S_R_TIME, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(SERVICE_RESERVE_TIME)
+        })
+        .then(response => response.text())
+        .then(orderId => {
+            orderId = orderId.trim();
+            console.log('Order ID:', orderId);
 
-    //     orderDetail(orderId)
+            // orderDetail(orderId)
+            setServiceOrder(orderId)
 
-    // })
-    // .catch(error => {
-    //     console.error('Error:', error);
-    // });
-    // };
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 
-
-
-
-    // const orderDetail = function(orderId){
-
-    // const orderItemDetail = cartStore.cartItems.map(item => ({
-    //     PRODUCT_ID: item.ID,
-    //     QUANTITY: item.quantity,
-    //     PRODUCT_ORDER_ID: orderId
-    // }));
-
-    // console.log(orderItemDetail);
-
-
-    // // 本機
-    // const url = 'http://localhost/thd104/g1/public/php/mPay2_insert_orderDetail.php';
-
-    // // // 上伺服器
-    // // // const url = 'php/mPay2_insert.php';
-
-    // fetch(url, {
-    //     method: 'POST',
-    //     // headers: {
-    //     //     'Content-Type': 'application/json'
-    //     // },
-    //     // body: JSON.stringify(orderItemDetail)
-    //     body: JSON.stringify({ orderItemDetail: orderItemDetail })
-    // })
-    // .then(response => response.text())
-    // .then(response => {
-    //     console.log(response);
-    //     alert('訂單成立')
-
-    //     // getOrderId()
-    //     console.log(orderId);
-
-    //     // 清空購物車
-    //     cartStore.cartItems = [];
-    //     localStorage.clear();
-
-    //     // 跳轉頁面
-    //     router.push({ name: 'mPay3' });
-    // }).catch(error => {
-    //     console.error('Error:', error);
-    // });
 
     }
 
+
+
+    // 設置ServiceOrder表
+    const setServiceOrder = function(orderId){
+        // service_order 表
+
+        const service_order = {
+            SERVICE_PHONE : form.recipientPhone,
+            SERVICE_ADDRESS : address.value,
+            MEMBER_ID : Number(memberId.value),
+            SERVICE_COMMENT_ID : 1,
+            SERVICE_RESERVE_TIME_ID : Number(orderId),
+            // SERVICE_DATE : reserveStore.reserveItem.service_date,
+            SERVICE_DATE : '2024-03-10',
+            ACTIVITY_ID : reserveStore.reserveItem.couponActId || 1,
+        }
+
+        console.log(service_order.MEMBER_ID);
+        console.log(typeof service_order.MEMBER_ID);
+        console.log(typeof Number(service_order.MEMBER_ID));
+
+
+        // 本機
+        const url_service_order = 'http://localhost/thd104/g1/public/php/sPay2_insert_service_order.php';
+
+        // // 上伺服器
+        // // const url = 'php/sPay2_insert_service_order.php';
+
+        fetch(url_service_order, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(service_order)
+            // body: JSON.stringify({ service_order: service_order })
+        })
+        .then(response => response.text())
+        .then(orderId => {
+            orderId = orderId.trim();
+            console.log('Order ID:', orderId);
+
+            console.log( '第二個:',  orderId );
+
+            
+            // 清空購物車
+            // cartStore.cartItems = [];
+            // localStorage.clear();
+
+            // 跳轉頁面
+            // router.push({ name: 'mPay3' });
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+
+
+
+    }
+
+
+
+
+
+
+    
 
 
 
