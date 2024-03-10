@@ -1,33 +1,56 @@
 <script setup>
 
+import { ref } from 'vue';
+
 defineEmits(['ModalbProductOrder'])
 
 const props = defineProps({data: Object});
 
-    console.log(props.data)
+const showSuccessMessage = ref(false);
 
-    // const submitForm = () => {
-    // const url_contact_update = 'http://localhost/thd104/public/php/pOrder_update.php';
+ 
+const submitForm = () => {
+
+const url_pOrder_update = 'http://localhost/thd104/public/php/Backstage/pOrder_update.php';
+
+showSuccessMessage.value = true;
+    setTimeout(() => {
+        showSuccessMessage.value = false;
+    }, 1000);
+
+
+fetch(url_pOrder_update, {
+
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        id: props.data.ID, 
+        // title: props.data.TITLE,
+        // pic: props.data.PIC,
+        // content: props.data.CONTENT,
+        // createTime: props.data.CREATE_TIME,
+        // category: props.data.CATEGORY,
+        // summernote: props.data.SUMMERNOTE,
+        status: props.data.order_status,
+
+    })
+
+})
+};
+
+const click_function = (key, id) => {
     
-    
-    // fetch(url_contact_update, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({
-    //         id: props.data.ID, 
-    //         name: props.data.NAME,
-    //         phone: props.data.PHONE,
-    //         email: props.data.EMAIL,
-    //         content: props.data.CONTENT,
-    //         createTime: props.data.CREATE_TIME,
-    //         status: props.data.STATUS,
-
-    //     })
-
-    // })
-    // };
+    let final_status = null;
+    if (props.data.order_status === 1) {
+        props.data.order_status = 0;
+        final_status = false;
+    } else {
+        props.data.order_status = 1;
+        final_status = true;
+    }
+}
 
 </script>
 <template>
@@ -56,11 +79,11 @@ const props = defineProps({data: Object});
                     </div>
                     <div>
                         <h2>手機號碼：</h2>
-                        <h2>{{ props.data.PHONE }}</h2>
+                        <h2>{{ props.data.phone }}</h2>
                     </div>
                     <div>
                         <h2>收件地址：</h2>
-                        <h2>台北市中正區重慶南路一段122號</h2>
+                        <h2>{{ props.data.addresseeAddress}}</h2>
                     </div>
                 </article>              
             </div>
@@ -68,30 +91,31 @@ const props = defineProps({data: Object});
                 <h2>商品訂單內容</h2>
                 <article>
                     <div v-for="item in props.data.products">
-                        <h2>{{ item.product_name }}</h2>
-                        <h2>柑橘款</h2>
-                        <h2>1個</h2>
-                        <h2>NTD500</h2>
+                        <h2>{{ item.productName }}</h2>
+                        <h2>{{ item.quantity }}</h2>
+                        <h2>{{ item.productStyle }}</h2>
+                        <h2>{{ item.productPrice }}</h2>
                     </div>
                 </article>              
             </div>
             <article>
                 <div>
                     <h2>訂單金額：</h2>
-                    <h2>NTD4500</h2>
+                    <h2>NTD {{ props.data.payment }}</h2>
                 </div>
                 <div>
                     <h2>訂單狀態：</h2>
-                    <h2>已付款</h2>
+                    <button  :class="{ 'red': props.data.order_status === 0, 'green': props.data.order_status === 1 }" @click="click_function(key,data.ID,'pOrder')" >{{ props.data.order_status === 1 ?  '已到貨' : '配送中' }} </button>
                 </div>
                 <div>
                     <h2>售後狀態：</h2>
                     <button>已完成</button>
                 </div>
             </article>
-            <div>
+            <div class="block">
                 <button class="btn" @click="$emit('ModalbProductOrder')">關閉</button>
-                <button class="btn" @click="$emit('ModalbProductOrder')">儲存</button>
+                <button class="btn" type="submit">儲存</button>
+                <div id="successMessage" class="success-message" v-show="showSuccessMessage">儲存成功 !!</div>
             </div>
         </section>
     </form>
@@ -147,5 +171,39 @@ const props = defineProps({data: Object});
 
     }
     
+}
+
+button{
+    cursor: pointer;
+    background-color: $light-milktea;
+    outline: none;
+    
+    border-radius: 8px;
+    background-color: $light-milktea;
+}
+
+.green{
+    color: black;
+    border: none;
+}
+
+.red{
+    color: $warning;
+    border: 1px red solid;
+
+}
+
+.block {
+    position: relative;
+}
+
+.success-message {
+    position: absolute;
+    top: 10px;
+    right: 90px;
+    color: green;
+    border-radius: 5px;
+    font-weight: bold;
+
 }
 </style>
