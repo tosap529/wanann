@@ -313,6 +313,14 @@ div.service_swiper {
 
   .service_map {
     width: auto;
+    flex-direction: column;
+
+    img {
+      width: 600px;
+      height: 480px;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
   }
 
 }
@@ -336,15 +344,6 @@ div.service_swiper {
     width: auto;
   }
 
-  .service_map {
-    width: auto;
-    margin: auto 30px;
-  }
-
-
-
-
-
 }
 
 
@@ -357,13 +356,9 @@ div.service_swiper {
   }
 
   .service_map img {
-    width: 600px;
+    width: 500px;
+    height: 400px;
     margin: auto auto 30px auto;
-  }
-
-  .service_map {
-    margin: auto 20px;
-    flex-direction: column;
   }
 
 }
@@ -372,10 +367,6 @@ div.service_swiper {
 // ------------------------ width: 700px ------------------------
 
 @media screen and (max-width:700px) {
-
-  .service_map img {
-    width: 55%;
-  }
 
   .service_plan {
     flex-direction: column;
@@ -494,13 +485,9 @@ div.service_swiper {
   }
 
   .service_map img {
-    width: 100%;
+    width: 400px;
+    height: 300px;
     margin-bottom: 30px;
-  }
-
-  .service_map {
-    margin: auto 20px;
-    flex-direction: column;
   }
 
   .service_compare {

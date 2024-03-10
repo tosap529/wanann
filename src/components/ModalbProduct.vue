@@ -109,7 +109,7 @@ const submitForm = () => {
                     </div>
                     <div>
                         <h2>商品敘述：</h2>
-                        <input v-model="props.data.PRODUCT_CONTENT">
+                        <textarea cols="30" rows="10" v-model="props.data.PRODUCT_CONTENT"></textarea>
                     </div>
                     <h2>商品圖片：</h2>
                     <div>
@@ -170,6 +170,7 @@ const submitForm = () => {
                 button{
                     align-self: center;
                 }
+
             }
         }
        }
@@ -187,17 +188,35 @@ const submitForm = () => {
                 h2:first-child{
                     flex-basis: 100px;
                     flex-shrink: 0;
+
                 }
                 h2:last-child{
                     padding: 10px 10px;
                     background-color:$light-milktea;
                     border-radius:10px ;
                 }
+                input{
+                    width: 420px;
+                    margin-top: 15px;
+                }
             }
             >div:nth-child(3){
-                height: 150px;
+                height: 100px;
                 h2:first-child{
                     align-self: center;
+                    margin-top: 40px;
+                }
+                textarea{
+                    border-radius: 8px;
+                    border: none;
+                    background-color: $light-milktea;
+                    padding: 10px;
+                    width: 420px;
+                    margin-top: 15px;
+                    height: 105px;
+                    &:focus{
+                        outline-color: $brown;
+                    }
                 }
             }
             >h2:nth-child(4){
@@ -221,6 +240,10 @@ const submitForm = () => {
     }
 }
 
+input{
+    margin-top: 10px;
+}
+
 button{
     cursor: pointer;
     background-color: $light-milktea;
@@ -228,6 +251,7 @@ button{
     
     border-radius: 8px;
     background-color: $light-milktea;
+    
 }
 
 .green{

@@ -172,6 +172,8 @@ button{
     
     border-radius: 8px;
     background-color: $light-milktea;
+    margin-top: 15px;
+
 }
 
 .green{

@@ -101,6 +101,7 @@ const searchBar = ref('');
             </div>
             <!-- Main Content -->
             <div class="col-sm-9 main-content cms_main-content">
+
                 <div class="cms_data-table">
                     <section>
                    
