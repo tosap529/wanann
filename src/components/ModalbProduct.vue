@@ -10,7 +10,7 @@ const showSuccessMessage = ref(false);
 
 const submitForm = () => {
 
-    const url_products_update = 'http://localhost/thd104/public/php/Backstage/products_update.php';
+    const url_products_update = 'http://localhost/thd104/g1/public/php/Backstage/products_update.php';
     
     showSuccessMessage.value = true;
     setTimeout(() => {
