@@ -26,9 +26,16 @@ const isMemberModalShow = ref(false);
 const goMember = ()=>{
     isMemberModalShow.value = !isMemberModalShow.value;
 };
-const isCommentModalShow = ref(false);
-const goComment = (e)=>{
-    isCommentModalShow.value = !isCommentModalShow.value;
+const isCommentModalShow = ref(null);
+const goComment = (item)=>{
+    // isCommentModalShow.value = !isCommentModalShow.value;
+    if(isCommentModalShow.value === null){
+        isCommentModalShow.value = item;
+        console.log(isCommentModalShow.value);
+
+        }else{
+            isCommentModalShow.value = null
+        }
 };
 onMounted(()=>{
    
@@ -148,7 +155,7 @@ onBeforeMount(()=>{
         
         <!-- 服務_已完成訂單分頁 -->
         <div v-for="(item,key) in sOrder" :key="key">
-            <ModalComment @ModalComment="goComment(e)" v-show="isCommentModalShow" :commentData="sOrder" />
+            <ModalComment @ModalComment="goComment" v-if="isCommentModalShow" :data="isCommentModalShow" />
             <div class="sOrder_data" v-if="memberTabPage=='complete'&&item.order_status==1" >
             <div>
                 <h2>訂單編號</h2>
@@ -199,7 +206,7 @@ onBeforeMount(()=>{
                 </article>
             </div>
             <div>
-                <button class="btn" @click="goComment">評價訂單</button>
+                <button class="btn" @click="goComment(item)">評價訂單</button>
                 <div>
                     <h2>總金額</h2>
                     <h2>NTD {{ item.total }}</h2>
