@@ -77,13 +77,18 @@
                         <h3 class="cart_total">小計</h3>
                         <h2 class="total_price">NTD {{ calCartTotal }}</h2>
                     </div>
-                    <router-link 
+                    <!-- <router-link 
                         v-if=" cartStore.cartItems.length > 0 " 
                         @click="closeCart" :to="{ name: 'mPay1' }">
 
                             <button class="btn purchase_btn">結帳去</button>
 
-                    </router-link>
+                    </router-link> -->
+                    <button 
+                    v-if=" cartStore.cartItems.length > 0 "
+                    @click="closeCart"
+                    v-on:click="isLogin"
+                    class="btn purchase_btn">結帳去</button>
                     <button v-else @click="cartEmpty" class="btn purchase_btn">結帳去</button>
                 </div>
             
@@ -125,6 +130,16 @@
     // 購物車空的無法轉跳到結帳
     const cartEmpty = function(){
         alert('沒有選擇任何商品喔')
+    }
+
+    const isLogin = function(){
+        const memberID = sessionStorage.getItem('member_ID');
+
+        if(memberID){
+            router.push({ name: 'mPay3' });
+        }else{
+            alert('請先登入會員')
+        }
     }
 </script>
 

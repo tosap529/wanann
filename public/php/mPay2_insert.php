@@ -22,7 +22,7 @@ $statement->bindValue(":addresseeName", $reqBody["ADDRESSEE_NAME"]);
 $statement->bindValue(":addresseePhone", $reqBody["ADDRESSEE_PHONE"]);
 $statement->bindValue(":addresseeAddress", $reqBody["ADDRESSEE_ADDRESS"]);
 $statement->bindValue(":payment", '1');
-$statement->bindValue(":orderStatus", '1');
+$statement->bindValue(":orderStatus", '0');
 $statement->bindValue(":memberId", $reqBody["MEMBER_ID"]);
 $statement->bindValue(":activityId", $reqBody["ACTIVITY_ID"]);
 $statement->execute();

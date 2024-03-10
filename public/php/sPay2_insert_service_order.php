@@ -15,7 +15,7 @@ $statement = $pdo->prepare("
         `SERVICE_RESERVE_TIME_ID`, `ACTIVITY_ID`
     ) VALUES (
         :servicePhone, now(), :serviceAddress, 
-        :serviceDate, '1', '1', 
+        :serviceDate, '1', '0', 
         '1', :memberId, :serviceCommentId, 
         :serviceReserveTimeId, :activityId
     );
