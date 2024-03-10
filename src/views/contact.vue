@@ -43,7 +43,7 @@ const showSuccessModal = ref(false);
         formData.value.phone = '';
         formData.value.email = '';
         formData.value.message = '';
-        //1秒後關閉彈窗
+        //0.8秒後關閉彈窗
          setTimeout(() => {
             showSuccessModal.value = false;
          }, 800);
@@ -140,9 +140,10 @@ const showSuccessModal = ref(false);
         
 
                 <div v-if="showSuccessModal" class="modal">
-                    <div class="modal-content">
+                    <div class="modal_content">
                         <span class="close" @click="closeModal">&times;</span>
-                        <p>送出成功！</p>
+                        <img src="../img/logo_title.svg" alt="logo">
+                        <p>送出成功</p>
                     </div>
                 </div>
 
@@ -164,17 +165,29 @@ const showSuccessModal = ref(false);
     background-color: rgba(0, 0, 0, .5); /* 半透明的背景 */
 }
 
-.modal-content {
+.modal_content {
     margin: 0 auto;
     margin-top: 17%;
     background-color:#B69B85;
-    width: 140px;
+    width: 145px;
     border: none;
     text-align: center;
     padding: 16px;
     border-radius: 8px;
     animation: rotate .5s linear infinite alternate;
-
+    display: flex;
+    align-items: center;
+    img{
+    width:28px;
+    }
+    p{
+    font-size: 16px;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+    position: relative;
+    letter-spacing: .8px;
+}
 }
 
 @keyframes rotate {
@@ -186,13 +199,7 @@ const showSuccessModal = ref(false);
   }
 }
 
-.modal-content p{
-    font-size: 16px;
-    text-align: center;
-    margin: 0 auto;
-    color: white;
-    position: relative;
-}
+
 .close {
     display: none;
 }

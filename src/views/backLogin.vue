@@ -1,6 +1,7 @@
 <script setup>
     import { useRouter } from 'vue-router';
 
+// 後台預設帳密登入
 const router = useRouter();
 let username = '';
 let password = '';
@@ -11,9 +12,10 @@ const login = () => {
     } else {
         alert("帳號或密碼錯誤");
     }
-    
 };
 
+
+// 後台預設帳密按下神秘小按鈕後顯示
 const fillCredentials = () => {
         username = 'admin';
         password = 'thd104g1';

@@ -6,9 +6,6 @@
 
     import { ref, onMounted } from 'vue';
 
-    defineEmits(['ModalbContact'])
-
-
     const contactData = ref([]);
 
 
@@ -38,7 +35,7 @@
 
     })
     };
-
+})
 </script>
 <template>
     <div>
