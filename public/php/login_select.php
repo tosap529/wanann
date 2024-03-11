@@ -1,13 +1,15 @@
 <?php
 include("connect.php");
 
-// $username = $_POST['usernameLogin'];
-// $password = $_POST['pwdLogin'];
+// echo 'hi';
+// $username = $_POST['username'];
+// $password = $_POST['password'];
 
-$sql = "SELECT * FROM member where (USERNAME= :username and PASSWORD= :password )";
+$sql = "SELECT * FROM MEMBER where (USERNAME = :username and PASSWORD = :password )";
 $pdo = getPDO();
 
 $statement = $pdo->prepare($sql);
+// print_r($reqBody);
 $statement->bindValue(":username",  $reqBody["username"]);
 $statement->bindValue(":password",  $reqBody["password"]);
 $statement->execute();
@@ -17,10 +19,7 @@ if($data != null){
     $member_ID =  $data[0]['ID'];
     $member_pic =  $data[0]['MEMBER_PIC'];
     $member_status = $data[0]['STATUS'];
-    // session_start();
-    // $_SESSION["isLogin"] = $reqBody["username"];
-    // $_SESSION["isLogin"] = $member_ID;
-    // echo '登入成功';
+
     if($member_status==1){
         echo $member_ID;
         echo ',';

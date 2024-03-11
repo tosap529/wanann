@@ -14,7 +14,7 @@ if(count($data)>0){
     echo 'email重複';
 }else{
     // echo 'email通過';
-    $statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,COUNTY,DISTRICT,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD, MEMBER_PIC,STATUS) values(:name, :phone, :email, :county, :district, :send_address, :service_address,  NOW(),:username, :password,:member_pic,1)");
+    $statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,COUNTY,DISTRICT,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD, MEMBER_PIC,STATUS) values(:name, :phone, :email, :county, :district, :send_address, :service_address,  NOW(),:username, :password,:member_pic,:status)");
     // $statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD,  STATUS) values(:name, :phone, :email, :send_address, :service_address,  NOW(),:username, :password, b'0')");
     $statement ->bindValue(":name", $reqBody["name"]);
     $statement ->bindValue(":phone", $reqBody["phone"]);
@@ -26,7 +26,7 @@ if(count($data)>0){
     $statement ->bindValue(":username", $reqBody["username"]);
     $statement ->bindValue(":password", $reqBody["password"]);
     $statement ->bindValue(":member_pic", $reqBody["member_pic"]);
-    // $statement ->bindValue(":member_pic", $reqBody["status"]);
+    $statement ->bindValue(":member_pic", $reqBody["status"]);
 
     $statement ->execute();
 
