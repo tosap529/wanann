@@ -115,9 +115,6 @@
                     </li>
                 </ul>
             </div>
-
-            <!-- 購物車小圖示 -->
-            <!-- <h2 v-bind:class="{ 'add_to_cart_animate_toggle':addToCartClass }">已加入購物車</h2> -->
         
         </wrapper>
         <DefaultFooter />
