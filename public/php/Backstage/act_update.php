@@ -20,6 +20,6 @@ $statement->bindValue(":couponId", $reqBody["couponId"]);
 
 $statement->execute();
 
-json_encode($statement);
+// json_encode($statement);
 
 ?>

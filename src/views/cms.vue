@@ -1,6 +1,6 @@
 <script setup>
 import bTable from '@/layouts/bTable.vue'
-import{ ref, computed } from 'vue';
+import{ ref, computed, defineEmits } from 'vue';
 const back_sidebar = [{
                         title:'會員管理',
                         subtitle: ['會員註冊資料']},
@@ -24,33 +24,40 @@ const getBackNow= (e)=>{
 
 defineEmits(['ModalbContact']);
 
-const searchBar = ref('');
-// const member = ref([]);
+const member_data = ref([]);
+const searchBar = ref(null);
+
+const url_member = 'http://localhost/thd104/g1/public/php/Backstage/member_select.php';
+
+fetch(url_member)
+            .then(response => response.json())
+            .then(response => {
+                // console.log('註冊成功 js');
+                // member_data.value = response;
+                member_data.value = response 
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+                
+
+            const filteredMembers = computed(() => {
+                if (!searchBar.value || !searchBar.value.trim()) {
+                    return member_data.value; 
+                } else {
+                    return member_data.value.filter(member => {
+                    // 根据姓名或其他条件过滤会员数据
+                    return (
+                        member.NAME.includes(searchBar.value.trim())
+                        || member.EMAIL.includes(searchBar.value.trim()) 
+                        || member.PHONE.includes(searchBar.value.trim())  
+                    // 其他条件...
+                );
+                });
+                }
+            });
 
 
-// const url = 'http://localhost/thd104/public/php/Backstage/member_select.php';
-        
-//         fetch(url)
-//             .then(response => response.json())
-//             .then(response => {
-    
-//                 member.value = response;
-//                 // cartStore.setProductsForMitem(response);
-//             })
-//             .catch(error => {
-//                 console.error('Error:', error);
-//             });
-
-
-// const filteredMembers = computed(() => {
-//     if(!searchBar.value.trim()){
-//         return member.value;
-//     } else {
-//         return member.value.filter(member => {
-//             return member.NAME.includes(searchBar.value.trim());
-//         });
-//     }
-// });
 
 
 
@@ -110,7 +117,9 @@ const searchBar = ref('');
                                 <li class="tab_on"><a href="#">會員註冊資料</a></li>                             
                             </ul>
                         </div> -->
+                        
                         <div class="cms_search-container" v-if="back_now=='會員註冊資料'">
+                            
                             <input type="text" v-model.lazy.trim="searchBar" class="cms_search-input" placeholder="帳號/姓名/手機號碼">
                         </div>
                         <div class="cms_logo">
@@ -120,7 +129,7 @@ const searchBar = ref('');
                     </section>
                      <section>
                     <!-- 這裡以下是表格 -->
-                    <bTable :back-now =back_now />
+                    <bTable :back-now =back_now :filteredMembers="filteredMembers" />
                     
                  
                     </section> 
