@@ -101,8 +101,8 @@ const submitForm = () => {
                         <textarea style="resize: none" type="text" v-model="props.data.CONTENT"></textarea>
                     </div>
                     <div>
-                        <h2>文章圖片：</h2>
                         <div class="bAddPic" :class="{'bAddPicPlus':!props.data.PIC}">
+                            <h2>文章圖片：</h2>
                             <img :src="props.data.PIC" alt="">
                         </div>
                     </div>
