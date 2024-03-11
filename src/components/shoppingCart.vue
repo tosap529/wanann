@@ -337,10 +337,10 @@
         align-items: end;
         justify-content: space-between;
 
-        height: 100px;
+        height: 120px;
         min-height: 100%;
 
-        width: 60px;
+        width: 65px;
         font-size: 12px;
         margin-left: 4px;
         > .cart_item_remove_btn{

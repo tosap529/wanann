@@ -64,7 +64,10 @@ if(!$act_info["title"]||!$act_info["content"]||!$act_info["category"]||!$act_inf
         $path_parts = pathinfo($filePath);
         return $path_parts["extension"];
     }
-
+//0312測試：加上錯誤代碼判斷
+    if($_FILES["act_pic"]["error"] > 0){
+        echo "上傳失敗: 錯誤代碼".$_FILES["act_pic"]["error"];
+    }else{
     //取得上傳的檔案資訊=======================================
     $fileName = $_FILES["act_pic"]["name"];    //檔案名稱含副檔名        
     $filePath_Temp = $_FILES["act_pic"]["tmp_name"];   //Server上的暫存檔路徑含檔名        
@@ -87,6 +90,8 @@ if(!$act_info["title"]||!$act_info["content"]||!$act_info["category"]||!$act_inf
 
     //將暫存檔搬移到正確位置
     move_uploaded_file($filePath_Temp, $fileNewPath);
+    }
+
 
     // 將圖片路徑存進資料庫
     $pdo = getPDO();
