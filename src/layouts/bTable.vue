@@ -1,6 +1,6 @@
 <script setup>
 
-    import { ref, onMounted } from 'vue';
+    import { ref, onMounted, defineProps } from 'vue';
     
     import ModalbContact from '@/components/ModalbContact.vue'; 
     import ModalbServiceOrder from '@/components/ModalbServiceOrder.vue'; 
@@ -14,7 +14,7 @@
     import ModalbProductAdd from '@/components/ModalbProductAdd.vue'; 
     import ModalbActAdd from '@/components/ModalbActAdd.vue'; 
     import ModalbArticleAdd from '@/components/ModalbArticleAdd.vue'; 
-    defineProps(['backNow']);
+    defineProps({backNow: String, filteredMembers: Array});
 
     const bMember_th = [ '會員ID','帳號','姓名','手機號碼','電子郵件','註冊日期','權限' ];
     const bServiceOrder_th = ['服務訂單ID','帳號','訂單日期','服務日期','服務時段','訂單金額','訂單狀態','評價狀態'];
@@ -27,7 +27,7 @@
 
     const contact_data = ref([]);
     const act_data = ref([]);
-    const member_data = ref([]);
+   
     const comment_data = ref([]);
     const pOrder_data = ref([]);
     const articles_data = ref([]);
@@ -39,8 +39,8 @@
 
     //更新狀態按鈕
 
-    // const url_act_update = 'http://localhost/thd104/g1/public/php/act_update.php';
-    const url_act_update = 'php/act_update.php';
+    const url_act_update = 'http://localhost/thd104/g1/public/php/act_update.php';
+    // const url_act_update = 'php/act_update.php';
 
 
 
@@ -73,7 +73,7 @@
         //搜尋所有的資料
         const url_contact = 'http://localhost/thd104/g1/public/php/Backstage/contact_select.php';
         const url_act = 'http://localhost/thd104/g1/public/php/Backstage/act_select.php';
-        const url_member = 'http://localhost/thd104/g1/public/php/Backstage/member_select.php';
+        // const url_member = 'http://localhost/thd104/g1/public/php/Backstage/member_select.php';
         const url_comment = 'http://localhost/thd104/g1/public/php/Backstage/comment_select.php';
         const url_articles = 'http://localhost/thd104/g1/public/php/Backstage/articles_select.php';
         const url_products = 'http://localhost/thd104/g1/public/php/Backstage/products_select.php';
@@ -129,15 +129,17 @@
                     console.error('Error:', error);
                 });
 
-        fetch(url_member)
-            .then(response => response.json())
-            .then(response => {
-                // console.log('註冊成功 js');
-                member_data.value = response;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+        // fetch(url_member)
+        //     .then(response => response.json())
+        //     .then(response => {
+        //         // console.log('註冊成功 js');
+        //         // member_data.value = response;
+        //         member_data.value = response 
+        //         emit('member_data', member_data.value);
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error);
+        //         });
                 
         fetch(url_comment)
             .then(response => response.json())
@@ -183,7 +185,7 @@
                 data = act_data.value[key];
                 break;
             case 'member':
-                data = member_data.value[key];
+                data = filteredMembers.value[key];
                 break;
             case 'comment':
                 data = comment_data.value[key];
@@ -314,7 +316,8 @@
                 <td>{{ data.COUPON_ID }}</td>
                 <td><button :class="{ 'red': data.STATUS === 0, 'green': data.STATUS === 1 }" @click="click_function(key,data.ID,'act')">{{ data.STATUS === 1 ?  '上架中' : '已下架' }} </button></td>
             </tr>
-            <tr v-show="backNow=='會員註冊資料'" v-for= "(data, key) in member_data" :key="key">
+            <tr v-show="backNow=='會員註冊資料'" v-for= "(data, key) in filteredMembers" :key="key">
+                
                 <td><button class="edit-btn"  @click="gobModal(data)">編輯與查看</button></td>
                 <td>{{ data.ID }}</td>
                 <td>{{ data.USERNAME }}</td>

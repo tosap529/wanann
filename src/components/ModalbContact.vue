@@ -12,6 +12,7 @@
     const submitForm = () => {
     
     const url_contact_update = 'http://localhost/thd104/g1/public/php/Backstage/contact_update.php';
+    // const url_contact_update = 'php/Backstage/contact_update.php';
     
     showSuccessMessage.value = true;
     setTimeout(() => {
@@ -64,8 +65,9 @@
 
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
-            <div>
-                <h2 class="bItem">表單ID： {{ props.data.ID }} </h2>
+            <div class="bItem">
+                <h2>表單ID：</h2>
+                <h2>{{ props.data.ID }}</h2>
             </div>
             <div>
                 <h2>表單資料</h2>

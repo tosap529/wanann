@@ -1,7 +1,7 @@
 <?php
 
-// include("../connect.php");
 include("../connect_test.php");
+// include("../connect.php");
 
 $pdo = getPDO();
 $statement = $pdo->prepare("update ARTICLE set STATUS = :status, TITLE = :title, PIC = :pic, CONTENT = :content, CREATE_TIME = :createTime, CATEGORY = :category, SUMMERNOTE = :summernote where ID = :id");
@@ -16,6 +16,5 @@ $statement->bindValue(":summernote", $reqBody["summernote"]);
 $statement->bindValue(":id", $reqBody["id"]);
 $statement->execute();
 
-json_encode($statement);
 
 ?>

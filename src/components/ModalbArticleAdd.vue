@@ -9,27 +9,27 @@ const articleAddPicInput = ref(null);
 const showSuccessMessage = ref(false);
 
 let NewArticleData = {
-    id: '', 
+    id: '建立後自動生成',  
     title: '',
     pic: '',
     content: '',
+    createTime:'建立後自動生成',
     category:'',
     summernote: '',
-    status: '',
+    status: 1,
     }
-
-    // const click_function = (key, id) => {
-        
-    //     let final_status = null;
-    //     if (props.data.STATUS === 1) {
-    //         props.data.STATUS = 0;
-    //         final_status = false;
-    //     } else {
-    //         props.data.STATUS = 1;
-    //         final_status = true;
-    //     }
-    // }
-
+const final_status = ref('上架中');
+    const switchStatus = () => {
+        if (NewArticleData.status === 1) {
+            NewArticleData.status = 0;
+            final_status.value = '未上架';
+        } else {
+            NewArticleData.status = 1;
+            final_status.value = '上架中';
+        }
+        console.log( NewArticleData.status);
+    }
+const successMsg = ref('');
     const articlesInsert=()=>{
     let file = articleAddPicInput.value.files[0];
 
@@ -43,12 +43,21 @@ let NewArticleData = {
                     method: 'POST',
                     body: formdata
                 })
+            .then(response => response.text())
             .then(response => {
-                if(response){
+                if(response=='資料不全'){
+                    successMsg.value = '請輸入完整資料'
                     showSuccessMessage.value = true;
                     setTimeout(() => {
                         showSuccessMessage.value = false;
                     }, 1000);
+                }else{
+                    successMsg.value = '儲存成功！！'
+                    showSuccessMessage.value = true;
+                    setTimeout(() => {
+                        showSuccessMessage.value = false;
+                    }, 1000);
+
                 }
                 })
     }
@@ -76,22 +85,21 @@ const fileClick =()=>{
     <div class="modal_mask" @click.self="$emit('ModalbArticleAdd')" >
     <div class="modal_content bArticle backModal">
 
-        <section class="bModalHeader">
-            <h1>文章－編輯與查看</h1>
+        <section class="bModalHeader" style="background-color: #C84A2F;">
+            <h1>文章－新增</h1>
         </section>
 
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
             <div>
-                <div>
-                    <h2 class="bItem">文章ID：{{ NewArticleData.id }}</h2>
-                    <h2></h2>
+                <div  class="bItem">
+                    <h2>文章ID：</h2>
+                    <h2>{{ NewArticleData.id }}</h2>
                 </div>
                 <h2>文章資料</h2>
                 <article>
                     <div>
                         <h2>文章類別：</h2>
-                        <!-- <input type="text" v-model="NewArticleData.category"> -->
                         <select name="" id="" v-model="NewArticleData.category">
                             <option value="浣安小品">浣安小品</option>
                             <option value="清潔小知識">清潔小知識</option>
@@ -104,7 +112,7 @@ const fileClick =()=>{
                     </div>
                     <div>
                         <h2>文章狀態：</h2>
-                        <!-- <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button> -->
+                        <button  :class="NewArticleData.status ? 'green' : 'red'" @click="switchStatus()" >{{ final_status}} </button>
                     </div>
                 </article>
             </div>
@@ -134,7 +142,7 @@ const fileClick =()=>{
             <div class="block">
                 <button class="btn" @click="$emit('ModalbArticleAdd')">關閉</button>
                 <button type="submit" @click="articlesInsert" class="btn">儲存</button>
-                <div id="successMessage" class="success-message" v-show="showSuccessMessage">儲存成功 !!</div>
+                <div id="successMessage" class="success-message" v-show="showSuccessMessage">{{successMsg}}</div>
             </div>
             
         </section>
@@ -262,7 +270,7 @@ button{
 .success-message {
     position: absolute;
     top: 10px;
-    right: 200px;
+    right: 180px;
     color: green;
     border-radius: 5px;
     font-weight: bold;

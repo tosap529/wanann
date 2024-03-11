@@ -1,8 +1,8 @@
 
 <?php
 
-// include("../connect.php");
 include("../connect_test.php");
+// include("../connect.php");
 
 
 $pdo = getPDO();
@@ -21,6 +21,6 @@ $statement->bindValue(":couponId", $reqBody["couponId"]);
 
 $statement->execute();
 
-json_encode($statement);
+// json_encode($statement);
 
 ?>

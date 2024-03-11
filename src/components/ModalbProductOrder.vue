@@ -12,6 +12,7 @@ const showSuccessMessage = ref(false);
 const submitForm = () => {
 
 const url_pOrder_update = 'http://localhost/thd104/g1/public/php/Backstage/pOrder_update.php';
+// const url_pOrder_update = 'php/Backstage/pOrder_update.php';
 
 showSuccessMessage.value = true;
     setTimeout(() => {
@@ -62,9 +63,9 @@ const click_function = (key, id) => {
 
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
-            <div>
-                <h2 class="bItem">商品訂單ID：{{ props.data.id }}</h2>
-                <h2></h2>
+            <div class="bItem">
+                <h2 style="flex-basis: 130px;">商品訂單ID：</h2>
+                <h2>{{ props.data.id }}</h2>
             </div>
             <div>
                 <h2>商品訂購人</h2>
@@ -90,7 +91,7 @@ const click_function = (key, id) => {
             <div>
                 <h2>商品訂單內容</h2>
                 <article>
-                    <div v-for="item in props.data.products">
+                    <div v-for="item in props.data.products" :key="item">
                         <h2>{{ item.productName }}</h2>
                         <h2>{{ item.quantity }}</h2>
                         <h2>{{ item.productStyle }}</h2>

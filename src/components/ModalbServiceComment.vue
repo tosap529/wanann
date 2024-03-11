@@ -8,6 +8,7 @@ const showSuccessMessage = ref(false);
 const submitForm = () => {
 
     const url_comment_update = 'http://localhost/thd104/g1/public/php/Backstage/comment_update.php';
+    // const url_comment_update = 'php/Backstage/comment_update.php';
     
     showSuccessMessage.value = true;
     setTimeout(() => {
@@ -62,13 +63,13 @@ const submitForm = () => {
         
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
-            <div>
-                <h2 class="bItem">服務評論ID：{{ props.data.ID }}</h2>
-                <h2></h2>
+            <div class="bItem" style="flex-basis: 30%;margin-right: 20px;">
+                <h2 style="flex-basis: 130px;">服務評論ID：</h2>
+                <h2>{{ props.data.ID }}</h2>
             </div>
-            <div>
-                <h2 class="bItem">服務訂單ID：{{ props.data.ORDER_ID }}</h2>
-                <h2></h2>
+            <div class="bItem" style="flex-basis: 30%;">
+                <h2 style="flex-basis: 130px;">服務訂單ID：</h2>
+                <h2>{{ props.data.ORDER_ID }}</h2>
             </div>
             <div>
                 <h2>服務訂購人</h2>

@@ -24,6 +24,7 @@ const showSuccessModal = ref(false);
 
     const submitForm = () => {
     const url = 'http://localhost/thd104/g1/public/php/contact_insert.php';
+    // const url = 'php/contact_insert.php';
     
     fetch(url, {
         method: 'POST',

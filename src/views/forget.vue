@@ -20,8 +20,8 @@ console.log(EmailData.email);
 
 // let idWantToChange = '';
 const emailValidation = ()=>{
-    // const url = 'http://localhost/thd104/g1/public/php/forget_select.php';
-    const url = 'php/forget_select.php';
+    const url = 'http://localhost/thd104/g1/public/php/forget_select.php';
+    // const url = 'php/forget_select.php';
     fetch(url, {
             method: 'POST',
             body: JSON.stringify(EmailData)
@@ -42,6 +42,7 @@ const emailValidation = ()=>{
 
 const changeMyPwd = () =>{
     const url = 'http://localhost/thd104/g1/public/php/forget_update.php';
+    // const url = 'php/forget_update.php';
     fetch(url, {
             method: 'POST',
             body: JSON.stringify(newPwdData)

@@ -11,6 +11,7 @@ const showSuccessMessage = ref(false);
 const submitForm = () => {
 
     const url_products_update = 'http://localhost/thd104/g1/public/php/Backstage/products_update.php';
+    // const url_products_update = 'php/Backstage/products_update.php';
     
     showSuccessMessage.value = true;
     setTimeout(() => {
@@ -67,9 +68,9 @@ const submitForm = () => {
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
             <div>
-                <div>
-                    <h2 class="bItem">商品ID： {{  props.data.ID }}</h2>
-                    <h2></h2>
+                <div class="bItem">
+                    <h2>商品ID：</h2>
+                    <h2>{{  props.data.ID }}</h2>
                 </div>
                 <h2>商品資料</h2>
                 <article>
@@ -113,14 +114,14 @@ const submitForm = () => {
                     </div>
                     <h2>商品圖片：</h2>
                     <div>
-                       <div class="bAddPic bAddPicPlus">
-                        <img src="" alt="">
+                       <div class="bAddPic" :class="{'bAddPicPlus':!props.data.PRODUCT_PIC1}">
+                        <img :src="props.data.PRODUCT_PIC1" alt="">
                     </div>
-                    <div  class="bAddPic bAddPicPlus">
-                        <img src="" alt="">
+                    <div  class="bAddPic" :class="{'bAddPicPlus':!props.data.PRODUCT_PIC2}">
+                        <img :src="props.data.PRODUCT_PIC2" alt="">
                     </div>
-                    <div  class="bAddPic bAddPicPlus">
-                        <img src="" alt="">
+                    <div  class="bAddPic" :class="{'bAddPicPlus':!props.data.PRODUCT_PIC3}">
+                        <img :src="props.data.PRODUCT_PIC3" alt="">
                     </div> 
                     </div>
                     

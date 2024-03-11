@@ -385,10 +385,10 @@
     // API取得會員地址
 
     // 本機
-    // const url = 'http://localhost/thd104/g1/public/php/mPay2_select.php';
+    const url = 'http://localhost/thd104/g1/public/php/mPay2_select.php';
 
     // 上伺服器
-    const url = 'php/mPay2_select.php';
+    // const url = 'php/mPay2_select.php';
         
     fetch(url)
         .then(response => response.json())
@@ -446,10 +446,10 @@
         // console.log(SERVICE_RESERVE_TIME);
 
         // 本機
-        // const url_S_R_TIME = 'http://localhost/thd104/g1/public/php/sPay2_insert_S_R_TIME.php';
+        const url_S_R_TIME = 'http://localhost/thd104/g1/public/php/sPay2_insert_S_R_TIME.php';
 
         // 上伺服器
-        const url = 'php/sPay2_insert_S_R_TIME.php';
+        // const url = 'php/sPay2_insert_S_R_TIME.php';
 
 
         fetch(url_S_R_TIME, {
@@ -489,10 +489,10 @@
         }
 
         // 本機
-        // const url_service_order = 'http://localhost/thd104/g1/public/php/sPay2_insert_service_order.php';
+        const url_service_order = 'http://localhost/thd104/g1/public/php/sPay2_insert_service_order.php';
 
         // // 上伺服器
-        const url = 'php/sPay2_insert_service_order.php';
+        // const url = 'php/sPay2_insert_service_order.php';
 
         fetch(url_service_order, {
             method: 'POST',
@@ -532,10 +532,10 @@
         // console.log(SERVICE_ORDER_ADD_SERVICE);
 
         // 本機
-        // const url_service_order = 'http://localhost/thd104/g1/public/php/sPay2_insert_S_O_A_Service.php';
+        const url_service_order = 'http://localhost/thd104/g1/public/php/sPay2_insert_S_O_A_Service.php';
 
         // 上伺服器
-        const url = 'php/sPay2_insert_S_O_A_Service.php';
+        // const url = 'php/sPay2_insert_S_O_A_Service.php';
 
         fetch(url_service_order, {
             method: 'POST',
