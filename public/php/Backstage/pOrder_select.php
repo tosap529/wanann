@@ -1,8 +1,6 @@
 <?php
 
-include("../connect_test.php");
-// include("../connect.php");
-
+include("../connect.php");
 $pdo = getPDO();
 $statement = $pdo->prepare("select po.ID, po.ADDRESSEE_ADDRESS, m.PHONE, m.USERNAME, m.NAME, po.ORDER_DATE, po.PAYMENT, po.ORDER_STATUS, pod.QUANTITY, p.PRODUCT_NAME, p.PRODUCT_STYLE, p.PRODUCT_PRICE from PRODUCT_ORDER po join MEMBER m on po.MEMBER_ID = m.ID  join PRODUCT_ORDER_DETAIL pod on pod.PRODUCT_ORDER_ID = po.ID join PRODUCT p on p.ID = pod.PRODUCT_ID join PRODUCT_CATEGORY pc on pc.ID = p.PRODUCT_CATEGORY_ID;");
 $statement ->execute();

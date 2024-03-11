@@ -110,8 +110,8 @@ const RegisterData = {
     };
 
 const submitForm = () => {
-    // const url = 'php/register_insert.php';
-    const url = 'http://localhost/thd104/g1/public/php/register_insert.php';
+    const url = 'php/register_insert.php';
+    // const url = 'http://localhost/thd104/g1/public/php/register_insert.php';
     
     fetch(url, {
         method: 'POST',
@@ -162,8 +162,8 @@ const SessionData = {
     picPath:''
 }
 const loginSubmit = ()=>{
-    const url = 'http://localhost/thd104/g1/public/php/login_select.php';
-    // const url = 'php/login_select.php';
+    // const url = 'http://localhost/thd104/g1/public/php/login_select.php';
+    const url = 'php/login_select.php';
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(LoginData)

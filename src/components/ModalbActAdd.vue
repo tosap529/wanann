@@ -68,8 +68,8 @@
          let formdata  = new FormData();
             formdata.append("act_pic", file);
             formdata.append("act_info", JSON.stringify(NewActData));
-            const url = 'http://localhost/thd104/g1/public/php/Backstage/acts_insert.php';
-            // const url = 'php/Backstage/acts_insert.php';
+            // const url = 'http://localhost/thd104/g1/public/php/Backstage/acts_insert.php';
+            const url = 'php/Backstage/acts_insert.php';
             fetch(url, {
                     method: 'POST',
                     body: formdata
