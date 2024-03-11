@@ -420,14 +420,14 @@
         }
     });
 
-
+    const ServiceReserveTimeId = 1;
 
     // 送出訂單資訊到後端
     const submitProductsOrder = function(){
 
         // SERVICE_RESERVE_TIME 表
         const SERVICE_RESERVE_TIME = {
-                    SERVICE_ID : reserveStore.reserveItem.main_service.ID,
+                    SERVICE_ID : Number(reserveStore.reserveItem.main_service.ID),
                     RESERVE_TIME_ID : 0,
                 };
 
@@ -460,13 +460,23 @@
             body: JSON.stringify(SERVICE_RESERVE_TIME)
         })
         .then(response => response.text())
-        .then(orderId => {
-            orderId = orderId.trim();
-            // console.log('Order ID:', orderId);
+        .then(response => {
 
-            setServiceOrder(orderId)
+            ServiceReserveTimeId = response.replace('\n', '');
+
+            console.log('ID', ServiceReserveTimeId);
+
+            // orderDetail(orderID)
+
 
         })
+        // .then(orderId => {
+        //     orderId = orderId.trim();
+        //     // console.log('Order ID:', orderId);
+
+        //     setServiceOrder(orderId)
+
+        // })
         .catch(error => {
             console.error('Error:', error);
         });

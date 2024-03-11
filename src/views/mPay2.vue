@@ -460,9 +460,9 @@
         .then(response => response.text())
         .then(response => {
 
-            orderID = response
+            orderID = response.replace('\n', '');
 
-            console.log(orderID);
+            console.log('ID', orderID);
 
             orderDetail(orderID)
 
@@ -487,12 +487,12 @@
 
 
 
-    const orderDetail = function(orderId){
+    const orderDetail = function(orderID){
 
         const orderItemDetail = cartStore.cartItems.map(item => ({
             PRODUCT_ID: item.ID,
             QUANTITY: item.quantity,
-            PRODUCT_ORDER_ID: orderId
+            PRODUCT_ORDER_ID: orderID
         }));
 
         console.log(orderItemDetail);
@@ -517,8 +517,8 @@
             console.log(response);
             alert('訂單成立')
 
-            // getOrderId()
-            console.log(orderId);
+            // getorderID()
+            console.log(orderID);
 
             // 清空購物車
             cartStore.cartItems = [];
