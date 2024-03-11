@@ -24,7 +24,7 @@ $statement = $pdo->prepare("
     insert into
     ARTICLE (TITLE,PIC,CONTENT,CREATE_TIME,CATEGORY,SUMMERNOTE,STATUS) 
     values
-    (:title, :pic, :content, CURDATE(), :category, :summernote, 1)
+    (:title, :pic, :content, CURDATE(), :category, :summernote, :status)
     ");
 // 這裡CREATE_TIME只存DATE，需特別注意，insert圖片亦需以ID排序去找
 $statement ->bindValue(":title", $article_info["title"]);
@@ -32,6 +32,7 @@ $statement ->bindValue(":pic", $article_info["pic"]);
 $statement ->bindValue(":content", $article_info["content"]);
 $statement ->bindValue(":category", $article_info["category"]);
 $statement ->bindValue(":summernote", $article_info["summernote"]);
+$statement ->bindValue(":status", $article_info["status"]);
 $statement ->execute();
 
 $pdo = getPDO();
@@ -68,11 +69,11 @@ $articlePicPath = "/thd104/g1/img/article/article_new/";
  $fileNewPath = $ServerRoot.$articlePicPath.$self.'.'.getExtensionName($filePath);
  $fileNewName = $articlePicPath.$self.'.'.getExtensionName($filePath);
  // 測試用－自訂名稱
- $fileTestPath =$ServerRoot."/thd104/g1/public/img/article/article_new/".$self.'.'.getExtensionName($filePath);
- $fileTestName =$articlePicPath.$self.'.'.getExtensionName($filePath);
+//  $fileTestPath =$ServerRoot."/thd104/g1/public/img/article/article_new/".$self.'.'.getExtensionName($filePath);
+//  $fileTestName =$articlePicPath.$self.'.'.getExtensionName($filePath);
 
  //將暫存檔搬移到正確位置
- move_uploaded_file($filePath_Temp, $fileTestPath);
+ move_uploaded_file($filePath_Temp, $fileNewPath);
  // move_uploaded_file($filePath_Temp, $fileNewPath);
 
 
@@ -82,7 +83,7 @@ $pdo = getPDO();
 // 上線用
 // $statement = $pdo->prepare("update ARTICLE set PIC = '".$fileNewName."' where ID=:id");
 // 測試用
-$statement = $pdo->prepare("update ARTICLE set PIC = '". $fileTestName."' where ID=:id");
+$statement = $pdo->prepare("update ARTICLE set PIC = '". $fileNewName."' where ID=:id");
 $statement ->bindValue(":id", $articleID['ID']);
 $statement ->execute();
 

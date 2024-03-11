@@ -131,7 +131,7 @@
                     </div>
                     <div>
                         <h2>優惠內容：</h2>
-                        <input v-model="props.data.COUPON_PRICE">
+                        <input v-model="props.data.COUPON_PRICE" oninput="value = value.replace(/[^\d]/g,'')">
                     </div>
                     <div>
                         <h2>活動狀態：</h2>
