@@ -14,6 +14,7 @@
     import ModalbProductAdd from '@/components/ModalbProductAdd.vue'; 
     import ModalbActAdd from '@/components/ModalbActAdd.vue'; 
     import ModalbArticleAdd from '@/components/ModalbArticleAdd.vue'; 
+  
     defineProps({backNow: String, filteredMembers: Array});
 
     const bMember_th = [ '會員ID','帳號','姓名','手機號碼','電子郵件','註冊日期','權限' ];
