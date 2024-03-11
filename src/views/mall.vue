@@ -59,7 +59,7 @@
                                     <img src="@/img/logo_title.svg" alt="logo">
                                     <p>已加入購物車</p>
                                 </div>
-                        </div>
+                            </div>
                     </li>
                 </ul>
                 

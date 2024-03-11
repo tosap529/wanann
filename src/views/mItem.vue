@@ -38,7 +38,13 @@
                         </div>
 
                         <div class="mitem_btns">
-                            <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(productItem[0], quantity)" v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button>
+                            <button class="btn mitem_btn"  @click="cartStore.addToCartMitem(productItem[0], quantity)" v-on:click="cartAnimate"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車<div v-if="showSuccessModal" class="modal">
+                                <div class="modal_content">
+                                    <span class="close" @click="closeModal">&times;</span>
+                                    <img src="@/img/logo_title.svg" alt="logo">
+                                    <p>已加入購物車</p>
+                                </div>
+                            </div></button>
                             <!-- <button class="btn mitem_btn"  v-on:click="showItems"><i class="fa-solid fa-cart-shopping mitem_add_to_cart"></i>加入購物車</button> -->
                             <!-- <router-link class="btn mitem_btn" :to="{ name: 'mPay1' }" @click="cartStore.addToCartMitem(productItem, quantity)">直接購買</router-link> -->
                             <button class="btn mitem_btn"@click="cartStore.addToCartMitem(productItem[0], quantity)"  v-on:click="isLogin">直接購買</button>
@@ -198,7 +204,69 @@
     }
 
 
+    const showSuccessModal = ref(false);
+
+    const cartAnimate = function(){
+        showSuccessModal.value = true;
+        setTimeout(() => {
+            showSuccessModal.value = false;
+         }, 500);
+    }
+    const closeModal = () => {
+        showSuccessModal.value = false;
+    };
+
+
 </script>
+
+<style lang="scss" scoped>
+   
+   .modal {
+        display: block; 
+        position: fixed; 
+        z-index: 12; 
+        left: 0;
+        top: 0;
+        background-color: rgba(0, 0, 0, .5); 
+    }
+
+    .modal_content {
+        margin: 0 auto;
+        margin-top: 17%;
+        background-color:#B69B85;
+        width: 165px;
+        border: none;
+        text-align: center;
+        padding: 16px;
+        border-radius: 8px;
+        animation: rotate .5s linear infinite alternate;
+        display: flex;
+        img{
+        width:22px;
+        }
+        p{    
+        font-size: 16px;
+        letter-spacing: .5px;
+        text-align: center;
+        margin: 0 auto;
+        color: white;
+        position: relative;}
+    }
+
+    @keyframes rotate {
+    0% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(5deg); 
+    }
+    }
+
+    .close {
+        display: none;
+    }
+
+</style>
 
 
 
