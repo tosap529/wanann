@@ -6,6 +6,15 @@
       text-decoration: none !important;
   }
 
+  .col-sm-3 {
+      position: fixed;
+  }
+
+  .col-sm-9 {
+      margin-left: 25%;
+  }
+
+
   .cms_sidebar {
       box-sizing: border-box;
       background-color: $light-milktea;

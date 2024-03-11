@@ -164,12 +164,10 @@
                     <div>
                         <h2>活動標題：</h2>
                         <input type="text" v-model="NewActData.title">
-                        <!-- <h2>{{ NewActData.TITLE }}</h2> -->
                     </div>
                     <div>
                         <h2>活動敘述：</h2>
                         <textarea style="resize:none" type="text" v-model="NewActData.content"></textarea>
-                        <!-- <h2>{{ NewActData.CONTENT }}</h2> -->
                     </div>
                     <div>
                         <h2>活動圖片：</h2>

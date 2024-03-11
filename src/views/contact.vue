@@ -122,19 +122,19 @@ const showSuccessModal = ref(false);
 
                     <div class="contact_input">
                         <label for="name">姓名/單位</label>
-                        <input v-model="formData.name" type="text" id="name" name="name" required>
+                        <input v-model="formData.name" type="text" id="name" name="name" required autocomplete="off">
                     </div>
                     <div class="contact_input">
                         <label for="phone">手機號碼</label>
-                        <input v-model="formData.phone" type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="請輸入10位數字" required>
+                        <input v-model="formData.phone" type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="請輸入10位數字" required autocomplete="off">
                     </div>
                     <div class="contact_input">
                         <label for="email">電子信箱</label>
-                        <input v-model="formData.email" type="email" id="email" name="email" required>
+                        <input v-model="formData.email" type="email" id="email" name="email" required autocomplete="off">
                     </div>
                     <div class="contact_input ">
                         <label for="message" class="message">問題描述</label>
-                        <textarea v-model="formData.message" id="message" name="message" required></textarea >
+                        <textarea v-model="formData.message" id="message" name="message" required style="resize: none;"></textarea >
                     </div>
                     <button type="submit" class="btn">送出</button>
                 </form>

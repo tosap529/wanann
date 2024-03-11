@@ -5,7 +5,6 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 
 include("../connect.php");
 
-// print_r(json_decode($_POST['article_info'],true)) ;
 
 $article_info = json_decode($_POST['article_info'],true);
 
@@ -15,10 +14,6 @@ if(!$article_info["title"]||!$article_info["content"]||!$article_info["category"
  
 }else{
    
-    
-// echo $article_info['title'];
-// echo $article_info['pic'];
-// echo $article_info['summernote'];
 $pdo = getPDO();
 $statement = $pdo->prepare("
     insert into
