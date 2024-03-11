@@ -51,9 +51,7 @@
                             class="mall_add_to_cart" 
                             type="button" 
                             value="加入購物車"
-                            @click="cartStore.addToCart(i)"
-                            v-on:click="showItems">
-
+                            @click="cartStore.addToCart(i)">
                     </li>
                 </ul>
                 
@@ -109,6 +107,9 @@
                     </li>
                 </ul>
             </div>
+
+            <!-- 購物車小圖示 -->
+            <!-- <h2 v-bind:class="{ 'add_to_cart_animate_toggle':addToCartClass }">已加入購物車</h2> -->
         
         </wrapper>
         <DefaultFooter />
@@ -226,10 +227,10 @@
 
     // API
     // 本機
-    // const url = 'http://localhost/thd104/g1/public/php/mall_select.php';
+    const url = 'http://localhost/thd104/g1/public/php/mall_select.php';
     
     // 上伺服器
-    const url = 'php/mall_select.php';
+    // const url = 'php/mall_select.php';
 
     fetch(url)
         .then(response => response.json())
@@ -260,6 +261,11 @@
 
     }
 
+    // 按下"加入購物車"的提示動畫
+    // const addToCartClass = ref(false)
+    // const addToCartAnimateToggle = function(){
+    //     addToCartClass.value = !addToCartClass.value
+    // }
     
     
 
