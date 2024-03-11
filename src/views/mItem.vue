@@ -133,7 +133,7 @@
     // 放入productItem
     productItem.value = getSingleProduct(productId);
 
-    bigPhotoSrc.value = productItem.value.PRODUCT_PIC1
+    bigPhotoSrc.value = productItem.value?.PRODUCT_PIC1
 
     function getSingleProduct(productId) {
         return cartStore.productsForMitem.find(p => p.ID == parseInt(productId));

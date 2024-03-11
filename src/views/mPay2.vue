@@ -26,7 +26,7 @@
                 <!-- 商品新增處 -->
                 <div class="mPay2_items">
 
-                    <div v-for="i in cartStore.cartItems" class="mPay2_item">
+                    <div v-for="i in cartStore.cartItems" class="mPay2_item" v-bind:key="i.ID">
 
                         <img :src="i.PRODUCT_PIC1">
 
@@ -399,6 +399,8 @@
 
         console.log(memberAddress.value[memberId.value - 1]);
         console.log(memberId.value);
+
+        console.log(cartStore.cartItems);
 
     }
 

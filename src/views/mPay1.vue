@@ -34,7 +34,8 @@
 
                     <div 
                         class="mPay1_item"
-                        v-for="(i, index) in cartStore.cartItems">
+                        v-for="(i, index) in cartStore.cartItems"
+                        v-bind:key="i.ID">
 
                         <img v-bind:src="i.PRODUCT_PIC1">
 
@@ -138,7 +139,7 @@
 
                 <div class="mPay1_total">
                     <h2>總金額</h2>
-                    <h1 @click="showcouponArray">NTD {{ calCartTotal }}</h1>
+                    <h1 @click="show">NTD {{ calCartTotal }}</h1>
                 </div>
 
                 <!-- <button class="btn mPay1_nextpage">下一步</button> -->
@@ -249,6 +250,11 @@
         }
 
     };
+
+
+    const show = function(){
+        console.log(cartStore.cartItems);
+    }
 
     
 

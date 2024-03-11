@@ -6,6 +6,46 @@ div.mall_wrapper {
     min-height: 640px;
 }
 
+
+// 加入購物車小動畫
+// h2.add_to_cart_animate{
+//     color: $white;
+//     background: $dark-milktea;
+//     text-align: center;
+
+//     width: 150px;
+//     height: 30px;
+//     line-height: 30px;
+
+//     border-radius: 8px;
+
+//     position: fixed;
+//     top: 30%;
+//     left: 45%;
+
+//     opacity: 0;
+// }
+
+// h2.add_to_cart_animate_toggle{
+//     opacity: 1;
+// }
+
+// .cartAnimate{
+//     opacity: 1;
+
+//     animation: cartAnimate 10s linear;
+// }
+
+// @keyframes cartAnimate{
+//     0%{
+//         opacity: 1;
+//     }
+
+//     100%{
+//         opacity: 0;
+//     }
+// }
+
 // --------------  導覽分頁  ---------------
 nav.mall_nav {
     width: 1100px;
