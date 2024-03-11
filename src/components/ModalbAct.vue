@@ -157,7 +157,7 @@
                     <div>
                         <h2>活動圖片：</h2>
                         <div class="bAddPic" method="post" enctype="multipart/form-data">
-                                <input type="file" style="display: none;">                     
+                                <input type="file" style="display: none;" ref="profile">                     
                                 <img :src="props.data.PIC" alt="" ref="profile_pic" > 
                             </div>
                     </div>
