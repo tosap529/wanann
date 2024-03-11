@@ -53,7 +53,7 @@ const reserveDropdown = (e)=>{
             <p>浴室簡易清潔</p>
             <p>臥室及客房清潔</p>
         </section>  
-            <p>NTD4,000</p>      
+            <p>NTD 4,000</p>      
         </div>
     </section>
     <section>
@@ -65,7 +65,7 @@ const reserveDropdown = (e)=>{
                <p>廚具汰洗</p>
                <p>水槽疏通</p>
             </section>  
-               <p>NTD2,000</p>          
+               <p>NTD 2,000</p>          
        </div>
     </section>
        <section>
@@ -77,7 +77,7 @@ const reserveDropdown = (e)=>{
                 <p>專業除黴</p>
                 <p>馬桶清潔</p>
             </section>  
-                <p>NTD1,500</p>
+                <p>NTD 1,500</p>
         </div>
     </section>
     </aside>

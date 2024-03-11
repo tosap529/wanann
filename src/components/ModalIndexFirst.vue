@@ -14,7 +14,7 @@ const copyValue = () => {
     showSuccessModal.value = true;
   setTimeout(() => {
             showSuccessModal.value = false;
-         }, 800);
+         }, 600);
   }
 };
 const closeModal = () => {
