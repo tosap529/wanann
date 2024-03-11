@@ -39,8 +39,8 @@
 
     //更新狀態按鈕
 
-    // const url_act_update = 'http://localhost/thd104/g1/public/php/act_update.php';
-    const url_act_update = 'php/act_update.php';
+    const url_act_update = 'http://localhost/thd104/g1/public/php/act_update.php';
+    // const url_act_update = 'php/act_update.php';
 
 
 

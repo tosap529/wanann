@@ -1,19 +1,17 @@
 <script setup>
 
     import { ref,onMounted } from 'vue';
-    defineEmits(['ModalbActAddAdd']);
+    defineEmits(['ModalbActAdd']);
 
-
-    // const props = defineProps({data: Object});
     const actAddPic = ref(null);
     const actAddPicInput = ref(null);
     const showSuccessMessage = ref(false);
     
     let NewActData = {
-        id: '', 
+        id: '建立後自動生成', 
         content: '',
-        createTime: '',
-        status:'',
+        createTime: '建立後自動生成',
+        status:1,
         title:'',
         pic:'',
         deadline: '',
@@ -21,24 +19,35 @@
         couponPrice: '',
         couponId: '',
     }
+    const final_status = ref('上架中');
+    const switchStatus = () => {
+        if (NewActData.status === 1) {
+            NewActData.status = 0;
+            final_status.value = '未上架';
+        } else {
+            NewActData.status = 1;
+            final_status.value = '上架中';
+        }
+        console.log( NewActData.status);
+    }
 
-    const submitForm = () => {
-    // const url_act_update = 'http://localhost/thd104/g1/public/php/Backstage/act_update.php';
+    // const submitForm = () => {
+    // // const url_act_update = 'http://localhost/thd104/g1/public/php/Backstage/act_update.php';
     
-    showSuccessMessage.value = true;
-    setTimeout(() => {
-        showSuccessMessage.value = false;
-    }, 1000);
+    // showSuccessMessage.value = true;
+    // setTimeout(() => {
+    //     showSuccessMessage.value = false;
+    // }, 1000);
 
-    fetch(url_act_update, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(NewActData)
+    // fetch(url_act_update, {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify(NewActData)
 
-    })
-    };
+    // })
+    // };
 
     // const click_function = (key, id) => {
         
@@ -51,6 +60,39 @@
     //         final_status = true;
     //     }
     // }
+    const successMsg = ref('');
+    const actInsert=()=>{
+    let file = actAddPicInput.value.files[0];
+
+    if(file){
+         let formdata  = new FormData();
+            formdata.append("act_pic", file);
+            formdata.append("act_info", JSON.stringify(NewActData));
+            const url = 'http://localhost/thd104/g1/public/php/Backstage/acts_insert.php';
+            // const url = 'php/Backstage/acts_insert.php';
+            fetch(url, {
+                    method: 'POST',
+                    body: formdata
+                })
+            .then(response => response.text())
+            .then(response => {
+                if(response=='資料不全'){
+                    successMsg.value = '請輸入完整資料'
+                    showSuccessMessage.value = true;
+                    setTimeout(() => {
+                        showSuccessMessage.value = false;
+                    }, 1000);
+                }else{
+                    successMsg.value = '儲存成功！！'
+                    showSuccessMessage.value = true;
+                    setTimeout(() => {
+                        showSuccessMessage.value = false;
+                    }, 1000);
+
+                }
+                })
+    }
+}
     function fileChange(){
     let file = actAddPicInput.value.files[0];
     let readFile = new FileReader();
@@ -72,8 +114,8 @@
 <template>
     <div class="modal_mask" @click.self="$emit('ModalbActAdd')" >
     <div class="modal_content bAct backModal">
-        <section class="bModalHeader">
-            <h1>活動－編輯與查看</h1>
+        <section class="bModalHeader" style="background-color: #C84A2F;">
+            <h1>活動－新增</h1>
         </section>
 
         <form @submit.prevent="submitForm">
@@ -87,7 +129,6 @@
                 <article>
                     <div>
                         <h2>活動類別：</h2>
-                        <!-- <h2>{{ NewActData.category }}</h2> -->
                         <select name="" id="" v-model="NewActData.category">
                             <option value="優惠活動">優惠活動</option>
                             <option value="職人講座">職人講座</option>
@@ -111,7 +152,7 @@
                     </div>
                     <div>
                         <h2>活動狀態：</h2>
-                        <!-- <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')">{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button> -->
+                        <button  :class="NewArticleData.status ? 'green' : 'red'" @click="switchStatus()" >{{final_status}} </button>
                     </div>
                 </article>
             </div>
@@ -142,8 +183,8 @@
             </div>
             <div class="block">
                 <button class="btn" @click="$emit('ModalbActAdd')">關閉</button>
-                <button class="btn">儲存</button>
-                <div id="successMessage" class="success-message" v-show="showSuccessMessage">儲存成功 !!</div>
+                <button type="submit" class="btn" @click="actInsert">儲存</button>
+                <div id="successMessage" class="success-message" v-show="showSuccessMessage">{{successMsg}}</div>
             </div>
         </section>
     </form>

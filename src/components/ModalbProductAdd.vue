@@ -18,7 +18,7 @@ const showSuccessMessage = ref(false);
 
 
 let NewProductData = {
-    id: '', 
+    id: '建立後自動生成', 
     productName: '', 
     slogan1:'' ,
     slogan2:'' ,
@@ -30,9 +30,9 @@ let NewProductData = {
     productContent:'' ,
     productSubcontent1:'' ,
     productSubcontent2: '',
-    createTime: '',
+    createTime: '建立後自動生成',
     productCategoryId: '',
-    status: '',
+    status: 1,
 }
 
 const submitForm = () => {
@@ -111,8 +111,8 @@ const submitForm = () => {
 <template>
     <div class="modal_mask" @click.self="$emit('ModalbProductAdd')" >
     <div class="modal_content bProduct backModal">
-        <section class="bModalHeader">
-            <h1>商品－編輯與查看</h1>
+        <section class="bModalHeader" style="background-color: #C84A2F;">
+            <h1>商品－新增</h1>
         </section>
 
         <form @submit.prevent="submitForm">

@@ -226,10 +226,10 @@
 
     // API
     // 本機
-    // const url = 'http://localhost/thd104/g1/public/php/mall_select.php';
+    const url = 'http://localhost/thd104/g1/public/php/mall_select.php';
     
     // 上伺服器
-    const url = 'php/mall_select.php';
+    // const url = 'php/mall_select.php';
 
     fetch(url)
         .then(response => response.json())

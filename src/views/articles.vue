@@ -48,6 +48,7 @@
     onMounted(() => {
 
     const url_articlesWanann = 'http://localhost/thd104/g1/public/php/articlesWanann_select.php';
+    // const url_articlesWanann = 'php/articlesWanann_select.php';
 
     
     fetch(url_articlesWanann)
@@ -62,6 +63,7 @@
 
 
     const url_articlesWanannNew = 'http://localhost/thd104/g1/public/php/articlesWanannNew_select.php';
+    // const url_articlesWanannNew = 'php/articlesWanannNew_select.php';
 
     
     fetch(url_articlesWanannNew)

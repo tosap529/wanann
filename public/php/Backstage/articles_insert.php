@@ -2,6 +2,7 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: X-Requested-With");
+
 include("../connect_test.php");
 // include("../connect.php");
 
@@ -45,7 +46,11 @@ $articleID = $statement->fetch();
 $self = 'article_new_'.$articleID['ID']; //組成自定義圖片名稱，後面是文章ID
 echo $articleID['ID'];
 
-
+//取得檔案副檔名
+function getExtensionName($filePath){
+    $path_parts = pathinfo($filePath);
+    return $path_parts["extension"];
+}
 
 //取得上傳的檔案資訊=======================================
 $fileName = $_FILES["article_pic"]["name"];    //檔案名稱含副檔名        
@@ -71,11 +76,6 @@ $articlePicPath = "/thd104/g1/img/article/article_new/";
  move_uploaded_file($filePath_Temp, $fileTestPath);
  // move_uploaded_file($filePath_Temp, $fileNewPath);
 
-//取得檔案副檔名
-function getExtensionName($filePath){
-    $path_parts = pathinfo($filePath);
-    return $path_parts["extension"];
-}
 
 
 // 將圖片路徑存進資料庫

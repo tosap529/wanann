@@ -85,7 +85,7 @@ const fileClick =()=>{
     <div class="modal_mask" @click.self="$emit('ModalbArticleAdd')" >
     <div class="modal_content bArticle backModal">
 
-        <section class="bModalHeader">
+        <section class="bModalHeader" style="background-color: #C84A2F;">
             <h1>文章－新增</h1>
         </section>
 

@@ -12,6 +12,7 @@
     const submitForm = () => {
     
     const url_contact_update = 'http://localhost/thd104/g1/public/php/Backstage/contact_update.php';
+    // const url_contact_update = 'php/Backstage/contact_update.php';
     
     showSuccessMessage.value = true;
     setTimeout(() => {

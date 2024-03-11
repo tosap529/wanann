@@ -20,8 +20,8 @@
     
 
 onMounted(()=>{
-    const url = 'php/plan_select.php';
-    // const url = 'http://localhost/thd104/g1/public/php/plan_select.php';
+    // const url = 'php/plan_select.php';
+    const url = 'http://localhost/thd104/g1/public/php/plan_select.php';
    
     fetch(url, {
         method: 'POST'
