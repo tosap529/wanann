@@ -8,7 +8,7 @@ $orderItems = $reqBody['orderItemDetail'];
 
 foreach ($orderItems as $item) {
     $statement = $pdo->prepare("
-        INSERT INTO `Wanann_database`.`PRODUCT_ORDER_DETAIL` 
+        INSERT INTO `PRODUCT_ORDER_DETAIL` 
         (`QUANTITY`, `PRODUCT_ID`, `PRODUCT_ORDER_ID`) 
         VALUES (:quantity, :productId, :productOrderId);
     ");

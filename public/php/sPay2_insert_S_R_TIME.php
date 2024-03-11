@@ -10,12 +10,13 @@ $reqBody = json_decode($content, true);
 
 
 $statement = $pdo->prepare("
-    INSERT INTO `Wanann_database`.`SERVICE_RESERVE_TIME` (`SERVICE_ID`, `RESERVE_TIME_ID`)
+    INSERT INTO SERVICE_RESERVE_TIME(`SERVICE_ID`, `RESERVE_TIME_ID`)
     VALUES (:serviceId, :reserveTimeId);
 ");
 
 $statement->bindValue(":serviceId", $reqBody["SERVICE_ID"]);
 $statement->bindValue(":reserveTimeId", $reqBody["RESERVE_TIME_ID"]);
+
 
 $statement->execute();
 
@@ -26,7 +27,20 @@ $lastInsertId = $pdo->lastInsertId();
 
 echo $lastInsertId;
 
+// $pdo = getPDO();
+//     $statement = $pdo->prepare("
+//         select ID 
+//         from SERVICE_RESERVE_TIME
+//         order by ID desc
+//         limit 1");
+//     $statement ->execute();
+//     $actID = $statement->fetch();
+    
+//     echo $actID['ID'];
+
 ?>
+
+
 
 
 

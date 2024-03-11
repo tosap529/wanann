@@ -420,15 +420,15 @@
         }
     });
 
-
+    const ServiceReserveTimeId = 1;
 
     // 送出訂單資訊到後端
     const submitProductsOrder = function(){
 
         // SERVICE_RESERVE_TIME 表
         const SERVICE_RESERVE_TIME = {
-                    SERVICE_ID : reserveStore.reserveItem.main_service.ID,
-                    RESERVE_TIME_ID : 0,
+                    SERVICE_ID : Number(reserveStore.reserveItem.main_service.ID),
+                    RESERVE_TIME_ID : 1,
                 };
 
         const setReserveTime = function(){
@@ -460,9 +460,23 @@
             body: JSON.stringify(SERVICE_RESERVE_TIME)
         })
         .then(response => response.text())
+        // .then(response => {
+
+        //     ServiceReserveTimeId = response.replace('\n', '');
+
+        //     console.log('ID', ServiceReserveTimeId);
+
+        //     // orderDetail(orderID)
+
+
+        // })
         .then(orderId => {
             orderId = orderId.trim();
-            // console.log('Order ID:', orderId);
+            console.log('Order ID:', orderId);
+            console.log(typeof orderId);
+
+            
+            setServiceOrder(orderId)
 
             setServiceOrder(orderId)
 
@@ -470,6 +484,7 @@
         .catch(error => {
             console.error('Error:', error);
         });
+        
 
     }
 
@@ -505,11 +520,13 @@
         .then(response => response.text())
         .then(orderId => {
             orderId = orderId.trim();
-            // console.log('Order ID:', orderId);
+            console.log('Order ID:', orderId);
 
-            // console.log( '第二個:',  orderId );
+            console.log( '第二個:',  orderId );
+            console.log(typeof orderId);
 
             setServiceOrderAddService(orderId)
+
 
         }).catch(error => {
             console.error('Error:', error);
@@ -525,8 +542,8 @@
         // SERVICE_ORDER_ADD_SERVICE 表
 
         const SERVICE_ORDER_ADD_SERVICE = reserveStore.reserveItem.add_spec_service.map(item => ({
-            SERVICE_ORDER_ID : orderId,
-            ADD_SERVICE_ID : item.ID
+            SERVICE_ORDER_ID : Number(orderId),
+            ADD_SERVICE_ID : Number(item.ID)
         }))
 
         // console.log(SERVICE_ORDER_ADD_SERVICE);
@@ -537,13 +554,13 @@
         // 上伺服器
         const url = 'php/sPay2_insert_S_O_A_Service.php';
 
-        fetch(url_service_order, {
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            // body: JSON.stringify(SERVICE_ORDER_ADD_SERVICE)
-            body: JSON.stringify({ SERVICE_ORDER_ADD_SERVICE: SERVICE_ORDER_ADD_SERVICE })
+            body: JSON.stringify(SERVICE_ORDER_ADD_SERVICE)
+            // body: JSON.stringify({ SERVICE_ORDER_ADD_SERVICE: SERVICE_ORDER_ADD_SERVICE })
         })
         .then(response => response.text())
         .then(response => {
@@ -563,6 +580,7 @@
         });
 
     }
+
 
 
 

@@ -72,10 +72,7 @@ const submitForm = () => {
                 </div>
                 <h2>文章資料</h2>
                 <article>
-                    <div>
-                        <h2>文章類別：</h2>
-                        <input type="text" v-model="props.data.PIC">
-                    </div>
+                    
                     <div>
                         <h2>文章類別：</h2>
                         <input type="text" v-model="props.data.CATEGORY">
@@ -88,7 +85,7 @@ const submitForm = () => {
                 
                     <div>
                         <h2>文章狀態：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '上架中' : '已上架' }} </button>
+                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '上架中' : '已下架' }} </button>
                     </div>
                 </article>
             </div>

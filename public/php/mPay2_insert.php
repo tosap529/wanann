@@ -3,13 +3,12 @@ include("connect.php");
 
 $pdo = getPDO();
 
-
 $content = trim(file_get_contents("php://input"));
 $reqBody = json_decode($content, true);
 
 
 $statement = $pdo->prepare("
-    INSERT INTO `Wanann_database`.`PRODUCT_ORDER` 
+    INSERT INTO PRODUCT_ORDER
     (`ADDRESSEE_NAME`, `ADDRESSEE_PHONE`, `ORDER_DATE`, `ADDRESSEE_ADDRESS`, `PAYMENT`, `ORDER_STATUS`, `MEMBER_ID`, `ACTIVITY_ID`) 
     VALUES (:addresseeName, :addresseePhone, NOW(), :addresseeAddress, :payment, :orderStatus, :memberId, :activityId)
 ");
@@ -25,10 +24,25 @@ $statement->execute();
 
 // echo "訂單提交成功";
 
-// 傳回本次資料新家資料的ID給前端
-$lastInsertId = $pdo->lastInsertId();
+// // 傳回本次資料新加資料的ID給前端
+// $lastInsertId = $pdo->lastInsertId();
 
-echo $lastInsertId;
+// echo $lastInsertId;
+
+
+
+$pdo = getPDO();
+    $statement = $pdo->prepare("
+        select ID 
+        from PRODUCT_ORDER
+        order by ID desc
+        limit 1");
+    $statement ->execute();
+    $actID = $statement->fetch();
+    
+    echo $actID['ID'];
+
+
 
 ?>
 

@@ -9,7 +9,7 @@ $content = trim(file_get_contents("php://input"));
 $reqBody = json_decode($content, true);
 
 $statement = $pdo->prepare("
-    INSERT INTO `Wanann_database`.`SERVICE_ORDER` (
+    INSERT INTO SERVICE_ORDER (
         `SERVICE_PHONE`, `ORDER_DATE`, `SERVICE_ADDRESS`, 
         `SERVICE_DATE`, `PAYMENT`, `ORDER_STATUS`, 
         `RANK_STATUS`, `MEMBER_ID`, `SERVICE_COMMENT_ID`, 
@@ -30,8 +30,12 @@ $statement->bindValue(":serviceReserveTimeId", $reqBody["SERVICE_RESERVE_TIME_ID
 $statement->bindValue(":activityId", $reqBody["ACTIVITY_ID"]);
 $statement->bindValue(":serviceDate", $reqBody["SERVICE_DATE"]);
 
-    $statement->execute();
-    echo $pdo->lastInsertId();
+$statement->execute();
+
+// 傳回本次資料新家資料的ID給前端
+$lastInsertId = $pdo->lastInsertId();
+
+echo $pdo->lastInsertId();
 
 ?>
 

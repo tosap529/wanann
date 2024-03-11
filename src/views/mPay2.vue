@@ -428,11 +428,12 @@
 
 
 
-    
+    let orderID = '';
 
 
     // 送出訂單資訊到後端 PRODUCT_ORDER
     const submitProductsOrder = function(){
+
 
         const productsOrder = {
             ADDRESSEE_NAME: form.recipientName,
@@ -457,13 +458,27 @@
             body: JSON.stringify(productsOrder)
         })
         .then(response => response.text())
-        .then(orderId => {
-            orderId = orderId.trim();
-            console.log('Order ID:', orderId);
+        .then(response => {
 
-            orderDetail(orderId)
+            orderID = response.replace('\n', '');
+
+            console.log('ID', orderID);
+
+            orderDetail(orderID)
+
 
         })
+
+
+
+        // .then(orderId => {
+        //     orderId = orderId.trim();
+        //     console.log('Order ID:', orderId);
+
+        //     // orderDetail(orderId)
+
+        // })
+
         .catch(error => {
             console.error('Error:', error);
         });
@@ -472,12 +487,12 @@
 
 
 
-    const orderDetail = function(orderId){
+    const orderDetail = function(orderID){
 
         const orderItemDetail = cartStore.cartItems.map(item => ({
             PRODUCT_ID: item.ID,
             QUANTITY: item.quantity,
-            PRODUCT_ORDER_ID: orderId
+            PRODUCT_ORDER_ID: orderID
         }));
 
         console.log(orderItemDetail);
@@ -502,8 +517,8 @@
             console.log(response);
             alert('訂單成立')
 
-            // getOrderId()
-            console.log(orderId);
+            // getorderID()
+            console.log(orderID);
 
             // 清空購物車
             cartStore.cartItems = [];
