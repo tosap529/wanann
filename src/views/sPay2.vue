@@ -460,23 +460,23 @@
             body: JSON.stringify(SERVICE_RESERVE_TIME)
         })
         .then(response => response.text())
-        .then(response => {
+        // .then(response => {
 
-            ServiceReserveTimeId = response.replace('\n', '');
+        //     ServiceReserveTimeId = response.replace('\n', '');
 
-            console.log('ID', ServiceReserveTimeId);
+        //     console.log('ID', ServiceReserveTimeId);
 
-            // orderDetail(orderID)
+        //     // orderDetail(orderID)
 
-
-        })
-        // .then(orderId => {
-        //     orderId = orderId.trim();
-        //     // console.log('Order ID:', orderId);
-
-        //     setServiceOrder(orderId)
 
         // })
+        .then(orderId => {
+            orderId = orderId.trim();
+            console.log('Order ID:', orderId);
+            console.log(typeof orderId);
+            // setServiceOrder(orderId)
+
+        })
         .catch(error => {
             console.error('Error:', error);
         });
