@@ -475,9 +475,6 @@
             console.log('Order ID:', orderId);
             console.log(typeof orderId);
 
-            
-            setServiceOrder(orderId)
-
             setServiceOrder(orderId)
 
         })
@@ -559,8 +556,8 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(SERVICE_ORDER_ADD_SERVICE)
-            // body: JSON.stringify({ SERVICE_ORDER_ADD_SERVICE: SERVICE_ORDER_ADD_SERVICE })
+            // body: JSON.stringify(SERVICE_ORDER_ADD_SERVICE)
+            body: JSON.stringify({ SERVICE_ORDER_ADD_SERVICE: SERVICE_ORDER_ADD_SERVICE })
         })
         .then(response => response.text())
         .then(response => {
