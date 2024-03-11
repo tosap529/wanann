@@ -428,11 +428,12 @@
 
 
 
-    
+    let orderID = '';
 
 
     // 送出訂單資訊到後端 PRODUCT_ORDER
     const submitProductsOrder = function(){
+
 
         const productsOrder = {
             ADDRESSEE_NAME: form.recipientName,
@@ -457,13 +458,27 @@
             body: JSON.stringify(productsOrder)
         })
         .then(response => response.text())
-        .then(orderId => {
-            orderId = orderId.trim();
-            console.log('Order ID:', orderId);
+        .then(response => {
 
-            orderDetail(orderId)
+            orderID = response
+
+            console.log(orderID);
+
+            orderDetail(orderID)
+
 
         })
+
+
+
+        // .then(orderId => {
+        //     orderId = orderId.trim();
+        //     console.log('Order ID:', orderId);
+
+        //     // orderDetail(orderId)
+
+        // })
+
         .catch(error => {
             console.error('Error:', error);
         });
