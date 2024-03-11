@@ -26,7 +26,7 @@
                         <h3>款式</h3>
 
                         <div class="mitem_design">
-                            <h4>經典款</h4>
+                            <h4 @click="show">經典款</h4>
                         </div>
 
                         <h3>數量</h3>
@@ -79,6 +79,8 @@
 </template>
 
 <script setup>
+
+
     // 設置header及footer
     import DefaultHeader from '@/layouts/header.vue';
     import wrapper from '@/layouts/wrapper.vue';
@@ -101,6 +103,9 @@
     import ModalLogin from '@/components/ModalLogin.vue'; 
 
 
+
+    console.log(import.meta.env.VITE_SOME_KEY)
+    // alert(import.meta.env.VITE_SOME_KEY)
     // 單一商品
     // const product = ref([
     //                 {
@@ -119,29 +124,44 @@
     //                 },
     // ])
 
+    // const productId = route.params.ID;
+
+
     const productId = route.params.ID;
     const productItem = ref([]);
 
-    onMounted(() => {
+    onMounted(async () => {
 
         // API
         // 本機
-        const url = `http://localhost/thd104/g1/public/php/mItem_select.php?productId=${productId}`;
+        const url = '../php/mItem_select.php';
 
         // 上伺服器
         // const url = 'public/php/mItem_select.php?productId=${productId}`;
+        // const  res = await fetch(url,{
+        //     method: 'POST',
+        //     body: JSON.stringify({ productId : productId})
+        // });
+        // const data = await res.text();
+        // console.log(data);
 
-        fetch(url)
-            .then(response => response.json())
-            .then(response => {
 
-                productItem.value = response;
+        fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({ productId : productId})
+        })
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+            console.log(typeof response)  //string
+            productItem.value = response;
 
-                bigPhotoSrc.value = productItem.value[0].PRODUCT_PIC1
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
+            bigPhotoSrc.value = productItem.value[0].PRODUCT_PIC1
+
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+
        
 
     })
@@ -196,6 +216,17 @@
 
         }
     }
+
+
+    // const show = function(){
+    //     console.log(productItem.value);
+    //     console.log(productItem.value[0]);
+    //     console.log(productItem.value[0].PRODUCT_PIC1);
+    //     console.log(productId);
+    //     console.log(typeof productId);
+
+    //     console.log(productId.value);
+    // }
 
 
 </script>
