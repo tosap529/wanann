@@ -1,7 +1,6 @@
 <?php
 
-include("connect_test.php");
-// include("connect.php");
+include("connect.php");
 
 $pdo = getPDO();
 $statement = $pdo->prepare("select * from ARTICLE where CATEGORY = '職人專訪' and STATUS = 1 order by CREATE_TIME desc limit 1, 100");

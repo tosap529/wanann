@@ -37,8 +37,8 @@ const successMsg = ref('');
          let formdata  = new FormData();
             formdata.append("article_pic", file);
             formdata.append("article_info", JSON.stringify(NewArticleData));
-            const url = 'http://localhost/thd104/g1/public/php/Backstage/articles_insert.php';
-            // const url = 'php/Backstage/articles_insert.php';
+            // const url = 'http://localhost/thd104/g1/public/php/Backstage/articles_insert.php';
+            const url = 'php/Backstage/articles_insert.php';
             fetch(url, {
                     method: 'POST',
                     body: formdata

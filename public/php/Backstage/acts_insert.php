@@ -3,8 +3,7 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 header("Access-Control-Allow-Headers: X-Requested-With");
 
-include("../connect_test.php");
-// include("../connect.php");
+include("../connect.php");
 
 // print_r(json_decode($_POST['article_info'],true)) ;
 

@@ -1,8 +1,6 @@
 <?php
 
-include("../connect_test.php");
-// include("../connect.php");
-
+include("../connect.php");
 
 $pdo = getPDO();
 $statement = $pdo->prepare("update CONTACT_TABLE set STATUS = :status, NAME = :name, PHONE = :phone, EMAIL = :email, CONTENT = :content, CREATE_TIME = :createTime where ID = :id");
