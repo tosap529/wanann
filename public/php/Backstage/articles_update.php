@@ -16,6 +16,5 @@ $statement->bindValue(":summernote", $reqBody["summernote"]);
 $statement->bindValue(":id", $reqBody["id"]);
 $statement->execute();
 
-json_encode($statement);
 
 ?>
