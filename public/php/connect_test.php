@@ -22,6 +22,10 @@ $reqBody = json_decode(file_get_contents("php://input"), true);
 
 
 function getPDO(){
+    // $db_host = "127.0.0.1";
+    // $db_user = "tibamefe_since2021";
+    // $db_pass = "vwRBSb.j&K#E";
+    // $db_select = "tibamefe_thd104g1";
     //測試用
     $db_host = "127.0.0.1";
     $db_user = "root";

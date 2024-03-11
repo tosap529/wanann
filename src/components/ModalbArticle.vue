@@ -9,8 +9,8 @@ const showSuccessMessage = ref(false);
 
 const submitForm = () => {
 
-    const url_articles_update = 'http://localhost/thd104/g1/public/php/Backstage/articles_update.php';
-    // const url_articles_update = 'php/Backstage/articles_update.php';
+    // const url_articles_update = 'http://localhost/thd104/g1/public/php/Backstage/articles_update.php';
+    const url_articles_update = 'php/Backstage/articles_update.php';
     
     showSuccessMessage.value = true;
     setTimeout(() => {

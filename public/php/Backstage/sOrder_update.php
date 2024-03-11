@@ -1,8 +1,6 @@
 <?php
 
-include("../connect_test.php");
-// include("../connect.php");
-
+include("../connect.php");
 
 $pdo = getPDO();
 $statement = $pdo->prepare("update SERVICE_COMMENT  set ORDER_STATUS = :order_status where ID = :id");

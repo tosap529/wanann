@@ -361,10 +361,10 @@
     // API取得會員地址
 
     // 本機
-    const url = 'http://localhost/thd104/g1/public/php/mPay2_select.php';
+    // const url = 'http://localhost/thd104/g1/public/php/mPay2_select.php';
 
     // 上伺服器
-    // const url = 'php/mPay2_select.php';
+    const url = 'php/mPay2_select.php';
         
     fetch(url)
         .then(response => response.json())
@@ -443,10 +443,10 @@
         };
 
         // 本機
-        const url = 'http://localhost/thd104/g1/public/php/mPay2_insert.php';
+        // const url = 'http://localhost/thd104/g1/public/php/mPay2_insert.php';
 
         // 上伺服器
-        // const url = 'php/mPay2_insert.php';
+        const url = 'php/mPay2_insert.php';
 
 
         fetch(url, {
@@ -484,10 +484,10 @@
 
 
         // // 本機
-        const url = 'http://localhost/thd104/g1/public/php/mPay2_insert_orderDetail.php';
+        // const url = 'http://localhost/thd104/g1/public/php/mPay2_insert_orderDetail.php';
 
         // 上伺服器
-        // const url = 'php/mPay2_insert_orderDetail.php';
+        const url = 'php/mPay2_insert_orderDetail.php';
 
         fetch(url, {
             method: 'POST',

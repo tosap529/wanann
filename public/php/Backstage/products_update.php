@@ -1,9 +1,7 @@
 
 <?php
 
-include("../connect_test.php");
-// include("../connect.php");
-
+include("../connect.php");
 
 $pdo = getPDO();
 $statement = $pdo->prepare("update PRODUCT  set STATUS = :status, PRODUCT_NAME = :productName, SLOGAN1 = :slogan1, SLOGAN2 = :slogan2, PRODUCT_PIC1 = :productPic1, PRODUCT_PIC2 = :productPic2, PRODUCT_PIC3 = :productPic3, PRODUCT_PRICE = :productPrice, PRODUCT_STYLE = :productStyle, PRODUCT_CONTENT = :productContent, PRODUCT_SUBCONTENT1 = :productSubcontent1, PRODUCT_SUBCONTENT2 = :productSubcontent2, CREATE_TIME = :createTime, PRODUCT_CATEGORY_ID = :productCategoryId where ID = :id");

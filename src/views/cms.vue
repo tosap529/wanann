@@ -27,7 +27,8 @@ defineEmits(['ModalbContact']);
 const member_data = ref([]);
 const searchBar = ref(null);
 
-const url_member = 'http://localhost/thd104/g1/public/php/Backstage/member_select.php';
+// const url_member = 'http://localhost/thd104/g1/public/php/Backstage/member_select.php';
+const url_member = 'php/Backstage/member_select.php';
 
 fetch(url_member)
             .then(response => response.json())
