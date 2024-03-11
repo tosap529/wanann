@@ -135,7 +135,7 @@
                     </div>
                     <div>
                         <h2>活動狀態：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'act')">{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button>
+                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'act')">{{ props.data.STATUS === 1 ?  '上架中' : '已下架' }} </button>
                     </div>
                 </article>
             </div>
