@@ -1,6 +1,6 @@
 <?php
 include("connect.php");
-
+echo 'hi';
 $pdo = getPDO();
 $statement = $pdo->prepare("
     select EMAIL
@@ -10,12 +10,23 @@ $statement ->bindValue(":email",  $reqBody['email']);
 $statement ->execute();
 $data = $statement->fetchAll();
 
+
+    $pdo = getPDO();
+    $statement = $pdo->prepare("insert into 
+    MEMBER (NAME,PHONE,EMAIL,COUNTY,DISTRICT,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD, MEMBER_PIC,STATUS) values(:name, :phone, :email, :county, :district, :send_address, :service_address,  NOW(),:username, :password,:member_pic,:status)");
+
+
+
+
+
+
+
 if(count($data)>0){
     echo 'email重複';
 }else{
     // echo 'email通過';
+    $pdo = getPDO();
     $statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,COUNTY,DISTRICT,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD, MEMBER_PIC,STATUS) values(:name, :phone, :email, :county, :district, :send_address, :service_address,  NOW(),:username, :password,:member_pic,:status)");
-    // $statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD,  STATUS) values(:name, :phone, :email, :send_address, :service_address,  NOW(),:username, :password, b'0')");
     $statement ->bindValue(":name", $reqBody["name"]);
     $statement ->bindValue(":phone", $reqBody["phone"]);
     $statement ->bindValue(":email", $reqBody["email"]);
