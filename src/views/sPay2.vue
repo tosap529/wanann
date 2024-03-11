@@ -428,7 +428,7 @@
         // SERVICE_RESERVE_TIME 表
         const SERVICE_RESERVE_TIME = {
                     SERVICE_ID : Number(reserveStore.reserveItem.main_service.ID),
-                    RESERVE_TIME_ID : 0,
+                    RESERVE_TIME_ID : 1,
                 };
 
         const setReserveTime = function(){
@@ -474,12 +474,15 @@
             orderId = orderId.trim();
             console.log('Order ID:', orderId);
             console.log(typeof orderId);
-            // setServiceOrder(orderId)
+
+            
+            setServiceOrder(orderId)
 
         })
         .catch(error => {
             console.error('Error:', error);
         });
+        
 
     }
 
@@ -515,11 +518,11 @@
         .then(response => response.text())
         .then(orderId => {
             orderId = orderId.trim();
-            // console.log('Order ID:', orderId);
+            console.log('Order ID:', orderId);
 
-            // console.log( '第二個:',  orderId );
+            console.log( '第二個:',  orderId );
 
-            setServiceOrderAddService(orderId)
+            // setServiceOrderAddService(orderId)
 
         }).catch(error => {
             console.error('Error:', error);
