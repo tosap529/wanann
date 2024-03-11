@@ -154,11 +154,13 @@
                         <textarea style="resize: none" type="text" v-model="props.data.CONTENT"></textarea>
                         <!-- <h2>{{ props.data.CONTENT }}</h2> -->
                     </div>
-                   
-                    <div class="bAddPic" method="post" enctype="multipart/form-data">
-                            <h2>活動圖片：</h2>
-                            <img :src="props.data.PIC" alt="" ref="profile_pic" >                      
-                        </div>
+                    <div>
+                        <h2>活動圖片：</h2>
+                        <div class="bAddPic" method="post" enctype="multipart/form-data">
+                                <input type="file" style="display: none;">                     
+                                <img :src="props.data.PIC" alt="" ref="profile_pic" > 
+                            </div>
+                    </div>
                    
                   
                 </article>

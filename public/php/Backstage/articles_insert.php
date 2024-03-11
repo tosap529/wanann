@@ -24,7 +24,7 @@ $statement = $pdo->prepare("
     insert into
     ARTICLE (TITLE,PIC,CONTENT,CREATE_TIME,CATEGORY,SUMMERNOTE,STATUS) 
     values
-    (:title, :pic, :content, CURDATE(), :category, :summernote, :status)
+    (:title, :pic, :content, CURDATE(), :category, :summernote, 1)
     ");
 // 這裡CREATE_TIME只存DATE，需特別注意，insert圖片亦需以ID排序去找
 $statement ->bindValue(":title", $article_info["title"]);
@@ -32,7 +32,7 @@ $statement ->bindValue(":pic", $article_info["pic"]);
 $statement ->bindValue(":content", $article_info["content"]);
 $statement ->bindValue(":category", $article_info["category"]);
 $statement ->bindValue(":summernote", $article_info["summernote"]);
-$statement ->bindValue(":status", $article_info["status"]);
+// $statement ->bindValue(":status", $article_info["status"]);
 $statement ->execute();
 
 $pdo = getPDO();
