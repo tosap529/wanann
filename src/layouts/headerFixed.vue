@@ -43,7 +43,7 @@ onMounted(() => {
   if(sessionStorage.getItem('member_ID')){
     memberProfilePic.value.innerHTML = `<img src="${sessionStorage.getItem('member_pic')}" >`;
   }else{
-    console.log('1111');
+    // console.log('1111');
   }
 });
 </script>
