@@ -17,8 +17,8 @@ let CommentData = {
     content:''
 }
 const submitComment =()=>{
-    const url = 'http://localhost/thd104/g1/public/php/comment_insert.php';
-    // const url = 'php/comment_insert.php';
+    // const url = 'http://localhost/thd104/g1/public/php/comment_insert.php';
+    const url = 'php/comment_insert.php';
     fetch(url, {
         method: 'POST',
         body: JSON.stringify(CommentData)

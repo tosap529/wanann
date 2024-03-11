@@ -70,8 +70,8 @@ onMounted(()=>{
 */
 
 onMounted(async () => {
-    const url = 'http://localhost/thd104/g1/public/php/member_select.php';
-    // const url = 'php/member_select.php';
+    // const url = 'http://localhost/thd104/g1/public/php/member_select.php';
+    const url = 'php/member_select.php';
     const res = await fetch(url, { method: 'POST', body: JSON.stringify({id:sessionStorage.getItem('member_ID')}) });
     const data = await res.json();
     console.log(data.sOrder);

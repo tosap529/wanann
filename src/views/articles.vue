@@ -47,8 +47,8 @@
 
     onMounted(() => {
 
-    const url_articlesWanann = 'http://localhost/thd104/g1/public/php/articlesWanann_select.php';
-    // const url_articlesWanann = 'php/articlesWanann_select.php';
+    // const url_articlesWanann = 'http://localhost/thd104/g1/public/php/articlesWanann_select.php';
+    const url_articlesWanann = 'php/articlesWanann_select.php';
 
     
     fetch(url_articlesWanann)
@@ -62,8 +62,8 @@
         });
 
 
-    const url_articlesWanannNew = 'http://localhost/thd104/g1/public/php/articlesWanannNew_select.php';
-    // const url_articlesWanannNew = 'php/articlesWanannNew_select.php';
+    // const url_articlesWanannNew = 'http://localhost/thd104/g1/public/php/articlesWanannNew_select.php';
+    const url_articlesWanannNew = 'php/articlesWanannNew_select.php';
 
     
     fetch(url_articlesWanannNew)
@@ -77,7 +77,8 @@
         });
 
 
-        const url_articlesPro = 'http://localhost/thd104/g1/public/php/articlesPro_select.php';
+        // const url_articlesPro = 'http://localhost/thd104/g1/public/php/articlesPro_select.php';
+        const url_articlesPro = 'php/articlesPro_select.php';
 
     
     fetch(url_articlesPro)
@@ -91,7 +92,8 @@
         });
 
 
-    const url_articlesProNew = 'http://localhost/thd104/g1/public/php/articlesProNew_select.php';
+    // const url_articlesProNew = 'http://localhost/thd104/g1/public/php/articlesProNew_select.php';
+    const url_articlesProNew = 'php/articlesProNew_select.php';
 
 
     fetch(url_articlesProNew)
@@ -105,7 +107,8 @@
         });
 
 
-    const url_articlesClean = 'http://localhost/thd104/g1/public/php/articlesClean_select.php';
+    // const url_articlesClean = 'http://localhost/thd104/g1/public/php/articlesClean_select.php';
+    const url_articlesClean = 'php/articlesClean_select.php';
 
     
     fetch(url_articlesClean)
@@ -119,7 +122,8 @@
         });
 
 
-    const url_articlesCleanNew = 'http://localhost/thd104/g1/public/php/articlesCleanNew_select.php';
+    // const url_articlesCleanNew = 'http://localhost/thd104/g1/public/php/articlesCleanNew_select.php';
+    const url_articlesCleanNew = 'php/articlesCleanNew_select.php';
 
     
     fetch(url_articlesCleanNew)

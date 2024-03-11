@@ -33,8 +33,8 @@ const userDataEdit = ()=>{
 //     const data = await res.json();
 //     console.log(data);
 // }
-    // const url = 'php/register_insert.php';
-    const url = 'http://localhost/thd104/g1/public/php/member_update.php';
+    const url = 'php/member_update.php';
+    // const url = 'http://localhost/thd104/g1/public/php/member_update.php';
     fetch(url, {
             method: 'POST',
             body: JSON.stringify(UserData)
@@ -169,8 +169,8 @@ const fileUpload=()=>{
          let formdata  = new FormData();
             formdata.append("profile_pic", file);
             formdata.append("member_ID", JSON.stringify({'id':sessionStorage.getItem('member_ID')}));
-        const url = 'http://localhost/thd104/g1/public/php/member_pic_update.php';
-        // const url = 'php/member_pic_update.php';
+        // const url = 'http://localhost/thd104/g1/public/php/member_pic_update.php';
+        const url = 'php/member_pic_update.php';
             fetch(url, {
                     method: 'POST',
                     body: formdata

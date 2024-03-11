@@ -1,6 +1,6 @@
 <?php
-include("connect_test.php");
-// include("connect.php");
+include("connect.php");
+
 $reqBody = json_decode(file_get_contents("php://input"), true);
 
 $pdo = getPDO();
