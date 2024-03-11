@@ -117,7 +117,8 @@
                     </div>
                     <div>
                         <h2>建立日期：</h2>
-                        <h2>{{ props.data.CREATE_TIME }}</h2>
+                        <!-- <h2>{{ props.data.CREATE_TIME }}</h2> -->
+                        <input type="text" v-model="props.data.CREATE_TIME">
                     </div>
                     <div>
                         <h2>截止日期：</h2>
