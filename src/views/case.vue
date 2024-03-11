@@ -69,7 +69,7 @@
                 整個清潔過程完畢後，我走進浴室時彷彿走進了全新的空間。清新的氛圍、乾淨整潔的環境，使我深刻體會到專業清潔服務的價值。對於那些忙碌的生活，無暇清潔的人來說，這樣的服務無疑是一種解脫。
               </p>
             </div>
-            <div class="next_btn -close"><a href="#" class="btn next">看更多</a></div>
+            <!-- <div class="next_btn -close"><a href="#" class="btn next">看更多</a></div> -->
           </article>
     <div class="right">
         
@@ -105,7 +105,7 @@
                 最讓人滿意的是，公司提供了環保清潔選項，使用對環境友善的清潔劑，讓我們更放心地享受清新的居家生活。總的來說，居家清潔服務不僅滿足了我們的需求，更超越了預期，是一個值得信賴和推薦的清潔服務公司。
             </p>
         </div>
-        <div class="next_btn -close"><a href="#" class="btn next">收合</a></div>
+        <!-- <div class="next_btn -close"><a href="#" class="btn next">收合</a></div> -->
     </article>
     <div class="right">
         

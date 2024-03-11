@@ -20,7 +20,7 @@ import { compileStyleAsync } from 'vue/compiler-sfc';
         showSuccessModal.value = true;
         setTimeout(() => {
             showSuccessModal.value = false;
-         }, 800);
+         }, 600);
   
     };
     const closeModal = () => {
