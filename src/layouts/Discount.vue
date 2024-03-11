@@ -7,7 +7,7 @@ import { compileStyleAsync } from 'vue/compiler-sfc';
 
 
  // --------------------複製功能----------------------->
-    // const showSuccessModal = ref(false);
+    const showSuccessModal = ref(false);
  
     const copyValue = (couponId) => {
         const inputElement = document.createElement('input');
@@ -17,15 +17,15 @@ import { compileStyleAsync } from 'vue/compiler-sfc';
         document.execCommand('copy');
         document.body.removeChild(inputElement);
 
-        // showSuccessModal.value = true;
-        // setTimeout(() => {
-        //     showSuccessModal.value = false;
-        //  }, 800);
+        showSuccessModal.value = true;
+        setTimeout(() => {
+            showSuccessModal.value = false;
+         }, 800);
   
     };
-    // const closeModal = () => {
-    //     showSuccessModal.value = false;
-    // };
+    const closeModal = () => {
+        showSuccessModal.value = false;
+    };
 </script>
 
 <template>
@@ -47,7 +47,7 @@ import { compileStyleAsync } from 'vue/compiler-sfc';
                             <div class="modal_content">
                                 <span class="close" @click="closeModal">&times;</span>
                                 <img src="@/img/logo_title.svg" alt="logo">
-                                <p>已複製連結</p>
+                                <p>已複製優惠碼</p>
                             </div>
                     </div>
                    
@@ -120,14 +120,14 @@ import { compileStyleAsync } from 'vue/compiler-sfc';
     z-index: 12; 
     left: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, .5); 
+    background-color: rgba(0, 0, 0, .2); 
 }
 
 .modal_content {
     margin: 0 auto;
     margin-top: 17%;
     background-color:#B69B85;
-    width: 155px;
+    width: 165px;
     border: none;
     text-align: center;
     padding: 16px;
