@@ -9,8 +9,8 @@ const showSuccessMessage = ref(false);
 
 const submitForm = () => {
 
-    const url_articles_update = 'http://localhost/thd104/g1/public/php/Backstage/articles_update.php';
-    // const url_articles_update = 'php/Backstage/articles_update.php';
+    // const url_articles_update = 'http://localhost/thd104/g1/public/php/Backstage/articles_update.php';
+    const url_articles_update = 'php/Backstage/articles_update.php';
     
     showSuccessMessage.value = true;
     setTimeout(() => {
@@ -82,12 +82,13 @@ const submitForm = () => {
                     </div>
                     <div>
                         <h2>建立日期：</h2>
-                        <h2>{{ props.data.CREATE_TIME }}</h2>
+                        <input type="text" v-model="props.data.CREATE_TIME">
+                        <!-- <h2>{{ props.data.CREATE_TIME }}</h2> -->
                     </div>
                 
                     <div>
                         <h2>文章狀態：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button>
+                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '上架中' : '已上架' }} </button>
                     </div>
                 </article>
             </div>
