@@ -478,6 +478,8 @@
             
             setServiceOrder(orderId)
 
+            setServiceOrder(orderId)
+
         })
         .catch(error => {
             console.error('Error:', error);
@@ -521,8 +523,10 @@
             console.log('Order ID:', orderId);
 
             console.log( '第二個:',  orderId );
+            console.log(typeof orderId);
 
-            // setServiceOrderAddService(orderId)
+            setServiceOrderAddService(orderId)
+
 
         }).catch(error => {
             console.error('Error:', error);
@@ -538,8 +542,8 @@
         // SERVICE_ORDER_ADD_SERVICE 表
 
         const SERVICE_ORDER_ADD_SERVICE = reserveStore.reserveItem.add_spec_service.map(item => ({
-            SERVICE_ORDER_ID : orderId,
-            ADD_SERVICE_ID : item.ID
+            SERVICE_ORDER_ID : Number(orderId),
+            ADD_SERVICE_ID : Number(item.ID)
         }))
 
         // console.log(SERVICE_ORDER_ADD_SERVICE);
@@ -550,13 +554,13 @@
         // 上伺服器
         const url = 'php/sPay2_insert_S_O_A_Service.php';
 
-        fetch(url_service_order, {
+        fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            // body: JSON.stringify(SERVICE_ORDER_ADD_SERVICE)
-            body: JSON.stringify({ SERVICE_ORDER_ADD_SERVICE: SERVICE_ORDER_ADD_SERVICE })
+            body: JSON.stringify(SERVICE_ORDER_ADD_SERVICE)
+            // body: JSON.stringify({ SERVICE_ORDER_ADD_SERVICE: SERVICE_ORDER_ADD_SERVICE })
         })
         .then(response => response.text())
         .then(response => {

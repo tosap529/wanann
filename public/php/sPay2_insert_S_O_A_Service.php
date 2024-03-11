@@ -9,11 +9,10 @@ $orderItems = $reqBody['SERVICE_ORDER_ADD_SERVICE'];
 
 foreach ($orderItems as $item) {
     $statement = $pdo->prepare("
-        INSERT INTO `Wanann_database`.`SERVICE_ORDER_ADD_SERVICE` 
+        INSERT INTO `SERVICE_ORDER_ADD_SERVICE` 
         (`SERVICE_ORDER_ID`, `ADD_SERVICE_ID`)
         VALUES (:serviceOrderId, :addServiceId);
     ");
-
 
 
     $statement->bindValue(":serviceOrderId", $item["SERVICE_ORDER_ID"]);
