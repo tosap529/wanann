@@ -70,7 +70,7 @@ const submitForm = () => {
         <section class="bModalContent">
             <div class="pic">
                 <!-- <img src="props.data.PIC" alt=""> -->
-                <img src="../img/case/case_2.jpg" alt="">
+                <img :src="props.data.MEMBER_PIC" alt="">
             </div>
             <div>
                 <h2>會員資料</h2>

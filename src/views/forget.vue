@@ -99,7 +99,7 @@ const eyeOnPWD=(e)=>{
                         <button class="btn" @click.prevent="emailValidation" >送出</button>
                     </div>
                 </label>
-                <h4>*請至電子信箱點擊認證連結</h4>
+                <!-- <h4>*請至電子信箱點擊認證連結</h4> -->
                 <div v-if="emailExist=='true'">
                     <h2>帳號存在</h2>
                     <label for="rePwdNew">

@@ -31,11 +31,11 @@ if($_FILES["profile_pic"]["error"] > 0){
     $fileNewPath = $ServerRoot.$memberPicPath.$self.'.'.getExtensionName($filePath);
     $fileNewName = $memberPicPath.$self.'.'.getExtensionName($filePath);
     // 測試用－自訂名稱
-    $fileTestPath =$ServerRoot."/thd104/g1/public/img/member/member_pic/".$self.'.'.getExtensionName($filePath);
-    $fileTestName =$memberPicPath.$self.'.'.getExtensionName($filePath);
+    // $fileTestPath =$ServerRoot."/thd104/g1/public/img/member/member_pic/".$self.'.'.getExtensionName($filePath);
+    // $fileTestName =$memberPicPath.$self.'.'.getExtensionName($filePath);
 
     //將暫存檔搬移到正確位置
-    move_uploaded_file($filePath_Temp, $fileTestPath);
+    move_uploaded_file($filePath_Temp,$fileNewPath);
     // move_uploaded_file($filePath_Temp, $fileNewPath);
 
 }
@@ -53,7 +53,7 @@ $pdo = getPDO();
 // 上線用
 // $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".$fileNewName."' where ID=:id");
 // 測試用
-$statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '". $fileTestName."' where ID=:id");
+$statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".  $fileNewName."' where ID=:id");
 
 $statement ->bindValue(":id", $member_ID);
 
