@@ -1,6 +1,7 @@
 <script setup>
 import bTable from '@/layouts/bTable.vue'
 import{ ref, computed, defineEmits } from 'vue';
+import { useRouter } from 'vue-router';
 const back_sidebar = [{
                         title:'會員管理',
                         subtitle: ['會員註冊資料']},
@@ -23,6 +24,8 @@ const getBackNow= (e)=>{
 }
 
 defineEmits(['ModalbContact']);
+// 取得當前頁面路徑
+const router = useRouter();
 
 const member_data = ref([]);
 const searchBar = ref(null);
@@ -58,7 +61,9 @@ fetch(url_member)
                 }
             });
 
-
+const toWelcome=()=>{
+    router.push({path:"/"});
+}
 
 
 
@@ -101,7 +106,7 @@ fetch(url_member)
                         <h3>客服</h3>
                         <a class="nav-link" href="#">聯絡表單內容</a>
                     </li> -->
-                    <li class="cms_nav-item" id="bLogOut">
+                    <li class="cms_nav-item" id="bLogOut" @click="toWelcome">
                         <img src="@/img/cms/cms_icon7.svg" alt="">
                         <h3>登出</h3>
                     </li>
@@ -160,6 +165,12 @@ fetch(url_member)
 .back_on{
     // width: fit-content;
     background-color: $white;
+}
+#bLogOut{
+    cursor: pointer;
+    &:hover{
+        background-color: $medium-milktea;
+    }
 }
 </style>
 

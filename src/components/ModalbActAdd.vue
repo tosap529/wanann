@@ -148,11 +148,11 @@
                     </div>
                     <div>
                         <h2>優惠內容：</h2>
-                        <input v-model="NewActData.couponPrice">
+                        <input v-model="NewActData.couponPrice" oninput="value = value.replace(/[^\d]/g,'')">
                     </div>
                     <div>
                         <h2>活動狀態：</h2>
-                        <button  :class="NewArticleData.status ? 'green' : 'red'" @click="switchStatus()" >{{final_status}} </button>
+                        <button  :class="NewActData.status ? 'green' : 'red'" @click="switchStatus()" >{{final_status}} </button>
                     </div>
                 </article>
             </div>
@@ -327,7 +327,7 @@ button{
 .success-message {
     position: absolute;
     top: 10px;
-    right: 200px;
+    right: 180px;
     color: green;
     border-radius: 5px;
     font-weight: bold;

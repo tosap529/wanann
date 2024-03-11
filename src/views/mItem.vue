@@ -126,10 +126,10 @@
 
         // API
         // 本機
-        const url = `http://localhost/thd104/g1/public/php/mItem_select.php?productId=${productId}`;
+        // const url = `http://localhost/thd104/g1/public/php/mItem_select.php?productId=${productId}`;
 
         // 上伺服器
-        // const url = 'public/php/mItem_select.php?productId=${productId}`;
+        const url = `php/mItem_select.php?productId=${productId}`;
 
         fetch(url)
             .then(response => response.json())
