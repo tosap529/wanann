@@ -8,6 +8,14 @@ include("../connect_test.php");
 // print_r(json_decode($_POST['article_info'],true)) ;
 
 $article_info = json_decode($_POST['article_info'],true);
+
+
+if(!$article_info["title"]||!$article_info["content"]||!$article_info["category"]){
+    echo '資料不全';
+ 
+}else{
+   
+    
 // echo $article_info['title'];
 // echo $article_info['pic'];
 // echo $article_info['summernote'];
@@ -18,7 +26,7 @@ $statement = $pdo->prepare("
     values
     (:title, :pic, :content, CURDATE(), :category, :summernote, 1)
     ");
-
+// 這裡CREATE_TIME只存DATE，需特別注意，insert圖片亦需以ID排序去找
 $statement ->bindValue(":title", $article_info["title"]);
 $statement ->bindValue(":pic", $article_info["pic"]);
 $statement ->bindValue(":content", $article_info["content"]);
@@ -30,7 +38,7 @@ $pdo = getPDO();
 $statement = $pdo->prepare("
     select ID 
     from ARTICLE
-    order by CREATE_TIME desc
+    order by ID desc
     limit 1");
 $statement ->execute();
 $articleID = $statement->fetch();
@@ -78,6 +86,12 @@ $pdo = getPDO();
 $statement = $pdo->prepare("update ARTICLE set PIC = '". $fileTestName."' where ID=:id");
 $statement ->bindValue(":id", $articleID['ID']);
 $statement ->execute();
+
+}
+
+
+
+
 
 
 ?>

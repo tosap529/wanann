@@ -59,9 +59,9 @@
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
             <div>
-                <div>
-                    <h2 class="bItem">活動ID：{{ props.data.ID }}</h2>
-                    <h2></h2>
+                <div class="bItem"> 
+                    <h2 >活動ID：</h2>
+                    <h2>{{ props.data.ID }}</h2>
                 </div>
                 <h2>活動資料</h2>
                 <article>
@@ -108,8 +108,8 @@
                     </div>
                     <div>
                         <h2>活動圖片：</h2>
-                        <div class="bAddPic bAddPicPlus">
-                            <img src="" alt="">
+                        <div class="bAddPic" :class="{'bAddPicPlus':!props.data.PIC}">
+                            <img :src="props.data.PIC" alt="">
                         </div>
                     </div>
                   

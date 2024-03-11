@@ -65,9 +65,9 @@ const submitForm = () => {
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
             <div>
-                <div>
-                    <h2 class="bItem">文章ID：{{ props.data.ID }}</h2>
-                    <h2></h2>
+                <div class="bItem">
+                    <h2>文章ID：</h2>
+                    <h2>{{ props.data.ID }}</h2>
                 </div>
                 <h2>文章資料</h2>
                 <article>
@@ -101,8 +101,8 @@ const submitForm = () => {
                     </div>
                     <div>
                         <h2>文章圖片：</h2>
-                        <div class="bAddPic bAddPicPlus">
-                            <img src="" alt="">
+                        <div class="bAddPic" :class="{'bAddPicPlus':!props.data.PIC}">
+                            <img :src="props.data.PIC" alt="">
                         </div>
                     </div>
                   

@@ -79,9 +79,9 @@
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
             <div>
-                <div>
-                    <h2 class="bItem">活動ID：{{ NewActData.id }}</h2>
-                    <h2></h2>
+                <div class="bItem">
+                    <h2>活動ID：</h2>
+                    <h2>{{ NewActData.id }}</h2>
                 </div>
                 <h2>活動資料</h2>
                 <article>
@@ -132,7 +132,7 @@
                     </div>
                     <div>
                         <h2>活動圖片：</h2>
-                        <div class="bAddPicPlus bAddPic" @click="fileClick">
+                        <div class="bAddPicPlus bAddPic"  @click="fileClick">
                             <input type="file" ref="actAddPicInput" style="display: none;">
                             <img src="" alt="" ref="actAddPic">
                         </div>

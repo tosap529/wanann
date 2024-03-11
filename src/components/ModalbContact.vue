@@ -64,8 +64,9 @@
 
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
-            <div>
-                <h2 class="bItem">表單ID： {{ props.data.ID }} </h2>
+            <div class="bItem">
+                <h2>表單ID：</h2>
+                <h2>{{ props.data.ID }}</h2>
             </div>
             <div>
                 <h2>表單資料</h2>

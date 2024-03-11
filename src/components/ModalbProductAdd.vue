@@ -118,9 +118,9 @@ const submitForm = () => {
         <form @submit.prevent="submitForm">
         <section class="bModalContent">
             <div>
-                <div>
-                    <h2 class="bItem">商品ID： {{  NewProductData.id }}</h2>
-                    <h2></h2>
+                <div class="bItem">
+                    <h2>商品ID：</h2>
+                    <h2>{{  NewProductData.id }}</h2>
                 </div>
                 <h2>商品資料</h2>
                 <article>
