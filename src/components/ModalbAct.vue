@@ -155,13 +155,9 @@
                         <!-- <h2>{{ props.data.CONTENT }}</h2> -->
                     </div>
                    
-                        <h2>活動圖片：</h2>
-                        <div class="bAddPic" method="post" enctype="multipart/form-data">
-                            <img :src="props.data.PIC" alt="" ref="profile_pic" > 
-                            <input type="file" id="profile" name="profile" ref="profile" @change="$emit('getProfileURL')">
-                                <font-awesome-icon :icon="['fas', 'pen']" @click="profileClick" />
-                            <button  id="profilePicUpdate" ref="profilePicUpdate" ></button>
-                                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="fileUpload()" />
+                    <div class="bAddPic" method="post" enctype="multipart/form-data">
+                            <h2>活動圖片：</h2>
+                            <img :src="props.data.PIC" alt="" ref="profile_pic" >                      
                         </div>
                    
                   
@@ -256,6 +252,7 @@
                     align-self: center;
                     margin-top: 50px;
                 }
+    
                 textarea{
                     border-radius: 8px;
                     border: none;

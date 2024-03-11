@@ -39,14 +39,14 @@ export const useReserveStore = defineStore('reserve', {
       let total = 0;
 
       if (this.reserveItem.main_service) {
-        total += this.reserveItem.main_service.SERVICE_PRICE;
+        total += Number(this.reserveItem.main_service.SERVICE_PRICE);
       }
 
       for (const service of this.reserveItem.add_spec_service) {
-        total += service.ADD_SERVICE_PRICE;
+        total += Number(service.ADD_SERVICE_PRICE);
       }
 
-      this.totalPrice = total - this.couponDiscount;
+      this.totalPrice = total - Number(this.couponDiscount);
     }
 
   }
