@@ -77,30 +77,115 @@
         });
 
 
+        const url_articlesPro = 'http://localhost/thd104/g1/public/php/articlesPro_select.php';
+
+    
+    fetch(url_articlesPro)
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+        proItems.value = response;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+    const url_articlesProNew = 'http://localhost/thd104/g1/public/php/articlesProNew_select.php';
+
+
+    fetch(url_articlesProNew)
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+        proNewItems.value = response;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+    const url_articlesClean = 'http://localhost/thd104/g1/public/php/articlesClean_select.php';
+
+    
+    fetch(url_articlesClean)
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+        cleanItems.value = response;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
+    const url_articlesCleanNew = 'http://localhost/thd104/g1/public/php/articlesCleanNew_select.php';
+
+    
+    fetch(url_articlesCleanNew)
+        .then(response => response.json())
+        .then(response => {
+            // console.log('註冊成功 js');
+        cleanNewItems.value = response;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+
 
     
 });
 
-    // --------------------分頁器----------------------->
+    // --------------------w分頁器----------------------->
     
-    const wcurrentPage = ref(1)
-    const wpageSize = ref(3)
+    const wcurrentPage = ref(1);
+    const wpageSize = ref(3);
 
-    
-    const wstartIndex = (wcurrentPage.value - 1) * wpageSize.value;
-    const wendIndex = wstartIndex + wpageSize.value;
-    wanannNewItems.value.slice(wstartIndex, wendIndex);
- 
+    const wstartIndex = computed(() => (wcurrentPage.value - 1) * wpageSize.value);
+    const wendIndex = computed(() => wstartIndex.value + wpageSize.value);
+    const paginatedWanannItems = computed(() => wanannItems.value.slice(wstartIndex.value, wendIndex.value));
 
-    const wtotalPages = computed(() => Math.ceil(wanannNewItems.value.length / wpageSize.value));
-
+    const wtotalPages = computed(() => Math.ceil(wanannItems.value.length / wpageSize.value));
     const wsetPage = (wpage) => {
         if (wpage >= 1 && wpage <= wtotalPages.value) {
             wcurrentPage.value = wpage;
         }
     };
 
+        // --------------------p分頁器----------------------->
+    
+    const pcurrentPage = ref(1);
+    const ppageSize = ref(3);
 
+    const pstartIndex = computed(() => (pcurrentPage.value - 1) * ppageSize.value);
+    const pendIndex = computed(() => pstartIndex.value + ppageSize.value);
+    const paginatedProItems = computed(() => proItems.value.slice(pstartIndex.value, pendIndex.value));
+
+    const ptotalPages = computed(() => Math.ceil(proItems.value.length / ppageSize.value));
+    const psetPage = (ppage) => {
+        if (ppage >= 1 && ppage <= ptotalPages.value) {
+            pcurrentPage.value = ppage;
+        }
+    };
+
+        // --------------------c分頁器----------------------->
+    
+    const ccurrentPage = ref(1);
+    const cpageSize = ref(3);
+
+    const cstartIndex = computed(() => (ccurrentPage.value - 1) * cpageSize.value);
+    const cendIndex = computed(() => cstartIndex.value + cpageSize.value);
+    const paginatedCleanItems = computed(() => cleanItems.value.slice(cstartIndex.value, cendIndex.value));
+
+    const ctotalPages = computed(() => Math.ceil(cleanItems.value.length / cpageSize.value));
+    const csetPage = (cpage) => {
+        if (cpage >= 1 && cpage <= ctotalPages.value) {
+            ccurrentPage.value = cpage;
+        }
+    };
+
+    
 </script>
 
 
@@ -110,7 +195,7 @@
         <DefaultHeader header-title-zh="專欄文章" header-title-eng="Articles" :bgi="banner_url" /> 
         <wrapper class="articles"> 
         <div id="wannan_top"  v-show="isVisible1">
-        <section class="articles_top" v-for="item in wanannItems" :key="item.ID">
+        <section class="articles_top" v-for="item in wanannNewItems" :key="item.ID">
            
             <article class="left">
                 <div class="title title_phone">
@@ -126,53 +211,30 @@
 
             <img :src="item.PIC" alt="">
             
-            <!-- <article class="left">
+        </section>
+        </div>
+
+        <div id="know_top" v-show="isVisible2">
+        <section class="articles_top" v-for="item in cleanNewItems"  :key="item.ID">
+
+            <article class="left">
                 <div class="title title_phone">
                     <h1>最新文章</h1>
                 </div>
 
-                <h2>年前掃除全攻略 : 三樣神器馬上搞定</h2>
-                <h3>2023.12.31</h3>
-                <h4>農曆新年即將來臨，象徵著新的一年的開始，而在這個美好的時刻，許多人都迎來了一項傳統的活動 —
-                    年前大掃除。這不僅是一種習慣，更是一種將舊歲的塵埃拂去，迎接新年氣象的潔淨仪式。為了確保家居環境在新的一年焕然一新，我們在大掃除前就得提前備妥各種實用的打掃用具。這次，讓我們一同探討三樣超神的工具，這些神奇的道具將為你的大掃除添上一份便利，讓效果超乎你的預期！先來談談懶人必備的超級神器
-                    — 萬能清潔機！這不僅是懶人的救星，更是家居清潔的得力助手。不管是地板、沙發，還是窗簾，這小傢伙通通都能輕鬆搞定。吸塵、擦拭、除媒通通不在話下，你想得到的清潔效果，這台小神器都能事半功倍地達成。
-                </h4>
+                <h2>{{ item.TITLE }}</h2>
+                <h3>{{ item.CREATE_TIME }}</h3>
+                <h4>{{ item.CONTENT }}</h4>
                 <a href="">Read More</a>
 
             </article>
 
-            <img src="../img/articles/articles_1.jpg" alt=""> -->
-            
+            <img :src="item.PIC" alt="">
+
         </section>
         </div>
-        <!-- <div id="know_top" v-show="isVisible2">
-        <section class="articles_top">
-
-            <article class="left">
-                <div class="title">
-                    <h1>最新文章</h1>
-                </div>
-
-                <h2>清潔達人的黃金法則：居家清潔五大秘訣</h2>
-                <h3>2023.12.31</h3>
-                <h4>在追求清潔而健康的居家環境中，掌握一些實用的清潔秘訣是至關重要的。以下是五個讓你成為居家清潔達人的黃金法則：
-                    1. 定期深度清潔： 不只是表面，定期進行深度清潔對於家居環境的衛生至關重要。清理床底下、沙發底下、家具角落等常被忽略的區域，可以防止細菌和塵蹣滋生，確保整個家庭的健康。
-                    2. 選擇環保清潔劑： 改用環保清潔劑不僅能減少對環境的影響，還能減少對家人健康的風險。天然成分的清潔劑，如檸檬、蘇打粉、白醋等，能夠安全而有效地清潔各種表面。
-                    3. 購買高效清潔工具： 選擇高效的清潔工具可以極大提高清潔效率。例如，微纖維抹布能夠更有效地吸附灰塵和細菌，而可調節清潔器具則能應對不同區域的清潔需求。
-                    4. 隨手保持整潔： 养成隨手保持整潔的習慣，如隨時將使用完的物品歸位、定期整理物品、清理碗盤等，可以避免家中變得混亂，減少長時間的整理工作。
-                    5. 定期更換家居用品： 床單、枕套、浴巾等家居用品容易累積灰塵和細菌，定期更換可以確保家居環境清潔衛生。此外，定期清理和更換空調濾網，有助於維持室內空氣的清新。
-                    這些黃金法則不僅讓你的居家環境保持清潔，還有助於創造一個舒適、健康的生活空間。融入這些簡單而有效的清潔習慣，讓你成為真正的居家清潔達人。
-                </h4>
-                <a href="">Read More</a>
-
-            </article>
-
-            <img src="../img/articles/articles_5.jpg" alt="">
-
-        </section>
-        </div> -->
-        <!-- <div id="interview_top" v-show="isVisible3">
-        <section class="articles_top">
+        <div id="interview_top" v-show="isVisible3">
+        <section class="articles_top" v-for="item in proNewItems"  :key="item.ID">
 
             <article class="left">
                 <div class="title">
@@ -195,7 +257,7 @@
             <img src="../img/articles/articles_9.jpg" alt="">
 
         </section>
-        </div> -->
+        </div>
 
         <section class="articles_buttom" >
 
@@ -230,7 +292,7 @@
 
             <div class="articles_all" id="articles_wanann" v-if="activeContent === 'content1'">
               
-                <section class="section_all"  v-for="item in wanannNewItems" :key="item.ID">
+                <section class="section_all"  v-for="item in paginatedWanannItems" :key="item.ID">
                     <img :src="item.PIC" alt="">
 
                     <article>
@@ -240,7 +302,9 @@
                         <a href="">Read More</a>
                     </article>
                 </section>
-
+            
+            </div>
+            
                 <!-- <section class="section_all even">
                     <img src="../img/articles/articles_3.jpg" alt="">
 
@@ -271,29 +335,22 @@
 
                 </section> -->
         
-            </div>
+           
 
-            <!-- <div class="articles_all " id="articles_know" v-else-if="activeContent === 'content2'">
+            <div class="articles_all " id="articles_know" v-else-if="activeContent === 'content2'">
                
-                <section class="section_all">
-                    <img src="../img/articles/articles_6.jpg" alt="">
+                <section class="section_all"  v-for="item in paginatedCleanItems" :key="item.ID">
+                    <img :src="item.PIC" alt="">
 
                     <article>
-                        <h2>家居清潔新境界：簡單有效的五大技巧</h2>
-                        <h3>2023.12.31</h3>
-                        <p>在現代快節奏的生活中，如何在有限的時間內保持家居清潔成為一個挑戰。然而，透過一些簡單卻極為有效的技巧，你可以輕鬆管理家務，打造一個清新整潔的居住環境。以下是五個實用的家居清潔技巧：
-                            1. 分段清潔法： 不要讓所有的清潔工作壓在一天完成，這容易讓人感到沮喪。取而代之的是，採用分段清潔法，每天專注於特定的區域或任務。這樣不僅減輕了清潔的負擔，還能確保每個區域都獲得足夠的關注。
-                            2. 選擇多功能清潔用具： 使用能夠應對不同清潔需求的多功能清潔工具，例如可以清潔地板、窗戶和桌面的可調式清潔器具。這樣不僅節省了存放空間，還提高了清潔效率。
-                            3. 利用清潔劑的最佳時間： 清晨或傍晚是使用清潔劑的最佳時間，因為室內通風較好，清潔劑更容易揮發，不會在空氣中殘留。同時，這也是避免日曬和高溫對清潔劑造成損害的好時機。
-                            4. 定期清理常用區域： 經常使用的區域，如廚房、浴室，應該定期進行深度清潔。這包括清潔電器表面、更換濾網、檢查管道等，確保這些區域不成為細菌和異味的藏身之地。
-                            5. 培養良好的習慣： 定期整理和清潔是培養良好習慣的一部分。養成每天整理床鋪、定期處理郵件和文件、隨手處理髒污等小習慣，可以使家居始終保持整潔，減少長期清潔的困擾。
-                            這些簡單而有效的家居清潔技巧可以幫助你在繁忙的生活中輕鬆應對家務，同時保持一個舒適、健康的居住環境。試著將它們融入你的日常生活中，享受清新整潔的家居空間。
-                        </p>
+                        <h2>{{ item.TITLE }}</h2>
+                        <h3>{{ item.CREATE_TIME }}</h3>
+                        <p>{{ item.CONTENT }}</p>
                         <a href="">Read More</a>
                     </article>
                 </section>
 
-                <section class="section_all even">
+                <!-- <section class="section_all even">
                     <img src="../img/articles/articles_7.jpg" alt="">
 
                     <article>
@@ -326,30 +383,24 @@
                         <a href="">Read More</a>
                     </article>
 
-                </section>
+                </section> -->
       
             </div >
             
             <div class="articles_all" id="articles_interview" v-else-if="activeContent === 'content3'">
                
 
-                <section class="section_all">
-                    <img src="../img/articles/articles_10.jpg" alt="">
+                <section class="section_all"  v-for="item in paginatedProItems" :key="item.ID">
+                    <img :src="item.PIC" alt="">
 
                     <article>
-                        <h2>為什麼加入浣安團隊? 讓小鄭告訴你</h2>
-                        <h3>2023.12.31</h3>
-                        <p>在高齡化社會的現今，家中的長者需要更多的關愛和照顧。他們的生活品質直接受到居家環境的影響，因此一個清潔、舒適的家居空間變得顯得格外重要。為了滿足這樣的需求，浣安居家清潔服務應運而生。浣安不僅提供專業的清潔服務，更在其中融入愛心關懷，為您的家人打造一個安心、舒適的居家環境。我們深刻理解長者的需求，因此在清潔的同時，注重細節、注重安全，確保長者的居家環境是乾淨、整潔且安全的。
-                            浣安的清潔服務不僅僅是掃地、拖地那麼簡單，更包括對家具、地板、浴室等各個區域的深度清潔。我們的專業清潔人員接受嚴格的培訓，熟練使用高效的清潔工具和產品，確保清潔過程不僅快速而且徹底。
-                            除了專業的清潔服務，浣安更強調愛心關懷的重要性。我們的清潔人員不僅是專業的技術人才，更是愛心和關懷的傳遞者。他們善於與長者溝通，細心聆聽他們的需求，並在清潔過程中給予溫馨的陪伴，使清潔變成一個愉快的過程。
-                            讓浣安成為您愛的長者的守護天使，為他們帶來幸福與關懷。透過我們的清潔服務，不僅讓家中環境變得更舒適，更是為長者營造一個充滿愛的家。我們致力於為每一位家庭提供最優質的居家清潔服務，讓您的長者能夠擁有一個溫馨、整潔、舒適的居家環境。
-                            
-                            
-                        </p>
+                        <h2>{{ item.TITLE }}</h2>
+                        <h3>{{ item.CREATE_TIME }}</h3>
+                        <p>{{ item.CONTENT }}</p>
                         <a href="">Read More</a>
                     </article>
                 </section>
-
+<!-- 
                 <section class="section_all even">
                     <img src="../img/articles/articles_11.jpg" alt="">
 
@@ -386,9 +437,9 @@
                     </article>
                     
 
-                </section>
+                </section> -->
            
-            </div> -->
+            </div> 
             
         </section>
 
@@ -417,6 +468,52 @@
 
     </div>
 
+    <div class="mall_paginator"  v-if="activeContent === 'content2'">
+
+                
+<ul>
+    <!-- 上一頁圖案 -->
+    <li>                    
+        <div v-if="ccurrentPage != 1" v-on:click="csetPage(ccurrentPage - 1)">
+            <span>&lt;</span>
+        </div>
+    </li>
+    <li v-for="n in ctotalPages" v-bind:key="n" v-on:click="csetPage(n)" v-bind:class="{'mall_paginator_on' : n == ccurrentPage}">
+        {{ n }}
+    </li>
+    <!-- 下一頁圖案 -->
+    <li>                     
+        <div  v-if="ccurrentPage != ctotalPages" v-on:click="csetPage(ccurrentPage + 1)">
+            <span>&gt;</span>
+        </div>
+    </li>
+</ul>
+
+</div>
+
+<div class="mall_paginator"  v-if="activeContent === 'content3'">
+
+                
+<ul>
+    <!-- 上一頁圖案 -->
+    <li>                    
+        <div v-if="pcurrentPage != 1" v-on:click="psetPage(pcurrentPage - 1)">
+            <span>&lt;</span>
+        </div>
+    </li>
+    <li v-for="n in ptotalPages" v-bind:key="n" v-on:click="psetPage(n)" v-bind:class="{'mall_paginator_on' : n == pcurrentPage}">
+        {{ n }}
+    </li>
+    <!-- 下一頁圖案 -->
+    <li>                     
+        <div  v-if="pcurrentPage != ptotalPages" v-on:click="psetPage(pcurrentPage + 1)">
+            <span>&gt;</span>
+        </div>
+    </li>
+</ul>
+
+</div>
+
 
     </wrapper>
     <DefaultFooter />
@@ -429,5 +526,19 @@
   position: absolute;
   display: block;
 }
+
+
+.articles_buttom .articles_all .section_all:nth-child(2){
+
+    img {
+        order: 2;
+        margin-left: 52px;
+      }
+      article {
+        order: 1;
+        margin-left: 0;
+      }
+
+};
 
 </style>

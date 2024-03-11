@@ -1,10 +1,11 @@
 <script setup>
 
-    import { ref } from 'vue';
-    defineEmits(['ModalbAct'])
-
+    import { ref, onMounted, defineProps, defineEmits } from 'vue';
+    defineEmits(['ModalbAct','getProfileURL']);
+    
 
     const props = defineProps({data: Object});
+
     const showSuccessMessage = ref(false);
     
     const submitForm = () => {
@@ -12,6 +13,7 @@
     // const url_act_update = 'php/Backstage/act_update.php';
     
     showSuccessMessage.value = true;
+
     setTimeout(() => {
         showSuccessMessage.value = false;
     }, 1000);
@@ -48,6 +50,50 @@
             final_status = true;
         }
     }
+
+    onMounted(()=>{
+    profile.value.addEventListener('change',fileChange );
+    // console.log(countySelector.value);
+    // console.log("mounted");
+    // console.log(props.userData);
+    })
+
+    
+
+    const profile = ref(null);
+    const profile_pic = ref(null);
+    const profilePicUpdate = ref(null);
+    const profileClick=(e)=>{
+        profile.value.click();
+    }
+
+    function fileChange(){
+    let file = document.getElementById('profile').files[0]
+    let readFile = new FileReader()
+    readFile.readAsDataURL(file)
+    readFile.addEventListener('load', () => {
+    profile_pic.value.src = readFile.result;
+    })
+    }
+
+    const fileUpload=()=>{
+    let file = document.getElementById('profile').files[0];
+
+    if(file){
+         let formdata  = new FormData();
+            formdata.append("profile_pic", file);
+            formdata.append("id", props.data.ID);
+ 
+            fetch('http://localhost/thd104/g1/public/php/act_pic_update.php', {
+                    method: 'POST',
+                    body: formdata
+                })
+                .then(response => {
+                    editSuccessMsg(response.status);
+                   })
+    }
+    }
+
 
 </script>
 <template>
@@ -88,7 +134,7 @@
                     </div>
                     <div>
                         <h2>活動狀態：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')">{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button>
+                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'act')">{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button>
                     </div>
                 </article>
             </div>
@@ -107,12 +153,16 @@
                         <textarea style="resize: none" type="text" v-model="props.data.CONTENT"></textarea>
                         <!-- <h2>{{ props.data.CONTENT }}</h2> -->
                     </div>
-                    <div>
+                   
                         <h2>活動圖片：</h2>
-                        <div class="bAddPic" :class="{'bAddPicPlus':!props.data.PIC}">
-                            <img :src="props.data.PIC" alt="">
+                        <div class="bAddPic" method="post" enctype="multipart/form-data">
+                            <img :src="props.data.PIC" alt="" ref="profile_pic" > 
+                            <input type="file" id="profile" name="profile" ref="profile" @change="$emit('getProfileURL')">
+                                <font-awesome-icon :icon="['fas', 'pen']" @click="profileClick" />
+                            <button  id="profilePicUpdate" ref="profilePicUpdate" ></button>
+                                <font-awesome-icon :icon="['fas', 'floppy-disk']" @click="fileUpload()" />
                         </div>
-                    </div>
+                   
                   
                 </article>
             </div>
