@@ -46,12 +46,13 @@ fetch(url_member)
                     return member_data.value; 
                 } else {
                     return member_data.value.filter(member => {
-                    // 根据姓名或其他条件过滤会员数据
+                    
                     return (
                         member.NAME.includes(searchBar.value.trim())
                         || member.EMAIL.includes(searchBar.value.trim()) 
-                        || member.PHONE.includes(searchBar.value.trim())  
-                    // 其他条件...
+                        || member.PHONE.includes(searchBar.value.trim()) 
+                        || member.USERNAME.includes(searchBar.value.trim())  
+             
                 );
                 });
                 }

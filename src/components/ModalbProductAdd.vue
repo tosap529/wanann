@@ -8,7 +8,7 @@ defineEmits(['ModalbProductAdd'])
 const productAddPic1 = ref(null);
 const productAddPic2 = ref(null);
 const productAddPic3 = ref(null);
-const productAddPic = ref(null);
+// const productAddPic = ref(null);
 const productAddPicInput = ref(null);
 const productAddPicInput1 = ref(null);
 const productAddPicInput2 = ref(null);
@@ -35,67 +35,82 @@ let NewProductData = {
     status: 1,
 }
 
-const submitForm = () => {
+const final_status = ref('上架中');
 
-    // const url_products_update = 'http://localhost/thd104/g1/public/php/Backstage/products_update.php';
-    
-    showSuccessMessage.value = true;
-    setTimeout(() => {
-        showSuccessMessage.value = false;
-    }, 1000);
+    const switchStatus = () => {
+        if (NewProductData.status === 1) {
+            NewProductData.status = 0;
+            final_status.value = '未上架';
+        } else {
+            NewProductData.status = 1;
+            final_status.value = '上架中';
+        }
+        console.log( NewProductData.status);
+    }
 
-    fetch(url_products_update, {
 
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(NewProductData)
+    const successMsg = ref('');
+        const productsInsert=()=>{
+        let file = productAddPicInput.value.files[0];
 
-    })
-    };
+    if(file){
+         let formdata  = new FormData();
+            formdata.append("product_pic", file);
+            formdata.append("product_info", JSON.stringify(NewProductData));
+            const url = 'http://localhost/thd104/g1/public/php/Backstage/product_insert.php';
+            // const url = 'php/Backstage/articles_insert.php';
+            fetch(url, {
+                    method: 'POST',
+                    body: formdata
+                })
+            .then(response => response.text())
+            .then(response => {
+                if(response=='資料不全'){
+                    successMsg.value = '請輸入完整資料'
+                    showSuccessMessage.value = true;
+                    setTimeout(() => {
+                        showSuccessMessage.value = false;
+                    }, 1000);
+                }else{
+                    successMsg.value = '儲存成功！！'
+                    showSuccessMessage.value = true;
+                    setTimeout(() => {
+                        showSuccessMessage.value = false;
+                    }, 1000);
 
-    // const click_function = (key, id) => {
-        
-    //     let final_status = null;
-    //     if (props.data.STATUS === 1) {
-    //         props.data.STATUS = 0;
-    //         final_status = false;
-    //     } else {
-    //         props.data.STATUS = 1;
-    //         final_status = true;
-    //     }
-    // }
-    function fileChange(){
-     
-            let file = productAddPicInput1.value.files[0];
-            console.log(file);
-            let readFile = new FileReader();
-            readFile.readAsDataURL(file);
-            readFile.addEventListener('load', () => {
-            productAddPic1.value.src = readFile.result
-            if(productAddPic1.value.src){
-                productAddPic1.value.closest('div').classList.remove('bAddPicPlus');
                 }
-            })
-
-
-    // let readFile = new FileReader();
-    // readFile.readAsDataURL(file);
-    // readFile.addEventListener('load', () => {
-    // productAddPic.value.src = readFile.result
-    // if(productAddPic.value.src){
-    //     productAddPic.value.closest('div').classList.remove('bAddPicPlus');
-    //     }
-    // })
+                })
+    }
 }
 
-    onMounted(()=>{
-        productAddPicInput1.value.addEventListener('change', fileChange() );
-        // productAddPicInput2.value.addEventListener('change', fileChange_2() );
-        // productAddPicInput3.value.addEventListener('change', fileChange_3() );
+
+    function fileChange(input, img){
+
+    console.log(input.value);
+    console.log(input.value.files);
+    console.log(input.files);
     
-    })
+
+    let file = input.files[0];
+
+        let readFile = new FileReader();
+        readFile.readAsDataURL(file);
+        readFile.addEventListener('load', () => {
+            img.src = readFile.result;
+            if (img.src) {
+                img.closest('div').classList.remove('bAddPicPlus');
+            }
+        });
+    
+}
+
+    // onMounted(()=>{
+    //     productAddPicInput1.value.addEventListener('change', fileChange('productAddPicInput1', 'productAddPic1') );
+    //     productAddPicInput2.value.addEventListener('change', fileChange('productAddPicInput2', 'productAddPic2') );
+    //     productAddPicInput3.value.addEventListener('change', fileChange('productAddPicInput3', 'productAddPic3') );
+    
+    // })
+
     const fileClick =(i)=>{
         if(i==1){
             productAddPicInput1.value.click();
@@ -146,7 +161,7 @@ const submitForm = () => {
                     </div>
                     <div>
                         <h2>商品狀態：</h2>
-                        <!-- <button  :class="{ 'red': NewProductData.status === 0, 'green': NewProductData.status === 1 }" @click="click_function(key,data.ID,'contact')" >{{ NewProductData.status === 1 ?  '上架中' : '未上架' }} </button> -->
+                        <button  :class="NewProductData.status ? 'green' : 'red'" @click="switchStatus()" >{{ final_status}} </button>
                     </div>
                 </article>
             </div>
@@ -169,7 +184,7 @@ const submitForm = () => {
                     <h2>商品圖片：</h2>
                     <div ref="imgPool">
                        <div class="bAddPicPlus bAddPic" @click="fileClick(1)">
-                            <input type="file" ref="productAddPicInput1" style="display: none;">
+                            <input type="file" ref="productAddPicInput1" style="display: none;" @change="fileChange(productAddPicInput1, productAddPic1)">
                             <img src="" alt="" ref="productAddPic1">
                         </div>
                         <div  class="bAddPicPlus bAddPic" @click="fileClick(2)">
@@ -186,8 +201,8 @@ const submitForm = () => {
             </div>
             <div class="block">
                 <button class="btn" @click="$emit('ModalbProductAdd')">關閉</button>
-                <button type="submit" class="btn">儲存</button>
-                <div id="successMessage" class="success-message" v-show="showSuccessMessage">儲存成功 !!</div>
+                <button type="submit" class="btn" @click="productsInsert">儲存</button>
+                <div id="successMessage" class="success-message" v-show="showSuccessMessage">{{successMsg}}</div>
             </div>
         </section>
     </form>

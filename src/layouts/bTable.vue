@@ -14,6 +14,7 @@
     import ModalbProductAdd from '@/components/ModalbProductAdd.vue'; 
     import ModalbActAdd from '@/components/ModalbActAdd.vue'; 
     import ModalbArticleAdd from '@/components/ModalbArticleAdd.vue'; 
+
   
     defineProps({backNow: String, filteredMembers: Array});
 
@@ -409,7 +410,7 @@ button{
 }
 
 .green{
-    color:green;
+    color: black;
 }
 
 .red{

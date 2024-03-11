@@ -19,6 +19,7 @@ let NewArticleData = {
     status: 1,
     }
 const final_status = ref('上架中');
+
     const switchStatus = () => {
         if (NewArticleData.status === 1) {
             NewArticleData.status = 0;
