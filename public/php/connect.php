@@ -23,16 +23,16 @@ $reqBody = json_decode(file_get_contents("php://input"), true);
 
 function getPDO(){
     // 測試用
-    $db_host = "127.0.0.1";
-    $db_user = "root";
-    $db_pass = "password";
-    $db_select = "wanann_database";
+    // $db_host = "127.0.0.1";
+    // $db_user = "root";
+    // $db_pass = "password";
+    // $db_select = "wanann_database";
 
     // 正式連線使用
-    // $db_host = "127.0.0.1";
-    // $db_user = "tibamefe_since2021";
-    // $db_pass = "vwRBSb.j&K#E";
-    // $db_select = "tibamefe_thd104g1";
+    $db_host = "127.0.0.1";
+    $db_user = "tibamefe_since2021";
+    $db_pass = "vwRBSb.j&K#E";
+    $db_select = "tibamefe_thd104g1";
 
     //建立資料庫連線物件
     $dsn = "mysql:host=".$db_host.";dbname=".$db_select.";charset=utf8";

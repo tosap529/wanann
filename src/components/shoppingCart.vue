@@ -300,6 +300,7 @@
 
         > h3{
             margin-bottom: 10px;
+            line-height: 1.4;
         }
         div.cart_design{
             width:70px;
@@ -326,7 +327,10 @@
             }
         }
     }
-
+    span.cart_price{
+        text-align: end;
+        line-height: 1.4;
+    }
     div.product_row_price{
         display: flex;
         flex-direction: column;
@@ -338,7 +342,7 @@
 
         width: 60px;
         font-size: 12px;
-
+        margin-left: 4px;
         > .cart_item_remove_btn{
             display: block;
             font-size: 20px;
