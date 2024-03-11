@@ -20,7 +20,7 @@ $statement->bindValue(":reserveTimeId", $reqBody["RESERVE_TIME_ID"]);
 
 $statement->execute();
 
-echo "訂單提交成功";
+// echo "訂單提交成功";
 
 // 傳回本次資料新家資料的ID給前端
 $lastInsertId = $pdo->lastInsertId();
