@@ -88,7 +88,7 @@
                                 <h4>{{ item.ADD_SERVICE_CONTENT }}</h4>
                             </div>
                             <div class="sPay2_item_descript_price">
-                                <h2 v-if="item.ADD_SERVICE_PRICE === 0">人工估價 (由施作人員現場收費)</h2>
+                                <h2 v-if="item.ADD_SERVICE_PRICE == 0">人工估價 (由施作人員現場收費)</h2>
                                 <h2 v-else>NTD {{ item.ADD_SERVICE_PRICE }}</h2>
                             </div>
                         </div>
