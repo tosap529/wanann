@@ -90,7 +90,7 @@
                     </div>
                     <div>
                         <h2>處理狀態：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }"  @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '已處理' : '未處理' }} </button>
+                        <button  :class="{ 'green': props.data.STATUS === 0, 'red': props.data.STATUS === 1 }"  @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '未處理' : '已處理' }} </button>
                     </div>
                 </article>
                 <article>

@@ -107,7 +107,7 @@ const click_function = (key, id) => {
                 </div>
                 <div>
                     <h2>訂單狀態：</h2>
-                    <button  :class="{ 'red': props.data.order_status === 0, 'green': props.data.order_status === 1 }" @click="click_function(key,data.ID,'pOrder')" >{{ props.data.order_status === 1 ?  '已到貨' : '配送中' }} </button>
+                    <button  :class="{ 'green': props.data.order_status === 0, 'red': props.data.order_status === 1 }" @click="click_function(key,data.ID,'pOrder')" >{{ props.data.order_status === 1 ?  '配送中' : '已到貨' }} </button>
                 </div>
                 <div>
                     <h2>售後狀態：</h2>
