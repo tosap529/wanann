@@ -2,7 +2,7 @@
 
 include("../connect.php");
 $pdo = getPDO();
-$statement = $pdo->prepare("select po.ID, po.ADDRESSEE_ADDRESS, m.PHONE, m.USERNAME, m.NAME, po.ORDER_DATE, po.PAYMENT, po.ORDER_STATUS, pod.QUANTITY, p.PRODUCT_NAME, p.PRODUCT_STYLE, p.PRODUCT_PRICE from PRODUCT_ORDER po join MEMBER m on po.MEMBER_ID = m.ID  join PRODUCT_ORDER_DETAIL pod on pod.PRODUCT_ORDER_ID = po.ID join PRODUCT p on p.ID = pod.PRODUCT_ID join PRODUCT_CATEGORY pc on pc.ID = p.PRODUCT_CATEGORY_ID;");
+$statement = $pdo->prepare("select po.ID, po.ADDRESSEE_ADDRESS, m.PHONE, m.USERNAME, m.NAME, po.ORDER_DATE, po.RANK_STATUS, po.PAYMENT, po.ORDER_STATUS, pod.QUANTITY, p.PRODUCT_NAME, p.PRODUCT_STYLE, p.PRODUCT_PRICE from PRODUCT_ORDER po join MEMBER m on po.MEMBER_ID = m.ID  join PRODUCT_ORDER_DETAIL pod on pod.PRODUCT_ORDER_ID = po.ID join PRODUCT p on p.ID = pod.PRODUCT_ID join PRODUCT_CATEGORY pc on pc.ID = p.PRODUCT_CATEGORY_ID;");
 $statement ->execute();
 $pOrder = $statement->fetchAll();
 
@@ -15,6 +15,7 @@ foreach($pOrder as $row) {
     $username = $row['USERNAME'];
     $order_date = $row['ORDER_DATE'];
     $payment = $row['PAYMENT'];
+    $rank_status = $row['RANK_STATUS'];
     $order_status = $row['ORDER_STATUS'];
     $name = $row['NAME'];
     $phone = $row['PHONE'];
@@ -27,6 +28,7 @@ foreach($pOrder as $row) {
             'username' => $username,
             'order_date' => $order_date,
             'payment' => $payment,
+            'rank_status' => $rank_status,
             'order_status' => $order_status,
             'name' => $name,
             'phone' => $phone,

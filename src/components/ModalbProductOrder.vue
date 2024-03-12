@@ -35,6 +35,7 @@ fetch(url_pOrder_update, {
         // category: props.data.CATEGORY,
         // summernote: props.data.SUMMERNOTE,
         status: props.data.order_status,
+        status: props.data.rank_status
 
     })
 

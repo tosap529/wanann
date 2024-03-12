@@ -110,7 +110,7 @@ const submitForm = () => {
                     </div>
                     <div>
                         <h2>權限：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')">{{ props.data.STATUS === 1 ?  '正常' : '停權' }} </button>
+                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')">{{ props.data.STATUS === 1 ?  '停權' : '正常' }} </button>
                     </div>
                 </article>              
             </div>
