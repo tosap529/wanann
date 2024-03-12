@@ -20,7 +20,7 @@ if(!$act_info["title"]||!$act_info["content"]||!$act_info["category"]||!$act_inf
         insert into
         ACTIVITY (TITLE,PIC,CONTENT,CREATE_TIME,DEADLINE,CATEGORY,COUPON_PRICE,COUPON_ID,STATUS) 
         values
-        (:title, :pic, :content, NOW(), :deadline, :category, :coupon_price,:coupon_ID, 1)
+        (:title, :pic, :content, NOW(), :deadline, :category, :coupon_price,:coupon_ID, :status)
         ");
         $statement ->bindValue(":title", $act_info["title"]);
         $statement ->bindValue(":pic", $act_info["pic"]);
@@ -29,13 +29,13 @@ if(!$act_info["title"]||!$act_info["content"]||!$act_info["category"]||!$act_inf
         $statement ->bindValue(":category", $act_info["category"]);
         $statement ->bindValue(":coupon_price", $act_info["couponPrice"]);
         $statement ->bindValue(":coupon_ID", $act_info["couponId"]);
-        // $statement ->bindValue(":status", $act_info["status"]);
+        $statement ->bindValue(":status", '1');
     }else{
         $statement = $pdo->prepare("
         insert into
         ACTIVITY (TITLE,PIC,CONTENT,CREATE_TIME,DEADLINE,CATEGORY,COUPON_PRICE,COUPON_ID,STATUS) 
         values
-        (:title, :pic, :content, NOW(), CURDATE(), :category, :coupon_price,:coupon_ID, 1)
+        (:title, :pic, :content, NOW(), CURDATE(), :category, :coupon_price,:coupon_ID, :status)
         ");
         $statement ->bindValue(":title", $act_info["title"]);
         $statement ->bindValue(":pic", $act_info["pic"]);
@@ -43,7 +43,7 @@ if(!$act_info["title"]||!$act_info["content"]||!$act_info["category"]||!$act_inf
         $statement ->bindValue(":category", $act_info["category"]);
         $statement ->bindValue(":coupon_price", $act_info["couponPrice"]);
         $statement ->bindValue(":coupon_ID", $act_info["couponId"]);
-        // $statement ->bindValue(":status", $act_info["status"]);
+        $statement ->bindValue(":status", '1');
     }
 
     $statement ->execute();

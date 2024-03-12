@@ -8,11 +8,12 @@ $statement = $pdo->prepare("
     insert into
     SERVICE_COMMENT (COMMENT_DATE,SERVICE_ATTITUDE,SERVICE_QUALITY,CONTENT,STATUS)
     values
-    (NOW(),:service_attitude,:service_quality,:content,1)
+    (NOW(),:service_attitude,:service_quality,:content,:status)
     ");
 $statement ->bindValue(":service_attitude",  $reqBody['attitude']);
 $statement ->bindValue(":service_quality",  $reqBody['quality']);
 $statement ->bindValue(":content",  $reqBody['content']);
+$statement ->bindValue(":status",  '0');
 $statement ->execute();
 // $data = $statement->fetchAll();
 
