@@ -88,7 +88,7 @@ const submitForm = () => {
                     </div>
                     <div>
                         <h2>評論狀態：</h2>
-                        <button  :class="{ 'green': props.data.STATUS === 0, 'red': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'comment')" >{{ props.data.STATUS === 1 ?  '未評論' : '已評論' }} </button>
+                        <button  :class="{ 'green': props.data.STATUS === 0, 'red': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'comment')" >{{ props.data.STATUS === 0 ?  '未評論' : '已評論' }} </button>
                     </div>
                 </article>              
             </div>

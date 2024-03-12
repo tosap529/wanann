@@ -53,7 +53,7 @@ foreach($sOrder as $row) {
     }
     //每一列資料中的商品名稱和數量加入對應的products陣列中
     $orders[$id]['add_service'][] = [
-    'addServiceName' => $row['ADD_SERVICE_NAME'],
+    'addServiceName、' => $row['ADD_SERVICE_NAME'],
 
 ];
 }

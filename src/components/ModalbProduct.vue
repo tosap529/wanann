@@ -92,7 +92,7 @@ const submitForm = () => {
                     </div>
                     <div>
                         <h2>商品狀態：</h2>
-                        <button  :class="{ 'green': props.data.STATUS === 0, 'red': props.data.STATUS === 1 }" @click="click_function(key,data.ID)" >{{ props.data.STATUS === 1 ?  '已上架' : '未上架' }} </button>
+                        <button  :class="{ 'green': props.data.STATUS === 0, 'red': props.data.STATUS === 1 }" @click="click_function(key,data.ID)" >{{ props.data.STATUS === 0 ?  '已上架' : '未上架' }} </button>
                     </div>
                 </article>
             </div>
