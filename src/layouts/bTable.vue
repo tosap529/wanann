@@ -411,12 +411,12 @@ button{
     border: none;
 }
 
-.green{
-    color: black;
-}
+// .green{
+//     color: black;
+// }
 
-.red{
-    color: red;
-}
+// .red{
+//     color: red;
+// }
 
 </style>
