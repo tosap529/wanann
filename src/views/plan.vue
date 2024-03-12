@@ -205,13 +205,13 @@ onMounted(()=>{
                     <div class="right">
                       <span>服務態度</span>
                       <span>
-                        <font-awesome-icon v-for="i in comment.SERVICE_ATTITUDE" :key="i" :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon v-for="j in 5-(comment.SERVICE_ATTITUDE)" :key="j" :icon="['fas', 'star']" class="star_wo_color"/>
+                        <font-awesome-icon v-for="i in parseInt(comment.SERVICE_ATTITUDE)" :key="i" :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon v-for="j in 5-parseInt(comment.SERVICE_ATTITUDE)" :key="j" :icon="['fas', 'star']" class="star_wo_color"/>
                       </span>
                       <span>服務品質</span>
                       <span>
-                        <font-awesome-icon v-for="j in comment.SERVICE_QUALITY" :key="j" :icon="['fas', 'star']" class="star_color"/>
-                        <font-awesome-icon v-for="j in 5-(comment.SERVICE_QUALITY)" :key="j" :icon="['fas', 'star']"  class="star_wo_color"/>
+                        <font-awesome-icon v-for="j in parseInt(comment.SERVICE_QUALITY)" :key="j" :icon="['fas', 'star']" class="star_color"/>
+                        <font-awesome-icon v-for="j in 5-parseInt(comment.SERVICE_QUALITY)" :key="j" :icon="['fas', 'star']"  class="star_wo_color"/>
                       </span> 
                     </div>
                   </div>
