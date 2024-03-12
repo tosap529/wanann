@@ -43,10 +43,10 @@
         
         let final_status = null;
         if (props.data.STATUS === 1) {
-            props.data.STATUS = 1;
+            props.data.STATUS = 0;
             final_status = false;
         } else {
-            props.data.STATUS = 0;
+            props.data.STATUS = 1;
             final_status = true;
         }
     }
@@ -135,7 +135,7 @@
                     </div>
                     <div>
                         <h2>活動狀態：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID)">{{ props.data.STATUS === 1 ?  '上架中' : '已下架' }} </button>
+                        <button  :class="{ 'green': props.data.STATUS === 0, 'red': props.data.STATUS === 1 }" @click="click_function(key,data.ID)">{{ props.data.STATUS === 1 ?  '已下架' : '上架中' }} </button>
                     </div>
                 </article>
             </div>
