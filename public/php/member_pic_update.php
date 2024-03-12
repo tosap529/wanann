@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
 // echo $_FILES["profile_pic"]["name"];
 // preg_match('/([0-9])/', json_encode($_POST['member_ID']),$member_ID);
 $member_ID = preg_replace('/\D/', '', json_encode($_POST['member_ID']));
-echo $member_ID;
+// echo $member_ID;
 $self = 'member_'.$member_ID;
 
 
@@ -58,5 +58,13 @@ $statement = $pdo->prepare("update MEMBER set MEMBER_PIC = '".  $fileNewName."' 
 $statement ->bindValue(":id", $member_ID);
 
 $statement ->execute();
-// $member = $statement->fetchAll();
+
+$pdo = getPDO();
+$statement = $pdo->prepare("select MEMBER_PIC from MEMBER where ID=:id");
+$statement ->bindValue(":id", $member_ID);
+$statement ->execute();
+$picNewPath =  $statement->fetch();
+
+echo $picNewPath['MEMBER_PIC'];
+
 ?>

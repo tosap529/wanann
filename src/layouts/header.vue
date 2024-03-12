@@ -50,7 +50,7 @@ const handleScroll = () => {
 const memberProfilePic = ref(null);
 onMounted(() => {
   window.addEventListener('scroll', handleScroll);
-  console.log(sessionStorage.getItem('member_pic'))
+//   console.log(sessionStorage.getItem('member_pic'))
   if(sessionStorage.getItem('member_ID')){
     memberProfilePic.value.innerHTML = `<img src="${sessionStorage.getItem('member_pic')}" >`;
   }else{
