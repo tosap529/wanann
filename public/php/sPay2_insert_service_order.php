@@ -16,7 +16,7 @@ $statement = $pdo->prepare("
         `SERVICE_RESERVE_TIME_ID`, `ACTIVITY_ID`
     ) VALUES (
         :servicePhone, now(), :serviceAddress, 
-        :serviceDate, '1', '0', 
+        :serviceDate, '1', :orderStatus, 
         '1', :memberId, :serviceCommentId, 
         :serviceReserveTimeId, :activityId
     );
@@ -27,6 +27,7 @@ $statement->bindValue(":serviceAddress", $reqBody["SERVICE_ADDRESS"]);
 $statement->bindValue(":memberId", $reqBody["MEMBER_ID"]);
 $statement->bindValue(":serviceCommentId", $reqBody["SERVICE_COMMENT_ID"]);
 $statement->bindValue(":serviceReserveTimeId", $reqBody["SERVICE_RESERVE_TIME_ID"]);
+$statement->bindValue(":orderStatus", '0');
 $statement->bindValue(":activityId", $reqBody["ACTIVITY_ID"]);
 $statement->bindValue(":serviceDate", $reqBody["SERVICE_DATE"]);
 

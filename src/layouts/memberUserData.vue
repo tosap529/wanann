@@ -175,8 +175,12 @@ const fileUpload=()=>{
                     method: 'POST',
                     body: formdata
                 })
+                .then(response=>response.text())
                 .then(response => {
-                    editSuccessMsg(response.status);
+                    sessionStorage.setItem('member_pic',response);
+                    // console.log(response);
+                    // editSuccessMsg(response.MEMBER_PIC);
+                    editSuccessMsg(response);
                    })
     }
 }
@@ -184,7 +188,7 @@ const fileUpload=()=>{
 
 const editSuccessMsg=(e)=>{
     let editSuccessMsg = document.getElementById('editSuccessMsg');
-    if(e==200){
+    if(e){
         // console.log('更新成功');
         editSuccessMsg.style.opacity='1';
             setTimeout(()=>{
