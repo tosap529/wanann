@@ -74,7 +74,7 @@ const toWelcome=()=>{
         <div class="cms container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-sm-3 sidebar cms_sidebar" id="cms_scroll">
+            <div class="col-sm-3 sidebar cms_sidebar" id="cms_scroll tableScroll">
                 <ul class="nav flex-column">
                     <li class="cms_nav-item" v-for="item in back_sidebar" :key="item.title">
                         <h3>{{ item.title }}</h3>
