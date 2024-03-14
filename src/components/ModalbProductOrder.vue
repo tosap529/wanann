@@ -45,7 +45,7 @@ fetch(url_pOrder_update, {
 const click_function = (key, id) => {
     
     let final_status = null;
-    if (props.data.order_status === 1) {
+    if (props.data.order_status == 1) {
         props.data.order_status = 0;
         final_status = false;
     } else {
@@ -107,7 +107,7 @@ const click_function = (key, id) => {
                 </div>
                 <div>
                     <h2>訂單狀態：</h2>
-                    <button  :class="{ 'green': props.data.order_status === 0, 'red': props.data.order_status === 1 }" @click="click_function(key,data.ID,'pOrder')" >{{ props.data.order_status === 0 ?  '配送中' : '已到貨' }} </button>
+                    <button  :class="{ 'green': props.data.order_status == 0, 'red': props.data.order_status == 1 }" @click="click_function(key,data.ID,'pOrder')" >{{ props.data.order_status == 0 ?  '配送中' : '已到貨' }} </button>
                 </div>
                 <div>
                     <h2>售後狀態：</h2>

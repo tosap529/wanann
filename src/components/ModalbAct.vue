@@ -42,7 +42,7 @@
     const click_function = (key, id) => {
         
         let final_status = null;
-        if (props.data.STATUS === 1) {
+        if (props.data.STATUS == 1) {
             props.data.STATUS = 0;
             final_status = false;
         } else {
@@ -135,7 +135,7 @@
                     </div>
                     <div>
                         <h2>活動狀態：</h2>
-                        <button  :class="{ 'green': props.data.STATUS === 0, 'red': props.data.STATUS === 1 }" @click="click_function(key,data.ID)">{{ props.data.STATUS === 0 ?  '上架中' : '已下架' }} </button>
+                        <button  :class="{ 'green': props.data.STATUS == 1, 'red': props.data.STATUS == 0 }" @click="click_function(key,data.ID)">{{ props.data.STATUS == 1 ?  '上架中' : '已下架' }} </button>
                     </div>
                 </article>
             </div>
