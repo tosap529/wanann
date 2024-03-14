@@ -3,7 +3,7 @@
 include("connect.php");
 
 $pdo = getPDO();
-$statement = $pdo->prepare("insert into ACTIVITY(TITLE, PIC, CONTENT, CREATE_TIME, DEADLINE, CATEGORY, COUPON_PRICE, COUPON_ID, STATUS) values(:title, :pic, :content, NOW(), :deadline, :category, :coupon_price, :coupon_id, :status)");
+$statement = $pdo->prepare("insert into ACTIVITY(TITLE, PIC, CONTENT, CREATE_TIME, DEADLINE, CATEGORY, COUPON_PRICE, COUPON_ID, STATUS) values(:title, :pic, :content, NOW(), :deadline, :category, :coupon_price, :coupon_id, 1)");
 $statement ->bindValue(":status", $reqBody["status"]);
 $statement ->execute();
 

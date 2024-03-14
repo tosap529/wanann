@@ -90,7 +90,7 @@
                     </div>
                     <div>
                         <h2>處理狀態：</h2>
-                        <button  :class="{ 'green': props.data.STATUS === 0, 'red': props.data.STATUS === 1 }"  @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 0 ?  '未處理' : '已處理' }} </button>
+                        <button  :class="{ 'green': props.data.STATUS == 0, 'red': props.data.STATUS == 1 }"  @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS == 1 ?  '未處理' : '已處理' }} </button>
                     </div>
                 </article>
                 <article>
@@ -163,9 +163,9 @@
             flex-basis: 55%;
             flex-grow: 1;
             padding:15px 20px ;
-            h2:first-child{
-                // margin-bottom: 15px;
-            }
+            // h2:first-child{
+            //     // margin-bottom: 15px;
+            // }
             h2{
                  text-align: left;
             }
