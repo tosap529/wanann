@@ -338,7 +338,7 @@
                 <td>{{ data.time_range_name }}</td>
                 <td>{{ data.payment}}</td>
                 <td><button :class="{ 'red': data.order_status == 0, 'green': data.order_status == 1 }" @click="click_function(key,data.ID,'pOrder')">{{ data.order_status === 1 ?  '已完成' : '未完成' }} </button></td>
-                <td><button :class="{ 'red': data.rank_status == 0, 'green': data.rank_status == 1 }" @click="click_function(key,data.ID,'pOrder')">{{ data.rank_status === 1 ?  '未評論' : '已評論' }} </button></td>
+                <td><button :class="{ 'red': data.rank_status == 0, 'green': data.rank_status == 1 }" @click="click_function(key,data.ID,'pOrder')">{{ data.rank_status === 1 ?  '已評論' : '未評論' }} </button></td>
                 <!-- <td>{{ data.order_status }}</td>
                 <td>{{ data.rank_status }}</td> -->
             </tr>
@@ -349,7 +349,7 @@
                 <td>{{ data.COMMENT_DATE }}</td>
                 <td>{{ data.SERVICE_ATTITUDE }}</td>
                 <td>{{ data.SERVICE_QUALITY }}</td>
-                <td><button :class="{ 'red': data.STATUS == 0, 'green': data.STATUS == 1 }" @click="click_function(key,data.ID,'comment')">{{ data.STATUS == 1 ?  '未評論' : '已評論' }} </button></td>
+                <td><button :class="{ 'red': data.STATUS == 0, 'green': data.STATUS == 1 }" @click="click_function(key,data.ID,'comment')">{{ data.STATUS == 1 ?  '已評論' : '未評論' }} </button></td>
             </tr>
             <tr v-show="backNow=='商品訂單'" v-for= "(data, key) in pOrder_data" :key="key">
                 <td><button class="edit-btn"  @click="gobModal(data)">編輯與查看</button></td>
