@@ -43,7 +43,7 @@ const submitForm = () => {
     const click_function = (key, id) => {
         
         let final_status = null;
-        if (props.data.STATUS === 1) {
+        if (props.data.STATUS == 1) {
             props.data.STATUS = 0;
             final_status = false;
         } else {
@@ -85,7 +85,7 @@ const submitForm = () => {
                 
                     <div>
                         <h2>文章狀態：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS === 1 ?  '已下架' : '上架中' }} </button>
+                        <button  :class="{ 'green': props.data.STATUS == 1, 'red': props.data.STATUS == 0 }" @click="click_function(key,data.ID,'contact')" >{{ props.data.STATUS == 1 ?  '上架中' : '已下架' }} </button>
                     </div>
                 </article>
             </div>

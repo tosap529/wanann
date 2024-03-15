@@ -16,7 +16,7 @@ if(count($data)>0){
 }else{
     // echo 'email通過';
     $pdo = getPDO();
-    $statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,COUNTY,DISTRICT,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD, MEMBER_PIC,STATUS) values(:name, :phone, :email, :county, :district, :send_address, :service_address,  NOW(),:username, :password,:member_pic,1)");
+    $statement = $pdo->prepare("insert into MEMBER(NAME,PHONE,EMAIL,COUNTY,DISTRICT,SEND_ADDRESS,SERVICE_ADDRESS, CREATE_TIME,USERNAME, PASSWORD, MEMBER_PIC,STATUS) values(:name, :phone, :email, :county, :district, :send_address, :service_address,  NOW(),:username, :password,:member_pic, :status)");
     $statement ->bindValue(":name", $reqBody["name"]);
     $statement ->bindValue(":phone", $reqBody["phone"]);
     $statement ->bindValue(":email", $reqBody["email"]);
@@ -27,7 +27,7 @@ if(count($data)>0){
     $statement ->bindValue(":username", $reqBody["username"]);
     $statement ->bindValue(":password", $reqBody["password"]);
     $statement ->bindValue(":member_pic", $reqBody["member_pic"]);
-    // $statement ->bindValue(":status", $reqBody["status"]);
+    $statement ->bindValue(":status", '1');
 
     $statement ->execute();
 

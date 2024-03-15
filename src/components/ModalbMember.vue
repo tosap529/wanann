@@ -6,7 +6,10 @@ defineEmits(['ModalbMember'])
 
 const props = defineProps({data: Object});
 const showSuccessMessage = ref(false);
+
 const submitForm = () => {
+
+
 
     // const url_member_update = 'http://localhost/thd104/g1/public/php/Backstage/member_update.php';
     const url_member_update = 'php/Backstage/member_update.php';
@@ -41,7 +44,7 @@ const submitForm = () => {
     const click_function = (key, id) => {
         
         let final_status = null;
-        if (props.data.STATUS === 1) {
+        if (props.data.STATUS == 1) {
             props.data.STATUS = 0;
             final_status = false;
         } else {
@@ -110,7 +113,7 @@ const submitForm = () => {
                     </div>
                     <div>
                         <h2>權限：</h2>
-                        <button  :class="{ 'red': props.data.STATUS === 0, 'green': props.data.STATUS === 1 }" @click="click_function(key,data.ID,'contact')">{{ props.data.STATUS === 1 ?  '停權' : '正常' }} </button>
+                        <button  :class="{ 'green': props.data.STATUS == 1, 'red': props.data.STATUS == 0 }" @click="click_function(key,data.ID,'member')">{{ props.data.STATUS == 1 ?  '正常' : '停權' }} </button>
                     </div>
                 </article>              
             </div>
