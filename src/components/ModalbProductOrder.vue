@@ -111,7 +111,7 @@ const click_function = (key, id) => {
                 </div>
                 <div>
                     <h2>售後狀態：</h2>
-                    <button>已完成</button>
+                    <button>未完成</button>
                 </div>
             </article>
             <div class="block">
