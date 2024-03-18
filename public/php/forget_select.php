@@ -1,7 +1,7 @@
 <?php
 include("connect.php");
 
-$sql = "SELECT ID FROM member where EMAIL= :email";
+$sql = "SELECT ID FROM MEMBER where EMAIL= :email";
 $pdo = getPDO();    
 $statement = $pdo->prepare($sql);
 $statement->bindValue(":email",  $reqBody["email"]);
