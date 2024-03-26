@@ -178,10 +178,12 @@ const nextMonth=()=>{
                 <section class="calendar_nav">
                     <h4>2024</h4>
                     <div class="month">
-                        <font-awesome-icon :icon="['fas', 'angle-left']" id="addMonth" ref="prevMonthBtn" @click="prevMonth"/>
+                        <!-- <font-awesome-icon :icon="['fas', 'angle-left']" id="addMonth" ref="prevMonthBtn" @click="prevMonth"/> -->
+                        <font-awesome-icon :icon="['fas', 'angle-left']" id="addMonth" ref="prevMonthBtn"/>
                         <div v-html="myMonthHTML"></div>
                         <!-- <h2>3月</h2> -->
-                        <font-awesome-icon :icon="['fas', 'angle-right']" id="addMonth" ref="nextMonthBtn" @click="nextMonth" />
+                        <!-- <font-awesome-icon :icon="['fas', 'angle-right']" id="addMonth" ref="nextMonthBtn" @click="nextMonth" /> -->
+                        <font-awesome-icon :icon="['fas', 'angle-right']" id="addMonth" ref="nextMonthBtn" />
                     </div>
                     <ul class="day">
                         <li>日</li>
