@@ -11,14 +11,16 @@ const daysPool = ref(null);
 
     let fullDateRightNow = new Date();
     let yearRightNow = fullDateRightNow.getFullYear();
-    let monthRightNow = fullDateRightNow.getMonth()+1;
-    let dateRightNow = fullDateRightNow.getDate();
+    // let monthRightNow = fullDateRightNow.getMonth()+1;
+    let monthRightNow = 3;
+    // let dateRightNow = fullDateRightNow.getDate();
+    let dateRightNow = 8;
 
     // 閏年(今年)
     let month_olympic = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     let myYear = 2024;
     let myMonth = monthRightNow;
-    let myMonthHTML = ref(`<h2>${myMonth}月</h2>`);
+    let myMonthHTML = ref(`<h2>${myMonth+1}月</h2>`);
     let days_pool =ref([]);
     let testDate = new Date(myYear, myMonth, 1); 
     let firstDate = testDate.getDay()

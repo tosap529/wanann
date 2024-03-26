@@ -7,11 +7,13 @@ onBeforeMount(()=>{
     //進入服務預約流程前先清掉localStorage的服務預約key
     localStorage.removeItem("my_service_order");
     //以下兩行防止未選擇主方案就按下一步的bug出現
-    my_service_order.main_plan = '浣安全室清潔';
     localStorage.setItem("my_service_order", JSON.stringify(my_service_order));
 
     if(localStorage.getItem('plan_want_to_see')){
         dropdownNow.value = localStorage.getItem('plan_want_to_see');
+        my_service_order.main_plan = localStorage.getItem('plan_want_to_see');
+    }else{
+        my_service_order.main_plan = '浣安全室清潔';
     }
    
 })
