@@ -1,7 +1,7 @@
 <script setup>
 import {ref,onBeforeMount} from 'vue';
 defineEmits(['nextReserveStep']);
-let dropdownNow = ref('浣安全室清潔'); //預設是什麼方案也不選
+let dropdownNow = ref(''); //預設是什麼方案也不選
 
 onBeforeMount(()=>{
     //進入服務預約流程前先清掉localStorage的服務預約key
@@ -11,17 +11,14 @@ onBeforeMount(()=>{
 
     if(localStorage.getItem('plan_want_to_see')){
         dropdownNow.value = localStorage.getItem('plan_want_to_see');
-        my_service_order.main_plan = localStorage.getItem('plan_want_to_see');
     }else{
-        my_service_order.main_plan = '浣安全室清潔';
+        // localStorage.setItem("plan_want_to_see",'浣安全室清潔');
     }
-   
 })
-
 
 const my_service_order = {
     service_order_ID:'',
-    main_plan:'',
+    main_plan:localStorage.getItem('plan_want_to_see'),
     additional_plan:[],
     special_plan:[],
     service_date:'',
@@ -88,7 +85,7 @@ const reserveDropdown = (e)=>{
         <!-- <img src="@/img/reserve1/reserve1_1.jpg" v-if="dropdownNow=='浣安全室清潔'" alt="">
         <img src="@/img/reserve1/reserve1_2.jpg" v-if="dropdownNow=='廚房特攻清潔'" alt="">
         <img src="@/img/reserve1/reserve1_3.jpg" v-if="dropdownNow=='浴室徹底清潔'" alt=""> -->
-        <img src="@/img/reserve1/reserve1_1.jpg"  :class="{onTheTop:dropdownNow=='浣安全室清潔'}" alt="">
+        <img src="@/img/reserve1/reserve1_1.jpg"  :class="{onTheTop:dropdownNow=='浣安全室清潔'||dropdownNow==''}" alt="">
         <img src="@/img/reserve1/reserve1_2.jpg" :class="{onTheTop:dropdownNow=='廚房徹底清潔'}" alt="">
         <img src="@/img/reserve1/reserve1_3.jpg"  :class="{onTheTop:dropdownNow=='浴室特攻清潔'}" alt="">
     </div>
@@ -96,7 +93,7 @@ const reserveDropdown = (e)=>{
 </section>
 
 <section class="next_btn">
-    <a class="btn" @click="$emit('nextReserveStep',$e)" >下一步</a>
+    <a class="btn" @click="$emit('nextReserveStep',$e)" :class="{disabled:!dropdownNow}"  >下一步</a>
 </section>
 
 </div>
