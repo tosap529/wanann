@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 
 // 定義一個開關變數 useGPT，用來控制是否使用 GPT 服務回覆使用者
 // 1 為啟用 GPT 服務，0 為使用預設回覆
@@ -96,9 +96,16 @@ async function sendMessage() {
             info.value.push(robotMessage);
         }
     }
+
+    nextTick(() => {
+        // 對話容器 info 滾到最底部
+        const chatContainer = document.querySelector('.info');
+        if (chatContainer) {
+            chatContainer.scrollTop = chatContainer.scrollHeight; 
+        }
+    });
+
 }
-
-
 // 切換機器人顯示狀態的函數
 function toggleRobot() {
     document.querySelector('.robot').classList.toggle('tap');
